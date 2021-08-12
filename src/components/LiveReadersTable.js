@@ -2,7 +2,7 @@ import React from "react";
 
 const liveReadersTable = () => {
   return (
-    <table className="table table-hover">
+    <table className="table table-hover mt-5">
       <thead>
         <tr>
           <th scope="col">#</th>
