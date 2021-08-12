@@ -1,18 +1,28 @@
 import logo from "./logo.png";
 import "./App.scss";
 
+import LiveReadersTable from "./LiveReadersTable";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      
         <img src={logo} alt="logo" />
         <h1>Read what you need</h1>
-      </header>
-      <div class="container">
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">Column</div>
-          <div class="col"></div>
+      
+      <div className="container">
+        <div className="row">
+         
+          <div className="col-sm-12 col-md-6 mx-auto mt-5">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="search for books"
+              aria-label="default input example"
+            />
+          </div>
+
+          <LiveReadersTable />
         </div>
       </div>
     </div>
