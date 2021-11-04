@@ -4,7 +4,7 @@ import CryptoJS from "crypto-js";
 import "./UploadButton.scss";
 
 const UploadButton = () => {
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(false);
   const [fileHash, setFileHash] = useState([]);
 
   const onSelectFileHandler = event => {
@@ -21,14 +21,22 @@ const UploadButton = () => {
     setSelectedFile(event.target.files[0]);
   };
 
-  console.log(fileHash, selectedFile)
+  const onSubmitClickHandler = () => {
+    console.log("clicked on submit!");
+  };
+
+  console.log(fileHash, selectedFile);
 
   return (
     <div className="upload-button-wrapper">
+      {/* button to add book */}
       <button>
         <input accept=".pdf" type="file" onChange={onSelectFileHandler} id="upload-file" style={{ display: "none" }} />
         <label htmlFor="upload-file">Add book</label>
       </button>
+
+      {/* show submit button only after the file is selected */}
+      {selectedFile && <button onClick={onSubmitClickHandler}>Submit</button>}
     </div>
   );
 };
