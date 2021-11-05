@@ -9,6 +9,8 @@ const UploadButton = () => {
   const [selectedFile, setSelectedFile] = useState(false);
   const [fileHash, setFileHash] = useState([]);
 
+  const [buttonStatus, setButtonStatus] = useState([]);
+
   const onSelectFileHandler = event => {
     var file = event.target.files[0];
     var reader = new FileReader();
@@ -25,16 +27,23 @@ const UploadButton = () => {
 
   const onSubmitClickHandler = () => {
     console.log("clicked on submit!");
-
+    setButtonStatus("Checking if file exists in the database...");
     fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
       if (!exist) {
+        setButtonStatus("Unique file detected. Starting upload.");
         fileApi.addFileToS3({ hash: fileHash, file: selectedFile }).then(({ upload }) => {
           if (upload) {
+            setButtonStatus("Upload successful. Saving upload metadata in the database..");
             fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(result => {
+              setButtonStatus("Upload metadata updated. All clear!");
               console.log("third layer success");
             });
+          } else {
+            setButtonStatus("Upload unsuccessful");
           }
         });
+      } else {
+        setButtonStatus("File exists in our database.");
       }
     });
   };
@@ -49,6 +58,9 @@ const UploadButton = () => {
 
       {/* show submit button only after the file is selected */}
       {selectedFile && <button onClick={onSubmitClickHandler}>Submit</button>}
+
+      {buttonStatus}
+
     </div>
   );
 };
