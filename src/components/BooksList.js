@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import fileApi from "../api/file";
 
 const BookList = () => {
@@ -27,7 +28,7 @@ const BookList = () => {
             <tr key={file.file_id}>
               <th scope="row">{index + 1}</th>
               <td>{file.file_id.slice(0, 8)}</td>
-              <td>{file.name}</td>
+              <td><Link to={`/file/${file.file_id}`}>{file.name}</Link></td>
               <td>{file.processed.toString()}</td>
               <td>{file.created_at}</td>
             </tr>
