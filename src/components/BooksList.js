@@ -6,11 +6,9 @@ const BookList = () => {
   const [files, setFiles] = useState([]);
   useEffect(() => {
     fileApi.getFileList().then(res => {
-      console.log(res)
       setFiles(res);
     });
   }, []);
-  console.log(files)
   return (
     <table className="table table-hover mt-5 table-sm">
       <thead>

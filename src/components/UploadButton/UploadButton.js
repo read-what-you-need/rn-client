@@ -26,14 +26,17 @@ const UploadButton = () => {
   const onSubmitClickHandler = () => {
     console.log("clicked on submit!");
 
-    const fileData = new FormData();
-    fileData.append("hash", fileHash);
-    fileData.append("file", selectedFile);
-
-    // check file hash present in db
-    // if not add file
-    
-    fileApi.addFile({ hash: fileHash, file: selectedFile });
+    fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
+      if (!exist) {
+        fileApi.addFileToS3({ hash: fileHash, file: selectedFile }).then(({ upload }) => {
+          if (upload) {
+            fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(result => {
+              console.log("third layer success");
+            });
+          }
+        });
+      }
+    });
   };
 
   return (
