@@ -1,6 +1,6 @@
 import React from "react";
 
-const liveReadersTable = () => {
+const bookList = () => {
   return (
     <table className="table table-hover mt-5">
       <thead>
@@ -35,4 +35,4 @@ const liveReadersTable = () => {
   );
 };
 
-export default liveReadersTable;
+export default bookList;
