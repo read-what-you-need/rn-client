@@ -2,7 +2,7 @@ import axios from "axios";
 
 // defining frequently used endpoints
 let apiEndPoint = process.env.REACT_APP_CORE_SERVER;
-let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
+// let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
 
 // defining headers and configurations
 let axiosFormConfig = {
@@ -19,10 +19,13 @@ let axiosConfig = {
 
 // defining all api calls that interact with the table
 const fileApi = {
-  checkFileIsUnique: async function () {
-    axios.post(apiEndPoint, axiosConfig).then(response => {
+  getFileList: async function () {
+    let url = apiEndPoint + "file";
+    let response = axios.get(url, axiosConfig).then(response => {
       console.log(response.statusText, response.data);
+      return response.data;
     });
+    return response;
   },
   addFile: async function ({ hash, file }) {
     let url = apiEndPoint + "file";

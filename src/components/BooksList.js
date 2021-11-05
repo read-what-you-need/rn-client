@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import fileApi from "../api/file";
 
-const bookList = () => {
+const BookList = () => {
+  const [files, setFiles] = useState([]);
+  useEffect(() => {
+    fileApi.getFileList().then(res => {
+      console.log(res)
+      setFiles(res);
+    });
+  }, []);
+  console.log(files)
   return (
     <table className="table table-hover mt-5">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Book</th>
-          <th scope="col">Hash</th>
-          <th scope="col">Readers</th>
+          <th scope="col">Id</th>
+          <th scope="col">Book title</th>
+          <th scope="col">Processed</th>
+          <th scope="col">Created</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>The World's Greatest Books — Volume 20 </td>
-          <td>da39a3ee5e6b4b0d3255bfef95601890afd80709</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Antoine de Saint-Exupéry - The Little Prince [epub]</td>
-          <td>b95a464bbcd2da5efb782bfeef2a698895e23595</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>THINK AND GROW RICH - Napoleon Hill</td>
-          <td>985bd50fbb9827328086ee1fed35ab6ac25b9418</td>
-          <td>@fat</td>
-        </tr>
+        {files.map((file, index) => {
+          return (
+            <tr key={file.file_id}>
+              <th scope="row">{index + 1}</th>
+              <td>{file.file_id.slice(0, 8)}</td>
+              <td>{file.name}</td>
+              <td>{file.processed.toString()}</td>
+              <td>{file.created_at}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
 };
 
-export default bookList;
+export default BookList;
