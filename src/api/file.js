@@ -19,6 +19,14 @@ let axiosConfig = {
 
 // defining all api calls that interact with the table
 const fileApi = {
+  getFileById: async function (id) {
+    let url = apiEndPoint + `file/${id}`;
+    let response = axios.get(url, axiosConfig).then(response => {
+      console.log(response.statusText, response.data);
+      return response.data;
+    });
+    return response;
+  },
   getFileList: async function () {
     let url = apiEndPoint + "file";
     let response = axios.get(url, axiosConfig).then(response => {
