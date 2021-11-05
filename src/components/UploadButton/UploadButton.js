@@ -1,21 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
 import CryptoJS from "crypto-js";
 
+import fileApi from "../../api/file";
+
 import "./UploadButton.scss";
-
-let axiosConfig = {
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-};
-
 
 const UploadButton = () => {
   const [selectedFile, setSelectedFile] = useState(false);
   const [fileHash, setFileHash] = useState([]);
-
-  let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
 
   const onSelectFileHandler = event => {
     var file = event.target.files[0];
@@ -38,10 +30,10 @@ const UploadButton = () => {
     fileData.append("hash", fileHash);
     fileData.append("file", selectedFile);
 
-    axios.post(pdfToTextEndPoint, fileData, axiosConfig).then(response => {
-      console.log(response.statusText, response.data);
-    });
-
+    // check file hash present in db
+    // if not add file
+    
+    fileApi.addFile({ hash: fileHash, file: selectedFile });
   };
 
   return (
