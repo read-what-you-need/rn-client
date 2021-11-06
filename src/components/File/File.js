@@ -10,7 +10,6 @@ const File = () => {
   const [file, setFile] = useState([]);
   useEffect(() => {
     fileApi.getFileById(id).then(res => {
-      console.log(res);
       setFile(res);
     });
   }, []);

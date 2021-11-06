@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // defining frequently used endpoints
-let apiEndPoint = process.env.REACT_APP_CORE_SERVER;
+let apiEndPoint = process.env.REACT_APP_NODE_API;
 let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
 
 // defining headers and configurations

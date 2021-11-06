@@ -30,13 +30,12 @@ const UploadButton = () => {
     setButtonStatus("Checking if file exists in the database...");
     fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
       if (!exist) {
-        setButtonStatus("Unique file detected. Starting upload.");
+        setButtonStatus("Unique file detected. Uploading...");
         fileApi.addFileToS3({ hash: fileHash, file: selectedFile }).then(({ upload }) => {
           if (upload) {
             setButtonStatus("Upload successful. Saving upload metadata in the database..");
             fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(result => {
-              setButtonStatus("Upload metadata updated. All clear!");
-              console.log("third layer success");
+              setButtonStatus("File record saved. Upload successful!");
             });
           } else {
             setButtonStatus("Upload unsuccessful");
