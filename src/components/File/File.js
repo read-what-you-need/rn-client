@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import fileApi from "../../api/file";
+import lineApi from "../../api/line";
 
 import "./File.scss";
 const File = () => {
@@ -18,7 +19,14 @@ const File = () => {
     <div className="file-wrapper">
       <span>Name: {file?.name}</span>
       <span>Processed: {file.processed?.toString()}</span>
-      <input className="input-box-search-primary" type="search"></input>
+      <input
+        className="input-box-search-primary"
+        type="search"
+        onChange={event => {
+          lineApi.getLines({ id: file.file_id, query: event.target.value, maxResults: 3, accuracyGreaterThan: 0.2 }).then(res => {
+            console.log(res);
+          });
+        }}></input>
     </div>
   );
 };
