@@ -1,0 +1,10 @@
+version: '3'
+services:
+    web:
+        build:
+            context: .
+        ports:
+            - "3000:3000"
+        volumes:
+            - /usr/app/node_modules
+            - .:/usr/app
