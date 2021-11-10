@@ -9,6 +9,8 @@ const File = () => {
   let id = params.id;
 
   const [file, setFile] = useState([]);
+  const [lines, setLines] = useState([]);
+
   useEffect(() => {
     fileApi.getFileById(id).then(res => {
       setFile(res);
@@ -23,10 +25,16 @@ const File = () => {
         className="input-box-search-primary"
         type="search"
         onChange={event => {
-          lineApi.getLines({ id: file.file_id, query: event.target.value, maxResults: 3, accuracyGreaterThan: 0.2 }).then(res => {
-            console.log(res);
+          lineApi.getLines({ id: file.file_id, query: event.target.value, maxResults: 18, accuracyGreaterThan: 0.2 }).then(res => {
+            setLines(Object.keys(res))
           });
         }}></input>
+
+      <div className="lines-table-wrapper">
+        {lines.map((line) => {
+          return (<p>{line}</p>);
+        })}
+      </div>
     </div>
   );
 };
