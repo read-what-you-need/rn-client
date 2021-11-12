@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import fileApi from "../../api/file";
-import lineApi from "../../api/line";
+import queryApi from "../../api/query";
 
 import "./File.scss";
 const File = () => {
@@ -9,6 +9,7 @@ const File = () => {
   let id = params.id;
 
   const [file, setFile] = useState([]);
+  const [query, setQuery] = useState("");
   const [lines, setLines] = useState([]);
 
   useEffect(() => {
@@ -24,15 +25,21 @@ const File = () => {
       <input
         className="input-box-search-primary"
         type="search"
+        onKeyPress={event => {
+          if (event.key === "Enter") {
+            console.log(`pressed enter: ${query}`);
+            queryApi.sendQuery({ id: file.file_id, query }).then(res => {
+              console.log(res);
+            });
+          }
+        }}
         onChange={event => {
-          lineApi.getLines({ id: file.file_id, query: event.target.value, maxResults: 18, accuracyGreaterThan: 0.2 }).then(res => {
-            setLines(Object.keys(res))
-          });
+          setQuery(event.target.value);
         }}></input>
 
       <div className="lines-table-wrapper">
-        {lines.map((line) => {
-          return (<p>{line}</p>);
+        {lines.map(line => {
+          return <p>{line}</p>;
         })}
       </div>
     </div>
