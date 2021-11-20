@@ -21,6 +21,14 @@ const userApi = {
     });
     return result;
   },
+  signInUser: async function ({ username, password }) {
+    let url = apiEndPoint + "user/signin";
+    let formData = { username, password };
+    let result = axios.post(url, formData, axiosConfig).then(response => {
+      return response.data;
+    });
+    return result;
+  },
 };
 
 export default userApi;

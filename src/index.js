@@ -5,6 +5,7 @@ import App from "./components/App";
 import File from "./components/File/File";
 import Navbar from "./components/Navbar/Navbar";
 import UserProfile from './components/User/UserProfile'
+import Signin from "./components/Auth/Signin";
 import Signup from "./components/Auth/Signup";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,6 +18,7 @@ const Root = () => {
         <Route path="/" element={<App />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/user/profile" element={<UserProfile />}></Route>
+        <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
     </BrowserRouter>
