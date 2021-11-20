@@ -1,0 +1,17 @@
+.App {
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    .form {
+      padding: 10px 0 0 0;
+      input {
+        margin: 0 0 0 10px;
+      }
+    }
+    .submit-button {
+      margin: 20px 0 0 0;
+      width: 100px;
+      align-self: center;
+    }
+  }
+}

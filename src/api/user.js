@@ -15,7 +15,7 @@ let axiosConfig = {
 const userApi = {
   signUpUser: async function ({ username, password }) {
     let url = apiEndPoint + "user/signup";
-    formData = { username, password };
+    let formData = { username, password };
     let result = axios.post(url, formData, axiosConfig).then(response => {
       return response.status;
     });
