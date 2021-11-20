@@ -16,6 +16,19 @@ const File = () => {
   const [query, setQuery] = useState("");
   const [lines, setLines] = useState([]);
 
+  const [pageSize, setPageSize] = useState(3);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalResultsCount, setTotalResultsCount] = useState([]);
+
+  useEffect(() => {
+    queryApi
+      .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: "score", arrangeBy: "desc" })
+      .then(res => {
+        setLines(res.data);
+        setTotalResultsCount(res.totalResultsCount);
+      });
+  }, [currentPage]);
+
   useEffect(() => {
     fileApi.getFileById(id).then(res => {
       setFile(res);
@@ -32,8 +45,9 @@ const File = () => {
         onKeyPress={event => {
           if (event.key === "Enter") {
             console.log(`pressed enter: ${query}`);
-            queryApi.sendQuery({ id: file.file_id, query, offset: 2, limit: 5, orderBy: "score", arrangeBy: "desc" }).then(res => {
-              setLines(res);
+            queryApi.sendQuery({ id: file.file_id,offset: currentPage,limit: pageSize, query, orderBy: "score", arrangeBy: "desc" }).then(res => {
+              setLines(res.data);
+              setTotalResultsCount(res.totalResultsCount);
             });
           }
         }}
@@ -43,11 +57,21 @@ const File = () => {
 
       <div className="lines-table-wrapper">
         {lines.map(line => {
-          return <LineItem line={line} />;
+          return <LineItem key={line.file_line_id} line={line} />;
         })}
       </div>
 
-      {lines.length > 0 && <Pagination defaultCurrent={1} total={50} />}
+      {lines.length > 0 && (
+        <Pagination
+          onChange={(page, _pageSize) => {
+            setCurrentPage(page-1);
+            console.log(page);
+          }}
+          defaultCurrent={0}
+          pageSize={pageSize}
+          total={totalResultsCount}
+        />
+      )}
     </div>
   );
 };
