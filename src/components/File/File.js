@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import LineItem from "../Line/LineItem";
 import fileApi from "../../api/file";
 import queryApi from "../../api/query";
 
@@ -39,15 +41,7 @@ const File = () => {
 
       <div className="lines-table-wrapper">
         {lines.map(line => {
-          return (
-            <ul>
-              <p>
-                {" "}
-                {line.line} <br /> <code>{(line.score * 100).toString().slice(0, 5)}</code>
-              </p>
-              <hr />
-            </ul>
-          );
+          return <LineItem line={line} />;
         })}
       </div>
     </div>
