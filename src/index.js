@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import File from "./components/File/File";
+import Signup from "./components/Auth/S";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<App />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
+        <Route path="/signup" element={<File />}></Route>
       </Routes>
     </BrowserRouter>
   );
