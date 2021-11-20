@@ -44,7 +44,7 @@ const SignUp = () => {
           }}>
           Submit
         </button>
-        <span className="signup-info">{responseMessage}</span>
+        <span className="form-submit-info">{responseMessage}</span>
       </div>
     </div>
   );
