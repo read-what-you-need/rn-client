@@ -1,75 +1,42 @@
 import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
-
+import { Button, Form, Select, Radio } from "antd";
 import "./LineFilters.scss";
 
-const LineFilters = () => {
-  const onFinish = values => {
-    console.log("Success:", values);
-  };
+const { Option } = Select;
 
-  const onFinishFailed = errorInfo => {
-    console.log("Failed:", errorInfo);
-  };
+const LineFilters = ({orderByChange, arrangeByChange}) => {
+  const [form] = Form.useForm();
 
+  const formItemLayout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 15 }
+  };
+ 
   return (
     <Form
-      className="lines-filter-dash"
-      name="basic"
-      labelCol={{
-        span: 8
-      }}
-      wrapperCol={{
-        span: 16
-      }}
       initialValues={{
-        remember: true
+        select: "desc",
+        "radio-button": "score",
+        select: "desc"
       }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off">
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: "Please input your username!"
-          }
-        ]}>
-        <Input />
+      {...formItemLayout}
+      onValuesChange={(_changedValues, allValues) => {
+        orderByChange(allValues["radio-button"]);
+        arrangeByChange(allValues.select)
+      }}
+      form={form}
+      className="lines-filter-dash">
+      <Form.Item name="radio-button" label="Arrange by">
+        <Radio.Group>
+          <Radio.Button value="score">Score</Radio.Button>
+          <Radio.Button value="line_index">Position in book</Radio.Button>
+        </Radio.Group>
       </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!"
-          }
-        ]}>
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16
-        }}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16
-        }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+      <Form.Item name="select" label="Sort by">
+        <Select placeholder="Descending">
+          <Option value="asc">Ascending</Option>
+          <Option value="desc">Descending</Option>
+        </Select>
       </Form.Item>
     </Form>
   );

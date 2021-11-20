@@ -1,8 +1,8 @@
 .file-wrapper {
-  text-align: center;
-  display: flex;
+  .file-legend-info{
+    display: flex;
   flex-direction: column;
-  align-items: center;
+  }
   .input-box-search-primary{
     margin: 20px 0 0 0;
   }
