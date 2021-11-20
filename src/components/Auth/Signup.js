@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Signup.scss";
 
 import userApi from "../../api/user";
 
 const SignUp = () => {
+  let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
@@ -36,6 +38,7 @@ const SignUp = () => {
               .signUpUser({ username, password })
               .then(_res => {
                 setResponseMessage("account created");
+                navigate("/user/profile");
               })
               .catch(_err => setResponseMessage("account already exists"));
           }}>
