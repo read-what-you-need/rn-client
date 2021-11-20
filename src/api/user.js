@@ -1,22 +1,18 @@
 import axios from "axios";
+import headerConfig from "./headerConfig";
 
 // defining frequently used endpoints
 let apiEndPoint = process.env.REACT_APP_NODE_API;
-
-// defining headers and configurations
-
-let axiosConfig = {
-  headers: {
-    "Content-Type": "application/json"
-  }
-};
 
 // defining all api calls that interact with the table
 const userApi = {
   signUpUser: async function ({ username, password }) {
     let url = apiEndPoint + "user/signup";
     let formData = { username, password };
-    let result = axios.post(url, formData, axiosConfig).then(response => {
+    let result = axios.post(url, formData, headerConfig.axiosConfig).then(response => {
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+      }
       return response.data;
     });
     return result;
@@ -24,11 +20,14 @@ const userApi = {
   signInUser: async function ({ username, password }) {
     let url = apiEndPoint + "user/signin";
     let formData = { username, password };
-    let result = axios.post(url, formData, axiosConfig).then(response => {
+    let result = axios.post(url, formData, headerConfig.axiosConfig).then(response => {
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+      }
       return response.data;
     });
     return result;
-  },
+  }
 };
 
 export default userApi;
