@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Pagination } from "antd";
+
 import { useParams } from "react-router-dom";
 
 import LineItem from "../Line/LineItem";
@@ -44,6 +46,8 @@ const File = () => {
           return <LineItem line={line} />;
         })}
       </div>
+
+      {lines.length > 0 && <Pagination defaultCurrent={1} total={50} />}
     </div>
   );
 };

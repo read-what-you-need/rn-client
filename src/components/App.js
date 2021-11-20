@@ -1,4 +1,5 @@
 import "./App.scss";
+import "antd/dist/antd.css";
 
 import UploadButton from "./UploadButton/UploadButton";
 import BookList from "./BooksList";
