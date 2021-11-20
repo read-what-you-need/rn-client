@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+import userApi from "../../api/user";
 
 import "./Navbar.scss";
 
 const Navbar = () => {
+  const [isUserAuth, setIsUserAuth] = useState("loading...")
+  useEffect(() => {
+    userApi.isUserAuth().then(res =>{
+      setIsUserAuth(res)
+    })
+  }, []);
   return (
     <div className="action-nav-bar">
       <span className="nav-button">
         <Link to={`/`}>Home</Link>
       </span>
       <span className="nav-button">
-       / <Link to={`/signin`}>Login</Link>
+        / <Link to={`/signin`}>Login</Link>
       </span>
       <span className="nav-button">
         / <Link to={`/signup`}>Signup</Link>
       </span>
-      <span className="nav-button">/ User auth status : {false.toString()}</span>
+      <span className="nav-button">/ Auth status : {isUserAuth.toString()}</span>
     </div>
   );
 };
