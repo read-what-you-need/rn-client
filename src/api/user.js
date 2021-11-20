@@ -17,7 +17,7 @@ const userApi = {
     let url = apiEndPoint + "user/signup";
     let formData = { username, password };
     let result = axios.post(url, formData, axiosConfig).then(response => {
-      return response.status;
+      return response.data;
     });
     return result;
   },
