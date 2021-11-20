@@ -5,7 +5,7 @@ const LineItem = ({ line }) => {
     <ul>
       <p>
         {" "}
-        {line.line} <br /> <code>{(line.score * 100).toString().slice(0, 5)}</code>
+        {line.line} <br /> <code>score: {(line.score * 100).toString().slice(0, 5)}, line index: {line.line_index}</code>
       </p>
       <hr />
     </ul>
