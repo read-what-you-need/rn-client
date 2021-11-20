@@ -28,8 +28,8 @@ const File = () => {
         onKeyPress={event => {
           if (event.key === "Enter") {
             console.log(`pressed enter: ${query}`);
-            queryApi.sendQuery({ id: file.file_id, query }).then(res => {
-              console.log(res);
+            queryApi.sendQuery({ id: file.file_id, query, offset: 2, limit: 5, orderBy: "score", arrangeBy: "desc" }).then(res => {
+              setLines(res);
             });
           }
         }}
@@ -39,7 +39,15 @@ const File = () => {
 
       <div className="lines-table-wrapper">
         {lines.map(line => {
-          return <p>{line}</p>;
+          return (
+            <ul>
+              <p>
+                {" "}
+                {line.line} <br /> <code>{(line.score * 100).toString().slice(0, 5)}</code>
+              </p>
+              <hr />
+            </ul>
+          );
         })}
       </div>
     </div>
