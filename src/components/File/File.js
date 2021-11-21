@@ -14,7 +14,7 @@ const File = () => {
   let params = useParams();
   let id = params.id;
 
-  const [file, setFile] = useState([]);
+  const [file, setFile] = useState("");
   const [query, setQuery] = useState("");
   const [lines, setLines] = useState([]);
 
@@ -26,12 +26,14 @@ const File = () => {
   const [arrangeBy, setArrangeBy] = useState("desc");
 
   useEffect(() => {
+   if (file){
     queryApi
-      .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: orderBy, arrangeBy: arrangeBy })
-      .then(res => {
-        setLines(res.data);
-        setTotalResultsCount(res.totalResultsCount);
-      });
+    .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: orderBy, arrangeBy: arrangeBy })
+    .then(res => {
+      setLines(res.data);
+      setTotalResultsCount(res.totalResultsCount);
+    });
+   }
   }, [currentPage, orderBy, arrangeBy]);
 
   useEffect(() => {
@@ -56,7 +58,7 @@ const File = () => {
               if (event.key === "Enter") {
                 console.log(`pressed enter: ${query}`);
                 queryApi
-                  .sendQuery({ id: file.file_id, offset: currentPage, limit: pageSize, query, orderBy: orderBy, arrangeBy: arrangeBy })
+                  .sendQuery({ id: file.file_id, offset: 0, limit: pageSize, query, orderBy: orderBy, arrangeBy: arrangeBy })
                   .then(res => {
                     setLines(res.data);
                     setTotalResultsCount(res.totalResultsCount);
@@ -74,9 +76,9 @@ const File = () => {
           </div>
           {lines.length > 0 && (
             <Pagination
-              onChange={(page, _pageSize) => {
+              onChange={(page, pageSize) => {
                 setCurrentPage(page - 1);
-                console.log(page);
+                setPageSize(pageSize)
               }}
               defaultCurrent={0}
               pageSize={pageSize}
