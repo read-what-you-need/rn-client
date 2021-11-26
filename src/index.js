@@ -15,7 +15,7 @@ const Root = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<App />}></Route>
+        <Route path="/user" element={<App />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/user/profile" element={<UserProfile />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
