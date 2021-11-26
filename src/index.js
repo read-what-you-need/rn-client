@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
+import Feed from "./components/Feed/Feed";
 import File from "./components/File/File";
 import Navbar from "./components/Navbar/Navbar";
 import UserProfile from './components/User/UserProfile'
@@ -15,6 +16,7 @@ const Root = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/feed" element={<Feed/>}></Route>
         <Route path="/user" element={<App />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/user/profile" element={<UserProfile />}></Route>
