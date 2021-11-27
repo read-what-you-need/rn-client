@@ -41,6 +41,7 @@ const Signin = () => {
                 .signInUser({ username, password })
                 .then(_res => {
                   navigate("/user/profile");
+                  setResponseMessage("")
                 })
                 .catch(err => {
                     console.log(err)
