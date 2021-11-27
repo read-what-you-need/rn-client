@@ -14,14 +14,12 @@ const Feed = () => {
             <Breadcrumb>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>
-              <Link to={`/user`}>Profile</Link>
+                <Link to={`/user`}>Profile</Link>
               </Breadcrumb.Item>
             </Breadcrumb>
           </div>
-           
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };

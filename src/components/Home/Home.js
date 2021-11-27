@@ -4,8 +4,12 @@ import "./Home.scss";
 
 const Home = () => {
   return (
-    <div>
-      <h6>I am home page</h6>
+    <div className="App">
+      <div className="container">
+        <div className="row">
+          <h1>Home page</h1>
+        </div>
+      </div>
     </div>
   );
 };
