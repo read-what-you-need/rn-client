@@ -24,8 +24,8 @@ const UserProfile = () => {
             <div class="col"></div>
             <div class="col-sm">
               Trails
-              <div class="row">create trail</div>
-              <div class="row">my trails</div>
+              <div class="row">Create trail</div>
+              <div class="row">My trails</div>
             </div>
             <div class="col-sm">
               <Link to={`/books`}> My books</Link>
