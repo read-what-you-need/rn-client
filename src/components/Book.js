@@ -7,12 +7,10 @@ import BookList from "./BooksList";
 function App() {
   return (
     <div className="App">
-      <h1 className="title">Read what you need</h1>
       <div className="container">
         <div className="row">
+          <h2>My books</h2>
           <UploadButton />
-        </div>
-        <div className="row">
           <BookList />
         </div>
       </div>

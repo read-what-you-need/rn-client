@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/App";
+import Book from "./components/Book";
 import Feed from "./components/Feed/Feed";
 import File from "./components/File/File";
 import Home from "./components/Home/Home";
@@ -18,10 +18,10 @@ const Root = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/books" element={<Book />}></Route>
         <Route path="/feed" element={<Feed />}></Route>
-        <Route path="/user" element={<App />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
-        <Route path="/user/profile" element={<UserProfile />}></Route>
+        <Route path="/user" element={<UserProfile />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
