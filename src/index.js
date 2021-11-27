@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Book from "./components/Book";
+import CreateTrail from "./components/Trail/CreateTrail";
+import ListTrail from "./components/Trail/ListTrail";
+
 import Feed from "./components/Feed/Feed";
 import File from "./components/File/File";
 import Home from "./components/Home/Home";
@@ -19,6 +22,8 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/books" element={<Book />}></Route>
+        <Route path="c/trail" element={<CreateTrail />}></Route>
+        <Route path="l/trail" element={<ListTrail />}></Route>
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/user" element={<UserProfile />}></Route>
