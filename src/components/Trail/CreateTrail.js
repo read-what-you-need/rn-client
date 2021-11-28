@@ -13,7 +13,9 @@ const CreateTrail = () => {
   const [trailLine, setTrailLine] = useState([]);
   const [trailLines, setTrailLines] = useState([]);
 
-  
+  const [clickAddTrail, setClickAddTrail] = useState(false);
+  const [clickAddTrailIndex, setClickAddTrailIndex] = useState([]);
+
   console.log(trailLines);
   return (
     <div className="App">
@@ -43,11 +45,21 @@ const CreateTrail = () => {
             </div>
 
             <div className="row trail-items">
-              <ItemTrail data={trailLines} />
+              <ItemTrail
+                clickAddTrail={clickAddTrail}
+                clickAddTrailIndex={clickAddTrailIndex}
+                setClickAddTrail={setClickAddTrail}
+                setClickAddTrailIndex={setClickAddTrailIndex}
+                data={trailLines}
+                setTrailLine={setTrailLine}
+                setTrailLines={setTrailLines}
+                trailLine={trailLine}
+                trailLines={trailLines}
+              />
             </div>
 
             <div className="row trail-input-item">
-              <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} />
+              {!clickAddTrail && <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} index={0}/>}
             </div>
           </div>
           <div className="col">
