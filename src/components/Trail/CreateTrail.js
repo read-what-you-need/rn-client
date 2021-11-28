@@ -45,7 +45,7 @@ const CreateTrail = () => {
             
             <div className="row trail-input-item">
               <Input
-                placeholder="Basic usage"
+                placeholder="Add line to trail"
                 size="large"
                 value={trailLine}
                 onPressEnter={e => {
