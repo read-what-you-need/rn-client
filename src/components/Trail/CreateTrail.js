@@ -5,6 +5,7 @@ import { Breadcrumb } from "antd";
 import ItemTrail from "./ItemTrail";
 import InputTrail from "./InputTrail";
 import { Input } from "antd";
+import trailApi from "../../api/trail";
 
 import "./CreateTrail.scss";
 
@@ -69,7 +70,9 @@ const CreateTrail = () => {
             </div>
           </div>
           <div className="col">
-            <Button disabled={validateTrail()} type="primary">Save trail</Button>
+            <Button disabled={validateTrail()} onClick={() => {
+              trailApi.createTrail({trailTitle, trailLines})
+            }} type="primary">Save trail</Button>
           </div>
         </div>
       </div>
