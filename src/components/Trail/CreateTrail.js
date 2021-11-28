@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from 'antd';
+import { Button } from "antd";
 import { Breadcrumb } from "antd";
 import { Input } from "antd";
-import "./CreateTrail.scss"
+import ItemTrail from "./ItemTrail";
+
+import "./CreateTrail.scss";
 
 const CreateTrail = () => {
   const [trailTitle, setTrailTitle] = useState();
+  const [trailLine, setTrailLine] = useState([]);
   const [trailLines, setTrailLines] = useState([]);
-
-  console.log(trailTitle)
+  console.log(trailLines);
   return (
     <div className="App">
       <div className="container">
@@ -32,11 +34,33 @@ const CreateTrail = () => {
           <div className="col"></div>
           <div className="col">
             <h2>Trail title</h2>
-            <Input placeholder="Basic usage" size="large" onChange={(e) => setTrailTitle(e.target.value) }/>
-            <div className="row trail-header-title"><h3>{trailLines.length > 0 ? `Review` : `Add`} your trail</h3></div>
-            <div className="row trail-input-item"><Input placeholder="Basic usage" size="large" onChange={(e) => setTrailTitle(e.target.value) }/></div>
+            <Input placeholder="Basic usage" size="large" onChange={e => setTrailTitle(e.target.value)} />
+            <div className="row trail-header-title">
+              <h3>{trailLines.length > 0 ? `Review` : `Add`} your trail</h3>
+            </div>
+
+            <div className="row trail-items">
+              <ItemTrail data={trailLines}/>
+            </div>
+            
+            <div className="row trail-input-item">
+              <Input
+                placeholder="Basic usage"
+                size="large"
+                value={trailLine}
+                onPressEnter={e => {
+                  setTrailLines([...trailLines, { line: e.target.value }]);
+                  setTrailLine("")
+                }}
+                onChange={e => {
+                  setTrailLine(e.target.value)
+                }}
+              />
+            </div>
           </div>
-          <div className="col"><Button type="primary">Save trail</Button></div>
+          <div className="col">
+            <Button type="primary">Save trail</Button>
+          </div>
         </div>
       </div>
     </div>
