@@ -20,7 +20,9 @@ const Navbar = () => {
             <Link to={`/user`}>Home</Link>
           </span>
           <span className="nav-button">
-            / <Link to={`/logout`}>Logout</Link>
+            / <Link to={`/`} onClick={() => {
+               localStorage.setItem('token', '');
+            }}>Logout</Link>
           </span>
         </>
       ) : (
