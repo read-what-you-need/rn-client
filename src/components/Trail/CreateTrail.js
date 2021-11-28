@@ -9,13 +9,19 @@ import { Input } from "antd";
 import "./CreateTrail.scss";
 
 const CreateTrail = () => {
-  const [trailTitle, setTrailTitle] = useState();
+  const [trailTitle, setTrailTitle] = useState([]);
   const [trailLine, setTrailLine] = useState([]);
   const [trailLines, setTrailLines] = useState([]);
 
   const [clickAddTrail, setClickAddTrail] = useState(false);
   const [clickAddTrailIndex, setClickAddTrailIndex] = useState([]);
 
+  const validateTrail = () => {
+    if (trailTitle.length === 0 || trailLines.length === 0) {
+      return true;
+    } else 
+    return false;
+  }
   console.log(trailLines);
   return (
     <div className="App">
@@ -63,7 +69,7 @@ const CreateTrail = () => {
             </div>
           </div>
           <div className="col">
-            <Button type="primary">Save trail</Button>
+            <Button disabled={validateTrail()} type="primary">Save trail</Button>
           </div>
         </div>
       </div>
