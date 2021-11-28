@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const UserProfile = () => {
   return (
     <div className="App">
-      <div class="container">
+      <div className="container">
         <h1>My profile</h1>
         <div className="breadcrumb">
           <Breadcrumb>
@@ -18,21 +18,21 @@ const UserProfile = () => {
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col-sm">
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-sm">
             Trails
-            <div class="row">
+            <div className="row">
               <Link to={`/c/trail`}>Create trail</Link>
             </div>
-            <div class="row">
+            <div className="row">
               <Link to={`/l/trail`}>My trails</Link>
             </div>
           </div>
-          <div class="col-sm">
+          <div className="col-sm">
             <Link to={`/books`}> My books</Link>
           </div>
-          <div class="col"></div>
+          <div className="col"></div>
         </div>
       </div>
     </div>

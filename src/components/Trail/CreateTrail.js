@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CreateTrail = () => {
   return (
     <div className="App">
-      <div class="container">
+      <div className="container">
         <h1>Create your trail</h1>
         <div className="breadcrumb">
           <Breadcrumb>
@@ -21,15 +21,15 @@ const CreateTrail = () => {
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">
+        <div className="row">
+          <div className="col"></div>
+          <div className="col">
             Trail lines
-            <div class="row">Trail line 1</div>
-            <div class="row">Trail line 1</div>
-            <div class="row">Trail line 1</div>
+            <div className="row">Trail line 1</div>
+            <div className="row">Trail line 1</div>
+            <div className="row">Trail line 1</div>
           </div>
-          <div class="col"></div>
+          <div className="col"></div>
         </div>
       </div>
     </div>
