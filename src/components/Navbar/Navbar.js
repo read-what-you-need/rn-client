@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
-const Navbar = ({ session }) => {
+const Navbar = () => {
+  let isUserAuth = localStorage.getItem('token') ? true : false;
   return (
     <div className="action-nav-bar">
-       {session? <NavbarAuth/> : <NavbarUnAuth />}
-      <span className="nav-button">/ Auth status : {session.toString()}</span>
+       {isUserAuth? <NavbarAuth/> : <NavbarUnAuth />}
+      <span className="nav-button">/ Auth status : {isUserAuth.toString()}</span>
     </div>
   );
 };
