@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "antd";
-import Helpers from "../../Libs/Helpers";
+import Helpers from "../../libs/Helpers";
 const { TextArea } = Input;
 
 const InputTrail = ({ setTrailLine, setTrailLines, trailLines, trailLine, index }) => {
