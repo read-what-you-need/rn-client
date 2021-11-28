@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { Breadcrumb } from "antd";
-import { Input } from "antd";
 import ItemTrail from "./ItemTrail";
+import InputTrail from "./InputTrail";
+import { Input } from "antd";
 
 import "./CreateTrail.scss";
 
@@ -11,6 +12,8 @@ const CreateTrail = () => {
   const [trailTitle, setTrailTitle] = useState();
   const [trailLine, setTrailLine] = useState([]);
   const [trailLines, setTrailLines] = useState([]);
+
+  
   console.log(trailLines);
   return (
     <div className="App">
@@ -40,22 +43,11 @@ const CreateTrail = () => {
             </div>
 
             <div className="row trail-items">
-              <ItemTrail data={trailLines}/>
+              <ItemTrail data={trailLines} />
             </div>
-            
+
             <div className="row trail-input-item">
-              <Input
-                placeholder="Add line to trail"
-                size="large"
-                value={trailLine}
-                onPressEnter={e => {
-                  setTrailLines([...trailLines, { line: e.target.value }]);
-                  setTrailLine("")
-                }}
-                onChange={e => {
-                  setTrailLine(e.target.value)
-                }}
-              />
+              <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} />
             </div>
           </div>
           <div className="col">
