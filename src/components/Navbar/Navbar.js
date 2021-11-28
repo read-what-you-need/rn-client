@@ -24,6 +24,7 @@ const NavbarAuth = () => {
           to={`/`}
           onClick={() => {
             localStorage.setItem("token", "");
+            window.location.reload();
           }}>
           Logout
         </Link>

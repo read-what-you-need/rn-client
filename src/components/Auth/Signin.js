@@ -42,6 +42,7 @@ const Signin = () => {
                 .then(_res => {
                   navigate("/user");
                   setResponseMessage("")
+                  window.location.reload();
                 })
                 .catch(err => {
                     console.log(err)
