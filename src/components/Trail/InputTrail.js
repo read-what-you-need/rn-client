@@ -11,7 +11,6 @@ const InputTrail = ({ setTrailLine, setTrailLines, trailLines, trailLine, index 
       onPressEnter={e => {
         let updatedTrailLines = [];
         updatedTrailLines = Helpers.insertInArray(trailLines, index+1, {line: trailLine});
-        console.log(updatedTrailLines, 'updatedTrailLines')
         setTrailLines(updatedTrailLines);
         setTrailLine("");
       }}

@@ -43,7 +43,6 @@ const ItemTrail = ({
               onClick={_e => {
                 setClickAddTrail(true);
                 setClickAddTrailIndex(index);
-                console.log(`clicked index is:${index}`);
               }}>
               +
             </List.Item>

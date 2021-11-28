@@ -59,7 +59,7 @@ const CreateTrail = () => {
             </div>
 
             <div className="row trail-input-item">
-              {!clickAddTrail && <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} index={0}/>}
+              {!clickAddTrail && <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} index={trailLines.length-1}/>}
             </div>
           </div>
           <div className="col">
