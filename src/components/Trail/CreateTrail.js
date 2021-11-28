@@ -1,8 +1,11 @@
-import React from "react";
-import { Breadcrumb } from "antd";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Breadcrumb } from "antd";
+import { Input } from "antd";
 
 const CreateTrail = () => {
+  const [trailTitle, setTrailTitle] = useState();
+  console.log(trailTitle)
   return (
     <div className="App">
       <div className="container">
@@ -24,7 +27,8 @@ const CreateTrail = () => {
         <div className="row">
           <div className="col"></div>
           <div className="col">
-            Trail lines
+            <h2>Trail title</h2>
+            <Input placeholder="Basic usage" onChange={(e) => setTrailTitle(e.target.value) }/>
             <div className="row">Trail line 1</div>
             <div className="row">Trail line 1</div>
             <div className="row">Trail line 1</div>
