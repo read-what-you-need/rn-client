@@ -13,6 +13,8 @@ import UserProfile from "./components/User/UserProfile";
 import Signin from "./components/Auth/Signin";
 import Signup from "./components/Auth/Signup";
 
+import RequireAuth from "./components/Auth/RequireAuth";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Root = () => {
@@ -22,7 +24,11 @@ const Root = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/books" element={<Book />}></Route>
-        <Route path="c/trail" element={<CreateTrail />}></Route>
+        <Route path='c/trail' element={
+          <RequireAuth redirectTo="/signin">
+            <CreateTrail/>
+          </RequireAuth>
+        } />
         <Route path="l/trail" element={<ListTrail />}></Route>
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/file/:id" element={<File />}></Route>

@@ -40,7 +40,7 @@ const Signin = () => {
               userApi
                 .signInUser({ username, password })
                 .then(_res => {
-                  navigate("/user/profile");
+                  navigate("/user");
                   setResponseMessage("")
                 })
                 .catch(err => {
