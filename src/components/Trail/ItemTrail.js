@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect } from "react";
 import { List, Typography } from "antd";
 import InputTrail from "./InputTrail";
 
@@ -22,12 +21,10 @@ const ItemTrail = ({
   }, []);
 
   const handleClickOutside = event => {
-    const domNode = ReactDOM.findDOMNode(this);
-    console.log(event.target);
-    if (!domNode || !domNode.contains(event.target)) {
-      setClickAddTrail(false);
-      setClickAddTrailIndex([]);
-    }
+    if (!event.target.className.includes("ant-input")) {
+        setClickAddTrail(false);
+        setClickAddTrailIndex([]);
+      }
   };
   return (
     <List
