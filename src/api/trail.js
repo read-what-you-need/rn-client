@@ -16,7 +16,15 @@ const trailApi = {
       .then(data => {
         console.log(data);
       })
-      .catch(error => Helpers.responseHandler({response:{}, error}));
+      .catch(error => Helpers.responseHandler({ response: {}, error }));
+    return result;
+  },
+  listUserTrails: async function ({ offset = 0, limit = 5, orderBy = "created_at", arrangeBy = "desc" }) {
+    let url = `${apiEndPoint}trail?orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}`;
+    let result = axios
+      .get(url, headerConfig.axiosConfig)
+      .then(response =>  Helpers.responseHandler({ response, error: {} }))
+      .catch(error => Helpers.responseHandler({ response: {}, error }));
     return result;
   }
 };

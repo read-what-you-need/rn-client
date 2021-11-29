@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
 
+import trailApi from "../../api/trail";
 
 const ListTrail = () => {
+  const [trailsList, setTrailsList] = useState([]);
+  useEffect(() => {
+    trailApi.listUserTrails({ offset :0, limit : 5}).then(res => {
+      setTrailsList(res);
+    });
+  }, []);
+  console.log(trailsList)
+
   return (
     <div className="App">
       <div className="container">

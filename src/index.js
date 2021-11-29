@@ -32,7 +32,14 @@ const Root = () => {
             </RequireAuth>
           }
         />
-        <Route path="l/trail" element={<ListTrail />}></Route>
+        <Route
+          path="l/trail"
+          element={
+            <RequireAuth redirectTo="/signin">
+              <ListTrail />
+            </RequireAuth>
+          }
+        />
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/user" element={<UserProfile />}></Route>
