@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import trailApi from "../../api/trail";
 
 const ListTrail = () => {
-  const [trailsList, setTrailsList] = useState([]);
+  const [trails, setTrails] = useState([]);
   useEffect(() => {
-    trailApi.listUserTrails({ offset :0, limit : 5}).then(res => {
-      setTrailsList(res);
+    trailApi.listUserTrails({ offset: 0, limit: 5 }).then(res => {
+      setTrails(res);
     });
   }, []);
-  console.log(trailsList)
+  console.log(trails);
 
   return (
     <div className="App">
@@ -32,16 +32,42 @@ const ListTrail = () => {
           </Breadcrumb>
         </div>
         <div className="row">
-          <div className="col"></div>
           <div className="col">
             My trails
-            <div className="row">...</div>
+            <table className="table table-hover mt-5 table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#Trail id</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Your Visits</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Public Visits</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trails.map((trail, index) => {
+                  return (
+                    <tr key={trail.trail_id}>
+                      <th scope="row">{trail.trail_id}</th>
+                      <td>
+                      <Link to={`/trail/${trail.trail_id}`}>{trail.title}</Link>
+                      </td>
+                      <td>
+                       {trail.visited}
+                      </td>
+                      <td>{trail.created_at}</td>
+                      <td>{trail.public_visits}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
-          <div className="col"></div>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default ListTrail;
