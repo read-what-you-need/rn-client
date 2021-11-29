@@ -11,10 +11,9 @@ let Helpers = {
         return error.response.data;
       }
       return error.response.data;
-    } 
-
+    }
     if (response.status >= 200 && response.status <= 299) {
-      return response.json();
+      return response.data;
     } else {
       if (response.status === 401 && response.status <= 451) {
         userApi.logOutUser();
