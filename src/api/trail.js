@@ -12,10 +12,7 @@ const trailApi = {
     let data = { trailTitle, trailLines };
     let result = axios
       .post(url, data, headerConfig.axiosConfig)
-      .then(response => console.log(response))
-      .then(data => {
-        console.log(data);
-      })
+      .then(response => Helpers.responseHandler({ response, error: {} }))
       .catch(error => Helpers.responseHandler({ response: {}, error }));
     return result;
   },
