@@ -33,7 +33,6 @@ const ListTrail = () => {
         </div>
         <div className="row">
           <div className="col">
-            My trails
             <table className="table table-hover mt-5 table-sm">
               <thead>
                 <tr>
