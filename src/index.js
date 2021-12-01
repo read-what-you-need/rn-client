@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Book from "./components/Book";
+
 import CreateTrail from "./components/Trail/CreateTrail";
+import LinesTrail from "./components/Trail/LinesTrail";
 import ListTrail from "./components/Trail/ListTrail";
 
 import Feed from "./components/Feed/Feed";
@@ -32,6 +34,7 @@ const Root = () => {
             </RequireAuth>
           }
         />
+        <Route path="trail/:id" element={<LinesTrail />} />
         <Route
           path="l/trail"
           element={
