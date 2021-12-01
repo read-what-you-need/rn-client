@@ -24,8 +24,16 @@ const trailApi = {
       .catch(error => Helpers.responseHandler({ response: {}, error }));
     return result;
   },
+  getTrailDetails: async function ({ trailId }) {
+    let url = `${apiEndPoint}trail/${trailId}`;
+    let result = axios
+      .get(url, headerConfig.axiosConfig)
+      .then(response => Helpers.responseHandler({ response, error: {} }))
+      .catch(error => Helpers.responseHandler({ response: {}, error }));
+    return result;
+  },
   listUserTrailLines: async function ({ trailId, offset = 0, limit = 5, orderBy = "index", arrangeBy = "desc" }) {
-    let url = `${apiEndPoint}trail/${trailId}?orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}`;
+    let url = `${apiEndPoint}trail/${trailId}/lines?orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}`;
     let result = axios
       .get(url, headerConfig.axiosConfig)
       .then(response => Helpers.responseHandler({ response, error: {} }))
