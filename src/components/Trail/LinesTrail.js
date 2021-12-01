@@ -37,7 +37,13 @@ const LinesTrail = () => {
           </Breadcrumb>
         </div>
         <div className="row">
-          <div className="col"></div>
+          <div className="col">
+              {trailLines.map((trailLines) => {
+                  return <div key={trailLines.line_id}>
+                      {trailLines.line}
+                  </div>
+              })}
+          </div>
         </div>
       </div>
     </div>
