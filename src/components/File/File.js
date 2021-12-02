@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Pagination } from "antd";
 import { Row, Col } from "antd";
@@ -92,6 +92,11 @@ const File = () => {
           )}
         </Col>
         <Col span={5}>
+          <span>
+            <Link to={`/r/trail`} state={{ trails, file }}>
+              TRAIL CART <sup>{trails.length}</sup>
+            </Link>
+          </span>
           <div className="lines-filter-dash">
             <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
           </div>

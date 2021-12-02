@@ -5,6 +5,7 @@ import Book from "./components/Book";
 
 import CreateTrail from "./components/Trail/CreateTrail";
 import LinesTrail from "./components/Trail/LinesTrail";
+import ReviewTrail from "./components/Trail/ReviewTrail";
 import ListTrail from "./components/Trail/ListTrail";
 
 import Feed from "./components/Feed/Feed";
@@ -40,6 +41,14 @@ const Root = () => {
           element={
             <RequireAuth redirectTo="/signin">
               <ListTrail />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="r/trail"
+          element={
+            <RequireAuth redirectTo="/signin">
+              <ReviewTrail />
             </RequireAuth>
           }
         />
