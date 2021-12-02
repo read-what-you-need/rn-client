@@ -15,8 +15,6 @@ const LinesTrail = () => {
     });
   }, []);
 
-  console.log(trailDetails)
-  console.log(trailLines);
 
   return (
     <div className="App">
@@ -37,13 +35,19 @@ const LinesTrail = () => {
           </Breadcrumb>
         </div>
         <div className="row">
-          <div className="col">
-              {trailLines.map((trailLines) => {
-                  return <div key={trailLines.line_id}>
-                      {trailLines.line}
-                  </div>
+          <div className="col-2"></div>
+          <div className="col-8">
+            <ul className="list-group list-group-flush">
+              {trailLines.map(trailLines => {
+                return (
+                  <li className="list-group-item" key={trailLines.user_line_id || trailLines.file_line_id}>
+                    {trailLines.file_line || trailLines.user_line}
+                  </li>
+                );
               })}
+            </ul>
           </div>
+          <div className="col-3"></div>
         </div>
       </div>
     </div>
