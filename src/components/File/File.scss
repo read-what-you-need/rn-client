@@ -1,17 +1,29 @@
 .file-wrapper {
-  .file-legend-info{
+  .file-legend-info {
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
   }
-  .input-box-search-primary{
+  .input-box-search-primary {
     margin: 20px 0 0 0;
   }
   input {
-      width: 200px;
+    width: 200px;
   }
-  .lines-table-wrapper{
+  .lines-table-wrapper {
     text-align: justify;
     padding: 50px 0 0 0;
-    width:700px;
+    width: 700px;
+  }
+  .trail-lines-review {
+    .trail-lines-add {
+      display: inline;
+      border-bottom: 3px solid #f9dd94;
+      margin: 0 0 10px 0;
+    }
+    .trail-lines-items {
+      margin: 20px 0 0 0;
+      .trail-line-item {
+      }
+    }
   }
 }

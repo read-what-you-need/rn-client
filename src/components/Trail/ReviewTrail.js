@@ -6,6 +6,7 @@ const ReviewTrail = () => {
   const location = useLocation();
   let file = location.state?.file;
   let trails = location.state?.trails;
+  console.log(file)
   return (
     <div className="App">
       <div className="container">
@@ -13,10 +14,10 @@ const ReviewTrail = () => {
         <div className="breadcrumb">
           <Breadcrumb>
             <Breadcrumb.Item>
-              <Link to={`/feed`}>Books</Link>
+              <Link to={`/books`}>Books</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/user`}>{file.name}</Link>
+              <Link to={`/file/${file.file_id}`}>{file.name}</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
               <Link to={`/user`}>Review trail</Link>

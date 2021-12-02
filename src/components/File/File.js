@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { Pagination } from "antd";
+import { Timeline } from "antd";
 import { Row, Col } from "antd";
 
 import LineItem from "../Line/LineItem";
@@ -92,13 +93,30 @@ const File = () => {
           )}
         </Col>
         <Col span={5}>
-          <span>
-            <Link to={`/r/trail`} state={{ trails, file }}>
-              TRAIL CART <sup>{trails.length}</sup>
-            </Link>
-          </span>
           <div className="lines-filter-dash">
             <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
+          </div>
+          <div className="trail-lines-review">
+            <h3 className="trail-lines-add">Added trail lines</h3>
+            <div className="trail-lines-items">
+              <Timeline>
+                {trails.map((trailLines, idx) => {
+                  return (
+                    <div className="trail-line-item" key={trailLines.file_line_id}>
+                      <Timeline.Item>
+                        {idx + 1}.{trailLines.line?.substring(0, 50)}...
+                      </Timeline.Item>
+                    </div>
+                  );
+                })}
+              </Timeline>
+            </div>
+
+            {trails.length !== 0 && (
+              <Link to={`/r/trail`} state={{ trails, file }}>
+                Reviews Trails <sup>{trails.length}</sup>
+              </Link>
+            )}
           </div>
         </Col>
       </Row>
