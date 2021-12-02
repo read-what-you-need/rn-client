@@ -18,6 +18,8 @@ const File = () => {
   const [query, setQuery] = useState("");
   const [lines, setLines] = useState([]);
 
+  const [trails, setTrails] = useState([]);
+
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalResultsCount, setTotalResultsCount] = useState([]);
@@ -25,15 +27,16 @@ const File = () => {
   const [orderBy, setOrderBy] = useState("score");
   const [arrangeBy, setArrangeBy] = useState("desc");
 
+  console.log(trails);
   useEffect(() => {
-   if (file){
-    queryApi
-    .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: orderBy, arrangeBy: arrangeBy })
-    .then(res => {
-      setLines(res.data);
-      setTotalResultsCount(res.totalResultsCount);
-    });
-   }
+    if (file) {
+      queryApi
+        .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: orderBy, arrangeBy: arrangeBy })
+        .then(res => {
+          setLines(res.data);
+          setTotalResultsCount(res.totalResultsCount);
+        });
+    }
   }, [currentPage, orderBy, arrangeBy]);
 
   useEffect(() => {
@@ -42,6 +45,10 @@ const File = () => {
     });
   }, []);
 
+  const addTrailHandler = trail => {
+    console.log(`file line id is: ${trails}`);
+    setTrails([...trails, trail]);
+  };
   return (
     <div className="file-wrapper">
       <Row>
@@ -57,12 +64,10 @@ const File = () => {
             onKeyPress={event => {
               if (event.key === "Enter") {
                 console.log(`pressed enter: ${query}`);
-                queryApi
-                  .sendQuery({ id: file.file_id, offset: 0, limit: pageSize, query, orderBy: orderBy, arrangeBy: arrangeBy })
-                  .then(res => {
-                    setLines(res.data);
-                    setTotalResultsCount(res.totalResultsCount);
-                  });
+                queryApi.sendQuery({ id: file.file_id, offset: 0, limit: pageSize, query, orderBy: orderBy, arrangeBy: arrangeBy }).then(res => {
+                  setLines(res.data);
+                  setTotalResultsCount(res.totalResultsCount);
+                });
               }
             }}
             onChange={event => {
@@ -71,14 +76,14 @@ const File = () => {
 
           <div className="lines-table-wrapper">
             {lines.map(line => {
-              return <LineItem key={line.file_line_id} line={line} />;
+              return <LineItem key={line.file_line_id} line={line} addTrailHandler={addTrailHandler} />;
             })}
           </div>
           {lines.length > 0 && (
             <Pagination
               onChange={(page, pageSize) => {
                 setCurrentPage(page - 1);
-                setPageSize(pageSize)
+                setPageSize(pageSize);
               }}
               defaultCurrent={0}
               pageSize={pageSize}
