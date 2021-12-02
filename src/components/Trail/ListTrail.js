@@ -7,7 +7,7 @@ import trailApi from "../../api/trail";
 const ListTrail = () => {
   const [trails, setTrails] = useState([]);
   useEffect(() => {
-    trailApi.listUserTrails({ offset: 0, limit: 5 }).then(res => {
+    trailApi.listUserTrails({ offset: 0, limit: 15 }).then(res => {
       setTrails(res);
     });
   }, []);
