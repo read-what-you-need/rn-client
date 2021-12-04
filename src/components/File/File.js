@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation, createSearchParams, useNavigate } from "react-router-dom";
 
 import { Pagination } from "antd";
 import { Timeline } from "antd";
@@ -13,6 +13,7 @@ import "./File.scss";
 
 const File = () => {
   let params = useParams();
+
   let id = params.id;
 
   const [file, setFile] = useState("");
@@ -28,23 +29,32 @@ const File = () => {
   const [orderBy, setOrderBy] = useState("score");
   const [arrangeBy, setArrangeBy] = useState("desc");
 
-  console.log(trails);
-  useEffect(() => {
-    if (file) {
-      queryApi
-        .sendQuery({ id: file.file_id, query, offset: currentPage * pageSize, limit: pageSize, orderBy: orderBy, arrangeBy: arrangeBy })
-        .then(res => {
-          setLines(res.data);
-          setTotalResultsCount(res.totalResultsCount);
-        });
-    }
-  }, [currentPage, orderBy, arrangeBy]);
-
+  /* Fetch file information on page load */
   useEffect(() => {
     fileApi.getFileById(id).then(res => {
       setFile(res);
     });
   }, []);
+
+  /* Fetch latest changes if current page or filter change */
+  useEffect(() => {
+    let pageOffset = currentPage * pageSize;
+    sendQueryHandler({ fileId: file.file_id, query, offset: pageOffset, limit: pageSize, orderBy, arrangeBy });
+  }, [currentPage, orderBy, arrangeBy]);
+
+  /* Fetch latest changes based on passed URL query params */
+  useEffect(() => {
+    sendQueryHandler({ fileId: file.file_id, query, offset: currentPage, limit: pageSize, orderBy, arrangeBy });
+  }, [file]);
+
+  const sendQueryHandler = ({ fileId, query, offset, limit, orderBy, arrangeBy }) => {
+    if (file) {
+      queryApi.sendQuery({ id: fileId, offset, limit, query, orderBy, arrangeBy }).then(res => {
+        setLines(res.data);
+        setTotalResultsCount(res.totalResultsCount);
+      });
+    }
+  };
 
   const addTrailHandler = trail => {
     console.log(`file line id is: ${trails}`);
@@ -62,13 +72,10 @@ const File = () => {
           <input
             className="input-box-search-primary"
             type="search"
+            value={[query]}
             onKeyPress={event => {
               if (event.key === "Enter") {
-                console.log(`pressed enter: ${query}`);
-                queryApi.sendQuery({ id: file.file_id, offset: 0, limit: pageSize, query, orderBy: orderBy, arrangeBy: arrangeBy }).then(res => {
-                  setLines(res.data);
-                  setTotalResultsCount(res.totalResultsCount);
-                });
+                sendQueryHandler({ fileId: file.file_id, query, offset: currentPage, limit: pageSize, orderBy, arrangeBy });
               }
             }}
             onChange={event => {
@@ -82,11 +89,11 @@ const File = () => {
           </div>
           {lines.length > 0 && (
             <Pagination
+              defaultCurrent={currentPage}
               onChange={(page, pageSize) => {
                 setCurrentPage(page - 1);
                 setPageSize(pageSize);
               }}
-              defaultCurrent={0}
               pageSize={pageSize}
               total={totalResultsCount}
             />
@@ -96,28 +103,11 @@ const File = () => {
           <div className="lines-filter-dash">
             <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
           </div>
-          <div className="trail-lines-review">
-            <h3 className="trail-lines-add">Added trail lines</h3>
-            <div className="trail-lines-items">
-              <Timeline>
-                {trails.map((trailLines, idx) => {
-                  return (
-                    <div className="trail-line-item" key={trailLines.file_line_id}>
-                      <Timeline.Item>
-                        {idx + 1}.{trailLines.line?.substring(0, 50)}...
-                      </Timeline.Item>
-                    </div>
-                  );
-                })}
-              </Timeline>
-            </div>
-
-            {trails.length !== 0 && (
-              <Link to={`/r/trail`} state={{ trails, file, query }}>
-                Reviews Trails <sup>{trails.length}</sup>
-              </Link>
-            )}
-          </div>
+          {trails.length !== 0 && (
+            <Link to={`/r/trail`} state={{ trails, file, query }}>
+              Reviews Trails <sup>{trails.length}</sup>
+            </Link>
+          )}
         </Col>
       </Row>
     </div>
