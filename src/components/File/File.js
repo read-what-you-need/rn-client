@@ -42,11 +42,6 @@ const File = () => {
     sendQueryHandler({ fileId: file.file_id, query, offset: pageOffset, limit: pageSize, orderBy, arrangeBy });
   }, [currentPage, orderBy, arrangeBy]);
 
-  /* Fetch latest changes based on passed URL query params */
-  useEffect(() => {
-    sendQueryHandler({ fileId: file.file_id, query, offset: currentPage, limit: pageSize, orderBy, arrangeBy });
-  }, [file]);
-
   const sendQueryHandler = ({ fileId, query, offset, limit, orderBy, arrangeBy }) => {
     if (file) {
       queryApi.sendQuery({ id: fileId, offset, limit, query, orderBy, arrangeBy }).then(res => {
