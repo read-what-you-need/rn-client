@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 
 const LineItem = ({ line, addTrailHandler }) => {
   return (
@@ -10,12 +11,14 @@ const LineItem = ({ line, addTrailHandler }) => {
           score: {(line.score * 100).toString().slice(0, 5)}, line index: {line.line_index}
         </code>
         <br />
-        <button
+        <Button> Relevant</Button>
+        <Button>Not relevant</Button>
+        <Button
           onClick={_e => {
             addTrailHandler(line);
           }}>
-          add to trail
-        </button>
+          Add to trail
+        </Button>
       </p>
       <hr />
     </>
