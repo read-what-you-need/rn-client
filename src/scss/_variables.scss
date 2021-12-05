@@ -1,4 +1,9 @@
 :root {
+  /*Abstract colors defined*/
+  --background-primary: #fafafa;
+
+  --navbar-base: #ffffff;
+
   --black: #000;
   --white: #fff;
 
@@ -12,5 +17,5 @@
 
   /* heights of components defined  */
 
-  --navbar-height: 140px;
+  --navbar-height: 80px;
 }

@@ -1,8 +1,6 @@
 import "./App.scss";
 import { Link } from "react-router-dom";
 import { Breadcrumb } from "antd";
-import "antd/dist/antd.css";
-
 import UploadButton from "./UploadButton/UploadButton";
 import BookList from "./BooksList";
 

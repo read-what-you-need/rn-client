@@ -2,7 +2,7 @@
   display: flex;
   height: var(--navbar-height);
   justify-content: flex-end;
-  color: gray;
+  color: var(--navbar-base);
   .nav-button {
     padding: 0 5px 0 0;
   }
