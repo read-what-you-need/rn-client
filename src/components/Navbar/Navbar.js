@@ -6,7 +6,7 @@ import userApi from "../../api/user";
 const Navbar = () => {
   let isUserAuth = localStorage.getItem('token') ? true : false;
   return (
-    <div className="action-nav-bar">
+    <div className="nav-bar-wrapper">
        {isUserAuth? <NavbarAuth/> : <NavbarUnAuth />}
       <span className="nav-button">/ Auth status : {isUserAuth.toString()}</span>
     </div>
