@@ -1,8 +1,9 @@
 .nav-bar-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    color: gray;
-    .nav-button {
-      padding: 0 5px 0 0;
-    }
+  display: flex;
+  height: var(--navbar-height);
+  justify-content: flex-end;
+  color: gray;
+  .nav-button {
+    padding: 0 5px 0 0;
   }
+}
