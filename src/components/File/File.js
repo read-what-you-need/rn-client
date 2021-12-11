@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useLocation, createSearchParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Pagination } from "antd";
 import { Timeline } from "antd";
@@ -9,6 +9,8 @@ import LineItem from "../Line/LineItem";
 import LineFilters from "../Line/LineFilters";
 import fileApi from "../../api/file";
 import queryApi from "../../api/query";
+import tagApi from "../../api/tag";
+
 import "./File.scss";
 
 const File = () => {
@@ -21,6 +23,7 @@ const File = () => {
   const [lines, setLines] = useState([]);
 
   const [trails, setTrails] = useState([]);
+  const [tags, setTags] = useState([]);
 
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
@@ -34,8 +37,10 @@ const File = () => {
     fileApi.getFileById(id).then(res => {
       setFile(res);
     });
+    tagApi.getTags({ id }).then(tags => {
+      setTags(tags);
+    });
   }, []);
-
   /* Fetch latest changes if current page or filter change */
   useEffect(() => {
     let pageOffset = currentPage * pageSize;
@@ -58,7 +63,14 @@ const File = () => {
   return (
     <div className="file-wrapper">
       <Row>
-        <Col span={7}></Col>
+        <Col span={7}>
+          List of tags:
+          <div>
+            {tags.map(tag => {
+              return <div>{tag.tag}</div>;
+            })}
+          </div>
+        </Col>
         <Col span={12}>
           <div className="file-legend-info">
             <span>Name: {file?.name}</span>
