@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import "./index.scss";
 import Book from "./components/Book";
-
 import CreateTrail from "./components/Trail/CreateTrail";
 import LinesTrail from "./components/Trail/LinesTrail";
 import ReviewTrail from "./components/Trail/ReviewTrail";
@@ -29,7 +28,7 @@ const Root = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/books" element={<Book />}></Route>
         <Route
-          path="c/trail"
+          path="trail/create"
           element={
             <RequireAuth redirectTo="/signin">
               <CreateTrail />
@@ -38,7 +37,7 @@ const Root = () => {
         />
         <Route path="trail/:id" element={<LinesTrail />} />
         <Route
-          path="l/trail"
+          path="trail/list"
           element={
             <RequireAuth redirectTo="/signin">
               <ListTrail />
@@ -46,7 +45,7 @@ const Root = () => {
           }
         />
         <Route
-          path="r/trail"
+          path="trail/review"
           element={
             <RequireAuth redirectTo="/signin">
               <ReviewTrail />

@@ -38,7 +38,7 @@ const CreateTrail = () => {
             </Breadcrumb.Item>
             <Breadcrumb.Item>Trail</Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/c/trail`}>Create trail</Link>
+              <Link to={`/trail/create`}>Create trail</Link>
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>

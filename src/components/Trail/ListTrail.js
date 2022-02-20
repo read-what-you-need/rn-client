@@ -27,7 +27,7 @@ const ListTrail = () => {
             </Breadcrumb.Item>
             <Breadcrumb.Item>Trail</Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/l/trail`}>My trails</Link>
+              <Link to={`/trail/list`}>My trails</Link>
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
