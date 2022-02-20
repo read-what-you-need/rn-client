@@ -23,10 +23,10 @@ const UserProfile = () => {
           <div className="col-sm">
             Trails
             <div className="row">
-              <Link to={`/c/trail`}>Create trail</Link>
+              <Link to={`/trail/create`}>Create trail</Link>
             </div>
             <div className="row">
-              <Link to={`/l/trail`}>My trails</Link>
+              <Link to={`/trail/list`}>My trails</Link>
             </div>
           </div>
           <div className="col-sm">

@@ -111,7 +111,7 @@ const File = () => {
             <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
           </div>
           {trails.length !== 0 && (
-            <Link to={`/r/trail`} state={{ trails, file, query }}>
+            <Link to={`/trail/review`} state={{ trails, file, query }}>
               Reviews Trails <sup>{trails.length}</sup>
             </Link>
           )}
