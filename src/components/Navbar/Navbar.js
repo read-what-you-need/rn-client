@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import UploadButton from "../UploadButton/UploadButton";
 
 import "./Navbar.scss";
-import userApi from "../../api/user";
 
-import { UploadIcon, UserIcon, BookOpenIcon, CompassIcon, Logo } from "../Icons";
+import { UserIcon, BookOpenIcon, CompassIcon, Logo } from "../Icons";
 
 const Navbar = () => {
   let isUserAuth = localStorage.getItem("token") ? true : false;
