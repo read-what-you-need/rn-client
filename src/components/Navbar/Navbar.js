@@ -24,9 +24,9 @@ const NavbarAuth = () => {
           <BookOpenIcon />
           Your Books
         </button>
-        {/* <button className="nav-central-action-icon-button">
+        <button className="nav-central-action-icon-button">
           <CompassIcon /> Explore
-        </button> */}
+        </button>
         <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
       <div className="nav-upload-user-profile-button-wrapper">
