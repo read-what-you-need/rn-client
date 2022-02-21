@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import userApi from "../../api/user";
 
-import Logo from "../Icons/Logo.svg";
-import BookOpenIcon from "../Icons/BookOpenIcon.svg";
-import CompassIcon from "../Icons/CompassIcon.svg";
-import UserIcon from "../Icons/UserIcon.svg";
-import UploadIcon from "../Icons/UploadIcon.svg";
+import { UploadIcon, UserIcon, BookOpenIcon, CompassIcon, Logo } from "../Icons";
 
 const Navbar = () => {
   let isUserAuth = localStorage.getItem("token") ? true : false;
@@ -18,22 +14,22 @@ const NavbarAuth = () => {
   return (
     <div className="nav-bar-auth-wrapper">
       <span className="nav-logo">
-        <img src={Logo} alt="logo" />
+       <Logo/>
       </span>
       <div className="nav-central-action-icons">
         <button className="nav-central-action-icon-button">
-          <img src={BookOpenIcon}></img>Your Books
+         <BookOpenIcon/>Your Books
         </button>
         <button className="nav-central-action-icon-button">
-          <img src={CompassIcon} alt="logo" /> Explore
+         <CompassIcon/> Explore
         </button>
         <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
       <div className="nav-upload-user-profile-button-wrapper">
         <button className="nav-primary-action-button">
-          <img src={UploadIcon} alt="logo" /> Upload
+         <UploadIcon/> Upload
         </button>
-        <img src={UserIcon} alt="Your profile" />
+       <UserIcon/>
       </div>
     </div>
   );
