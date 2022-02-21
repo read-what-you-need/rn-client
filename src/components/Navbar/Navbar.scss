@@ -17,7 +17,16 @@
       place-content: space-between;
       font-family: var(--primary-main-page-font);
       .nav-central-action-icon-button {
+        border: 0px solid;
         background: var(--background);
+        svg{
+          margin-right: var(--size-s);
+        }
+      }
+      .nav-central-action-icon-button:hover {
+        border: 2px solid var(--primary-color);
+        padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
+        border-radius: var(--size-s);
       }
     }
     .nav-upload-user-profile-button-wrapper {
