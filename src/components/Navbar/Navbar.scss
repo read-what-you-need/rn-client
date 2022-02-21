@@ -11,14 +11,19 @@
     place-content: space-between;
     width: var(--main-page-width);
     border-bottom: var(--navbar-bottom-style);
+    .nav-logo {
+      cursor: pointer;
+    }
     .nav-central-action-icons {
       width: 30%;
       display: flex;
       place-content: space-between;
       font-family: var(--primary-main-page-font);
+
       .nav-central-action-icon-button {
         border: 0px solid;
         background: var(--background);
+        padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
         svg {
           margin-right: var(--size-s);
         }
