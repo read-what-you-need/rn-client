@@ -1,3 +1,16 @@
-.user-profile-page{
-    text-align: center;
+.user-profile {
+  display: flex;
+  justify-content: center;
+  .user-profile-wrapper {
+    width: var(--main-page-width);
+    .user-profile-hero-title {
+      margin: 50px 0 0 71px;
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--size-lg);
+      line-height: 41px;
+      color: var(--secondary-color);
+    }
+  }
 }
