@@ -36,6 +36,14 @@ export const CompassIcon = () => {
   );
 };
 
+export const GreenCheckIcon = () => {
+  return (
+    <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M26 2L9.5 18.5L2 11" stroke="#00536D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
 export const UploadIcon = () => {
   return (
     <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
