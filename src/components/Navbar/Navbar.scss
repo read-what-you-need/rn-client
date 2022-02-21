@@ -19,7 +19,7 @@
       .nav-central-action-icon-button {
         border: 0px solid;
         background: var(--background);
-        svg{
+        svg {
           margin-right: var(--size-s);
         }
       }
@@ -32,6 +32,9 @@
     .nav-upload-user-profile-button-wrapper {
       .nav-primary-action-button {
         margin-right: var(--spacer-l);
+        svg {
+          margin-right: var(--size-xxs);
+        }
       }
     }
   }
