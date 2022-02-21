@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.scss";
 import Book from "./components/Book";
@@ -20,6 +21,7 @@ import RequireAuth from "./components/Auth/RequireAuth";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import store from "./reduxStore";
 const Root = () => {
   return (
     <BrowserRouter>
@@ -63,8 +65,8 @@ const Root = () => {
 };
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Root />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { searchQueryRequestAction } from "../../actions";
 import { Link, useParams } from "react-router-dom";
-
 import { Pagination } from "antd";
 import { Timeline } from "antd";
 import { Row, Col } from "antd";
@@ -13,10 +14,12 @@ import tagApi from "../../api/tag";
 
 import "./File.scss";
 
-const File = () => {
+const File = ({searchQuery, line, searchQueryRequestAction}) => {
   let params = useParams();
 
   let id = params.id;
+  console.log(`searchQuery is: ${searchQuery}`)
+  console.log(`line is: ${JSON.stringify(line)}`)
 
   const [file, setFile] = useState("");
   const [query, setQuery] = useState("");
@@ -74,6 +77,9 @@ const File = () => {
         <Col span={12}>
           <div className="file-legend-info">
             <span>Name: {file?.name}</span>
+            <button onClick={() => {
+              searchQueryRequestAction(query)
+            }}>press here redux!</button>
             <span>Processed: {file.processed?.toString()}</span>
           </div>
           <input
@@ -121,4 +127,9 @@ const File = () => {
   );
 };
 
-export default File;
+const mapStateToProps = state => ({
+  searchQuery: state.state.query,
+  line: state.state.lines
+});
+
+export default connect(mapStateToProps, { searchQueryRequestAction })(File);

@@ -1,12 +1,15 @@
 import React from "react";
+import { connect } from 'react-redux'
 import { Link, useNavigate } from "react-router-dom";
 import UploadButton from "../UploadButton/UploadButton";
+import {getQuery } from '../../reducers'
 
 import "./Navbar.scss";
 
 import { UserIcon, BookOpenIcon, CompassIcon, Logo } from "../Icons";
 
-const Navbar = () => {
+const Navbar = ({query}) => {
+  console.log(`query asked in file component is ${JSON.stringify(query)}`);
   let isUserAuth = localStorage.getItem("token") ? true : false;
   return <div className="nav-bar-wrapper">{isUserAuth ? <NavbarAuth /> : <NavbarUnAuth />}</div>;
 };
@@ -54,4 +57,10 @@ const NavbarUnAuth = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+  query: getQuery(state)
+})
+
+export default connect(
+  mapStateToProps
+)(Navbar)
