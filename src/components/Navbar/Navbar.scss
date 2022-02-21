@@ -24,7 +24,7 @@
         }
       }
       .nav-central-action-icon-button:hover {
-        border: 2px solid var(--primary-color);
+        border: 1px solid var(--primary-color);
         padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
         border-radius: var(--size-s);
       }
@@ -33,7 +33,7 @@
       display: flex;
       align-items: center;
       .nav-primary-action-button {
-        margin-right: var(--spacer-l);
+        margin-right: var(--spacer-xl);
         color: var(--black);
         svg {
           margin-right: var(--size-xxs);
