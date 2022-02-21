@@ -30,8 +30,11 @@
       }
     }
     .nav-upload-user-profile-button-wrapper {
+      display: flex;
+      align-items: center;
       .nav-primary-action-button {
         margin-right: var(--spacer-l);
+        color: var(--black);
         svg {
           margin-right: var(--size-xxs);
         }

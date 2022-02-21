@@ -14,22 +14,23 @@ const NavbarAuth = () => {
   return (
     <div className="nav-bar-auth-wrapper">
       <span className="nav-logo">
-       <Logo/>
+        <Logo />
       </span>
       <div className="nav-central-action-icons">
         <button className="nav-central-action-icon-button">
-         <BookOpenIcon/>Your Books
+          <BookOpenIcon />
+          Your Books
         </button>
         <button className="nav-central-action-icon-button">
-         <CompassIcon/> Explore
+          <CompassIcon /> Explore
         </button>
         <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
       <div className="nav-upload-user-profile-button-wrapper">
-        <button className="nav-primary-action-button">
-         <UploadIcon/> Upload
-        </button>
-       <UserIcon/>
+          <button className="nav-primary-action-button push-button push-button primary">
+            <UploadIcon /> Upload
+          </button>
+        <UserIcon />
       </div>
     </div>
   );
