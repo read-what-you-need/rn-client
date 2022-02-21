@@ -1,9 +1,30 @@
 .nav-bar-wrapper {
   display: flex;
   height: var(--navbar-height);
-  justify-content: flex-end;
-  color: var(--navbar-base);
+  justify-content: center;
   .nav-button {
     padding: 0 5px 0 0;
   }
+  .nav-bar-auth-wrapper {
+    display: flex;
+    align-items: center;
+    place-content: space-between;
+    width: var(--main-page-width);
+    border-bottom: var(--navbar-bottom-style);
+    .nav-central-action-icons {
+      width: 30%;
+      display: flex;
+      place-content: space-between;
+      font-family: var(--primary-main-page-font);
+      .nav-central-action-icon-button {
+        background: var(--background);
+      }
+    }
+    .nav-upload-user-profile-button-wrapper {
+      .nav-primary-action-button {
+        margin-right: var(--spacer-l);
+      }
+    }
+  }
+  margin: 0 0 10px 0;
 }
