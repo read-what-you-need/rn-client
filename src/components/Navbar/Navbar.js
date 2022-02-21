@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UploadButton from "../UploadButton/UploadButton";
 
-
 import "./Navbar.scss";
 import userApi from "../../api/user";
 
@@ -17,7 +16,7 @@ const NavbarAuth = () => {
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
-      <span className="nav-logo"  onClick={() => navigate("/")}>
+      <span className="nav-logo" onClick={() => navigate("/")}>
         <Logo />
       </span>
       <div className="nav-central-action-icons">
@@ -31,10 +30,9 @@ const NavbarAuth = () => {
         <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
       <div className="nav-upload-user-profile-button-wrapper">
-        <button className="nav-primary-action-button push-button push-button primary">
-          <UploadIcon /> Upload
-        </button>
-        <UploadButton />
+        <span className="nav-primary-action-button">
+          <UploadButton />
+        </span>
         <UserIcon />
       </div>
     </div>

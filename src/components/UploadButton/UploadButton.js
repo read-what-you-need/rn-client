@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CryptoJS from "crypto-js";
 
 import fileApi from "../../api/file";
+import { UploadIcon } from "../Icons";
 
 import "./UploadButton.scss";
 
@@ -50,16 +51,16 @@ const UploadButton = () => {
   return (
     <div className="upload-button-wrapper">
       {/* button to add book */}
-      <button>
+      <button className="push-button push-button primary">
+        <UploadIcon />
         <input accept=".pdf" type="file" onChange={onSelectFileHandler} id="upload-file" style={{ display: "none" }} />
-        <label htmlFor="upload-file">Add book</label>
+        <label htmlFor="upload-file">Upload</label>
       </button>
 
       {/* show submit button only after the file is selected */}
       {selectedFile && <button onClick={onSubmitClickHandler}>Submit</button>}
 
       {buttonStatus}
-
     </div>
   );
 };
