@@ -11,7 +11,7 @@ const NavbarHomePageAuth = () => {
       <span className="nav-logo" onClick={() => navigate("/")}>
         <Logo />
       </span>
-      <div className="nav-central-action-icons">
+      <div className="nav-central-action-wrapper">
         <button className="nav-central-action-icon-button" onClick={() => navigate("/books")}>
           <BookOpenIcon />
           Your Books
@@ -21,7 +21,7 @@ const NavbarHomePageAuth = () => {
         </button>
         <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
-      <div className="nav-upload-user-profile-button-wrapper">
+      <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
           <UploadButton />
         </span>

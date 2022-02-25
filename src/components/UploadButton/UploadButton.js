@@ -51,7 +51,7 @@ const UploadButton = () => {
   return (
     <div className="upload-button-wrapper">
       {/* button to add book */}
-      <button className="push-button push-button primary">
+      <button className="push-button primary">
         <UploadIcon />
         <input accept=".pdf" type="file" onChange={onSelectFileHandler} id="upload-file" style={{ display: "none" }} />
         <label htmlFor="upload-file">Upload</label>

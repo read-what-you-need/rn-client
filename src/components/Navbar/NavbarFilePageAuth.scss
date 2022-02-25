@@ -12,18 +12,8 @@
     display: flex;
     place-content: space-between;
     font-family: var(--primary-main-page-font);
-    .nav-central-action-icon-button {
-      border: 1px solid var(--background);
-      background: var(--background);
-      padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
-      svg {
-        margin-right: var(--size-s);
-      }
-    }
-    .nav-central-action-icon-button:hover {
-      border: 1px solid var(--primary-color);
-      padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
-      border-radius: var(--size-s);
+    .nav-central-action-logo {
+      margin: 0 var(--size-md) 0 var(--size-xxs);
     }
   }
   .nav-corner-action-wrapper {
