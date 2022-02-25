@@ -1,0 +1,14 @@
+.file-tags {
+  background: var(--background-light-focus);
+  border: var(--border-primary-light);
+  box-sizing: border-box;
+  border-radius: var(--border-radius-lg);
+  .file-tags-header {
+    display: flex;
+    justify-content: center;
+    padding: var(--size-s) 0px var(--size-s) 0;
+    font-family: var(--primary-main-page-font);
+    font-size: var(--size-lg);
+    text-transform: capitalize;
+  }
+}

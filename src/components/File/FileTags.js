@@ -4,8 +4,8 @@ import "./FileTags.scss";
 const FileTags = ({ tags }) => {
   return (
     <div className="file-tags">
-      List of tags:
-      <div>
+      <div className="file-tags-header">Tags in this book</div>
+      <div className="file-tags-item-wrapper">
         {tags.map(tag => {
           return <div>{tag.tag}</div>;
         })}
