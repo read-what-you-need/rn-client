@@ -3,12 +3,30 @@
   border: var(--border-primary-light);
   box-sizing: border-box;
   border-radius: var(--border-radius-lg);
+  display: flow-root;
+  width: 90%;
   .file-tags-header {
     display: flex;
     justify-content: center;
-    padding: var(--size-s) 0px var(--size-s) 0;
+    padding: var(--size-s);
     font-family: var(--primary-main-page-font);
     font-size: var(--size-lg);
     text-transform: capitalize;
   }
+  .file-tags-item-wrapper{
+    padding: 0 var(--size-md) var(--size-lg) var(--size-md);
+    display: flex;
+    flex-flow: wrap;
+    .file-tags-item {
+      margin: 10px;
+      .file-tags-item-text {
+        font-family: var(--primary-main-page-font);
+        font-size: var(--size-md);
+        padding: var(--size-xs);
+        color: var(--secondary-color-dark-700);
+        text-transform: capitalize;
+      }
+    }
+  }
+  
 }

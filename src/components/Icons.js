@@ -14,6 +14,21 @@ export const Logo = () => {
     </svg>
   );
 };
+
+export const RightExpandIcon = () => {
+  return (
+    <svg width="35" height="60" viewBox="0 0 35 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M33.5 30C33.5 45.7401 20.7401 58.5 5 58.5C3.067 58.5 1.5 56.933 1.5 55L1.5 5C1.5 3.067 3.067 1.5 5 1.5C20.7401 1.5 33.5 14.2599 33.5 30Z"
+        fill="white"
+        stroke="#E5E5E5"
+        stroke-width="3"
+      />
+      <path d="M14 24L20 30L14 36" fill="white" />
+      <path d="M14 24L20 30L14 36" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
 export const RasteroIcon = () => {
   return (
     <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,6 +1,8 @@
 .file-wrapper {
   .tags-column {
     padding: var(--size-lg);
+    display: flex;
+    place-content: center;
   }
   .file-legend-info {
     display: flex;
