@@ -42,4 +42,27 @@
       }
     }
   }
+  .line-filters-collapse-button {
+    position: absolute;
+    cursor: pointer;
+    // is -35px as it is the svg width of icon.
+    left: -35px;
+    transition: var(--fast-transition);
+    -webkit-transition: var(--fast-transition);
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+  &.sidebar {
+    transition: var(--fast-transition);
+    -webkit-transition: var(--fast-transition);
+  }
+  &.sidebar-collapsed {
+    transform: translateX(105%);
+    -webkit-transform: translateX(105%);
+  }
+  &.sidebar-collapsed .file-tags-collapse-button {
+    right: 0px;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
 }
