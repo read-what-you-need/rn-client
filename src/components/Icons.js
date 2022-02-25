@@ -76,6 +76,33 @@ export const SimpleBarLinesIcon = () => {
     </svg>
   );
 };
+
+export const SettingsIcon = () => {
+  return (
+    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.72709 17.364V11.0002" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M3.72709 7.36378V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M11.0004 17.3639V9.18188" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M11.0004 5.54556V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18.2733 17.364V12.8185" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18.2733 9.18201V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M1 11.0002H6.45467" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8.27291 5.54565H13.7276" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M15.5458 12.8185H21.0005" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
+export const SortIcon = () => {
+  return (
+    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line y1="0.5" x2="26" y2="0.5" stroke="black" />
+      <line y1="7" x2="17.0625" y2="7" stroke="black" />
+      <line y1="13.5" x2="11.375" y2="13.5" stroke="black" />
+    </svg>
+  );
+};
+
 export const CompassIcon = () => {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">

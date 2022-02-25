@@ -102,15 +102,8 @@ const File = () => {
             />
           )}
         </Col>
-        <Col span={5}>
-          <div className="lines-filter-dash">
-            <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
-          </div>
-          {trails.length !== 0 && (
-            <Link to={`/trail/review`} state={{ trails, file, query }}>
-              Reviews Trails <sup>{trails.length}</sup>
-            </Link>
-          )}
+        <Col span={6} className="filter-column">
+          <LineFilters />
         </Col>
       </Row>
     </div>

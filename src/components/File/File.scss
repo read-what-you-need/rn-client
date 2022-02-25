@@ -4,6 +4,11 @@
     display: flex;
     place-content: center;
   }
+  .filter-column {
+    padding: var(--size-lg);
+    display: flex;
+    place-content: center;
+  }
   .file-legend-info {
     display: flex;
     flex-direction: column;
