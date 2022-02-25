@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 import "./FileTags.scss";
-import { RightExpandIcon } from "../Icons";
 
 const FileTags = ({ tags }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
-    <div className="file-tags">
-      <div className="file-tags-header">Tags in this book</div>
-      <div className="file-tags-expand-icon">
-        <RightExpandIcon />
+    <div className={`file-tags sidebar ${isCollapsed ? "sidebar-collapsed" : ""}`}>
+      <div className={"file-tags-header"}>Tags in this book</div>
+      <div
+        className="file-tags-collapse-button"
+        onClick={() => {
+          setIsCollapsed(!isCollapsed);
+        }}>
+        {!isCollapsed ? <LeftCollapseIcon /> : <RightExpandIcon />}
       </div>
       <div className="file-tags-item-wrapper">
         {tags.map(tag => {

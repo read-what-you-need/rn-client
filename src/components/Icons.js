@@ -29,6 +29,21 @@ export const RightExpandIcon = () => {
     </svg>
   );
 };
+
+export const LeftCollapseIcon = () => {
+  return (
+    <svg width="35" height="60" viewBox="0 0 35 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5 1.5C20.7401 1.5 33.5 14.2599 33.5 30C33.5 45.7401 20.7401 58.5 5 58.5C3.067 58.5 1.5 56.933 1.5 55V5C1.5 3.067 3.067 1.5 5 1.5Z"
+        fill="white"
+        stroke="#E5E5E5"
+        stroke-width="3"
+      />
+      <path d="M20 36L14 30L20 24" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
 export const RasteroIcon = () => {
   return (
     <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
