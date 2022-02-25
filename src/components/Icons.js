@@ -20,14 +20,14 @@ export const CompassIcon = () => {
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14 27C21.1797 27 27 21.1797 27 14C27 6.8203 21.1797 1 14 1C6.8203 1 1 6.8203 1 14C1 21.1797 6.8203 27 14 27Z"
-        stroke="#00536D"
+        stroke="#9C9B9B"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M19.512 8.48779L16.756 16.7558L8.48804 19.5118L11.244 11.2438L19.512 8.48779Z"
-        stroke="#00536D"
+        d="M19.5119 8.48792L16.7559 16.7559L8.48792 19.5119L11.2439 11.2439L19.5119 8.48792Z"
+        stroke="#9C9B9B"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
