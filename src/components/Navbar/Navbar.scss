@@ -5,46 +5,5 @@
   .nav-button {
     padding: 0 5px 0 0;
   }
-  .nav-bar-auth-wrapper {
-    display: flex;
-    align-items: center;
-    place-content: space-between;
-    width: var(--main-page-width);
-    border-bottom: var(--navbar-bottom-style);
-    .nav-logo {
-      cursor: pointer;
-    }
-    .nav-central-action-icons {
-      width: 30%;
-      display: flex;
-      place-content: space-between;
-      font-family: var(--primary-main-page-font);
-
-      .nav-central-action-icon-button {
-        border: 0px solid;
-        background: var(--background);
-        padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
-        svg {
-          margin-right: var(--size-s);
-        }
-      }
-      .nav-central-action-icon-button:hover {
-        border: 1px solid var(--primary-color);
-        padding: var(--size-xs) var(--size-s) var(--size-xs) var(--size-s);
-        border-radius: var(--size-s);
-      }
-    }
-    .nav-upload-user-profile-button-wrapper {
-      display: flex;
-      align-items: center;
-      .nav-primary-action-button {
-        margin-right: var(--spacer-xl);
-        color: var(--black);
-        svg {
-          margin-right: var(--size-xxs);
-        }
-      }
-    }
-  }
   margin: 0 0 10px 0;
 }
