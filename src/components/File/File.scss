@@ -1,4 +1,7 @@
 .file-wrapper {
+  .tags-column {
+    padding: var(--size-lg);
+  }
   .file-legend-info {
     display: flex;
     flex-direction: column;

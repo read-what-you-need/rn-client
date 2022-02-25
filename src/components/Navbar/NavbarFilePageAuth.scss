@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   place-content: space-between;
-  width: var(--main-page-width);
+  width: -webkit-fill-available;
+  padding: 0 var(--size-lg);
   border-bottom: var(--navbar-bottom-style);
   .nav-logo {
     cursor: pointer;

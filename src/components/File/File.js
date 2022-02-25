@@ -5,6 +5,7 @@ import { Pagination } from "antd";
 import { Timeline } from "antd";
 import { Row, Col } from "antd";
 
+import FileTags from "./FileTags";
 import LineItem from "../Line/LineItem";
 import LineFilters from "../Line/LineFilters";
 import fileApi from "../../api/file";
@@ -63,13 +64,8 @@ const File = () => {
   return (
     <div className="file-wrapper">
       <Row>
-        <Col span={7}>
-          List of tags:
-          <div>
-            {tags.map(tag => {
-              return <div>{tag.tag}</div>;
-            })}
-          </div>
+        <Col span={6} className="tags-column">
+          <FileTags tags={tags} />
         </Col>
         <Col span={12}>
           <div className="file-legend-info">
