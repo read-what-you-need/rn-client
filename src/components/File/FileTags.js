@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+
+import { tagsCollapsible } from "../../actions";
+
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 import "./FileTags.scss";
 
-const FileTags = ({ tags }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
+const FileTags = ({ tags = [], isCollapsed, tagsCollapsible }) => {
   return (
     <div className={`file-tags sidebar ${isCollapsed ? "sidebar-collapsed" : ""}`}>
       <div className={"file-tags-header"}>Tags in this book</div>
       <div
         className="file-tags-collapse-button"
         onClick={() => {
-          setIsCollapsed(!isCollapsed);
+          tagsCollapsible();
         }}>
         {!isCollapsed ? <LeftCollapseIcon /> : <RightExpandIcon />}
       </div>
@@ -29,5 +31,9 @@ const FileTags = ({ tags }) => {
     </div>
   );
 };
-
-export default FileTags;
+const mapStateToProps = state => ({
+  tags: state.tagsWrapper?.tags || [],
+  isCollapsed: state.tagsWrapper?.isCollapsed
+});
+const actionCreators = { tagsCollapsible };
+export default connect(mapStateToProps, actionCreators)(FileTags);

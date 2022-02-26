@@ -13,7 +13,7 @@ const LinesTrail = () => {
     trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 5 }).then(res => {
       setTrailLines(res);
     });
-  }, []);
+  });
 
 
   return (

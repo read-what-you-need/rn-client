@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Breadcrumb, Button } from "antd";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import trailApi from "../../api/trail";
 
 import "./ReviewTrail.scss";
@@ -11,7 +11,6 @@ const ReviewTrail = () => {
   let file = location.state?.file;
   let trails = location.state?.trails;
   let query = location.state?.query;
-console.log(file)
   const [trailTitle, setTrailTitle] = useState(location.state?.query || []);
   const [trailLines, setTrailLines] = useState(location.state?.trails || []);
 

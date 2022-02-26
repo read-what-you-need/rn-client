@@ -9,5 +9,4 @@ const Navbar = () => {
   return <div className="nav-bar-wrapper">{isUserAuth ? <NavbarAuth /> : <NavbarNonAuth />}</div>;
 };
 
-
 export default Navbar;

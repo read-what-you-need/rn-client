@@ -3,5 +3,7 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
   border-radius: 30px;
   padding: 24px 40px;
-  height: -webkit-fill-available;
+  height: fit-content;
+  min-height: 70vh;
+  height:auto;
 }

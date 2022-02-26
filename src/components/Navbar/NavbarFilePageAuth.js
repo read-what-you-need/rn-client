@@ -1,10 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { searchQueryRequest } from "../../actions";
 import { SimpleBarLinesIcon, GreenCheckIcon, RasteroIcon, Logo } from "../Icons";
 import { Input } from "antd";
 import "./NavbarFilePageAuth.scss";
 
-const NavbarFilePageAuth = () => {
+const NavbarFilePageAuth = ({ searchRequest }) => {
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -15,7 +17,12 @@ const NavbarFilePageAuth = () => {
         <div className="nav-central-action-logo">
           <RasteroIcon />
         </div>
-        <Input placeholder="Ask any question. I’ll will try my best to find the answer!" />
+        <Input
+          placeholder="Ask any question. I’ll will try my best to find the answer!"
+          onPressEnter={e => {
+            searchRequest({ query: e.target.value });
+          }}
+        />
       </div>
       <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
@@ -30,5 +37,11 @@ const NavbarFilePageAuth = () => {
     </div>
   );
 };
+const mapStateToProps = state => ({
+  filters: state.filtersWrapper.filters
+});
 
-export default NavbarFilePageAuth;
+const actionCreators = {
+  searchRequest: searchQueryRequest
+};
+export default connect(mapStateToProps, actionCreators)(NavbarFilePageAuth);

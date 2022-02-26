@@ -7,8 +7,8 @@ let apiEndPoint = process.env.REACT_APP_NODE_API;
 
 // defining all api calls that interact with the table
 const tagApi = {
-  getTags: async function ({ id, offset = 0, limit = 6, orderBy = "frequency_count", arrangeBy = "desc" }) {
-    let url = `${apiEndPoint}tag/${id}?orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}`;
+  getTags: async function ({ fileId, offset = 0, limit = 6, orderBy = "frequency_count", arrangeBy = "desc" }) {
+    let url = `${apiEndPoint}tag/${fileId}?orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}`;
     let result = axios
       .get(url, headerConfig.axiosConfig)
       .then(response => Helpers.responseHandler({ response, error: {} }))

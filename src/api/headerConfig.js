@@ -15,7 +15,6 @@ let axiosConfig = {
   }
 };
 
-export default {
-  axiosConfig,
-  axiosFormConfig
-};
+let axiosConfigs = { axiosConfig, axiosFormConfig };
+
+export default axiosConfigs;

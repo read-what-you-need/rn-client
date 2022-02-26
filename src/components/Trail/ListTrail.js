@@ -11,7 +11,6 @@ const ListTrail = () => {
       setTrails(res);
     });
   }, []);
-  console.log(trails);
 
   return (
     <div className="App">
