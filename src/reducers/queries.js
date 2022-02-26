@@ -1,4 +1,4 @@
-import { SEARCH_QUERY_REQUEST, SEARCH_QUERY_REQUEST_SUCCESS } from "../constants/ActionTypes";
+import * as types from "../constants/ActionTypes";
 
 const initialState = {
   query: ""
@@ -6,9 +6,11 @@ const initialState = {
 
 const queries = (state = initialState, action) => {
   switch (action.type) {
-    case SEARCH_QUERY_REQUEST:
+    case types.ON_FILE_PAGE_INIT:
+      return initialState
+    case types.SEARCH_QUERY_REQUEST:
       return initialState;
-    case SEARCH_QUERY_REQUEST_SUCCESS:
+    case types.SEARCH_QUERY_REQUEST_SUCCESS:
       state = {
         query: action.query
       };

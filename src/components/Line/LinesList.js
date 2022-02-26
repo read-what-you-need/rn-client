@@ -7,7 +7,7 @@ import { getQuery } from "../../reducers";
 import "./LinesList.scss";
 
 const LinesList = ({ lines, query }) => {
-  console.log(`list component ${JSON.stringify(query)}`);
+  console.log(`list component got the results for query ${JSON.stringify(query)}`);
   return (
     <div className="lines-list">
       {lines.map(line => {

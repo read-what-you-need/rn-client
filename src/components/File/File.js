@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Pagination } from "antd";
-import { Row, Col } from "antd";
+import { connect } from "react-redux";
+
+import { useParams } from "react-router-dom";
+
+import { filePageInit } from "../../actions";
 
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
@@ -10,10 +12,10 @@ import LinesList from "../Line/LinesList";
 import fileApi from "../../api/file";
 import queryApi from "../../api/query";
 import tagApi from "../../api/tag";
-
+import { Row, Col } from "antd";
 import "./File.scss";
 
-const File = () => {
+const File = ({ filePageInit }) => {
   let params = useParams();
   let id = params.id;
   const [file, setFile] = useState("");
@@ -30,8 +32,8 @@ const File = () => {
   const [orderBy, setOrderBy] = useState("score");
   const [arrangeBy, setArrangeBy] = useState("desc");
 
-
   useEffect(() => {
+    filePageInit({ fileId: id });
     fileApi.getFileById(id).then(res => {
       setFile(res);
     });
@@ -98,4 +100,11 @@ const File = () => {
   );
 };
 
-export default File;
+const mapStateToProps = state => ({
+  searchQuery: state.queryWrapper.query
+});
+
+const actionCreators = {
+  filePageInit
+};
+export default connect(mapStateToProps, actionCreators)(File);
