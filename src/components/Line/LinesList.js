@@ -4,7 +4,8 @@ import LineItem from "./LineItem";
 
 import "./LinesList.scss";
 
-const LinesList = ({ lines, query }) => {
+const LinesList = ({ lines }) => {
+  console.log(lines);
   return (
     <div className="lines-list">
       {lines.map(line => {
@@ -15,7 +16,7 @@ const LinesList = ({ lines, query }) => {
 };
 
 const mapStateToProps = state => ({
-
+  lines: state.linesWrapper?.linesList || []
 });
 
 export default connect(mapStateToProps)(LinesList);
