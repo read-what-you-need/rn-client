@@ -7,4 +7,28 @@
     border-radius: var(--border-radius-lg);
     margin: var(--size-xs) 0 0 0;
   }
+  .book-page-header-wrapper {
+    display: flex;
+    place-content: space-between;
+    align-items: center;
+    margin: 30px 0px;
+    .book-page-header-text {
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--size-xl);
+      color: var(--secondary-color);
+    }
+    .book-page-header-filter {
+      .book-page-header-filter-text {
+        font-family: var(--primary-main-page-font);
+        font-weight: 600;
+        font-size: var(--size-mmd);
+        color: var(--black);
+      }
+      svg {
+        margin-left: var(--size-xs);
+      }
+    }
+  }
 }
