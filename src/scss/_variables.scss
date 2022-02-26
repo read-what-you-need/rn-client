@@ -4,37 +4,63 @@
   /* Font family */
   --primary-main-page-font: "Source Sans Pro", sans-serif;
 
-  /* Font sizes */
+  /* Sizes */
   --size-xxxs: 2px;
   --size-xxs: 4px;
   --size-xs: 8px;
   --size-s: 12px;
   --size-md: 16px;
+  --size-mmd: 20px;
   --size-lg: 24px;
   --size-xl: 36px;
   --size-xxl: 72px;
 
-  /*Abstract colors defined*/
+  /* Abstract colors*/
   --background: #fafafa;
+  --background-light-focus: #ffffff;
 
   --navbar-base: #ffffff;
   --primary-color: #eed44b;
-  --primary-color-dark-shade: #B39709;
+  --primary-color-dark-shade: #b39709;
+
   --secondary-color: #004054;
+  --secondary-color-light-100: #dbf6ff;
+  --secondary-color-light-300: #8bc2d4;
+  --secondary-color-light-500: #42a0be;
+  --secondary-color-dark-500: #236b82;
+  --secondary-color-dark-700: #00536d;
+
   --black: #000;
   --white: #fff;
+  --grey: #c4c4c4;
 
-  --navbar-bottom-style: 3px solid #ebebeb;
-  /* widths defined  */
+  /* Text colors*/
+  --heading-color:  #000;
+  --sub-heading-color:  #4E4E4E;
 
+  /* Spaces  */
   --spacer-xs: 4px;
   --spacer-s: 8px;
   --spacer-m: 12px;
   --spacer-l: 18px;
   --spacer-xl: 28px;
 
+  /* Widths  */
+
   --main-page-width: 90%;
-  /* heights of components defined  */
+
+
+  --fast-transition: all 0.5s ease-in-out;
+
+  /* Borders  */
+  --navbar-bottom-border: 3px solid #ebebeb;
+  --border-primary-light: 3px solid #e5e5e5;
+
+  /* Border radius  */
+
+  --border-radius-lg: 20px;
+
+  /* Heights of components  */
 
   --navbar-height: 80px;
 }

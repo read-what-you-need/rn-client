@@ -15,19 +15,107 @@ export const Logo = () => {
   );
 };
 
+export const RightExpandIcon = () => {
+  return (
+    <svg width="35" height="60" viewBox="0 0 35 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M33.5 30C33.5 45.7401 20.7401 58.5 5 58.5C3.067 58.5 1.5 56.933 1.5 55L1.5 5C1.5 3.067 3.067 1.5 5 1.5C20.7401 1.5 33.5 14.2599 33.5 30Z"
+        fill="white"
+        stroke="#E5E5E5"
+        stroke-width="3"
+      />
+      <path d="M14 24L20 30L14 36" fill="white" />
+      <path d="M14 24L20 30L14 36" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
+export const LeftCollapseIcon = () => {
+  return (
+    <svg width="35" height="60" viewBox="0 0 35 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5 1.5C20.7401 1.5 33.5 14.2599 33.5 30C33.5 45.7401 20.7401 58.5 5 58.5C3.067 58.5 1.5 56.933 1.5 55V5C1.5 3.067 3.067 1.5 5 1.5Z"
+        fill="white"
+        stroke="#E5E5E5"
+        stroke-width="3"
+      />
+      <path d="M20 36L14 30L20 24" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
+export const RasteroIcon = () => {
+  return (
+    <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="5.5" cy="30.5" r="4.5" stroke="#A7A7A7" stroke-width="2" />
+      <circle cx="43.5" cy="30.5" r="4.5" stroke="#A7A7A7" stroke-width="2" />
+      <circle cx="24.5" cy="4.5" r="3.5" stroke="#A7A7A7" stroke-width="2" />
+      <rect x="6" y="17" width="37" height="30" rx="11" fill="white" stroke="#A7A7A7" stroke-width="2" />
+      <path
+        d="M18 27.5C18 28.7595 16.7865 30 15 30C13.2135 30 12 28.7595 12 27.5C12 26.2405 13.2135 25 15 25C16.7865 25 18 26.2405 18 27.5Z"
+        stroke="#A7A7A7"
+        stroke-width="2"
+      />
+      <path
+        d="M38 27.5C38 28.7595 36.7865 30 35 30C33.2135 30 32 28.7595 32 27.5C32 26.2405 33.2135 25 35 25C36.7865 25 38 26.2405 38 27.5Z"
+        stroke="#A7A7A7"
+        stroke-width="2"
+      />
+      <path d="M21 39C24.075 40.3108 25.8228 40.3557 29 39" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round" />
+      <line x1="25" y1="16" x2="25" y2="8" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  );
+};
+
+export const SimpleBarLinesIcon = () => {
+  return (
+    <svg width="36" height="31" viewBox="0 0 36 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.486572" y="12.75" width="35.027" height="5.25" rx="2" fill="#FFF7CD" />
+      <rect x="0.486572" width="35.027" height="5.25" rx="2" fill="#FFF7CD" />
+      <rect x="0.486572" y="25.5" width="17.5135" height="5.25" rx="2" fill="#FFF7CD" />
+    </svg>
+  );
+};
+
+export const SettingsIcon = () => {
+  return (
+    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.72709 17.364V11.0002" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M3.72709 7.36378V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M11.0004 17.3639V9.18188" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M11.0004 5.54556V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18.2733 17.364V12.8185" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18.2733 9.18201V1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M1 11.0002H6.45467" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8.27291 5.54565H13.7276" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M15.5458 12.8185H21.0005" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
+export const SortIcon = () => {
+  return (
+    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line y1="0.5" x2="26" y2="0.5" stroke="black" />
+      <line y1="7" x2="17.0625" y2="7" stroke="black" />
+      <line y1="13.5" x2="11.375" y2="13.5" stroke="black" />
+    </svg>
+  );
+};
+
 export const CompassIcon = () => {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14 27C21.1797 27 27 21.1797 27 14C27 6.8203 21.1797 1 14 1C6.8203 1 1 6.8203 1 14C1 21.1797 6.8203 27 14 27Z"
-        stroke="#00536D"
+        stroke="#9C9B9B"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M19.512 8.48779L16.756 16.7558L8.48804 19.5118L11.244 11.2438L19.512 8.48779Z"
-        stroke="#00536D"
+        d="M19.5119 8.48792L16.7559 16.7559L8.48792 19.5119L11.2439 11.2439L19.5119 8.48792Z"
+        stroke="#9C9B9B"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

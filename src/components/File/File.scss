@@ -1,7 +1,16 @@
 .file-wrapper {
-  .file-legend-info {
+  .tags-column {
+    padding: var(--size-lg);
     display: flex;
-    flex-direction: column;
+    place-content: center;
+  }
+  .filter-column {
+    padding: var(--size-lg);
+    display: flex;
+    place-content: center;
+  }
+  .lines-list-wrapper {
+    margin: var(--size-lg);
   }
   .input-box-search-primary {
     margin: 20px 0 0 0;

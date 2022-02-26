@@ -1,0 +1,31 @@
+.nav-bar-auth-wrapper {
+  display: flex;
+  align-items: center;
+  place-content: space-between;
+  width: -webkit-fill-available;
+  padding: 0 var(--size-lg);
+  border-bottom: var(--navbar-bottom-border);
+  .nav-logo {
+    cursor: pointer;
+  }
+  .nav-central-action-wrapper {
+    width: 40%;
+    display: flex;
+    place-content: space-between;
+    font-family: var(--primary-main-page-font);
+    .nav-central-action-logo {
+      margin: 0 var(--size-md) 0 var(--size-xxs);
+    }
+  }
+  .nav-corner-action-wrapper {
+    display: flex;
+    align-items: center;
+    .nav-primary-action-button {
+      margin-right: var(--spacer-xl);
+      color: var(--black);
+      svg {
+        margin-right: var(--size-xxs);
+      }
+    }
+  }
+}

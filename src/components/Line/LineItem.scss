@@ -1,0 +1,10 @@
+.line-item {
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 24px 20px 24px 20px;
+  .line-item-text {
+    padding: 10px 20px;
+    text-align: justify;
+  }
+}

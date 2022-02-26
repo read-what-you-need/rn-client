@@ -1,4 +1,4 @@
-.line-filters-wrapper {
+.file-tags {
   position: relative;
   background: var(--background-light-focus);
   border: var(--border-primary-light);
@@ -7,34 +7,22 @@
   display: flow-root;
   width: 90%;
   height: fit-content;
-  .line-filters-header {
+  .file-tags-header {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: var(--size-s);
     font-family: var(--primary-main-page-font);
     font-size: var(--size-lg);
     text-transform: capitalize;
     color: var(--heading-color);
-    svg {
-      margin: 0 0 0 var(--size-xs);
-    }
   }
-  .line-filters-sub-header {
-    font-family: var(--primary-main-page-font);
-    font-style: normal;
-    font-weight: normal;
-    font-size: var(--size-mmd);
-    color: var(--sub-heading-color);
-    padding: var(--size-s) var(--size-xxs) var(--size-s) var(--size-xl);
-  }
-  .line-filters-item-wrapper {
-    padding: 0 var(--size-s) var(--size-md) var(--size-s);
+  .file-tags-item-wrapper {
+    padding: 0 var(--size-md) var(--size-lg) var(--size-md);
     display: flex;
     flex-flow: wrap;
-    .line-filters-item {
+    .file-tags-item {
       margin: 10px;
-      .line-filters-item-text {
+      .file-tags-item-text {
         font-family: var(--primary-main-page-font);
         font-size: var(--size-md);
         padding: var(--size-xs);
@@ -43,27 +31,25 @@
       }
     }
   }
-  .line-filters-collapse-button {
+  .file-tags-collapse-button {
     position: absolute;
     cursor: pointer;
     // is -35px as it is the svg width of icon.
-    left: -35px;
+    right: -35px;
     transition: var(--fast-transition);
     -webkit-transition: var(--fast-transition);
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
   }
   &.sidebar {
     transition: var(--fast-transition);
     -webkit-transition: var(--fast-transition);
   }
   &.sidebar-collapsed {
-    transform: translateX(105%);
-    -webkit-transform: translateX(105%);
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
   &.sidebar-collapsed .file-tags-collapse-button {
     right: 0px;
-    transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
   }
 }

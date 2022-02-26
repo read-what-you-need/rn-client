@@ -6,8 +6,10 @@ import { Pagination } from "antd";
 import { Timeline } from "antd";
 import { Row, Col } from "antd";
 
-import LineItem from "../Line/LineItem";
+import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
+import LinesList from "../Line/LinesList";
+
 import fileApi from "../../api/file";
 import queryApi from "../../api/query";
 import tagApi from "../../api/tag";
@@ -28,7 +30,7 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
   const [trails, setTrails] = useState([]);
   const [tags, setTags] = useState([]);
 
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(15);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalResultsCount, setTotalResultsCount] = useState([]);
 
@@ -66,23 +68,11 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
   return (
     <div className="file-wrapper">
       <Row>
-        <Col span={7}>
-          List of tags:
-          <div>
-            {tags.map(tag => {
-              return <div>{tag.tag}</div>;
-            })}
-          </div>
+        <Col span={6} className="tags-column">
+          <FileTags tags={tags} />
         </Col>
         <Col span={12}>
-          <div className="file-legend-info">
-            <span>Name: {file?.name}</span>
-            <button onClick={() => {
-              searchQueryRequestAction(query)
-            }}>press here redux!</button>
-            <span>Processed: {file.processed?.toString()}</span>
-          </div>
-          <input
+          {/* <input
             className="input-box-search-primary"
             type="search"
             value={[query]}
@@ -93,34 +83,26 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
             }}
             onChange={event => {
               setQuery(event.target.value);
-            }}></input>
+            }}></input> */}
 
-          <div className="lines-table-wrapper">
-            {lines.map(line => {
-              return <LineItem key={line.file_line_id} line={line} addTrailHandler={addTrailHandler} />;
-            })}
+          <div className="lines-list-wrapper">
+            <LinesList lines={lines} />
+
+            {/* {lines.length > 0 && (
+              <Pagination
+                defaultCurrent={currentPage}
+                onChange={(page, pageSize) => {
+                  setCurrentPage(page - 1);
+                  setPageSize(pageSize);
+                }}
+                pageSize={pageSize}
+                total={totalResultsCount}
+              />
+            )} */}
           </div>
-          {lines.length > 0 && (
-            <Pagination
-              defaultCurrent={currentPage}
-              onChange={(page, pageSize) => {
-                setCurrentPage(page - 1);
-                setPageSize(pageSize);
-              }}
-              pageSize={pageSize}
-              total={totalResultsCount}
-            />
-          )}
         </Col>
-        <Col span={5}>
-          <div className="lines-filter-dash">
-            <LineFilters orderByChange={setOrderBy} arrangeByChange={setArrangeBy} />
-          </div>
-          {trails.length !== 0 && (
-            <Link to={`/trail/review`} state={{ trails, file, query }}>
-              Reviews Trails <sup>{trails.length}</sup>
-            </Link>
-          )}
+        <Col span={6} className="filter-column">
+          <LineFilters />
         </Col>
       </Row>
     </div>
