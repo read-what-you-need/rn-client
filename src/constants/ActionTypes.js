@@ -10,7 +10,11 @@ export const GET_FILE_TAGS_REQUEST_SUCCESS = 'GET_FILE_TAGS_REQUEST_SUCCESS'
 export const GET_FILE_TAGS_REQUEST_FAILURE = 'GET_FILE_TAGS_REQUEST_FAILURE'
 
 
+/** Tags */
+export const TAGS_COLLAPSE = 'TAGS_COLLAPSE'
+
 /** Filters */
+export const FILTERS_COLLAPSE = 'FILTERS_COLLAPSE'
 
 
 /** Search query a.k.a query */

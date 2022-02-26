@@ -6,7 +6,8 @@ const initialState = {
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc"
-  }
+  },
+  isCollapsed: false
 };
 
 const filters = (state = initialState, action) => {
@@ -17,6 +18,9 @@ const filters = (state = initialState, action) => {
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
     case types.SEARCH_QUERY_REQUEST:
       return { ...state, isLoading: true, filters: { ...state.filters, query: action.query } };
+
+    case types.FILTERS_COLLAPSE:
+      return { ...state, isCollapsed: !state.isCollapsed };
     default:
       return state;
   }
