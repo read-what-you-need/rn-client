@@ -1,16 +1,15 @@
 import React from "react";
-import { Button } from "antd";
-
+import "./LineItem.scss";
 const LineItem = ({ line, addTrailHandler }) => {
   return (
-    <>
-      <p>
-        {" "}
-        {line.line} <br />{" "}
+    <div className="line-item">
+      <div className="line-item-text">
+        {line.line} 
+        <br/>
         <code>
           score: {(line.score * 100).toString().slice(0, 5)}, line index: {line.line_index}
         </code>
-        <br />
+        {/* <br />
         <Button> Relevant</Button>
         <Button>Not relevant</Button>
         <Button
@@ -18,10 +17,9 @@ const LineItem = ({ line, addTrailHandler }) => {
             addTrailHandler(line);
           }}>
           Add to trail
-        </Button>
-      </p>
-      <hr />
-    </>
+        </Button> */}
+      </div>
+    </div>
   );
 };
 

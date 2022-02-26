@@ -6,8 +6,9 @@ import { Timeline } from "antd";
 import { Row, Col } from "antd";
 
 import FileTags from "./FileTags";
-import LineItem from "../Line/LineItem";
 import LineFilters from "../Line/LineFilters";
+import LinesList from "../Line/LinesList";
+
 import fileApi from "../../api/file";
 import queryApi from "../../api/query";
 import tagApi from "../../api/tag";
@@ -26,7 +27,7 @@ const File = () => {
   const [trails, setTrails] = useState([]);
   const [tags, setTags] = useState([]);
 
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(15);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalResultsCount, setTotalResultsCount] = useState([]);
 
@@ -68,10 +69,6 @@ const File = () => {
           <FileTags tags={tags} />
         </Col>
         <Col span={12}>
-          <div className="file-legend-info">
-            <span>Name: {file?.name}</span>
-            <span>Processed: {file.processed?.toString()}</span>
-          </div>
           <input
             className="input-box-search-primary"
             type="search"
@@ -85,22 +82,21 @@ const File = () => {
               setQuery(event.target.value);
             }}></input>
 
-          <div className="lines-table-wrapper">
-            {lines.map(line => {
-              return <LineItem key={line.file_line_id} line={line} addTrailHandler={addTrailHandler} />;
-            })}
+          <div className="lines-list-wrapper">
+            <LinesList lines={lines} />
+
+            {/* {lines.length > 0 && (
+              <Pagination
+                defaultCurrent={currentPage}
+                onChange={(page, pageSize) => {
+                  setCurrentPage(page - 1);
+                  setPageSize(pageSize);
+                }}
+                pageSize={pageSize}
+                total={totalResultsCount}
+              />
+            )} */}
           </div>
-          {lines.length > 0 && (
-            <Pagination
-              defaultCurrent={currentPage}
-              onChange={(page, pageSize) => {
-                setCurrentPage(page - 1);
-                setPageSize(pageSize);
-              }}
-              pageSize={pageSize}
-              total={totalResultsCount}
-            />
-          )}
         </Col>
         <Col span={6} className="filter-column">
           <LineFilters />

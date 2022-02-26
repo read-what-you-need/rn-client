@@ -9,9 +9,8 @@
     display: flex;
     place-content: center;
   }
-  .file-legend-info {
-    display: flex;
-    flex-direction: column;
+  .lines-list-wrapper {
+    margin: var(--size-lg);
   }
   .input-box-search-primary {
     margin: 20px 0 0 0;
