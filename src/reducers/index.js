@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
+
 import lines from "./lines";
+import queries from "./queries";
+
 
 export default combineReducers({
-  state: lines
+  queryWrapper: queries,
+  linesWrapper: lines
 });
 
 export const getQuery = state => {
-  return state.state.query;
+  return state.queryWrapper.query;
 };

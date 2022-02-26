@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { searchQueryRequestAction } from "../../actions";
 import { Link, useParams } from "react-router-dom";
 import { Pagination } from "antd";
-import { Timeline } from "antd";
 import { Row, Col } from "antd";
 
 import FileTags from "./FileTags";
@@ -16,13 +13,9 @@ import tagApi from "../../api/tag";
 
 import "./File.scss";
 
-const File = ({searchQuery, line, searchQueryRequestAction}) => {
+const File = () => {
   let params = useParams();
-
   let id = params.id;
-  console.log(`searchQuery is: ${searchQuery}`)
-  console.log(`line is: ${JSON.stringify(line)}`)
-
   const [file, setFile] = useState("");
   const [query, setQuery] = useState("");
   const [lines, setLines] = useState([]);
@@ -37,7 +30,7 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
   const [orderBy, setOrderBy] = useState("score");
   const [arrangeBy, setArrangeBy] = useState("desc");
 
-  /* Fetch file information on page load */
+
   useEffect(() => {
     fileApi.getFileById(id).then(res => {
       setFile(res);
@@ -46,7 +39,7 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
       setTags(tags);
     });
   }, []);
-  /* Fetch latest changes if current page or filter change */
+
   useEffect(() => {
     let pageOffset = currentPage * pageSize;
     sendQueryHandler({ fileId: file.file_id, query, offset: pageOffset, limit: pageSize, orderBy, arrangeBy });
@@ -61,10 +54,6 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
     }
   };
 
-  const addTrailHandler = trail => {
-    console.log(`file line id is: ${trails}`);
-    setTrails([...trails, trail]);
-  };
   return (
     <div className="file-wrapper">
       <Row>
@@ -109,9 +98,4 @@ const File = ({searchQuery, line, searchQueryRequestAction}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  searchQuery: state.state.query,
-  line: state.state.lines
-});
-
-export default connect(mapStateToProps, { searchQueryRequestAction })(File);
+export default File;

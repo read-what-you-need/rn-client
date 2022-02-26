@@ -1,23 +1,15 @@
-import { SEARCH_QUERY_REQUEST, SEARCH_QUERY_REQUEST_SUCCESS } from "../constants/ActionTypes";
+import { SEARCH_QUERY_REQUEST } from "../constants/ActionTypes";
 
 const initialState = {
-  query: ""
+  linesList: []
 };
 
 const lines = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_QUERY_REQUEST:
-      console.log('asked for new lines')
-      return initialState
-    case SEARCH_QUERY_REQUEST_SUCCESS:
-      state = {
-        query: action.query
-      }
-      return state;
+      return initialState;
     default:
-      return {
-        
-      }
+      return {};
   }
-}
+};
 export default lines;
