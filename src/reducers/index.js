@@ -10,6 +10,6 @@ export default combineReducers({
   filtersWrapper: filters
 });
 
-export const getQuery = state => {
-  return state.queryWrapper.query;
-};
+// export const getQuery = state => {
+//   return state.queryWrapper.query;
+// };

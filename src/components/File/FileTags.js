@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 import "./FileTags.scss";
 
-const FileTags = ({ tags }) => {
+const FileTags = ({ tags = [] }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (

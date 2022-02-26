@@ -34,33 +34,30 @@ const File = ({ filePageInit }) => {
 
   useEffect(() => {
     filePageInit({ fileId: id });
-    fileApi.getFileById(id).then(res => {
-      setFile(res);
-    });
-    tagApi.getTags({ id }).then(tags => {
-      setTags(tags);
-    });
+    // fileApi.getFileById(id).then(res => {
+    //   setFile(res);
+    // });
   }, []);
 
-  useEffect(() => {
-    let pageOffset = currentPage * pageSize;
-    sendQueryHandler({ fileId: file.file_id, query, offset: pageOffset, limit: pageSize, orderBy, arrangeBy });
-  }, [currentPage, orderBy, arrangeBy]);
+  // useEffect(() => {
+  //   let pageOffset = currentPage * pageSize;
+  //   sendQueryHandler({ fileId: file.file_id, query, offset: pageOffset, limit: pageSize, orderBy, arrangeBy });
+  // }, [currentPage, orderBy, arrangeBy]);
 
-  const sendQueryHandler = ({ fileId, query, offset, limit, orderBy, arrangeBy }) => {
-    if (file) {
-      queryApi.sendQuery({ id: fileId, offset, limit, query, orderBy, arrangeBy }).then(res => {
-        setLines(res.data);
-        setTotalResultsCount(res.totalResultsCount);
-      });
-    }
-  };
+  // const sendQueryHandler = ({ fileId, query, offset, limit, orderBy, arrangeBy }) => {
+  //   if (file) {
+  //     queryApi.sendQuery({ id: fileId, offset, limit, query, orderBy, arrangeBy }).then(res => {
+  //       setLines(res.data);
+  //       setTotalResultsCount(res.totalResultsCount);
+  //     });
+  //   }
+  // };
 
   return (
     <div className="file-wrapper">
       <Row>
         <Col span={6} className="tags-column">
-          <FileTags tags={tags} />
+          <FileTags />
         </Col>
         <Col span={12}>
           {/* <input
@@ -101,7 +98,7 @@ const File = ({ filePageInit }) => {
 };
 
 const mapStateToProps = state => ({
-  searchQuery: state.queryWrapper.query
+
 });
 
 const actionCreators = {

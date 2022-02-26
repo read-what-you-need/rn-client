@@ -38,10 +38,10 @@ const NavbarFilePageAuth = ({ searchRequest }) => {
   );
 };
 const mapStateToProps = state => ({
-  searchQuery: state.queryWrapper.query
+  filters: state.filtersWrapper.filters
 });
 
 const actionCreators = {
   searchRequest: searchQueryRequest
-}
+};
 export default connect(mapStateToProps, actionCreators)(NavbarFilePageAuth);

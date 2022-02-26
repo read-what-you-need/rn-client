@@ -1,14 +1,18 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-  linesList: []
+  linesList: [],
+  totalLinesCount: 0
 };
 
 const lines = (state = initialState, action) => {
   switch (action.type) {
     case types.ON_FILE_PAGE_INIT:
       return initialState;
-    case types.SEARCH_QUERY_REQUEST:
+    case types.SEARCH_QUERY_REQUEST_SUCCESS:
+      console.log(action)
+      return {...state, linesList: action.data?.data, totalLinesCount: action.data?.totalResultsCount};
+    case types.SEARCH_QUERY_REQUEST_FAILURE:
       return initialState;
     default:
       return state;
