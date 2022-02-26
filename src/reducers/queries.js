@@ -1,4 +1,4 @@
-import { SEARCH_QUERY_REQUEST, SEARCH_QUERY_REQUEST_SUCCESS, SEARCH_QUERY_REQUEST_FAILURE } from "../constants/ActionTypes";
+import { SEARCH_QUERY_REQUEST, SEARCH_QUERY_REQUEST_SUCCESS } from "../constants/ActionTypes";
 
 const initialState = {
   query: ""

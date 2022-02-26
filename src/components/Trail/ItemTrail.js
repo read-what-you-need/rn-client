@@ -18,13 +18,13 @@ const ItemTrail = ({
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
-  }, []);
+  });
 
   const handleClickOutside = event => {
     if (!event.target.className.includes("ant-input")) {
-        setClickAddTrail(false);
-        setClickAddTrailIndex([]);
-      }
+      setClickAddTrail(false);
+      setClickAddTrailIndex([]);
+    }
   };
   return (
     <List
