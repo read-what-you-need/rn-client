@@ -102,6 +102,13 @@ export const SortIcon = () => {
     </svg>
   );
 };
+export const RightArrowIcon = () => {
+  return (
+    <svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 18.5L9.75 9.75L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
 
 export const CompassIcon = () => {
   return (

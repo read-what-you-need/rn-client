@@ -1,5 +1,7 @@
 .book-page {
   .book-page-breadcrumb {
+    display: grid;
+    grid-template-columns: repeat(7, 2fr 1fr);
     background: var(--secondary-color-light-600);
     padding: var(--size-md) var(--size-xxl);
     border-radius: var(--border-radius-lg);
