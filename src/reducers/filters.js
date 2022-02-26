@@ -16,7 +16,7 @@ const filters = (state = initialState, action) => {
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
     case types.SEARCH_QUERY_REQUEST:
-      return { ...state, filters: { ...state.filters, query: action.query } };
+      return { ...state, isLoading: true, filters: { ...state.filters, query: action.query } };
     default:
       return state;
   }

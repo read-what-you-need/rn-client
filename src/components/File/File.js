@@ -9,7 +9,6 @@ import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 
-
 import { Row, Col } from "antd";
 import "./File.scss";
 
