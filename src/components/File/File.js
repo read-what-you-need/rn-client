@@ -12,7 +12,7 @@ import LinesList from "../Line/LinesList";
 import { Row, Col } from "antd";
 import "./File.scss";
 
-const File = ({ filePageInit, isFiltersCollapsed, isTagsCollapsed }) => {
+const File = ({ filePageInit }) => {
   let params = useParams();
   let id = params.id;
 

@@ -13,7 +13,9 @@
   --size-mmd: 20px;
   --size-lg: 24px;
   --size-xl: 36px;
-  --size-xxl: 72px;
+  --size-xxl: 54px;
+  --size-xxxl: 72px;
+
 
   /* Abstract colors*/
   --background: #fafafa;
@@ -27,6 +29,7 @@
   --secondary-color-light-100: #dbf6ff;
   --secondary-color-light-300: #8bc2d4;
   --secondary-color-light-500: #42a0be;
+  --secondary-color-light-600: #eafaff;
   --secondary-color-dark-500: #236b82;
   --secondary-color-dark-700: #00536d;
 
@@ -35,8 +38,8 @@
   --grey: #c4c4c4;
 
   /* Text colors*/
-  --heading-color:  #000;
-  --sub-heading-color:  #4E4E4E;
+  --heading-color: #000;
+  --sub-heading-color: #4e4e4e;
 
   /* Spaces  */
   --spacer-xs: 4px;
@@ -48,7 +51,6 @@
   /* Widths  */
 
   --main-page-width: 90%;
-
 
   --fast-transition: all 0.5s ease-in-out;
 

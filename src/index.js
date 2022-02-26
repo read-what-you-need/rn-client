@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.scss";
-import Book from "./components/Book";
+import Book from "./components/BookPage";
 import CreateTrail from "./components/Trail/CreateTrail";
 import LinesTrail from "./components/Trail/LinesTrail";
 import ReviewTrail from "./components/Trail/ReviewTrail";
