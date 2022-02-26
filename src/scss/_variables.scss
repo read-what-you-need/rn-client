@@ -16,7 +16,6 @@
   --size-xxl: 54px;
   --size-xxxl: 72px;
 
-
   /* Abstract colors*/
   --background: #fafafa;
   --background-light-focus: #ffffff;
@@ -54,13 +53,21 @@
 
   --fast-transition: all 0.5s ease-in-out;
 
+  /* Heights  */
+  --book-card-height: 200px;
+
   /* Borders  */
   --navbar-bottom-border: 3px solid #ebebeb;
   --border-primary-light: 3px solid #e5e5e5;
+  --book-card-un-selected-border: 1px solid #e5e5e5;
+  --book-card-selected-border: 2px solid #e5e5e5;
+
 
   /* Border radius  */
 
   --border-radius-lg: 20px;
+  --border-radius-xl: 42px;
+
 
   /* Heights of components  */
 

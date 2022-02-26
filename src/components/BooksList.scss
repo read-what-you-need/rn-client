@@ -1,12 +1,38 @@
 .book-list {
-  .table {
-    tbody {
-      tr {
-        .book-list-title {
-          text-align: left;
-          background: aliceblue;
-        }
-      }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .book-list-item {
+    display: grid;
+    grid-template-columns: 200px repeat(1, 1fr) 200px;
+    height: var(--book-card-height);
+    padding: var(--size-xl) var(--size-xs);
+    background: var(--background-light-focus);
+    border: var(--book-card-un-selected-border);
+    box-sizing: border-box;
+    border-radius: var(--border-radius-xl);
+    border-bottom-width: thick;
+    width: 80%;
+    .book-list-picture {
+      margin: 0px var(--size-xl);
+      background-color: #f0f0f0;
+      border-radius: var(--border-radius-lg);
+      background-size: cover;
+      background-image: url("https://picsum.photos/200/300");
     }
+    .book-list-title {
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--size-lg);
+      color: var(--black);
+    }
+  }
+  .book-list-item:hover {
+    border-bottom-width: thick;
+    border: var( --book-card-selected-border)
+  }
+  .book-list-item:not(:first-child) {
+    margin: 40px 0 0 0;
   }
 }
