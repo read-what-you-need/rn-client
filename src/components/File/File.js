@@ -69,7 +69,7 @@ const File = () => {
           <FileTags tags={tags} />
         </Col>
         <Col span={12}>
-          <input
+          {/* <input
             className="input-box-search-primary"
             type="search"
             value={[query]}
@@ -80,7 +80,7 @@ const File = () => {
             }}
             onChange={event => {
               setQuery(event.target.value);
-            }}></input>
+            }}></input> */}
 
           <div className="lines-list-wrapper">
             <LinesList lines={lines} />
