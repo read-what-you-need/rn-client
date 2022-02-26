@@ -5,7 +5,6 @@ import LineItem from "./LineItem";
 import "./LinesList.scss";
 
 const LinesList = ({ lines }) => {
-  console.log(lines);
   return (
     <div className="lines-list">
       {lines.map(line => {

@@ -23,7 +23,6 @@ const CreateTrail = () => {
     } else 
     return false;
   }
-  console.log(trailLines);
   return (
     <div className="App">
       <div className="container">

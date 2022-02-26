@@ -11,7 +11,6 @@ const ReviewTrail = () => {
   let file = location.state?.file;
   let trails = location.state?.trails;
   let query = location.state?.query;
-console.log(file)
   const [trailTitle, setTrailTitle] = useState(location.state?.query || []);
   const [trailLines, setTrailLines] = useState(location.state?.trails || []);
 

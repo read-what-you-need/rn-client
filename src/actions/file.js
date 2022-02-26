@@ -20,7 +20,6 @@ export const getFileDetails = fileId => dispatch => {
   fileApi
     .getFileById(fileId)
     .then(res => {
-      console.log(res);
       dispatch({ type: types.GET_FILE_DETAILS_REQUEST_SUCCESS, data: res.data });
     })
     .catch(err => {

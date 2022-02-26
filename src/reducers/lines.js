@@ -10,7 +10,6 @@ const lines = (state = initialState, action) => {
     case types.FILE_PAGE_INIT:
       return initialState;
     case types.SEARCH_QUERY_REQUEST_SUCCESS:
-      console.log(action)
       return {...state, linesList: action.data?.data, totalLinesCount: action.data?.totalResultsCount};
     case types.SEARCH_QUERY_REQUEST_FAILURE:
       return initialState;

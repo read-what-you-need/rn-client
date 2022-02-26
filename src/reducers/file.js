@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const file = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case types.FILE_PAGE_INIT:
       return initialState;
