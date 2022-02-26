@@ -1,15 +1,13 @@
 import { combineReducers } from "redux";
 
 import file from "./file";
-
+import filters from "./filters";
 import lines from "./lines";
-import queries from "./queries";
-
 
 export default combineReducers({
-  queryWrapper: queries,
   linesWrapper: lines,
-  fileWrapper: file
+  fileWrapper: file,
+  filtersWrapper: filters
 });
 
 export const getQuery = state => {
