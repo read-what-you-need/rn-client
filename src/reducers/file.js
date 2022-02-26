@@ -7,7 +7,7 @@ const initialState = {
 const file = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
-    case types.ON_FILE_PAGE_INIT:
+    case types.FILE_PAGE_INIT:
       return initialState;
     case types.GET_FILE_DETAILS_REQUEST:
       return initialState;

@@ -9,7 +9,6 @@ export const getLines = () => (dispatch, getState) => {
       dispatch({ type: types.SEARCH_QUERY_REQUEST_SUCCESS, data: res });
     })
     .catch(err => {
-      console.log(err);
       return dispatch({ type: types.SEARCH_QUERY_REQUEST_FAILURE, error: err });
     });
 };

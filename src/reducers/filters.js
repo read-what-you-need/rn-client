@@ -11,7 +11,7 @@ const initialState = {
 
 const filters = (state = initialState, action) => {
   switch (action.type) {
-    case types.ON_FILE_PAGE_INIT:
+    case types.FILE_PAGE_INIT:
       return initialState;
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };

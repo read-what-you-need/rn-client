@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 import "./FileTags.scss";
 
@@ -29,5 +30,8 @@ const FileTags = ({ tags = [] }) => {
     </div>
   );
 };
+const mapStateToProps = state => ({
+  tags: state.tagsWrapper?.tags || []
+});
 
-export default FileTags;
+export default connect(mapStateToProps)(FileTags);
