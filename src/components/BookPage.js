@@ -9,10 +9,14 @@ function Book() {
     <div className="book-page container">
       <div className="row">
         <div className="book-page-breadcrumb">
-          <div>Account</div>
+          <div>
+            <span className="book-page-breadcrumb-text">Account</span>
+          </div>
           <RightArrowIcon />
           <div>
-            <Link to={`/books`}>Books</Link>
+            <Link to={`/books`}>
+              <span className="book-page-breadcrumb-text">Books</span>
+            </Link>
           </div>
         </div>
         <div className="book-page-header-wrapper">
