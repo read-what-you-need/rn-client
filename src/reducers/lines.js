@@ -7,11 +7,11 @@ const initialState = {
 const lines = (state = initialState, action) => {
   switch (action.type) {
     case types.ON_FILE_PAGE_INIT:
-      return initialState
+      return initialState;
     case types.SEARCH_QUERY_REQUEST:
       return initialState;
     default:
-      return {};
+      return state;
   }
 };
 export default lines;
