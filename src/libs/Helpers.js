@@ -6,8 +6,7 @@ let Helpers = {
     https://stackoverflow.com/questions/49967779/axios-handling-errors
     */
     if (error.response) {
-      if (error.response.status >= 401 && error.response.status <= 451) {
-        userApi.logOutUser();
+      if (error.response.status >= 401 && error.response.status <= 501) {
         return error.response.data;
       }
       return error.response.data;
@@ -15,8 +14,7 @@ let Helpers = {
     if (response.status >= 200 && response.status <= 299) {
       return response.data;
     } else {
-      if (response.status === 401 && response.status <= 451) {
-        userApi.logOutUser();
+      if (response.status === 401 && response.status <= 501) {
         return response;
       }
     }

@@ -2,7 +2,7 @@ import * as types from "../constants/ActionTypes";
 
 const initialState = {
   tags: [],
-  isCollapsed: false,
+  isCollapsed: false
 };
 
 const filters = (state = initialState, action) => {
@@ -12,7 +12,7 @@ const filters = (state = initialState, action) => {
     case types.GET_FILE_TAGS_REQUEST_SUCCESS:
       return { ...state, tags: action.data };
     case types.GET_FILE_TAGS_REQUEST_FAILURE:
-      return { ...state, tags: initialState, error: action.data.error };
+      return { ...state, error: action.error, isCollapsed: true };
     case types.TAGS_COLLAPSE:
       return { ...state, isCollapsed: !state.isCollapsed };
     default:

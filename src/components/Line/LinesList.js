@@ -16,7 +16,6 @@ const multiplySkeleton = byTimes => {
 };
 
 const LinesList = ({ lines, isLoading }) => {
-  console.log(isLoading);
   return (
     <div className="lines-list">
       {isLoading
