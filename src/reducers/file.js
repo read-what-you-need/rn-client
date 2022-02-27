@@ -13,7 +13,7 @@ const file = (state = initialState, action) => {
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, fileDetails: action.data };
     case types.GET_FILE_DETAILS_REQUEST_FAILURE:
-      return { ...state, Error: action.error };
+      return { ...state, error: action.error };
 
     default:
       return state;

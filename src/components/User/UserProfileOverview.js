@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getUserDetails } from "../../actions";
+
 import "./UserProfileActivityCards.scss";
 import { PencilEditIcon } from "../Icons";
 import "./UserProfileOverview.scss";
-const UserProfileOverview = () => {
+
+const UserProfileOverview = ({ getUserDetails, userDetails }) => {
+  useEffect(() => {
+    getUserDetails();
+  },[]);
   return (
     <div className="user-profile-overview-wrapper">
       <div className="user-profile-overview-header">
@@ -11,13 +18,13 @@ const UserProfileOverview = () => {
       <div className="user-profile-overview-form">
         <div className="user-profile-overview-form-fields">
           <span className="user-profile-overview-form-field-label">name</span>
-          <span className="user-profile-overview-form-field-value">username</span>
+          <span className="user-profile-overview-form-field-value">{userDetails.username}</span>
 
           <span className="user-profile-overview-form-field-label">email</span>
           <span className="user-profile-overview-form-field-value">email</span>
 
           <span className="user-profile-overview-form-field-label">joined</span>
-          <span className="user-profile-overview-form-field-value">date</span>
+          <span className="user-profile-overview-form-field-value">{userDetails.userJoinedAt}</span>
         </div>
         <div className="user-profile-overview-user-image-wrapper">
           <div></div>
@@ -38,4 +45,11 @@ const UserProfileOverview = () => {
   );
 };
 
-export default UserProfileOverview;
+const mapStateToProps = state => ({
+  userDetails: state.userWrapper.user
+});
+
+const actionCreators = {
+  getUserDetails
+};
+export default connect(mapStateToProps, actionCreators)(UserProfileOverview);

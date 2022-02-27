@@ -13,6 +13,13 @@ const userApi = {
     });
     return result;
   },
+  getCurrentUserDetails: async function () {
+    let url = apiEndPoint + "user";
+    let result = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return result;
+  },
   signUpUser: async function ({ username, password }) {
     let url = apiEndPoint + "user/signup";
     let formData = { username, password };
