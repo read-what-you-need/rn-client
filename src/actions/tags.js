@@ -7,7 +7,6 @@ export const getFileTags = fileId => dispatch => {
   tagsApi
     .getTags({ fileId: fileId})
     .then(res => {
-      console.log(res);
       dispatch({ type: types.GET_FILE_TAGS_REQUEST_SUCCESS, data: res.data });
       if (res.success) {
         dispatch(searchQueryRequest({ query: res.data[0]?.tag }));
