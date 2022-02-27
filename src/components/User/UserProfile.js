@@ -1,8 +1,8 @@
 import React from "react";
 import "./UserProfile.scss";
 import { Row, Col } from "antd";
-import { Link } from "react-router-dom";
 import { PencilEditIcon } from "../Icons";
+import UserProfileActivityCards from "./UserProfileActivityCards";
 const UserProfile = () => {
   return (
     <div className="user-profile">
@@ -46,23 +46,7 @@ const UserProfile = () => {
           </Col>
           <Col span={8}></Col>
           <Col span={4}>
-            <div className="user-activity-cards">
-              <Link  key="book" to={`/books`}>
-                <div className="user-activity-card">
-                  <span className="user-activity-card-text">Your books</span>
-                </div>
-              </Link>
-              <Link  key="trail" to={`/trail/list`}>
-                <div className="user-activity-card">
-                  <span className="user-activity-card-text">Your trails</span>
-                </div>
-              </Link>
-              <Link  key="bookmarks" to={`/bookmarks`}>
-                <div className="user-activity-card">
-                  <span className="user-activity-card-text">Bookmarks</span>
-                </div>
-              </Link>
-            </div>
+            <UserProfileActivityCards/>
           </Col>
         </Row>
       </div>
