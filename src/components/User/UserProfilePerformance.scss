@@ -1,0 +1,57 @@
+.user-profile-performance {
+  display: grid;
+  margin: 60px 0 0 0;
+  border: 2px solid #e5e5e5;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 400px;
+  .user-profile-performance-header {
+    position: absolute;
+    width: 380px;
+    left: 72px;
+    top: 34px;
+    font-family: var(--primary-main-page-font);
+    background-color: var(--background);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+    .user-profile-performance-header-text {
+      padding: 6px 24px;
+    }
+  }
+  .user-profile-performance-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    .user-profile-performance-item {
+      justify-self: center;
+      align-self: center;
+      .user-profile-performance-item-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 0 16px 0;
+        .user-profile-performance-item-info-number {
+          font-family: var(--secondary-font);
+          font-style: normal;
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 35px;
+
+          color: #000000;
+        }
+      }
+      .user-profile-performance-item-info-text {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 29px;
+        text-transform: capitalize;
+        color: #7d7d7d;
+      }
+    }
+  }
+}

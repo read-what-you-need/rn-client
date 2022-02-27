@@ -2,21 +2,23 @@ import React from "react";
 import "./UserProfile.scss";
 import { Row, Col } from "antd";
 import UserProfileOverview from "./UserProfileOverview";
+import UserProfilePerformance from "./UserProfilePerformance";
+
 import UserProfileActivityCards from "./UserProfileActivityCards";
 const UserProfile = () => {
   return (
     <div className="user-profile">
       <div className="user-profile-wrapper">
         <Row>
-          <UserProfileOverview/>
+          <UserProfileOverview />
         </Row>
         <Row>
-          <Col span={8} className="tags-column">
-            Your performance
+          <Col span={12} className="tags-column">
+            <UserProfilePerformance />
           </Col>
-          <Col span={8}></Col>
+          <Col span={4}></Col>
           <Col span={4}>
-            <UserProfileActivityCards/>
+            <UserProfileActivityCards />
           </Col>
         </Row>
       </div>
