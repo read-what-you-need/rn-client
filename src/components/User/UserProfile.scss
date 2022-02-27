@@ -89,4 +89,32 @@
       }
     }
   }
+  .user-activity-cards {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    margin: 60px 0 0 0;
+
+    .user-activity-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 2px solid #e5e5e5;
+      height: 100px;
+      box-sizing: border-box;
+      border-radius: 30px;
+      .user-activity-card-text {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        color: var(--secondary-color);
+      }
+    }
+    .user-activity-card:hover {
+      border: 1px solid var(--primary-color);
+      cursor: pointer;
+    }
+  }
 }
