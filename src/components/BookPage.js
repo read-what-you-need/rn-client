@@ -10,7 +10,9 @@ function Book() {
       <div className="row">
         <div className="book-page-breadcrumb">
           <div>
-            <span className="book-page-breadcrumb-text">Account</span>
+            <Link to={`/profile`}>
+              <span className="book-page-breadcrumb-text">Account</span>
+            </Link>
           </div>
           <RightArrowIcon />
           <div>

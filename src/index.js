@@ -56,7 +56,7 @@ const Root = () => {
         />
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
-        <Route path="/user" element={<UserProfile />}></Route>
+        <Route path="/profile" element={<UserProfile />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>

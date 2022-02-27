@@ -25,7 +25,9 @@ const NavbarHomePageAuth = () => {
         <span className="nav-primary-action-button">
           <UploadButton />
         </span>
-        <UserIcon />
+        <span className="nav-logo" onClick={() => navigate("/profile")}>
+          <UserIcon />
+        </span>
       </div>
     </div>
   );
