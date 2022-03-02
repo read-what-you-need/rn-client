@@ -1,34 +1,14 @@
 .line-item {
+  border: 1px solid rgba(0, 0, 0, 0.21);
   box-sizing: border-box;
   border-radius: 5px;
-  margin: 12px 20px 12px 20px;
+  margin: 24px 20px 24px 20px;
   .line-item-text {
-    padding: 10px 20px;
+    padding: 2px 32px;
     text-align: justify;
-    .line-action-bar {
-      background: #ffffff;
-      border: var(--border-primary-light);
-      box-sizing: border-box;
-      box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.15);
-      border-radius: var(--border-radius-xl);
-      display: flex;
-      justify-content: space-around;
-      margin: 6px 0 6px 0;
-      padding: 10px 12px;
-      .ant-divider-vertical {
-        height: auto;
-      }
-      .line-action-bar-item {
-        svg {
-          cursor: pointer;
-        }
-      }
-    }
-    .green {
-      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(60deg) brightness(118%) contrast(119%);
-    }
-    .red {
-      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(321deg) brightness(118%) contrast(119%);
-    }
+  }
+  &.selected {
+    background-color: aliceblue;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   }
 }

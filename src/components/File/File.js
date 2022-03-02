@@ -8,6 +8,7 @@ import { filePageInit } from "../../actions";
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
+import LineActionBar from "../Line/LineActionBar";
 
 import { Row, Col } from "antd";
 import "./File.scss";
@@ -27,6 +28,9 @@ const File = ({ filePageInit }) => {
           <FileTags />
         </Col>
         <Col span={12}>
+          <Col span={16} offset={4}>
+            <LineActionBar />
+          </Col>
           <div className="lines-list-wrapper">
             <LinesList />
           </div>

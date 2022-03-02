@@ -1,0 +1,25 @@
+.line-action-bar {
+  background: #ffffff;
+  border: var(--border-primary-light);
+  box-sizing: border-box;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.15);
+  border-radius: var(--border-radius-xl);
+  display: flex;
+  justify-content: space-around;
+  margin: 6px 0 6px 0;
+  padding: 20px 14px;
+  .ant-divider-vertical {
+    height: auto;
+  }
+  .line-action-bar-item {
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+.green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(60deg) brightness(118%) contrast(119%);
+}
+.red {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(321deg) brightness(118%) contrast(119%);
+}
