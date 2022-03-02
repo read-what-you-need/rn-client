@@ -12,9 +12,9 @@ const UserProfilePerformance = () => {
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">
             <LinesReadIcon />
-            <span className="user-profile-performance-item-info-number">10</span>
+            <span className="user-profile-performance-item-info-number">10.4k</span>
           </div>
-          <div className="user-profile-performance-item-info-text">Total lines read</div>
+          <div className="user-profile-performance-item-info-text">Total lines liked</div>
         </div>
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">

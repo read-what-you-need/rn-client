@@ -8,9 +8,9 @@ export const getFileTags = fileId => dispatch => {
     .getTags({ fileId: fileId})
     .then(res => {
       dispatch({ type: types.GET_FILE_TAGS_REQUEST_SUCCESS, data: res.data });
-      if (res.success) {
-        dispatch(searchQueryRequest({ query: res.data[0]?.tag }));
-      }
+      // if (res.success) {
+      //   dispatch(searchQueryRequest({ query: res.data[0]?.tag }));
+      // }
     })
     .catch(err => {
       return dispatch({ type: types.GET_FILE_TAGS_REQUEST_FAILURE, error: err.response?.data?.message });

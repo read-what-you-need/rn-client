@@ -3,6 +3,7 @@ import * as types from "../constants/ActionTypes";
 export * from "./queries";
 export * from "./file";
 export * from "./user";
+export * from "./lines";
 
 export const tagsCollapsible = () => {
   return function (dispatch) {

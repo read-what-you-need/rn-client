@@ -2,7 +2,8 @@ import * as types from "../constants/ActionTypes";
 
 const initialState = {
   tags: [],
-  isCollapsed: false
+  isCollapsed: false,
+  pressedTag: []
 };
 
 const filters = (state = initialState, action) => {
@@ -15,6 +16,8 @@ const filters = (state = initialState, action) => {
       return { ...state, error: action.error, isCollapsed: true };
     case types.TAGS_COLLAPSE:
       return { ...state, isCollapsed: !state.isCollapsed };
+    case types.ON_TAG_CLICK:
+      return { ...state, pressedTag: action.tag };
     default:
       return state;
   }

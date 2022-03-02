@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { tagsCollapsible } from "../../actions";
+import { tagsCollapsible, onTagPress } from "../../actions";
 
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 import "./FileTags.scss";
 
-const FileTags = ({ tags = [], isCollapsed, tagsCollapsible }) => {
+const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clickedTag }) => {
   return (
     <div className={`file-tags sidebar ${isCollapsed ? "sidebar-collapsed" : ""}`}>
       <div className={"file-tags-header"}>Tags in this book</div>
@@ -21,7 +21,9 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible }) => {
         {tags.map(tag => {
           return (
             <div className="file-tags-item">
-              <button className="push-button not-selected">
+              <button
+                className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
+                onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
                 <span className="file-tags-item-text">{tag.tag}</span>
               </button>
             </div>
@@ -33,7 +35,8 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible }) => {
 };
 const mapStateToProps = state => ({
   tags: state.tagsWrapper?.tags || [],
-  isCollapsed: state.tagsWrapper?.isCollapsed
+  isCollapsed: state.tagsWrapper?.isCollapsed,
+  clickedTag: state.tagsWrapper?.pressedTag
 });
-const actionCreators = { tagsCollapsible };
+const actionCreators = { tagsCollapsible, onTagPress };
 export default connect(mapStateToProps, actionCreators)(FileTags);
