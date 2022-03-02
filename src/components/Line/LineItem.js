@@ -2,6 +2,8 @@ import React from "react";
 import "./LineItem.scss";
 import { connect } from "react-redux";
 import { likeLine, disLikeLine } from "../../actions";
+import { Divider } from "antd";
+import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, BookmarkIcon, ShareIcon } from "../Icons";
 
 const LineItem = ({ line, likeLine, disLikeLine }) => {
   let feedback = line.feedback;
@@ -9,26 +11,37 @@ const LineItem = ({ line, likeLine, disLikeLine }) => {
     <div className="line-item">
       <div className="line-item-text">
         {line.line}
-        <code>
-          score: {(line.score * 100).toString().slice(0, 5)}, line index: {line.line_index}
-        </code>
-        <br />
-        <button
-          className={`${feedback === 1 ? "green" : ""}`}
-          onClick={() => {
-            likeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
-          }}>
-          like
-        </button>
-        <button
-          className={`${feedback === -1 ? "red" : ""}`}
-          onClick={() => {
-            disLikeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
-          }}>
-          dislike
-        </button>
-        <button className="pink">add to favorites</button>
-        <button className="yellow">add to trail</button>
+        <div className="line-action-bar">
+          <div
+            className={`line-action-bar-item ${feedback === 1 ? "green" : ""}`}
+            onClick={() => {
+              likeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
+            }}>
+            <LikeThumbsUpIcon />
+          </div>
+          <Divider type="vertical" />
+          <div
+            className={`line-action-bar-item ${feedback === -1 ? "red" : ""}`}
+            onClick={() => {
+              disLikeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
+            }}>
+            <LikeThumbsDownIcon />
+          </div>
+          <Divider type="vertical" />
+
+          <div className="line-action-bar-item">
+            <TrailActionBarIcon />
+          </div>
+          <Divider type="vertical" />
+
+          <div className="line-action-bar-item">
+            <BookmarkIcon />
+          </div>
+          <Divider type="vertical" />
+          <div className="line-action-bar-item">
+            <ShareIcon />
+          </div>
+        </div>
       </div>
     </div>
   );
