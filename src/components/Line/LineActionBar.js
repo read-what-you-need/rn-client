@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { likeLines, disLikeLines } from "../../actions";
+import { feedbackLines } from "../../actions";
 import { Divider } from "antd";
 import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, BookmarkIcon, ShareIcon } from "../Icons";
 import "./LineActionBar.scss";
-const LineActionBar = ({ likeLines, disLikeLines }) => {
+const LineActionBar = ({ feedbackLines }) => {
   return (
     <div className="line-action-bar">
       <div
         className="line-action-bar-item"
         onClick={() => {
-          likeLines();
+          feedbackLines({ feedback: 1 });
         }}>
         <LikeThumbsUpIcon />
       </div>
@@ -18,7 +18,7 @@ const LineActionBar = ({ likeLines, disLikeLines }) => {
       <div
         className="line-action-bar-item"
         onClick={() => {
-          disLikeLines();
+          feedbackLines({ feedback: -1 });
         }}>
         <LikeThumbsDownIcon />
       </div>
@@ -41,7 +41,6 @@ const LineActionBar = ({ likeLines, disLikeLines }) => {
 };
 const mapStateToProps = state => ({});
 const actionCreators = {
-  likeLines,
-  disLikeLines
+  feedbackLines
 };
 export default connect(mapStateToProps, actionCreators)(LineActionBar);

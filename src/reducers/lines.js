@@ -35,26 +35,15 @@ const lines = (state = initialState, action) => {
           })
         ]
       };
-    case types.LIKE_LINE_SUCCESS:
+    case types.FEEDBACK_LINE_SUCCESS:
+      let fileLineIds = action.data.map(line => line.file_line_id);
       return {
         ...state,
         isLoading: false,
         linesList: [
           ...state.linesList.map(line => {
-            if (line.file_line_id === action.data.file_line_id) {
-              return { ...line, feedback: 1 };
-            } else return line;
-          })
-        ]
-      };
-    case types.DISLIKE_LINE_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        linesList: [
-          ...state.linesList.map(line => {
-            if (line.file_line_id === action.data.file_line_id) {
-              return { ...line, feedback: -1 };
+            if (fileLineIds.includes(line.file_line_id)) {
+              return { ...line, feedback: action.feedback };
             } else return line;
           })
         ]
