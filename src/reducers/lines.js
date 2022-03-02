@@ -35,6 +35,17 @@ const lines = (state = initialState, action) => {
           })
         ]
       };
+    case types.CLEAR_SELECT_LINES:
+      return {
+        ...state,
+        linesList: [
+          ...state.linesList.map(line => {
+            if (line.selected) {
+              return { ...line, selected: false };
+            } return line
+          })
+        ]
+      };
     case types.FEEDBACK_LINE_SUCCESS:
       let fileLineIds = action.data.map(line => line.file_line_id);
       return {
