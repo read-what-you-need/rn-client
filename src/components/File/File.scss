@@ -12,6 +12,11 @@
   .lines-list-wrapper {
     margin: var(--size-lg);
   }
+  .lines-action-bar-wrapper{
+    z-index: 100;
+    position: sticky;
+    top: 0;
+  }
   .input-box-search-primary {
     margin: 20px 0 0 0;
   }

@@ -21,7 +21,7 @@ const LinesList = ({ lines, isLoading }) => {
       {isLoading
         ? multiplySkeleton(5)
         : lines.map(line => {
-            return <LineItem key={line.file_line_id} line={line} />;
+            return <LineItem key={line.file_line_id} line={line} isSelected={line.selected} feedback={line.feedback}/>;
           })}
     </div>
   );

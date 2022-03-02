@@ -1,24 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { likeLine, disLikeLine } from "../../actions";
+import { likeLines, disLikeLines } from "../../actions";
 import { Divider } from "antd";
 import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, BookmarkIcon, ShareIcon } from "../Icons";
 import "./LineActionBar.scss";
-const LineActionBar = () => {
+const LineActionBar = ({ likeLines, disLikeLines }) => {
   return (
     <div className="line-action-bar">
       <div
-        // className={`line-action-bar-item ${feedback === 1 ? "green" : ""}`}
+        className="line-action-bar-item"
         onClick={() => {
-          //   likeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
+          likeLines();
         }}>
         <LikeThumbsUpIcon />
       </div>
       <Divider type="vertical" />
       <div
-        // className={`line-action-bar-item ${feedback === -1 ? "red" : ""}`}
+        className="line-action-bar-item"
         onClick={() => {
-          //   disLikeLine({ fileLineId: line.file_line_id, queryId: line.query_id });
+          disLikeLines();
         }}>
         <LikeThumbsDownIcon />
       </div>
@@ -41,7 +41,7 @@ const LineActionBar = () => {
 };
 const mapStateToProps = state => ({});
 const actionCreators = {
-  likeLine,
-  disLikeLine
+  likeLines,
+  disLikeLines
 };
 export default connect(mapStateToProps, actionCreators)(LineActionBar);
