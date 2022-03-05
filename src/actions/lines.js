@@ -1,25 +1,24 @@
 import * as types from "../constants/ActionTypes";
 import linesApi from "../api/lines";
 import { getCurrentQueryId } from "./queries";
-const getSelectedLineIds = state => {
+
+export const getSelectedLines = state => {
   const { linesList } = state.linesWrapper || [];
-  let selectedLinesIds = [
-    ...linesList
-      .filter(line => {
-        if (line.selected) {
-          return line.file_line_id;
-        } else return false;
-      })
-      .map(line => line.file_line_id)
+  let selectedLines = [
+    ...linesList.filter(line => {
+      if (line.selected) {
+        return line.file_line_id;
+      } else return false;
+    })
   ];
-  return selectedLinesIds;
+  return selectedLines;
 };
 
 export const feedbackLines =
   ({ feedback }) =>
   (dispatch, getState) => {
     dispatch({ type: types.FEEDBACK_LINE_REQUEST });
-    let selectedLinesIds = getSelectedLineIds(getState());
+    let selectedLinesIds = getSelectedLines(getState()).map(line => line.file_line_id);
     let currentQueryId = getCurrentQueryId(getState());
     linesApi
       .feedbackLines({ fileLineIds: selectedLinesIds, feedback, queryId: currentQueryId })
@@ -38,7 +37,7 @@ export const onLineSelect =
   };
 
 export const getSelectedLinesCount = state => {
-  return getSelectedLineIds(state).length;
+  return getSelectedLines(state).length;
 };
 
 export const clearSelectedLines = () => dispatch => {

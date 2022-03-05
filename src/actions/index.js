@@ -4,6 +4,8 @@ export * from "./queries";
 export * from "./file";
 export * from "./user";
 export * from "./lines";
+export * from "./trails";
+
 
 export const tagsCollapsible = () => {
   return function (dispatch) {
