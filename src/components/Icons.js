@@ -54,6 +54,22 @@ export const TrailActionBarIcon = () => {
   );
 };
 
+export const AddIcon = () => {
+  return (
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M13 23.8333C18.983 23.8333 23.8333 18.983 23.8333 13C23.8333 7.01687 18.983 2.16663 13 2.16663C7.01687 2.16663 2.16663 7.01687 2.16663 13C2.16663 18.983 7.01687 23.8333 13 23.8333Z"
+        stroke="#C4C4C4"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M13 8.66663V17.3333" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8.66663 13H17.3333" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
 export const ShareIcon = () => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +81,15 @@ export const ShareIcon = () => {
   );
 };
 
+export const DragabbleSelectIcon = () => {
+  return (
+    <svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="1.5" y1="1.5" x2="24.5" y2="1.5" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round" />
+      <line x1="1.5" y1="11.5" x2="24.5" y2="11.5" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round" />
+      <line x1="1.5" y1="21.5" x2="24.5" y2="21.5" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round" />
+    </svg>
+  );
+};
 export const BookmarkIcon = () => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
