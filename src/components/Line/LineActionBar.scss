@@ -12,6 +12,9 @@
     height: auto;
   }
   .line-action-bar-item {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: var(--size-md);
     svg {
       cursor: pointer;
     }

@@ -1,12 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { feedbackLines } from "../../actions";
+import { clearSelectedLines, feedbackLines, getSelectedLinesCount } from "../../actions";
 import { Divider } from "antd";
-import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, BookmarkIcon, ShareIcon } from "../Icons";
+import { LikeThumbsUpIcon, LikeThumbsDownIcon, BookmarkIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
-const LineActionBar = ({ feedbackLines }) => {
+const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines }) => {
   return (
     <div className="line-action-bar">
+      {selectedLinesCount ? (
+        <>
+          <div className="line-action-bar-item">{selectedLinesCount}</div>
+          <Divider type="vertical" />
+        </>
+      ) : (
+        <></>
+      )}
       <div
         className="line-action-bar-item"
         onClick={() => {
@@ -25,22 +33,30 @@ const LineActionBar = ({ feedbackLines }) => {
       <Divider type="vertical" />
 
       <div className="line-action-bar-item">
-        <TrailActionBarIcon />
-      </div>
-      <Divider type="vertical" />
-
-      <div className="line-action-bar-item">
         <BookmarkIcon />
       </div>
-      <Divider type="vertical" />
-      <div className="line-action-bar-item">
-        <ShareIcon />
-      </div>
+      {selectedLinesCount ? (
+        <>
+          <Divider type="vertical" />
+          <div
+            className="line-action-bar-item"
+            onClick={() => {
+              clearSelectedLines();
+            }}>
+            <ClearSelectionIcon />
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  selectedLinesCount: getSelectedLinesCount(state)
+});
 const actionCreators = {
-  feedbackLines
+  feedbackLines,
+  clearSelectedLines
 };
 export default connect(mapStateToProps, actionCreators)(LineActionBar);

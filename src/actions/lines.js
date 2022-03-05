@@ -36,6 +36,10 @@ export const onLineSelect =
     dispatch({ type: types.ON_LINE_ITEM_SELECT, data: line });
   };
 
-export const getSelectedLinesCount = (state)  => {
+export const getSelectedLinesCount = state => {
   return getSelectedLineIds(state).length;
+};
+
+export const clearSelectedLines = () => dispatch => {
+  dispatch({ type: types.CLEAR_SELECT_LINES });
 };
