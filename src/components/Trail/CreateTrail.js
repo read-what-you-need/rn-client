@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { Breadcrumb } from "antd";
 import ItemTrail from "./ItemTrail";
-import InputTrail from "./InputTrail";
 import { Input, Row, Col } from "antd";
-import trailApi from "../../api/trail";
 
 import "./CreateTrail.scss";
 
-const CreateTrail = () => {
-  const trails = ["abc", "def", "efg"];
+const CreateTrail = ({ trails }) => {
   const navigate = useNavigate();
   return (
     <div className="create-trail-wrapper">
@@ -53,4 +52,9 @@ const CreateTrail = () => {
   );
 };
 
-export default CreateTrail;
+const mapStateToProps = state => ({
+  trails: state.trailsWrapper.trails
+});
+
+const actionCreators = {};
+export default connect(mapStateToProps, actionCreators)(CreateTrail);

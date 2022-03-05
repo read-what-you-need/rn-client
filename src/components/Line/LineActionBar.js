@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { clearSelectedLines, feedbackLines, getSelectedLinesCount } from "../../actions";
+import { clearSelectedLines, feedbackLines, getSelectedLinesCount, addToTrailCheckout } from "../../actions";
 import { Divider } from "antd";
-import { LikeThumbsUpIcon, LikeThumbsDownIcon, ClearSelectionIcon } from "../Icons";
+import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
-const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines }) => {
+const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, addToTrailCheckout }) => {
   return (
     <div className="line-action-bar">
       {selectedLinesCount ? (
@@ -23,6 +23,16 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines }
         <LikeThumbsUpIcon />
       </div>
       <Divider type="vertical" />
+
+      <div
+        className="line-action-bar-item"
+        onClick={() => {
+          addToTrailCheckout();
+        }}>
+        <TrailActionBarIcon />
+      </div>
+      <Divider type="vertical" />
+
       <div
         className="line-action-bar-item"
         onClick={() => {
@@ -52,6 +62,7 @@ const mapStateToProps = state => ({
 });
 const actionCreators = {
   feedbackLines,
-  clearSelectedLines
+  clearSelectedLines,
+  addToTrailCheckout
 };
 export default connect(mapStateToProps, actionCreators)(LineActionBar);

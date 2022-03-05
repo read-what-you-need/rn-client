@@ -1,33 +1,29 @@
-import React, { useEffect } from "react";
-import { List, Typography } from "antd";
+import React from "react";
 import InputTrail from "./InputTrail";
-
-const ItemTrail = ({ data }) => {
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  });
-
-  const handleClickOutside = event => {
-    if (!event.target.className.includes("ant-input")) {
-    }
-  };
+import { AddIcon, DeleteIcon, DragabbleSelectIcon } from "../Icons";
+import "./ItemTrail.scss";
+const ItemTrail = ({ trail = {} }) => {
   return (
-    <List
-      bordered
-      dataSource={data}
-      renderItem={(item, index) => (
-        <div key={index}>
-          <List.Item>
-            <Typography.Text mark>{item.line}</Typography.Text>
-          </List.Item>
-         <List.Item onClick={_e => {}}>+</List.Item>
-          <InputTrail index={index} />
+    <>
+      <div className="item-trail-wrapper">
+        <div className="item-draggable">
+          <DragabbleSelectIcon />
         </div>
-      )}
-    />
+        <div className="item-trail">{trail?.line}</div>
+        <>
+          <div className="item-trail-action-button">
+            <DeleteIcon />
+          </div>
+          <div className="item-trail-input">
+            <InputTrail />
+          </div>
+        </>
+      </div>
+
+      <div className="item-trail-add-button">
+        <AddIcon />
+      </div>
+    </>
   );
 };
 

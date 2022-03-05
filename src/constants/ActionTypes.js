@@ -21,6 +21,9 @@ export const CLEAR_SELECT_LINES = 'CLEAR_SELECT_LINES'
 export const TAGS_COLLAPSE = 'TAGS_COLLAPSE'
 export const ON_TAG_CLICK = 'ON_TAG_CLICK'
 
+/** Trails */
+export const ADD_TO_TRAILS_CHECKOUT = 'ADD_TO_TRAILS_CHECKOUT'
+
 /** Filters */
 export const FILTER_APPLIED = 'FILTER_APPLIED'
 export const FILTERS_COLLAPSE = 'FILTERS_COLLAPSE'

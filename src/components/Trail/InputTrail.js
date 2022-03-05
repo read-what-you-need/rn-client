@@ -6,7 +6,6 @@ const { TextArea } = Input;
 const InputTrail = () => {
   return (
     <TextArea
-      placeholder="Add line to trail"
       autoSize={{ minRows: 2, maxRows: 6 }}
       size="large"
       onChange={e => {
