@@ -21,3 +21,10 @@ export const getAddNewTrailIsShown = ({ state, uuid }) => {
   });
   return addNewTrailIsShown;
 };
+
+export const updateReorderedListOfTrails =
+  ({ trails }) =>
+  (dispatch) => {
+    console.log(trails)
+    dispatch({ type: types.UPDATE_REORDERED_LIST_OF_TRAILS, data: trails });
+  };
