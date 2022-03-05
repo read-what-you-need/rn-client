@@ -23,6 +23,15 @@
     .nav-primary-action-button {
       margin-right: var(--spacer-xl);
       color: var(--black);
+      .push-button-icon-only {
+        border-radius:18px;
+        &.shorten-width {
+          width: 50px;
+          svg {
+            transform: scale(0.85);
+          }
+        }
+      }
       svg {
         margin-right: var(--size-xxs);
       }

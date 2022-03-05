@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { searchQueryRequest } from "../../actions";
+import { searchQueryRequest, getSelectedLinesCount } from "../../actions";
 import { SimpleBarLinesIcon, GreenCheckIcon, RasteroIcon, Logo } from "../Icons";
-import { Input } from "antd";
+import { Badge, Input } from "antd";
 import "./NavbarFilePageAuth.scss";
 
-const NavbarFilePageAuth = ({ searchRequest }) => {
+const NavbarFilePageAuth = ({ searchRequest, selectedLinesCount }) => {
+  console.log(selectedLinesCount)
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -26,9 +27,11 @@ const NavbarFilePageAuth = ({ searchRequest }) => {
       </div>
       <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
-          <button className="push-button-icon-only secondary">
-            <SimpleBarLinesIcon />
-          </button>
+          <Badge count={selectedLinesCount}>
+            <button className="push-button-icon-only secondary shorten-width">
+              <SimpleBarLinesIcon />
+            </button>
+          </Badge>
         </span>
         <button className="push-button-icon-only primary">
           <GreenCheckIcon />
@@ -38,7 +41,8 @@ const NavbarFilePageAuth = ({ searchRequest }) => {
   );
 };
 const mapStateToProps = state => ({
-  filters: state.filtersWrapper.filters
+  filters: state.filtersWrapper.filters,
+  selectedLinesCount: getSelectedLinesCount(state)
 });
 
 const actionCreators = {

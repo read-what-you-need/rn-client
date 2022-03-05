@@ -295,9 +295,9 @@ export const RasteroIcon = () => {
 export const SimpleBarLinesIcon = () => {
   return (
     <svg width="36" height="31" viewBox="0 0 36 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0.486572" y="12.75" width="35.027" height="5.25" rx="2" fill="#FFF7CD" />
-      <rect x="0.486572" width="35.027" height="5.25" rx="2" fill="#FFF7CD" />
-      <rect x="0.486572" y="25.5" width="17.5135" height="5.25" rx="2" fill="#FFF7CD" />
+      <rect x="0.486511" y="12.75" width="35.027" height="5.25" rx="2" fill="white" />
+      <rect x="0.486511" width="35.027" height="5.25" rx="2" fill="white" />
+      <rect x="0.486511" y="25.5" width="17.5135" height="5.25" rx="2" fill="white" />
     </svg>
   );
 };

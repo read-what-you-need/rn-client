@@ -42,7 +42,8 @@ const lines = (state = initialState, action) => {
           ...state.linesList.map(line => {
             if (line.selected) {
               return { ...line, selected: false };
-            } return line
+            }
+            return line;
           })
         ]
       };
