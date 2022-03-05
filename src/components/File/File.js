@@ -10,7 +10,7 @@ import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
 
-import { Row, Col } from "antd";
+import { BackTop, Row, Col } from "antd";
 import "./File.scss";
 
 const File = ({ filePageInit }) => {
@@ -24,6 +24,7 @@ const File = ({ filePageInit }) => {
   return (
     <div className="file-wrapper">
       <Row>
+        <BackTop duration={200} visibilityHeight={50}/>
         <Col span={6} className="tags-column">
           <FileTags />
         </Col>
