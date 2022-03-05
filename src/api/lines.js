@@ -7,9 +7,9 @@ let apiEndPoint = process.env.REACT_APP_NODE_API;
 
 // defining all api calls that interact with the table
 const linesApi = {
-  feedbackLines: async function ({ fileLineIds, feedback = 1 }) {
+  feedbackLines: async function ({ fileLineIds, feedback = 1, queryId }) {
     let url = apiEndPoint + "line/feedback";
-    let data = { fileLineIds, feedback };
+    let data = { fileLineIds, feedback, queryId };
     let result = axios
       .post(url, data, headerConfig.axiosConfig)
       .then(response => Helpers.responseHandler({ response, error: {} }))

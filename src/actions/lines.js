@@ -1,6 +1,6 @@
 import * as types from "../constants/ActionTypes";
 import linesApi from "../api/lines";
-
+import { getCurrentQueryId } from "./queries";
 const getSelectedLineIds = state => {
   const { linesList } = state.linesWrapper || [];
   let selectedLinesIds = [
@@ -20,8 +20,9 @@ export const feedbackLines =
   (dispatch, getState) => {
     dispatch({ type: types.FEEDBACK_LINE_REQUEST });
     let selectedLinesIds = getSelectedLineIds(getState());
+    let currentQueryId = getCurrentQueryId(getState());
     linesApi
-      .feedbackLines({ fileLineIds: selectedLinesIds, feedback })
+      .feedbackLines({ fileLineIds: selectedLinesIds, feedback, queryId: currentQueryId })
       .then(res => {
         dispatch({ type: types.FEEDBACK_LINE_SUCCESS, data: res.data, feedback });
       })

@@ -20,6 +20,10 @@ export const searchQueryRequest = ({ query }) => {
   };
 };
 
+export const getCurrentQueryId = state => {
+  return state.linesWrapper.queryId || [];
+};
+
 export const onTagPress = ({ tag }) => {
   return function (dispatch) {
     dispatch({ type: types.ON_TAG_CLICK, tag });
@@ -35,6 +39,7 @@ export const showReadLines = () => {
     dispatch(getLines());
   };
 };
+
 export const showAllLines = () => {
   return function (dispatch) {
     dispatch({ type: types.FILTER_APPLIED });

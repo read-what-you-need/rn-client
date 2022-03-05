@@ -3,7 +3,8 @@ import * as types from "../constants/ActionTypes";
 const initialState = {
   linesList: [],
   totalLinesCount: 0,
-  isLoading: true
+  isLoading: true,
+  queryId: []
 };
 
 const lines = (state = initialState, action) => {
@@ -15,7 +16,13 @@ const lines = (state = initialState, action) => {
     case types.FILTER_APPLIED:
       return { ...state, isLoading: true };
     case types.SEARCH_QUERY_REQUEST_SUCCESS:
-      return { ...state, isLoading: false, linesList: action.data?.data, totalLinesCount: action.data?.totalResultsCount };
+      return {
+        ...state,
+        isLoading: false,
+        linesList: action.data?.data,
+        totalLinesCount: action.data?.totalResultsCount,
+        queryId: action.data?.queryId
+      };
     case types.SEARCH_QUERY_REQUEST_FAILURE:
       return initialState;
     case types.ON_LINE_ITEM_SELECT:

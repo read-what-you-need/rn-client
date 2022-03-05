@@ -29,7 +29,7 @@ const File = ({ filePageInit }) => {
           <FileTags />
         </Col>
         <Col span={12}>
-          <Col className="lines-action-bar-wrapper" span={16} offset={4}>
+          <Col className="lines-action-bar-wrapper" span={12} offset={6}>
             <LineActionBar />
           </Col>
           <div className="lines-list-wrapper">

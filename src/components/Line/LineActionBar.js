@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { clearSelectedLines, feedbackLines, getSelectedLinesCount } from "../../actions";
 import { Divider } from "antd";
-import { LikeThumbsUpIcon, LikeThumbsDownIcon, BookmarkIcon, ClearSelectionIcon } from "../Icons";
+import { LikeThumbsUpIcon, LikeThumbsDownIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
 const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines }) => {
   return (
@@ -29,11 +29,6 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines }
           feedbackLines({ feedback: -1 });
         }}>
         <LikeThumbsDownIcon />
-      </div>
-      <Divider type="vertical" />
-
-      <div className="line-action-bar-item">
-        <BookmarkIcon />
       </div>
       {selectedLinesCount ? (
         <>
