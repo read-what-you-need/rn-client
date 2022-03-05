@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { searchQueryRequest, getSelectedLinesCount } from "../../actions";
 import { SimpleBarLinesIcon, GreenCheckIcon, RasteroIcon, Logo } from "../Icons";
 import { Badge, Input } from "antd";
+
 import "./NavbarFilePageAuth.scss";
 
 const NavbarFilePageAuth = ({ searchRequest, selectedLinesCount }) => {
-  console.log(selectedLinesCount)
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -28,9 +28,11 @@ const NavbarFilePageAuth = ({ searchRequest, selectedLinesCount }) => {
       <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
           <Badge count={selectedLinesCount}>
-            <button className="push-button-icon-only secondary shorten-width">
-              <SimpleBarLinesIcon />
-            </button>
+            <Link to={`/trail/create`}>
+              <button className="push-button-icon-only secondary shorten-width">
+                <SimpleBarLinesIcon />
+              </button>
+            </Link>
           </Badge>
         </span>
         <button className="push-button-icon-only primary">

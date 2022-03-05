@@ -2,17 +2,7 @@ import React, { useEffect } from "react";
 import { List, Typography } from "antd";
 import InputTrail from "./InputTrail";
 
-const ItemTrail = ({
-  data,
-  setTrailLine,
-  setTrailLines,
-  trailLines,
-  trailLine,
-  clickAddTrail,
-  setClickAddTrail,
-  setClickAddTrailIndex,
-  clickAddTrailIndex
-}) => {
+const ItemTrail = ({ data }) => {
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
     return () => {
@@ -22,8 +12,6 @@ const ItemTrail = ({
 
   const handleClickOutside = event => {
     if (!event.target.className.includes("ant-input")) {
-      setClickAddTrail(false);
-      setClickAddTrailIndex([]);
     }
   };
   return (
@@ -35,21 +23,8 @@ const ItemTrail = ({
           <List.Item>
             <Typography.Text mark>{item.line}</Typography.Text>
           </List.Item>
-
-          {data.length - 1 === index ? (
-            <></>
-          ) : (
-            <List.Item
-              onClick={_e => {
-                setClickAddTrail(true);
-                setClickAddTrailIndex(index);
-              }}>
-              +
-            </List.Item>
-          )}
-          {clickAddTrail && clickAddTrailIndex === index && (
-            <InputTrail setTrailLine={setTrailLine} setTrailLines={setTrailLines} trailLine={trailLine} trailLines={trailLines} index={index} />
-          )}
+         <List.Item onClick={_e => {}}>+</List.Item>
+          <InputTrail index={index} />
         </div>
       )}
     />
