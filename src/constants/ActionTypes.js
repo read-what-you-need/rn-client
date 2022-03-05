@@ -23,6 +23,7 @@ export const ON_TAG_CLICK = 'ON_TAG_CLICK'
 
 /** Trails */
 export const ADD_TO_TRAILS_CHECKOUT = 'ADD_TO_TRAILS_CHECKOUT'
+export const TOGGLE_ADD_NEW_TRAIL_LINE_ICON = 'TOGGLE_ADD_NEW_TRAIL_LINE_ICON'
 
 /** Filters */
 export const FILTER_APPLIED = 'FILTER_APPLIED'
