@@ -1,0 +1,39 @@
+.item-trail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  .item-draggable {
+    place-self: center;
+  }
+  .item-trail {
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 16px 20px;
+  }
+  .item-trail-input {
+    margin: var(--size-mmd) 0 0 0;
+    .ant-input {
+      transition: all 0.08s;
+    }
+    .ant-input:hover {
+      border-color: var(--secondary-color-dark-700);
+    }
+    .ant-input:focus {
+      border-color: var(--secondary-color);
+      border-right-width: 2px !important;
+      outline: 0;
+      border: 2px solid var(--secondary-color-dark-700);
+      box-shadow: 0 0 0 0px var(--white);
+    }
+  }
+  .item-trail-action-button {
+    text-align-last: center;
+    cursor: pointer;
+  }
+}
+.item-trail-add-button {
+  text-align-last: center;
+  margin: var(--size-s) 0;
+  cursor: pointer;
+}

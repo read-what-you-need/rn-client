@@ -1,3 +1,41 @@
-.create-trail-wrapper{
-
+.create-trail-wrapper {
+  .trail-column-back {
+    text-align-last: center;
+    font-family: var(--primary-main-page-font);
+    font-size: var(--size-md);
+    color: var(--secondary-color-dark-700);
+    .push-button {
+      border-radius: 10px;
+    }
+  }
+  .trail-column-center {
+    .trail-title-header {
+      .ant-input {
+        font-family: var(--secondary-font);
+        text-align: center;
+        background: var(--background);
+        box-shadow: 0px var(--size-xxxs) var(--size-xxs) rgba(0, 0, 0, 0.12);
+        border-radius: var(--border-radius-lg);
+      }
+      margin: 0 0 var(--size-s) 0;
+    }
+    .trail-list-wrapper {
+      background: #ffffff;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0px var(--size-xxxs) var(--size-xxs) rgb(0 0 0 / 12%);
+      padding: var(--size-xl) var(--size-xl) var(--size-xl) 0px;
+    }
+  }
+  .trail-column-save {
+    text-align-last: center;
+    .push-button {
+      .save-button-text {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: normal;
+        font-size: var(--size-md);
+        color: var(--secondary-color-dark-700);
+      }
+    }
+  }
 }
