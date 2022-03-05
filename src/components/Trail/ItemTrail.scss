@@ -32,6 +32,9 @@
     cursor: pointer;
   }
 }
+.item-trail-wrapper:not(:first-child){
+  margin: var(--size-lg) 0px 0px 0px;
+}
 .item-trail-add-button {
   text-align-last: center;
   margin: var(--size-s) 0;
