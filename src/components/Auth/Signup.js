@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RasteroColorIcon } from "../Icons";
+
 import "./Signup.scss";
+import { Input } from "antd";
 
 import userApi from "../../api/user";
 
@@ -11,40 +14,53 @@ const SignUp = () => {
   const [responseMessage, setResponseMessage] = useState("");
 
   return (
-    <div className="App">
-      <h1>Create new account</h1>
+    <div className="sign-page">
+      <div className="welcome-icon">
+        <RasteroColorIcon />
+      </div>
+      <div className="welcome-greet">Become friends with Rastero!</div>
+
       <div className="form-wrapper">
-        <span className="form">
-          username
-          <input
-            onChange={e => {
-              setUsername(e.target.value);
-            }}
-          />
-        </span>
-        <span className="form">
-          password
-          <input
-            type="password"
-            onChange={e => {
-              setPassword(e.target.value);
-            }}
-          />
-        </span>
-        <button
-          className="submit-button"
-          onClick={() => {
-            userApi
-              .signUpUser({ username, password })
-              .then(_res => {
-                setResponseMessage("account created");
-                navigate("/user/profile");
-              })
-              .catch(_err => setResponseMessage("account already exists"));
-          }}>
-          Submit
-        </button>
-        <span className="form-submit-info">{responseMessage}</span>
+        <div className="form-field">
+          <div className="label">Username</div>
+          <div className="field">
+            <Input
+              onChange={e => {
+                setUsername(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="form-field">
+          <div className="label">Password</div>
+          <div className="field">
+            <Input
+              type="password"
+              onChange={e => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="submit-form-field">
+          <button
+            className="push-button primary"
+            onClick={() => {
+              userApi
+                .signUpUser({ username, password })
+                .then(_res => {
+                  setResponseMessage("account created");
+                  navigate("/user/profile");
+                })
+                .catch(_err => setResponseMessage("Account already exists"));
+            }}>
+            <span className="submit-form-field-text"> Submit</span>
+          </button>
+
+          <span className="form-submit-info">{responseMessage}</span>
+        </div>
       </div>
     </div>
   );

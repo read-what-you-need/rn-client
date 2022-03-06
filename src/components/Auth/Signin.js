@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RasteroColorIcon } from "../Icons";
+import { Input } from "antd";
 
 import userApi from "../../api/user";
 import "./Signup.scss";
-
 
 const Signin = () => {
   let navigate = useNavigate();
@@ -14,44 +15,56 @@ const Signin = () => {
 
   return (
     <div>
-      <div className="App">
-        <h1>Login to account</h1>
+      <div className="sign-page">
+        <div className="welcome-icon">
+          <RasteroColorIcon />
+        </div>
+        <div className="welcome-greet">Welcome Back</div>
         <div className="form-wrapper">
-          <span className="form">
-            username
-            <input
-              onChange={e => {
-                setUsername(e.target.value);
-              }}
-            />
-          </span>
-          <span className="form">
-            password
-            <input
-              type="password"
-              onChange={e => {
-                setPassword(e.target.value);
-              }}
-            />
-          </span>
-          <button
-            className="submit-button"
-            onClick={() => {
-              userApi
-                .signInUser({ username, password })
-                .then(_res => {
-                  navigate("/user");
-                  setResponseMessage("")
-                  window.location.reload();
-                })
-                .catch(err => {
-                    console.log(err)
-                    setResponseMessage("Check if username and password is correct")
-                });
-            }}>
-            Submit
-          </button>
-          <span className="form-submit-info">{responseMessage}</span>
+          <div className="form-field">
+            <div className="label">Username</div>
+            <div className="field">
+              <Input
+                onChange={e => {
+                  setUsername(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="form-field">
+            <div className="label">Password</div>
+            <div className="field">
+              <Input
+                type="password"
+                onChange={e => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="submit-form-field">
+            <button
+              className="push-button primary"
+              onClick={() => {
+                userApi
+                  .signInUser({ username, password })
+                  .then(_res => {
+                    navigate("/user");
+                    setResponseMessage("");
+                    window.location.reload();
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    setResponseMessage("Username or password is incorrect");
+                  });
+              }}>
+              <span className="submit-form-field-text">Login</span>
+            </button>
+
+            <div className="form-submit-info">{responseMessage}</div>
+          </div>
         </div>
       </div>
     </div>

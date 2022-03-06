@@ -14,6 +14,19 @@ export const Logo = () => {
     </svg>
   );
 };
+export const RasteroColorIcon = () => {
+  return (
+    <svg width="94" height="75" viewBox="0 0 94 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10.967" cy="38.199" r="9.39989" stroke="#004054" stroke-width="3.1333" />
+      <circle cx="83.0334" cy="38.199" r="9.39989" stroke="#004054" stroke-width="3.1333" />
+      <circle cx="46.9997" cy="11.5671" r="9.39989" stroke="#004054" stroke-width="3.1333" />
+      <rect x="9.40087" y="10.0005" width="75.1991" height="61.0993" rx="20.3664" fill="#FFF7CD" stroke="white" stroke-width="6.26659" />
+      <ellipse cx="25.85" cy="31.9328" rx="8.61656" ry="7.83324" fill="#00536D" />
+      <ellipse cx="68.1493" cy="31.9328" rx="8.61656" ry="7.83324" fill="#00536D" />
+      <path d="M39.167 55.4326C45.7909 59.5397 49.556 59.6804 56.4001 55.4326" stroke="#00536D" stroke-width="3.1333" stroke-linecap="round" />
+    </svg>
+  );
+};
 
 export const RightExpandIcon = () => {
   return (
