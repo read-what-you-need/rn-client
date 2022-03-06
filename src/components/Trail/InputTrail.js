@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "antd";
 const { TextArea } = Input;
 
-const InputTrail = () => {
+const InputTrail = ({ addNewTrailLine, uuid }) => {
   return (
     <TextArea
       autoSize={{ minRows: 2, maxRows: 6 }}
@@ -10,6 +10,7 @@ const InputTrail = () => {
       onPressEnter={e => {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault();
+          addNewTrailLine({ trailLine: e.target.value, uuid });
         }
       }}
     />

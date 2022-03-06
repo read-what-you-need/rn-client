@@ -1,6 +1,12 @@
 import * as types from "../constants/ActionTypes";
 import { getSelectedLines } from "./lines";
 
+export const addNewTrailLine =
+  ({ trailLine, uuid, insertInstruction = "after" }) =>
+  dispatch => {
+    dispatch({ type: types.ADD_NEW_TRAIL_LINE, trailLine, uuid, insertInstruction });
+  };
+
 export const addToTrailCheckout = () => (dispatch, getState) => {
   dispatch({ type: types.ADD_TO_TRAILS_CHECKOUT, data: getSelectedLines(getState()) });
 };
@@ -9,6 +15,11 @@ export const toggleNewUserTrailLine =
   ({ uuid }) =>
   dispatch => {
     dispatch({ type: types.TOGGLE_ADD_NEW_TRAIL_LINE_ICON, data: uuid });
+  };
+export const deleteTrailLine =
+  ({ uuid }) =>
+  dispatch => {
+    dispatch({ type: types.DELETE_TRAIL_LINE, data: uuid });
   };
 
 export const getAddNewTrailIsShown = ({ state, uuid }) => {
@@ -24,7 +35,6 @@ export const getAddNewTrailIsShown = ({ state, uuid }) => {
 
 export const updateReorderedListOfTrails =
   ({ trails }) =>
-  (dispatch) => {
-    console.log(trails)
+  dispatch => {
     dispatch({ type: types.UPDATE_REORDERED_LIST_OF_TRAILS, data: trails });
   };

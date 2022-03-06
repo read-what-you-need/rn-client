@@ -10,10 +10,11 @@
 
 .item-trail-wrapper {
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 1fr 6fr 1fr;
   align-items: center;
   .item-draggable {
     place-self: center;
+    transform: scale(.8);
   }
   .item-trail {
     border: 1px solid rgba(0, 0, 0, 0.21);
@@ -39,6 +40,8 @@
   }
   .item-trail-action-button {
     text-align-last: center;
+    display: flex;
+    flex-direction: column-reverse;
     cursor: pointer;
     button {
       @include hide-button();

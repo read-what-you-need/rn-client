@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleNewUserTrailLine, getAddNewTrailIsShown } from "../../actions";
+import { toggleNewUserTrailLine, getAddNewTrailIsShown, addNewTrailLine, deleteTrailLine } from "../../actions";
 
 import InputTrail from "./InputTrail";
-import { AddIcon, DeleteIcon, DragabbleSelectIcon } from "../Icons";
+import { AddIcon, DeleteIcon, DragabbleSelectIcon, RemoveMinusIcon } from "../Icons";
 import "./ItemTrail.scss";
-const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) => {
+const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive, addNewTrailLine, deleteTrailLine }) => {
   return (
     <div>
       <div className="item-trail-wrapper">
@@ -13,6 +13,11 @@ const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) 
           <DragabbleSelectIcon />
         </div>
         <div className="item-trail">{trail?.line}</div>
+        <div className="item-trail-action-button">
+          <button onClick={() => deleteTrailLine({ uuid: trail.uuid })}>
+            <RemoveMinusIcon />
+          </button>
+        </div>
         {isAddNewTrailActive && (
           <>
             <div className="item-trail-action-button">
@@ -21,7 +26,7 @@ const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) 
               </button>
             </div>
             <div className="item-trail-input">
-              <InputTrail />
+              <InputTrail addNewTrailLine={addNewTrailLine} uuid={trail.uuid} />
             </div>
           </>
         )}
@@ -43,5 +48,5 @@ const mapStateToProps = (state, ownProps) => ({
   isAddNewTrailActive: getAddNewTrailIsShown({ state, uuid: ownProps.trail?.uuid })
 });
 
-const actionCreators = { toggleNewUserTrailLine };
+const actionCreators = { toggleNewUserTrailLine, addNewTrailLine, deleteTrailLine };
 export default connect(mapStateToProps, actionCreators)(ItemTrail);
