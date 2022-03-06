@@ -14,14 +14,12 @@ const CreateTrail = ({ trails, updateReorderedListOfTrails }) => {
     <div className="create-trail-wrapper">
       <Row>
         <Col span={6} className="trail-column-back">
-          <button className="push-button not-selected">
-            <span
-              className="save-button-text"
-              onClick={() => {
-                navigate(-1);
-              }}>
-              Back
-            </span>
+          <button
+            className="push-button not-selected"
+            onClick={() => {
+              navigate(-1);
+            }}>
+            <span className="save-button-text">Back</span>
           </button>
         </Col>
         <Col span={12} className="trail-column-center">

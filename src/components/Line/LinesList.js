@@ -8,8 +8,8 @@ import "./LinesList.scss";
 const multiplySkeleton = byTimes => {
   return (
     <div>
-      {[...Array(byTimes).keys()].map(() => (
-        <Skeleton active />
+      {[...Array(byTimes).keys()].map((id) => (
+        <Skeleton key={id} active />
       ))}
     </div>
   );

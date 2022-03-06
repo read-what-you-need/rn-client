@@ -20,7 +20,7 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clicked
       <div className="file-tags-item-wrapper">
         {tags.map(tag => {
           return (
-            <div className="file-tags-item">
+            <div className="file-tags-item" id={tag.id}>
               <button
                 className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
                 onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>

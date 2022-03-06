@@ -7,8 +7,10 @@ const InputTrail = () => {
     <TextArea
       autoSize={{ minRows: 2, maxRows: 6 }}
       size="large"
-      onChange={e => {
-        console.log(e.target.value);
+      onPressEnter={e => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+        }
       }}
     />
   );
