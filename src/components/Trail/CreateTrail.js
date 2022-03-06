@@ -55,7 +55,7 @@ const CreateTrail = ({ trails, updateReorderedListOfTrails }) => {
                     padding: "12px",
                     cursor: isDragged ? "grabbing" : "grab",
                     borderRadius: "5px",
-                    backgroundColor: isDragged || isSelected ? "rgba(238, 238, 238)" : "#FFF"
+                    backgroundColor: isDragged || isSelected ? "#EEE" : "#FFF"
                   }}>
                   <ItemTrail trail={value} />
                 </div>
