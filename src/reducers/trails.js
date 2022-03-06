@@ -22,7 +22,7 @@ const trails = (state = initialState, action) => {
     case types.UPDATE_REORDERED_LIST_OF_TRAILS:
       return {
         ...state,
-        trails: [...action.data]
+        trails: action.data
       };
     case types.TOGGLE_ADD_NEW_TRAIL_LINE_ICON:
       return {

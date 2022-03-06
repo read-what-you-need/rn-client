@@ -7,7 +7,7 @@ import { AddIcon, DeleteIcon, DragabbleSelectIcon } from "../Icons";
 import "./ItemTrail.scss";
 const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) => {
   return (
-    <>
+    <div>
       <div className="item-trail-wrapper">
         <div className="item-draggable">
           <DragabbleSelectIcon />
@@ -15,8 +15,10 @@ const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) 
         <div className="item-trail">{trail?.line}</div>
         {isAddNewTrailActive && (
           <>
-            <div className="item-trail-action-button" onClick={() => toggleNewUserTrailLine({ uuid: trail.uuid })}>
-              <DeleteIcon />
+            <div className="item-trail-action-button">
+              <button onClick={() => toggleNewUserTrailLine({ uuid: trail.uuid })}>
+                <DeleteIcon />
+              </button>
             </div>
             <div className="item-trail-input">
               <InputTrail />
@@ -26,17 +28,19 @@ const ItemTrail = ({ trail = {}, toggleNewUserTrailLine, isAddNewTrailActive }) 
       </div>
 
       {!isAddNewTrailActive && (
-        <div className="item-trail-add-button" onClick={() => toggleNewUserTrailLine({ uuid: trail.uuid })}>
-          <AddIcon />
+        <div className="item-trail-add-button">
+          <button onClick={() => toggleNewUserTrailLine({ uuid: trail.uuid })}>
+            <AddIcon />
+          </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
   trails: state.trailsWrapper.trails,
-  isAddNewTrailActive: getAddNewTrailIsShown({ state, uuid: ownProps.trail.uuid })
+  isAddNewTrailActive: getAddNewTrailIsShown({ state, uuid: ownProps.trail?.uuid })
 });
 
 const actionCreators = { toggleNewUserTrailLine };
