@@ -32,6 +32,11 @@ export const getAddNewTrailIsShown = ({ state, uuid }) => {
   });
   return addNewTrailIsShown;
 };
+export const updateTrailTitle =
+  ({ trailTitle }) =>
+  dispatch => {
+    dispatch({ type: types.UPDATE_TRAIL_TITLE, trailTitle });
+  };
 
 export const updateReorderedListOfTrails =
   ({ trails }) =>

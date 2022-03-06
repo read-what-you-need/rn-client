@@ -2,7 +2,8 @@ import * as types from "../constants/ActionTypes";
 import helpers from "../libs/Helpers";
 
 const initialState = {
-  trails: []
+  trails: [],
+  trailTitle: {}
 };
 
 function getNewTrailSignature() {
@@ -46,6 +47,11 @@ const trails = (state = initialState, action) => {
             return { ...trail, ...getNewTrailSignature() };
           })
         ]
+      };
+    case types.UPDATE_TRAIL_TITLE:
+      return {
+        ...state,
+        trailTitle: action.trailTitle
       };
     case types.UPDATE_REORDERED_LIST_OF_TRAILS:
       return {

@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import ItemTrail from "./ItemTrail";
 import { Input, Row, Col } from "antd";
 import { List, arrayMove } from "react-movable";
-import { updateReorderedListOfTrails } from "../../actions";
+import { updateReorderedListOfTrails, updateTrailTitle } from "../../actions";
 
 import "./CreateTrail.scss";
 
-const CreateTrail = ({ trails, updateReorderedListOfTrails }) => {
+const CreateTrail = ({ trails, updateReorderedListOfTrails, updateTrailTitle }) => {
   const navigate = useNavigate();
   return (
     <div className="create-trail-wrapper">
@@ -24,13 +24,7 @@ const CreateTrail = ({ trails, updateReorderedListOfTrails }) => {
         </Col>
         <Col span={12} className="trail-column-center">
           <div className="trail-title-header">
-            <Input
-              placeholder="Give a title to your Trail..."
-              size="large"
-              onChange={e => {
-                console.log(e.target.value);
-              }}
-            />
+            <Input placeholder="Give a title to your Trail..." size="large" onChange={e => updateTrailTitle({ trailTitle: e.target.value })} />
           </div>
 
           <List
@@ -75,5 +69,5 @@ const mapStateToProps = state => ({
   trails: state.trailsWrapper.trails
 });
 
-const actionCreators = { updateReorderedListOfTrails };
+const actionCreators = { updateReorderedListOfTrails, updateTrailTitle };
 export default connect(mapStateToProps, actionCreators)(CreateTrail);
