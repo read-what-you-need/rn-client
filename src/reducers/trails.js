@@ -3,7 +3,7 @@ import helpers from "../libs/Helpers";
 
 const initialState = {
   trails: [],
-  trailTitle: {}
+  trailTitle: ""
 };
 
 function getNewTrailSignature() {
@@ -53,6 +53,10 @@ const trails = (state = initialState, action) => {
         ...state,
         trailTitle: action.trailTitle
       };
+    case types.VALIDATE_TRAIL_TO_SAVE_FAILURE:
+      return { ...state, error: action.error };
+    case types.VALIDATE_TRAIL_TO_SAVE_SUCCESS:
+      return { ...state, error: {} };
     case types.UPDATE_REORDERED_LIST_OF_TRAILS:
       return {
         ...state,

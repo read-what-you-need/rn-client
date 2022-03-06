@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ItemTrail from "./ItemTrail";
-import { Input, Row, Col } from "antd";
+import { Input, Row, Col, notification } from "antd";
 import { List, arrayMove } from "react-movable";
-import { updateReorderedListOfTrails, updateTrailTitle } from "../../actions";
+import { updateReorderedListOfTrails, updateTrailTitle, saveTrail } from "../../actions";
 
 import "./CreateTrail.scss";
 
-const CreateTrail = ({ trails, updateReorderedListOfTrails, updateTrailTitle }) => {
+const CreateTrail = ({ trails, updateReorderedListOfTrails, updateTrailTitle, saveTrail }) => {
   const navigate = useNavigate();
   return (
     <div className="create-trail-wrapper">
@@ -56,7 +56,18 @@ const CreateTrail = ({ trails, updateReorderedListOfTrails, updateTrailTitle }) 
           />
         </Col>
         <Col span={6} className="trail-column-save">
-          <button className="push-button primary">
+          <button
+            className="push-button primary"
+            onClick={() =>
+              saveTrail()
+                .then(trail => {
+                  openNotificationWithIcon("success", "Trail creation successful!");
+                  navigate(`/trail/${trail.trailId}`);
+                })
+                .catch(err => {
+                  openNotificationWithIcon("error", "Trail creation warning!", err.message);
+                })
+            }>
             <span className="save-button-text">Save</span>
           </button>
         </Col>
@@ -64,10 +75,15 @@ const CreateTrail = ({ trails, updateReorderedListOfTrails, updateTrailTitle }) 
     </div>
   );
 };
-
+const openNotificationWithIcon = (type, message, description) => {
+  notification[type]({
+    message,
+    description
+  });
+};
 const mapStateToProps = state => ({
   trails: state.trailsWrapper.trails
 });
 
-const actionCreators = { updateReorderedListOfTrails, updateTrailTitle };
+const actionCreators = { updateReorderedListOfTrails, updateTrailTitle, saveTrail };
 export default connect(mapStateToProps, actionCreators)(CreateTrail);

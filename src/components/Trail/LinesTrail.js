@@ -13,27 +13,13 @@ const LinesTrail = () => {
     trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 5 }).then(res => {
       setTrailLines(res);
     });
-  });
-
+  }, []);
 
   return (
     <div className="App">
       <div className="container">
         <h1>{trailDetails.title}</h1>
-        <div className="breadcrumb">
-          <Breadcrumb>
-            <Breadcrumb.Item>
-              <Link to={`/feed`}>Home</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to={`/user`}>Profile</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>Trail</Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to={`/trail/list`}>My trails</Link>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
+
         <div className="row">
           <div className="col-2"></div>
           <div className="col-8">

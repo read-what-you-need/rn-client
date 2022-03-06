@@ -10,7 +10,10 @@ const InputTrail = ({ addNewTrailLine, uuid }) => {
       onPressEnter={e => {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault();
-          addNewTrailLine({ trailLine: e.target.value, uuid });
+          let trailLine = e.target.value;
+          if (trailLine) {
+            addNewTrailLine({ trailLine: e.target.value, uuid });
+          }
         }
       }}
     />
