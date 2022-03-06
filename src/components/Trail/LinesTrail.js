@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import trailApi from "../../api/trail";
-import { Breadcrumb } from "antd";
+import { BackTop, Row, Col } from "antd";
+import "./LinesTrail.scss";
+
+import BookInfoCard from "../Book/BookInfoCard";
 
 const LinesTrail = () => {
   const [trailDetails, setTrailDetails] = useState([]);
@@ -10,32 +13,35 @@ const LinesTrail = () => {
 
   useEffect(() => {
     trailApi.getTrailDetails({ trailId: params.id }).then(res => setTrailDetails(res));
-    trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 5 }).then(res => {
+    trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 15 }).then(res => {
       setTrailLines(res);
     });
   }, []);
 
   return (
-    <div className="App">
-      <div className="container">
-        <h1>{trailDetails.title}</h1>
-
-        <div className="row">
-          <div className="col-2"></div>
-          <div className="col-8">
-            <ul className="list-group list-group-flush">
+    <div className="lines-trail">
+      <Row>
+        <BackTop duration={200} visibilityHeight={50} />
+        <Col span={15}>
+          <div className="lines-trail-wrapper">
+            <div className="lines-trail-title-header">{trailDetails.title}</div>
+            <ul className="lines-trail-items">
               {trailLines.map(trailLines => {
                 return (
-                  <li className="list-group-item" key={trailLines.user_line_id || trailLines.file_line_id}>
+                  <li className="lines-trail-item" key={trailLines.user_line_id || trailLines.file_line_id}>
                     {trailLines.file_line || trailLines.user_line}
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div className="col-3"></div>
-        </div>
-      </div>
+        </Col>
+        <Col span={7} className="lines-trail-info-column">
+          <div className="lines-trail-book-info-wrapper">
+            <BookInfoCard />
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };

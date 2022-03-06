@@ -20,7 +20,7 @@
     border: 1px solid rgba(0, 0, 0, 0.21);
     box-sizing: border-box;
     border-radius: 5px;
-    padding: 16px 20px;
+    padding: var(--size-md) 20px;
   }
   .item-trail-input {
     margin: var(--size-mmd) 0 0 0;

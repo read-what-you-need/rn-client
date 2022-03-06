@@ -36,6 +36,8 @@
   --black: #000;
   --white: #fff;
   --grey: #c4c4c4;
+  --grey-light: #7d7d7d;
+  --grey-lighter-dark:  #F0F0F0;
 
   /* Text colors*/
   --heading-color: #000;
@@ -63,14 +65,15 @@
   --book-card-un-selected-border: 1px solid #e5e5e5;
   --book-card-selected-border: 2px solid #e5e5e5;
 
-
   /* Border radius  */
 
   --border-radius-lg: 20px;
   --border-radius-xl: 42px;
 
-
   /* Heights of components  */
+
+  --book-profile-image-height:200px;
+  --book-profile-image-width:150px;
 
   --navbar-height: 80px;
 }

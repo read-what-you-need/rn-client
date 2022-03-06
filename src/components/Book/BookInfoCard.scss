@@ -1,7 +1,65 @@
-.book-info-card{
+.book-info-card {
   margin: 0px 0px 0px 18px;
   background: #ffffff;
   border: 3px solid rgba(196, 196, 196, 0.38);
   box-sizing: border-box;
   border-radius: 20px;
+  padding: 20px 42px 42px 42px;
+  .book-info {
+    .book-info-profile-picture {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 20px 0;
+      .profile-icon {
+        background: aliceblue;
+        display: flex;
+        width: var(--book-profile-image-width);
+        align-items: center;
+        justify-content: center;
+        height: var(--book-profile-image-height);
+        font-family: var(--primary-main-page-font);
+        font-size: 18px;
+        background: var(--grey-lighter-dark);
+        border-radius: var(--border-radius-lg);
+        cursor: pointer;
+      }
+
+    }
+    .book-info-title {
+      font-family: var(--primary-main-page-font);
+      font-size: var(--size-md);
+      line-height: 23px;
+      color: var(--grey-light);
+      text-align: center;
+      margin: 0 0 10px 0;
+    }
+    .book-info-name {
+      font-family: var(--primary-main-page-font);
+      font-size: 18px;
+      color: var(--heading-color);
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+  }
+  .book-info-tags-wrapper {
+    .book-info-tags-title {
+      font-family: var(--primary-main-page-font);
+      font-size: var(--size-md);
+      color: var(--grey-light);
+      text-align: center;
+      margin: 0 0 10px 0;
+      text-transform: capitalize;
+    }
+    .book-info-tags {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      .book-info-tag {
+        font-family: var(--primary-main-page-font);
+        margin: 6px;
+        font-size: 18px;
+        color: var(--heading-color);
+      }
+    }
+  }
 }

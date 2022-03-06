@@ -7,7 +7,6 @@ export const getUserDetails = () => dispatch => {
   userApi
     .getCurrentUserDetails()
     .then(res => {
-      console.log(res);
       dispatch({ type: types.GET_USER_DETAILS_REQUEST_SUCCESS, data: res });
     })
     .catch(err => {
