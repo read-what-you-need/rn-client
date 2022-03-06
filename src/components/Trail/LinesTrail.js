@@ -13,7 +13,7 @@ const LinesTrail = () => {
 
   useEffect(() => {
     trailApi.getTrailDetails({ trailId: params.id }).then(res => setTrailDetails(res));
-    trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 15 }).then(res => {
+    trailApi.listUserTrailLines({ trailId: params.id, offset: 0, limit: 150 }).then(res => {
       setTrailLines(res);
     });
   }, []);
@@ -36,7 +36,7 @@ const LinesTrail = () => {
                   );
                 } else if (trailLines.user_line_id) {
                   return (
-                    <div className="lines-trail-item-user" key={trailLines.user_line_id }>
+                    <div className="lines-trail-item-user" key={trailLines.user_line_id}>
                       {trailLines.user_line}
                     </div>
                   );
@@ -47,7 +47,7 @@ const LinesTrail = () => {
         </Col>
         <Col span={7} className="lines-trail-info-column">
           <div className="lines-trail-book-info-wrapper">
-            <BookInfoCard />
+            <BookInfoCard trailId={params.id} />
           </div>
         </Col>
       </Row>

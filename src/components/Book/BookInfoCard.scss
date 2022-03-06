@@ -23,7 +23,6 @@
         border-radius: var(--border-radius-lg);
         cursor: pointer;
       }
-
     }
     .book-info-title {
       font-family: var(--primary-main-page-font);
@@ -59,6 +58,7 @@
         margin: 6px;
         font-size: 18px;
         color: var(--heading-color);
+        text-transform: capitalize;
       }
     }
   }

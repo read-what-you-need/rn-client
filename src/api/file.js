@@ -5,7 +5,6 @@ import headerConfig from "./headerConfig";
 let apiEndPoint = process.env.REACT_APP_NODE_API;
 let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
 
-
 function createFileHashFormData({ file, hash }) {
   // create a form to send file
   const formData = new FormData();
@@ -41,6 +40,13 @@ const fileApi = {
   },
   getFileById: async function (id) {
     let url = apiEndPoint + `file/${id}`;
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
+  getFileByTrailId: async function ({ trailId }) {
+    let url = apiEndPoint + `file/trail/${trailId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
       return response.data;
     });

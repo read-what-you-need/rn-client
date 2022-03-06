@@ -38,7 +38,9 @@ export const saveTrail = () => async (dispatch, getState) => {
   if (validateTrail(dispatch, getState())) {
     dispatch({ type: types.SAVE_TRAIL_REQUEST });
     const { trailsWrapper } = getState() || {};
+    const { fileWrapper } = getState() || {};
 
+    const fileId = fileWrapper.fileDetails.file_id;
     let trailLines = trailsWrapper.trails.map(trail => {
       if (trail.file_line_id) {
         return { file_line_id: trail.file_line_id };
@@ -55,7 +57,7 @@ export const saveTrail = () => async (dispatch, getState) => {
       }
     });
     let response = trailApi
-      .createTrail({ trailTitle: trailsWrapper.trailTitle, trailLines })
+      .createTrail({ trailTitle: trailsWrapper.trailTitle, trailLines, fileId })
       .then(trail => {
         dispatch({ type: types.SAVE_TRAIL_SUCCESS });
         return trail;

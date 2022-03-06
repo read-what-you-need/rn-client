@@ -7,9 +7,9 @@ let apiEndPoint = process.env.REACT_APP_NODE_API;
 
 // defining all api calls that interact with the table
 const trailApi = {
-  createTrail: async function ({ trailTitle, trailLines }) {
+  createTrail: async function ({ trailTitle, trailLines, fileId }) {
     let url = apiEndPoint + "trail";
-    let data = { trailTitle, trailLines };
+    let data = { trailTitle, trailLines, fileId };
     let result = axios
       .post(url, data, headerConfig.axiosConfig)
       .then(response => Helpers.responseHandler({ response, error: {} }))
