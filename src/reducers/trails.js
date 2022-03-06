@@ -15,9 +15,14 @@ const trails = (state = initialState, action) => {
         trails: [
           ...state.trails,
           ...action.data.map(trail => {
-            return { ...trail, uuid: helpers.uuid_generator(), showAddNewTrail: false};
+            return { ...trail, uuid: helpers.uuid_generator(), showAddNewTrail: false };
           })
         ]
+      };
+    case types.UPDATE_REORDERED_LIST_OF_TRAILS:
+      return {
+        ...state,
+        trails: action.data
       };
     case types.TOGGLE_ADD_NEW_TRAIL_LINE_ICON:
       return {
@@ -27,7 +32,7 @@ const trails = (state = initialState, action) => {
             if (trail.uuid === action.data) {
               return { ...trail, showAddNewTrail: !trail.showAddNewTrail };
             } else {
-              return { ...trail, showAddNewTrail: false };;
+              return { ...trail, showAddNewTrail: false };
             }
           })
         ]

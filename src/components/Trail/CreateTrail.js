@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ItemTrail from "./ItemTrail";
 import { Input, Row, Col } from "antd";
+import { List, arrayMove } from "react-movable";
+import { updateReorderedListOfTrails } from "../../actions";
 
 import "./CreateTrail.scss";
 
-const CreateTrail = ({ trails }) => {
+const CreateTrail = ({ trails, updateReorderedListOfTrails }) => {
   const navigate = useNavigate();
   return (
     <div className="create-trail-wrapper">
@@ -33,11 +35,33 @@ const CreateTrail = ({ trails }) => {
             />
           </div>
 
-          <div className="trail-list-wrapper">
-            {trails.map(trail => (
-              <ItemTrail trail={trail} />
-            ))}
-          </div>
+          <List
+            values={trails}
+            lockVertically={true}
+            onChange={({ oldIndex, newIndex }) => updateReorderedListOfTrails({ trails: arrayMove(trails, oldIndex, newIndex) })}
+            renderList={({ children, props }) => {
+              return (
+                <div className="trail-list-wrapper" {...props}>
+                  {children}
+                </div>
+              );
+            }}
+            renderItem={({ value, props, isDragged, isSelected }) => {
+              return (
+                <div
+                  {...props}
+                  style={{
+                    ...props.style,
+                    padding: "12px",
+                    cursor: isDragged ? "grabbing" : "grab",
+                    borderRadius: "5px",
+                    backgroundColor: isDragged || isSelected ? "#EEE" : "#FFF"
+                  }}>
+                  <ItemTrail trail={value} />
+                </div>
+              );
+            }}
+          />
         </Col>
         <Col span={6} className="trail-column-save">
           <button className="push-button primary">
@@ -53,5 +77,5 @@ const mapStateToProps = state => ({
   trails: state.trailsWrapper.trails
 });
 
-const actionCreators = {};
+const actionCreators = { updateReorderedListOfTrails };
 export default connect(mapStateToProps, actionCreators)(CreateTrail);

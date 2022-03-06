@@ -1,3 +1,13 @@
+@mixin hide-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 .item-trail-wrapper {
   display: grid;
   grid-template-columns: 1fr 6fr;
@@ -30,13 +40,18 @@
   .item-trail-action-button {
     text-align-last: center;
     cursor: pointer;
+    button {
+      @include hide-button();
+    }
   }
 }
-.item-trail-wrapper:not(:first-child){
+.item-trail-wrapper:not(:first-child) {
   margin: var(--size-lg) 0px 0px 0px;
 }
 .item-trail-add-button {
   text-align-last: center;
-  margin: var(--size-s) 0;
-  cursor: pointer;
+  margin: 24px 0px 0 0;
+  button {
+    @include hide-button();
+  }
 }
