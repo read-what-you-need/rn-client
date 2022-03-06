@@ -1,0 +1,35 @@
+.lines-trail {
+  margin: var(--size-xs) 0 0 0;
+  .lines-trail-wrapper {
+    background: var(--background-light-focus);
+    border: var(--border-primary-light);
+    box-sizing: border-box;
+    border-radius: var(--size-mmd);
+    margin: 0 var(--size-s) 0px 42px;
+    .lines-trail-title-header {
+      margin: 32px 42px;
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--size-xl);
+      color: var(--heading-color);
+    }
+    .lines-trail-items {
+      .lines-trail-item-book {
+        margin: var(--size-mmd) var(--size-lg) var(--size-mmd) var(--size-lg);
+        padding: var(--size-md) var(--size-md) var(--size-md) var(--size-lg);
+        border-radius: var(--border-radius-sm);
+        background: var(--background);
+      }
+      .lines-trail-item-book:first-child {
+        margin: 40px var(--size-lg) var(--size-mmd) var(--size-lg);
+      }
+      .lines-trail-item-user {
+        background: #f3fcff;
+        border-radius: var(--border-radius-md);
+        margin: var(--size-s) var(--size-lg) var(--size-s) var(--size-xxl);
+        padding: var(--size-md) var(--size-md) var(--size-md) var(--size-mmd);
+      }
+    }
+  }
+}

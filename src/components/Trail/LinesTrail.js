@@ -25,15 +25,24 @@ const LinesTrail = () => {
         <Col span={15}>
           <div className="lines-trail-wrapper">
             <div className="lines-trail-title-header">{trailDetails.title}</div>
-            <ul className="lines-trail-items">
+            <div className="lines-trail-items">
               {trailLines.map(trailLines => {
-                return (
-                  <li className="lines-trail-item" key={trailLines.user_line_id || trailLines.file_line_id}>
-                    {trailLines.file_line || trailLines.user_line}
-                  </li>
-                );
+                console.log();
+                if (trailLines.file_line_id) {
+                  return (
+                    <div className="lines-trail-item-book" key={trailLines.file_line_id}>
+                      {trailLines.file_line}
+                    </div>
+                  );
+                } else if (trailLines.user_line_id) {
+                  return (
+                    <div className="lines-trail-item-user" key={trailLines.user_line_id }>
+                      {trailLines.user_line}
+                    </div>
+                  );
+                } else return <></>;
               })}
-            </ul>
+            </div>
           </div>
         </Col>
         <Col span={7} className="lines-trail-info-column">
