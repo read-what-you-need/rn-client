@@ -22,7 +22,7 @@ const LinesTrail = () => {
     <div className="lines-trail">
       <Row>
         <BackTop duration={200} visibilityHeight={50} />
-        <Col span={15}>
+        <Col span={18} offset={3}>
           <div className="lines-trail-wrapper">
             <div className="lines-trail-title-header">{trailDetails.title}</div>
             <div className="lines-trail-items">
@@ -45,11 +45,11 @@ const LinesTrail = () => {
             </div>
           </div>
         </Col>
-        <Col span={7} className="lines-trail-info-column">
+        {/* <Col span={7} className="lines-trail-info-column">
           <div className="lines-trail-book-info-wrapper">
             <BookInfoCard trailId={params.id} />
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );

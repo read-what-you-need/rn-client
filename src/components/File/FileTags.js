@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { Tooltip } from "antd";
 import { tagsCollapsible, onTagPress } from "../../actions";
 
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
@@ -21,11 +21,13 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clicked
         {tags.map(tag => {
           return (
             <div className="file-tags-item" id={tag.id}>
-              <button
-                className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
-                onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
-                <span className="file-tags-item-text">{tag.tag}</span>
-              </button>
+              <Tooltip title={tag.frequency_count+" occurrences found"}>
+                <button
+                  className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
+                  onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
+                  <span className="file-tags-item-text">{tag.tag}</span>
+                </button>
+              </Tooltip>
             </div>
           );
         })}

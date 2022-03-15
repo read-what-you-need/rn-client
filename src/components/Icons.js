@@ -14,6 +14,37 @@ export const Logo = () => {
     </svg>
   );
 };
+
+export const WaveIcon = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M21 10L21 9C21 8.07003 21 7.60504 20.8978 7.22354C20.6204 6.18827 19.8117 5.37962 18.7765 5.10222C18.395 5 17.93 5 17 5"
+        stroke="#00536D"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M3 10L3 9C3 8.07003 3 7.60504 3.10222 7.22354C3.37962 6.18827 4.18827 5.37962 5.22354 5.10222C5.60504 5 6.07003 5 7 5"
+        stroke="#00536D"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M21 14L21 15C21 15.93 21 16.395 20.8978 16.7765C20.6204 17.8117 19.8117 18.6204 18.7765 18.8978C18.395 19 17.93 19 17 19"
+        stroke="#00536D"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M3 14L3 15C3 15.93 3 16.395 3.10222 16.7765C3.37962 17.8117 4.18827 18.6204 5.22354 18.8978C5.60504 19 6.07003 19 7 19"
+        stroke="#00536D"
+        stroke-linejoin="round"
+      />
+      <path d="M12 15L12 9" stroke="#00536D" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8 14L8 10" stroke="#00536D" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M16 14L16 10" stroke="#00536D" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
 export const RasteroColorIcon = () => {
   return (
     <svg width="94" height="75" viewBox="0 0 94 75" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,11 +89,11 @@ export const LeftCollapseIcon = () => {
 };
 export const TrailActionBarIcon = () => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M4 4V3.25C3.58579 3.25 3.25 3.58579 3.25 4H4ZM20 4H20.75C20.75 3.58579 20.4142 3.25 20 3.25V4ZM20 20V20.75C20.4142 20.75 20.75 20.4142 20.75 20H20ZM4 20H3.25C3.25 20.4142 3.58579 20.75 4 20.75V20ZM7 7.25C6.58579 7.25 6.25 7.58579 6.25 8C6.25 8.41421 6.58579 8.75 7 8.75V7.25ZM17 8.75C17.4142 8.75 17.75 8.41421 17.75 8C17.75 7.58579 17.4142 7.25 17 7.25V8.75ZM7 11.25C6.58579 11.25 6.25 11.5858 6.25 12C6.25 12.4142 6.58579 12.75 7 12.75V11.25ZM17 12.75C17.4142 12.75 17.75 12.4142 17.75 12C17.75 11.5858 17.4142 11.25 17 11.25V12.75ZM11 15.25C10.5858 15.25 10.25 15.5858 10.25 16C10.25 16.4142 10.5858 16.75 11 16.75V15.25ZM17 16.75C17.4142 16.75 17.75 16.4142 17.75 16C17.75 15.5858 17.4142 15.25 17 15.25V16.75ZM4 4.75H20V3.25H4V4.75ZM19.25 4V20H20.75V4H19.25ZM20 19.25H4V20.75H20V19.25ZM4.75 20V4H3.25V20H4.75ZM7 8.75H17V7.25H7V8.75ZM7 12.75H17V11.25H7V12.75ZM11 16.75H17V15.25H11V16.75Z"
-        fill="#00536D"
-      />
+    <svg width="56" height="50" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="56" height="50" rx="10" fill="#FFF7CD" />
+      <rect x="7.99915" y="23" width="40" height="5" rx="2" stroke="#00536D" stroke-width="2" />
+      <rect x="8" y="11" width="40" height="5" rx="2" stroke="#00536D" stroke-width="2" />
+      <rect x="7.99915" y="35" width="19" height="5" rx="2" stroke="#00536D" stroke-width="2" />
     </svg>
   );
 };

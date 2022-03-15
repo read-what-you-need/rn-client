@@ -8,7 +8,7 @@ import "./LinesList.scss";
 const multiplySkeleton = byTimes => {
   return (
     <div>
-      {[...Array(byTimes).keys()].map((id) => (
+      {[...Array(byTimes).keys()].map(id => (
         <Skeleton key={id} active />
       ))}
     </div>
@@ -16,12 +16,13 @@ const multiplySkeleton = byTimes => {
 };
 
 const LinesList = ({ lines, isLoading }) => {
+
   return (
     <div className="lines-list">
       {isLoading
         ? multiplySkeleton(5)
         : lines.map(line => {
-            return <LineItem key={line.file_line_id} line={line} isSelected={line.selected} feedback={line.feedback}/>;
+            return <LineItem key={line.file_line_id} line={line} isSelected={line.selected} feedback={line.feedback} />;
           })}
     </div>
   );

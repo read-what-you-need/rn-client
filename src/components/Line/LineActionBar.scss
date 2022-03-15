@@ -8,6 +8,7 @@
   justify-content: space-around;
   margin: 6px 0 6px 0;
   padding: 20px 14px;
+  align-items: center;
   .ant-divider-vertical {
     height: auto;
   }
@@ -17,6 +18,9 @@
     font-size: var(--size-md);
     svg {
       cursor: pointer;
+    }
+    &.scale-down {
+      transform: scale(0.8);
     }
   }
 }

@@ -25,7 +25,7 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
       <Divider type="vertical" />
 
       <div
-        className="line-action-bar-item"
+        className="line-action-bar-item scale-down"
         onClick={() => {
           addToTrailCheckout();
         }}>

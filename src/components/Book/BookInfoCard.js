@@ -25,8 +25,7 @@ const BookInfoCard = ({ trailId }) => {
         <div className="book-info-title">Book name</div>
         <div className="book-info-name">{fileDetails?.name}</div>
       </div>
-
-      <div className="book-info-tags-wrapper">
+      {/* <div className="book-info-tags-wrapper">
         <div className="book-info-tags-title">tags</div>
         <div className="book-info-tags">
           {tags.map(tag => {
@@ -37,7 +36,7 @@ const BookInfoCard = ({ trailId }) => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
