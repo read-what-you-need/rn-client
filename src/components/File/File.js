@@ -11,7 +11,7 @@ import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
 
 import QuestionsRecentAsked from "../Questions/QuestionsRecentAsked";
-import { BackTop, Row, Col } from "antd";
+import { Row, Col } from "antd";
 import "./File.scss";
 
 const File = ({ filePageInit }) => {
@@ -25,7 +25,6 @@ const File = ({ filePageInit }) => {
   return (
     <div className="file-wrapper">
       <Row>
-        <BackTop duration={200} visibilityHeight={50}/>
         <Col span={6} className="tags-column">
           <FileTags />
           <QuestionsRecentAsked />
