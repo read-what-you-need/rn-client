@@ -6,6 +6,7 @@ import lines from "./lines";
 import tags from "./tags";
 import trails from "./trails";
 import user from "./user";
+import questions from "./questions";
 
 export default combineReducers({
   linesWrapper: lines,
@@ -13,7 +14,8 @@ export default combineReducers({
   filtersWrapper: filters,
   tagsWrapper: tags,
   trailsWrapper: trails,
-  userWrapper: user
+  userWrapper: user,
+  questionsWrapper: questions
 });
 
 // export const getQuery = state => {

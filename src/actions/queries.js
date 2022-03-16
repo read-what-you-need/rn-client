@@ -20,6 +20,12 @@ export const searchQueryRequest = ({ query }) => {
   };
 };
 
+export const searchQueryType = ({ query }) => {
+  return function (dispatch) {
+    dispatch({ type: types.SEARCH_QUERY_TYPE, data: query });
+  };
+};
+
 export const getCurrentQueryId = state => {
   return state.linesWrapper.queryId || [];
 };

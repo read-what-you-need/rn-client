@@ -2,7 +2,7 @@ import * as types from "../constants/ActionTypes";
 
 const initialState = {
   filters: {
-    pageSize: 6,
+    pageSize: 5,
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc",
@@ -17,10 +17,17 @@ const filters = (state = initialState, action) => {
       return initialState;
     case types.FILTER_PAGE_CHANGE:
       return { ...state, filters: { ...state.filters, currentPage: action.data } };
+    case types.FILTERS_COLLAPSE:
+      return { ...state, isCollapsed: !state.isCollapsed };
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
+    case types.SEARCH_QUERY_TYPE:
+      return {
+        ...state,
+        filters: { ...state.filters, query: action.data }
+      };
     case types.SEARCH_QUERY_REQUEST:
-      return { ...state, isLoading: true, filters: { ...state.filters, query: action.query, currentPage: 0 } };
+      return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_READ_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1 } };
     case types.SHOW_ALL_LINES:
@@ -30,8 +37,9 @@ const filters = (state = initialState, action) => {
       return { ...state, filters: { ...state.filters, feedback: -1 } };
     case types.SORT_AND_ARRANGE_LINES_BY:
       return { ...state, filters: { ...state.filters, arrangeBy: action.arrangeBy, orderBy: action.orderBy } };
-    case types.FILTERS_COLLAPSE:
-      return { ...state, isCollapsed: !state.isCollapsed };
+    case types.PRESS_GENERATED_QUESTION:
+      return { ...state, filters: { ...state.filters, query: action.data } };
+
     default:
       return state;
   }

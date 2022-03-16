@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { searchQueryRequest } from "../../actions";
+import { searchQueryRequest, searchQueryType } from "../../actions";
 import { SimpleBarLinesIcon, GreenCheckIcon, RasteroIcon, Logo } from "../Icons";
 import { Badge, Input } from "antd";
 
 import "./NavbarFilePageAuth.scss";
 
-const NavbarFilePageAuth = ({ searchRequest, checkedOutTrailsCount }) => {
+const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCount, query }) => {
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -20,6 +20,8 @@ const NavbarFilePageAuth = ({ searchRequest, checkedOutTrailsCount }) => {
         </div>
         <Input
           placeholder="Ask any question. I’ll will try my best to find the answer!"
+          value={query}
+          onChange={e => searchQueryType({ query: e.target.value })}
           onPressEnter={e => {
             searchRequest({ query: e.target.value });
           }}
@@ -44,10 +46,12 @@ const NavbarFilePageAuth = ({ searchRequest, checkedOutTrailsCount }) => {
 };
 const mapStateToProps = state => ({
   filters: state.filtersWrapper.filters,
+  query: state.filtersWrapper.filters.query,
   checkedOutTrailsCount: state.trailsWrapper.trails.length
 });
 
 const actionCreators = {
-  searchRequest: searchQueryRequest
+  searchRequest: searchQueryRequest,
+  searchQueryType
 };
 export default connect(mapStateToProps, actionCreators)(NavbarFilePageAuth);
