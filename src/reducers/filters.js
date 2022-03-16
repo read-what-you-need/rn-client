@@ -20,7 +20,7 @@ const filters = (state = initialState, action) => {
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
     case types.SEARCH_QUERY_REQUEST:
-      return { ...state, isLoading: true, filters: { ...state.filters, query: action.query } };
+      return { ...state, isLoading: true, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_READ_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1 } };
     case types.SHOW_ALL_LINES:

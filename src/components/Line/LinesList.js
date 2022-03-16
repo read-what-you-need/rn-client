@@ -28,7 +28,7 @@ const LinesList = ({ lines, isLoading, changePage, totalResultsCount, pageSize, 
       <div className="pagination-component">
         {lines.length > 0 && (
           <Pagination
-            defaultCurrent={currentPage}
+            defaultCurrent={currentPage+1}
             onChange={(page, _pageSize) => {
               changePage({ pageChangeTo: page - 1 });
             }}
