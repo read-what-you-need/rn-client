@@ -4,6 +4,13 @@
   border-radius: 30px;
   padding: 24px 40px;
   height: fit-content;
-  min-height: 70vh;
-  height:auto;
+  min-height: 40vh;
+  height: auto;
+  .pagination-component {
+    margin: 32px 0 0 0;
+  }
+  .line-border {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 0px 40px;
+  }
 }

@@ -64,6 +64,13 @@ export const sortAndArrangeLinesBy = ({ arrangeBy, orderBy }) => {
   };
 };
 
+export const changePage = ({ pageChangeTo }) => {
+  return function (dispatch) {
+    dispatch({ type: types.FILTER_PAGE_CHANGE, data: pageChangeTo });
+    dispatch(getLines());
+  };
+};
+
 export const generateQuestion = ({ query }) => {
   return function (dispatch) {
     dispatch({ type: types.ASQ_QUESTION_REQUEST });
