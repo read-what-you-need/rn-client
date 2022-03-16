@@ -2,7 +2,7 @@
   .tags-column {
     padding: var(--size-lg);
     display: flex;
-    place-content: center;
+    flex-direction: column
   }
   .filter-column {
     padding: var(--size-lg);

@@ -4,12 +4,17 @@ import { getCurrentQueryId } from "./queries";
 
 export const getSelectedLines = state => {
   const { linesList } = state.linesWrapper || [];
+  const { query } = state.filtersWrapper.filters || "";
   let selectedLines = [
-    ...linesList.filter(line => {
-      if (line.selected) {
-        return line.file_line_id;
-      } else return false;
-    })
+    ...linesList
+      .filter(line => {
+        if (line.selected) {
+          return line.file_line_id;
+        } else return false;
+      })
+      .map(line => {
+        return { ...line, query };
+      })
   ];
   return selectedLines;
 };

@@ -77,15 +77,24 @@ export const changePage = ({ pageChangeTo }) => {
   };
 };
 
-export const generateQuestion = ({ query }) => {
-  return function (dispatch) {
-    dispatch({ type: types.ASQ_QUESTION_REQUEST });
-    queryApi.getQuestion({ query }).then(res => {
-      console.log(res)
-      dispatch({ type: types.ASQ_QUESTION_SUCCESS, data: res });
-    })
-    .catch(err => {
-      return dispatch({ type: types.ASQ_QUESTION_FAILURE, error: err });
-    });
+export const generateQuestion = ({ query, fileLineId }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.ASQ_QUESTION_REQUEST, data: fileLineId });
+    queryApi
+      .getQuestion({ query })
+      .then(res => {
+        dispatch({ type: types.ASQ_QUESTION_SUCCESS, data: res });
+      })
+      .catch(err => {
+        return dispatch({ type: types.ASQ_QUESTION_FAILURE, error: err });
+      });
+  };
+};
+
+export const onPressGeneratedQuestion = ({ query }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.PRESS_GENERATED_QUESTION, data: query });
+    dispatch({ type: types.FILTER_APPLIED });
+    dispatch(getLines());
   };
 };

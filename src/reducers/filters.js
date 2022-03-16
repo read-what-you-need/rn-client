@@ -28,11 +28,6 @@ const filters = (state = initialState, action) => {
       };
     case types.SEARCH_QUERY_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
-    case types.SEARCH_QUERY_REQUEST_SUCCESS:
-      return {
-        ...state,
-        filters: { ...state.filters, currentPage: 0 }
-      };
     case types.SHOW_READ_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1 } };
     case types.SHOW_ALL_LINES:
@@ -43,7 +38,7 @@ const filters = (state = initialState, action) => {
     case types.SORT_AND_ARRANGE_LINES_BY:
       return { ...state, filters: { ...state.filters, arrangeBy: action.arrangeBy, orderBy: action.orderBy } };
     case types.PRESS_GENERATED_QUESTION:
-      return { ...state, filters: { ...state.filters, query: action.data } };
+      return { ...state, filters: { ...state.filters, query: action.data, currentPage: 0 } };
 
     default:
       return state;

@@ -1,0 +1,23 @@
+.questions-recent-asked {
+  position: relative;
+  padding: var(--size-lg);
+  margin-top: var(--size-xxl);
+  background: var(--background-light-focus);
+  border: var(--border-primary-light);
+  border-radius: var(--border-radius-lg);
+  height: fit-content;
+  .questions-recent-asked-header {
+    display: flex;
+    justify-content: center;
+    padding: var(--size-s);
+    font-family: var(--primary-main-page-font);
+    font-size: var(--size-lg);
+    text-transform: capitalize;
+    color: var(--heading-color);
+  }
+  .questions-recent-asked-list {
+    .questions-recent-asked-list-item {
+      font-family: var(--primary-main-page-font);
+    }
+  }
+}
