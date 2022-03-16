@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { clearSelectedLines, feedbackLines, getSelectedLinesCount, addToTrailCheckout } from "../../actions";
-import { Divider } from "antd";
+import { Divider, Tooltip } from "antd";
 import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
 const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, addToTrailCheckout }) => {
@@ -15,31 +15,40 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
       ) : (
         <></>
       )}
-      <div
-        className="line-action-bar-item"
-        onClick={() => {
-          feedbackLines({ feedback: 1 });
-        }}>
-        <LikeThumbsUpIcon />
-      </div>
+
+      <Tooltip title={"Give positive feedback"}>
+        <div
+          className="line-action-bar-item"
+          onClick={() => {
+            feedbackLines({ feedback: 1 });
+          }}>
+          <LikeThumbsUpIcon />
+        </div>
+      </Tooltip>
       <Divider type="vertical" />
 
-      <div
-        className="line-action-bar-item scale-down"
-        onClick={() => {
-          addToTrailCheckout();
-        }}>
-        <TrailActionBarIcon />
-      </div>
+      <Tooltip title={"Add selected lines to trail"}>
+        <div
+          className="line-action-bar-item scale-down"
+          onClick={() => {
+            addToTrailCheckout();
+          }}>
+          <TrailActionBarIcon />
+        </div>
+      </Tooltip>
+
       <Divider type="vertical" />
 
-      <div
-        className="line-action-bar-item"
-        onClick={() => {
-          feedbackLines({ feedback: -1 });
-        }}>
-        <LikeThumbsDownIcon />
-      </div>
+      <Tooltip title={"Give negative feedback"}>
+        <div
+          className="line-action-bar-item"
+          onClick={() => {
+            feedbackLines({ feedback: -1 });
+          }}>
+          <LikeThumbsDownIcon />
+        </div>
+      </Tooltip>
+
       {selectedLinesCount ? (
         <>
           <Divider type="vertical" />
