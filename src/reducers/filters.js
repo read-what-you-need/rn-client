@@ -28,6 +28,11 @@ const filters = (state = initialState, action) => {
       };
     case types.SEARCH_QUERY_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
+    case types.SEARCH_QUERY_REQUEST_SUCCESS:
+      return {
+        ...state,
+        filters: { ...state.filters, currentPage: 0 }
+      };
     case types.SHOW_READ_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1 } };
     case types.SHOW_ALL_LINES:
