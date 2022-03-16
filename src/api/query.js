@@ -3,6 +3,7 @@ import headerConfig from "./headerConfig";
 
 // defining frequently used endpoints
 let apiEndPoint = process.env.REACT_APP_NODE_API;
+let questionGeneratorApiEndPoint = process.env.REACT_APP_QUESTION_GENERATOR_ENDPOINT;
 
 // defining all api calls that interact with the table
 const searchApi = {
@@ -14,6 +15,13 @@ const searchApi = {
       return response.data;
     });
     return result;
+  },
+  getQuestion: async function ({ query }) {
+    let url = `${questionGeneratorApiEndPoint}`;
+    let response = axios.post(url, { query }).then(response => {
+      return response.data[0];
+    });
+    return response;
   }
 };
 

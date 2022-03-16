@@ -63,3 +63,16 @@ export const sortAndArrangeLinesBy = ({ arrangeBy, orderBy }) => {
     dispatch(getLines());
   };
 };
+
+export const generateQuestion = ({ query }) => {
+  return function (dispatch) {
+    dispatch({ type: types.ASQ_QUESTION_REQUEST });
+    queryApi.getQuestion({ query }).then(res => {
+      console.log(res)
+      dispatch({ type: types.ASQ_QUESTION_SUCCESS, data: res });
+    })
+    .catch(err => {
+      return dispatch({ type: types.ASQ_QUESTION_FAILURE, error: err });
+    });
+  };
+};

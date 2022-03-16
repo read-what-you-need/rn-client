@@ -1,12 +1,12 @@
 import React from "react";
 import "./LineItem.scss";
 import { connect } from "react-redux";
-import { onLineSelect } from "../../actions";
+import { onLineSelect, generateQuestion } from "../../actions";
 import { Badge, Tag } from "antd";
 
 import { WaveIcon } from "../Icons";
 
-const LineItem = ({ line, onLineSelect, isSelected, feedback }) => {
+const LineItem = ({ line, onLineSelect, isSelected, feedback, generateQuestion }) => {
   const score = line.score * 100;
   return (
     <>
@@ -15,7 +15,7 @@ const LineItem = ({ line, onLineSelect, isSelected, feedback }) => {
           {line.line}
         </div>
         <div className="line-action-items">
-          <div className="line-action-item">
+          <div className="line-action-item" onClick={() => generateQuestion({ query: line.line })}>
             <WaveIcon />
           </div>
           <Tag color="default">{score.toFixed(0)}</Tag>
@@ -28,5 +28,5 @@ const LineItem = ({ line, onLineSelect, isSelected, feedback }) => {
 };
 
 const mapStateToProps = state => ({});
-const actionCreators = { onLineSelect };
+const actionCreators = { onLineSelect, generateQuestion };
 export default connect(mapStateToProps, actionCreators)(LineItem);
