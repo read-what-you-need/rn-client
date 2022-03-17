@@ -14,11 +14,6 @@ const UserProfileActivityCards = () => {
           <span className="user-activity-card-text">Your trails</span>
         </div>
       </Link>
-      <Link key="bookmarks" to={`/bookmarks`}>
-        <div className="user-activity-card">
-          <span className="user-activity-card-text">Bookmarks</span>
-        </div>
-      </Link>
     </div>
   );
 };

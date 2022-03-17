@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import { getUserDetails } from "../../actions";
 
 import "./UserProfileActivityCards.scss";
-import { PencilEditIcon } from "../Icons";
 import "./UserProfileOverview.scss";
+const dateFormatOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
 const UserProfileOverview = ({ getUserDetails, userDetails }) => {
   useEffect(() => {
     getUserDetails();
-  },[]);
+  }, []);
+  const userJoinedAt = new Date(userDetails.userJoinedAt).toLocaleDateString("en-US", dateFormatOptions);
   return (
     <div className="user-profile-overview-wrapper">
       <div className="user-profile-overview-header">
@@ -24,21 +25,15 @@ const UserProfileOverview = ({ getUserDetails, userDetails }) => {
           <span className="user-profile-overview-form-field-value">email</span>
 
           <span className="user-profile-overview-form-field-label">joined</span>
-          <span className="user-profile-overview-form-field-value">{userDetails.userJoinedAt}</span>
+          <span className="user-profile-overview-form-field-value">{userJoinedAt}</span>
         </div>
         <div className="user-profile-overview-user-image-wrapper">
-          <div></div>
-          <div className="user-profile-overview-user-image-button">
-            <button className="push-button not-selected">
-              <PencilEditIcon />
-              Edit profile
-            </button>
-          </div>
           <div className="user-profile-overview-user-image">
             <div className="circle">
-              <span className="user-profile-image-circle-text">Upload</span>
+              <span className="user-profile-image-circle-text">{userDetails.username?.charAt(0)}</span>
             </div>
           </div>
+          <div className="user-profile-overview-user-image-button"></div>
         </div>
       </div>
     </div>

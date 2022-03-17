@@ -1,12 +1,12 @@
 import React from "react";
 import "./UserProfilePerformance.scss";
-import { LinesReadIcon, BooksExploredIcon, PublicationCoinsIcon, TrailsCreatedIcon } from "../Icons";
+import { LinesReadIcon, BooksExploredIcon, TrailsCreatedIcon } from "../Icons";
 
 const UserProfilePerformance = () => {
   return (
     <div className="user-profile-performance">
       <div className="user-profile-performance-header">
-        <span className="user-profile-performance-header-text">Your performance</span>
+        <span className="user-profile-performance-header-text">Reading stats</span>
       </div>
       <div className="user-profile-performance-metrics">
         <div className="user-profile-performance-item">
@@ -14,7 +14,7 @@ const UserProfilePerformance = () => {
             <LinesReadIcon />
             <span className="user-profile-performance-item-info-number">10.4k</span>
           </div>
-          <div className="user-profile-performance-item-info-text">Total lines liked</div>
+          <div className="user-profile-performance-item-info-text push-below">Total lines liked</div>
         </div>
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">
@@ -29,13 +29,6 @@ const UserProfilePerformance = () => {
             <span className="user-profile-performance-item-info-number">24</span>
           </div>
           <div className="user-profile-performance-item-info-text">Books explored</div>
-        </div>
-        <div className="user-profile-performance-item">
-          <div className="user-profile-performance-item-info">
-            <PublicationCoinsIcon />
-            <span className="user-profile-performance-item-info-number">2</span>
-          </div>
-          <div className="user-profile-performance-item-info-text">Publication tokens</div>
         </div>
       </div>
     </div>

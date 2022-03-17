@@ -1,9 +1,8 @@
 .user-profile {
   display: flex;
   justify-content: center;
-
   .user-profile-wrapper {
     width: var(--main-page-width);
-    margin: 40px 0 0 0;
+    margin: 40px 0 var(--size-xxl) 0;
   }
 }

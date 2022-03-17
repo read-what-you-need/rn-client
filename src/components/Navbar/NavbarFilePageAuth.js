@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { searchQueryRequest, searchQueryType } from "../../actions";
-import { SimpleBarLinesIcon, GreenCheckIcon, RasteroIcon, Logo } from "../Icons";
+import { SimpleBarLinesIcon, RasteroIcon, Logo } from "../Icons";
 import { Badge, Input } from "antd";
 
 import "./NavbarFilePageAuth.scss";
@@ -37,9 +37,6 @@ const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCo
             </Link>
           </Badge>
         </span>
-        <button className="push-button-icon-only primary">
-          <GreenCheckIcon />
-        </button>
       </div>
     </div>
   );
