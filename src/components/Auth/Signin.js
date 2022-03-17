@@ -13,6 +13,19 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
 
+  const handleUserLogin = () => {
+    userApi
+      .signInUser({ username, password })
+      .then(_res => {
+        navigate("/user");
+        setResponseMessage("");
+        window.location.reload();
+      })
+      .catch(err => {
+        console.log(err);
+        setResponseMessage("Username or password is incorrect");
+      });
+  };
   return (
     <div>
       <div className="sign-page">
@@ -40,26 +53,13 @@ const Signin = () => {
                 onChange={e => {
                   setPassword(e.target.value);
                 }}
+                onPressEnter={e => handleUserLogin()}
               />
             </div>
           </div>
 
           <div className="submit-form-field">
-            <button
-              className="push-button primary"
-              onClick={() => {
-                userApi
-                  .signInUser({ username, password })
-                  .then(_res => {
-                    navigate("/user");
-                    setResponseMessage("");
-                    window.location.reload();
-                  })
-                  .catch(err => {
-                    console.log(err);
-                    setResponseMessage("Username or password is incorrect");
-                  });
-              }}>
+            <button className="push-button primary" onClick={() => handleUserLogin()}>
               <span className="submit-form-field-text">Login</span>
             </button>
 

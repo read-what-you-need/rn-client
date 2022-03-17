@@ -13,6 +13,16 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
 
+  const handleUserSignUp = () => {
+    userApi
+      .signUpUser({ username, password })
+      .then(_res => {
+        setResponseMessage("account created");
+        navigate("/user/profile");
+      })
+      .catch(_err => setResponseMessage("Account already exists"));
+  };
+
   return (
     <div className="sign-page">
       <div className="welcome-icon">
@@ -40,22 +50,13 @@ const SignUp = () => {
               onChange={e => {
                 setPassword(e.target.value);
               }}
+              onPressEnter={e => handleUserSignUp()}
             />
           </div>
         </div>
 
         <div className="submit-form-field">
-          <button
-            className="push-button primary"
-            onClick={() => {
-              userApi
-                .signUpUser({ username, password })
-                .then(_res => {
-                  setResponseMessage("account created");
-                  navigate("/user/profile");
-                })
-                .catch(_err => setResponseMessage("Account already exists"));
-            }}>
+          <button className="push-button primary" onClick={() => handleUserSignUp()}>
             <span className="submit-form-field-text"> Submit</span>
           </button>
 

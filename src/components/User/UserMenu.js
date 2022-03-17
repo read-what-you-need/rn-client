@@ -6,7 +6,7 @@ import { Menu, Dropdown } from "antd";
 const menuOptions = (
   <Menu>
     <Menu.Item>
-      <Link key="trail" to={`/books`}>
+      <Link key="books" to={`/books`}>
         <span>Your books</span>
       </Link>
     </Menu.Item>
@@ -16,7 +16,11 @@ const menuOptions = (
       </Link>
     </Menu.Item>
     <Menu.Item>
-      <Link key="trail" to={`/trail/list`}>
+      <Link
+        to={`/`}
+        onClick={() => {
+          localStorage.removeItem("token")
+        }}>
         <span>Logout</span>
       </Link>
     </Menu.Item>
