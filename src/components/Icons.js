@@ -208,6 +208,16 @@ export const LinesReadIcon = () => {
   );
 };
 
+export const TrailsSecondaryIcon = () => {
+  return (
+    <svg width="44" height="44" viewBox="0 0 62 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect y="17" width="48" height="10" rx="3.59567" fill="#0E708E" />
+      <rect width="62" height="10" rx="3.59567" fill="#0E708E" />
+      <rect y="34" width="30" height="10" rx="3.59567" fill="#0E708E" />
+    </svg>
+  );
+};
+
 export const TrailsCreatedIcon = () => {
   return (
     <svg width="66" height="57" viewBox="0 0 66 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,6 +230,14 @@ export const TrailsCreatedIcon = () => {
   );
 };
 
+export const BookSecondaryIcon = () => {
+  return (
+    <svg width="52" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" width="54" height="9" rx="3.6" fill="#F5B4EC" />
+      <rect y="9" width="62" height="21" rx="7.2" fill="#966B70" />
+    </svg>
+  );
+};
 export const BooksExploredIcon = () => {
   return (
     <svg width="66" height="59" viewBox="0 0 66 59" fill="none" xmlns="http://www.w3.org/2000/svg">

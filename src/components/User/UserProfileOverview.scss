@@ -41,8 +41,9 @@
         text-transform: capitalize;
       }
       .user-profile-overview-form-field-value {
-        background: #fefae6;
+        background: var(--grey-lighter-dark);
         border-radius: 10px;
+        width: 80%;
         padding: 8px 24px;
         font-family: var(--primary-main-page-font);
         font-style: normal;

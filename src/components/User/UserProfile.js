@@ -17,7 +17,7 @@ const UserProfile = () => {
             <UserProfilePerformance />
           </Col>
           <Col span={4}></Col>
-          <Col span={4}>
+          <Col span={6}>
             <UserProfileActivityCards />
           </Col>
         </Row>

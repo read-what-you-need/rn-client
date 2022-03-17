@@ -25,6 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    margin: var(--size-lg);
     .user-profile-performance-item {
       justify-self: center;
       align-self: center;
