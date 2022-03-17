@@ -1,4 +1,4 @@
-.nav-bar-auth-wrapper {
+.nav-bar-non-auth-wrapper {
   display: flex;
   align-items: center;
   place-content: space-between;
@@ -19,20 +19,17 @@
   .nav-corner-action-wrapper {
     display: flex;
     align-items: center;
+
     .nav-primary-action-button {
       margin-right: var(--spacer-xl);
-      color: var(--black);
-      .push-button-icon-only {
-        border-radius:18px;
-        &.shorten-width {
-          width: 50px;
-          svg {
-            transform: scale(0.85);
-          }
+      .push-button {
+        color: var(--secondary-color);
+        font-family: var(--primary-main-page-font);
+        font-weight: 700;
+        font-size: 18px;
+        &.not-selected {
+          border-radius: 10px;
         }
-      }
-      svg {
-        margin-right: var(--size-xxs);
       }
     }
   }

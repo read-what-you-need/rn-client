@@ -1,19 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { Logo } from "../Icons";
+
+import "./NavbarNonAuth.scss";
 
 const NavbarNonAuth = () => {
+  let navigate = useNavigate();
   return (
-    <>
-      <span className="nav-button">
-        <Link to={`/`}>Home</Link>
+    <div className="nav-bar-non-auth-wrapper">
+      <span className="nav-logo" onClick={() => navigate("/")}>
+        <Logo />
       </span>
-      <span className="nav-button">
-        / <Link to={`/signin`}>Login</Link>
-      </span>
-      <span className="nav-button">
-        / <Link to={`/signup`}>Signup</Link>
-      </span>
-    </>
+
+      <div className="nav-corner-action-wrapper">
+        <span className="nav-primary-action-button" onClick={() => navigate("/")}>
+          <button className="push-button primary">Get Started</button>
+        </span>
+        <span className="nav-primary-action-button" onClick={() => navigate("/signin")}>
+          <button className="push-button not-selected">Login</button>
+        </span>
+      </div>
+    </div>
   );
 };
 
