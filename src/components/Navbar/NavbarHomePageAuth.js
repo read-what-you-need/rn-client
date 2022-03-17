@@ -2,7 +2,8 @@ import React from "react";
 import "./NavbarHomePageAuth.scss";
 import UploadButton from "../UploadButton/UploadButton";
 import { useNavigate } from "react-router-dom";
-import { UserIcon, BookOpenIcon, CompassIcon, Logo } from "../Icons";
+import UserMenu from "../User/UserMenu";
+import { BookOpenIcon, Logo } from "../Icons";
 
 const NavbarHomePageAuth = () => {
   let navigate = useNavigate();
@@ -16,17 +17,13 @@ const NavbarHomePageAuth = () => {
           <BookOpenIcon />
           Your Books
         </button>
-        <button className="nav-central-action-icon-button">
-          <CompassIcon /> Explore
-        </button>
-        <button className="nav-central-action-icon-button">Global Trails</button>
       </div>
       <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
           <UploadButton />
         </span>
-        <span className="nav-logo" onClick={() => navigate("/profile")}>
-          <UserIcon />
+        <span className="nav-logo">
+          <UserMenu />
         </span>
       </div>
     </div>
