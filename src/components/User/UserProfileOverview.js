@@ -10,7 +10,7 @@ const UserProfileOverview = ({ getUserDetails, userDetails }) => {
   useEffect(() => {
     getUserDetails();
   }, []);
-  const userJoinedAt = new Date(userDetails.userJoinedAt).toLocaleDateString("en-US", dateFormatOptions);
+  const userJoinedAt = new Date(userDetails.created_at).toLocaleDateString("en-US", dateFormatOptions);
   return (
     <div className="user-profile-overview-wrapper">
       <div className="user-profile-overview-header">
@@ -22,7 +22,7 @@ const UserProfileOverview = ({ getUserDetails, userDetails }) => {
           <span className="user-profile-overview-form-field-value">{userDetails.username}</span>
 
           <span className="user-profile-overview-form-field-label">email</span>
-          <span className="user-profile-overview-form-field-value">email</span>
+          <span className="user-profile-overview-form-field-value">{userDetails.email}</span>
 
           <span className="user-profile-overview-form-field-label">joined</span>
           <span className="user-profile-overview-form-field-value">{userJoinedAt}</span>

@@ -10,17 +10,22 @@ import userApi from "../../api/user";
 const SignUp = () => {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
 
   const handleUserSignUp = () => {
-    userApi
-      .signUpUser({ username, password })
-      .then(_res => {
-        setResponseMessage("account created");
-        navigate("/user/profile");
-      })
-      .catch(_err => setResponseMessage("Account already exists"));
+    if (username === "" || email === "" || password === "") {
+      setResponseMessage("Username or email is empty");
+    } else {
+      userApi
+        .signUpUser({ username, email, password })
+        .then(_res => {
+          setResponseMessage("account created");
+          navigate("/profile");
+        })
+        .catch(_err => setResponseMessage("Account already exists"));
+    }
   };
 
   return (
@@ -37,6 +42,18 @@ const SignUp = () => {
             <Input
               onChange={e => {
                 setUsername(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="form-field">
+          <div className="label">Email</div>
+          <div className="field">
+            <Input
+              type="email"
+              onChange={e => {
+                setEmail(e.target.value);
               }}
             />
           </div>

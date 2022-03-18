@@ -20,9 +20,9 @@ const userApi = {
     });
     return result;
   },
-  signUpUser: async function ({ username, password }) {
+  signUpUser: async function ({ username, password, email }) {
     let url = apiEndPoint + "user/signup";
-    let formData = { username, password };
+    let formData = { username, email, password };
     let result = axios.post(url, formData, headerConfig.axiosConfig).then(response => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

@@ -14,8 +14,8 @@ const NavbarNonAuth = () => {
       </span>
 
       <div className="nav-corner-action-wrapper">
-        <span className="nav-primary-action-button" onClick={() => navigate("/")}>
-          <button className="push-button primary">Get Started</button>
+        <span className="nav-primary-action-button" onClick={() => navigate("/signup")}>
+          <button className="push-button primary">Signup</button>
         </span>
         <span className="nav-primary-action-button" onClick={() => navigate("/signin")}>
           <button className="push-button not-selected">Login</button>
