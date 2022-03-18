@@ -1,30 +1,22 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 import { RasteroColorIcon } from "../Icons";
 import { Input } from "antd";
-
-import userApi from "../../api/user";
+import { loginUser } from "../../actions";
+import { useNavigate } from "react-router-dom";
 import "./Signup.scss";
 
-const Signin = () => {
+const Signin = ({ loginUser, loginError }) => {
   let navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [responseMessage, setResponseMessage] = useState("");
 
   const handleUserLogin = () => {
-    userApi
-      .signInUser({ username, password })
-      .then(_res => {
-        navigate("/user");
-        setResponseMessage("");
-        window.location.reload();
-      })
-      .catch(err => {
-        console.log(err);
-        setResponseMessage("Username or password is incorrect");
-      });
+    loginUser({ username, password }).then(_res => {
+      navigate("/books");
+      window.location.reload();
+    });
   };
   return (
     <div>
@@ -53,17 +45,16 @@ const Signin = () => {
                 onChange={e => {
                   setPassword(e.target.value);
                 }}
-                onPressEnter={e => handleUserLogin()}
+                onPressEnter={handleUserLogin}
               />
             </div>
           </div>
 
           <div className="submit-form-field">
-            <button className="push-button primary" onClick={() => handleUserLogin()}>
+            <button className="push-button primary" onClick={handleUserLogin}>
               <span className="submit-form-field-text">Login</span>
             </button>
-
-            <div className="form-submit-info">{responseMessage}</div>
+            <div className="form-submit-info">{loginError}</div>
           </div>
         </div>
       </div>
@@ -71,4 +62,7 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+const mapStateToProps = state => ({ loginError: state.userWrapper.error });
+
+const actionCreators = { loginUser };
+export default connect(mapStateToProps, actionCreators)(Signin);

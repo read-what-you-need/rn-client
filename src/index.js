@@ -28,7 +28,13 @@ const Root = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/books" element={<Book />}></Route>
+        <Route
+          path="/books"
+          element={
+            <RequireAuth redirectTo="/signin">
+              <Book />
+            </RequireAuth>
+          }></Route>
         <Route
           path="trail/create"
           element={

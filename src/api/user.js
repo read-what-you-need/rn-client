@@ -31,17 +31,10 @@ const userApi = {
     });
     return result;
   },
-  logOutUser: async function () {
-    localStorage.setItem("token", "");
-    window.location.reload();
-  },
   signInUser: async function ({ username, password }) {
     let url = apiEndPoint + "user/signin";
     let formData = { username, password };
     let result = axios.post(url, formData, headerConfig.axiosConfig).then(response => {
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-      }
       return response.data;
     });
     return result;
