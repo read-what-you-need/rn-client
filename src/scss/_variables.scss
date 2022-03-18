@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,700;1,200;1,300;1,400;1,600;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;500;600;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;500;600;900&display=swap");
 
 :root {
   /* Font family */
   --primary-main-page-font: "Source Sans Pro", sans-serif;
   --secondary-font: Roboto;
-  --tertiary-font: 'Inconsolata', monospace;
+  --tertiary-font: "Inconsolata", monospace;
   /* Sizes */
   --size-xxxs: 2px;
   --size-xxs: 4px;
@@ -39,7 +39,10 @@
   --white: #fff;
   --grey: #c4c4c4;
   --grey-light: #7d7d7d;
-  --grey-lighter-dark:  #F0F0F0;
+  --grey-lighter-dark: #f0f0f0;
+  --grey-dark: #586d78;
+  /* Gradients */
+  --primary-main-page-gradient: linear-gradient(141deg, rgba(245, 229, 146, 1) 0%, rgba(203, 226, 146, 1) 34%, rgba(16, 183, 204, 1) 100%);
 
   /* Text colors*/
   --heading-color: #000;
@@ -60,6 +63,7 @@
 
   /* Heights  */
   --book-card-height: 200px;
+  --navbar-height: 80px;
 
   /* Borders  */
   --navbar-bottom-border: 3px solid #ebebeb;
@@ -75,8 +79,8 @@
 
   /* Heights of components  */
 
-  --book-profile-image-height:200px;
-  --book-profile-image-width:150px;
+  --book-profile-image-height: 200px;
+  --book-profile-image-width: 150px;
 
   --navbar-height: 80px;
 }
