@@ -9,7 +9,7 @@ function returnMainTitle() {
   return (
     <>
       Read <span className="secondary-highlight">SMARTLY</span>
-      <br /> in less time with the help of Rastero
+      <br /> with the help of Rastero
     </>
   );
 }
@@ -70,7 +70,7 @@ const Home = () => {
             <button className="push-button primary">Get Started</button>
           </div>
         </div>
-        <div><HomeFooter/></div>
+        <HomeFooter/>
       </div>
     </div>
   );

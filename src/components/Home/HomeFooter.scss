@@ -1,3 +1,14 @@
-.home-footer{
-  
+.home-footer {
+  display: grid;
+  grid-template-columns: 20vh repeat(3, 1fr) 20vh;
+  border-top: var(--navbar-bottom-border);
+  margin: 0px 20vh;
+  .home-footer-item {
+    justify-self: center;
+    margin-top: var(--size-xl);
+    font-family: var(--primary-main-page-font);
+    font-size: var(--size-mmd);
+    color: var(--grey-light);
+    cursor: pointer;
+  }
 }
