@@ -16,6 +16,19 @@
       display: grid;
       grid-template-rows: 2fr 8fr;
       background-image: var(--primary-main-page-gradient);
+      .section-highlight {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--primary-main-page-font);
+        font-weight: 700;
+        font-size: 54px;
+        color: var(--secondary-color-dark-900);
+      }
+      .home-page-gradient-section-carousel-wrapper {
+        justify-self: center;
+        width: 70vw;
+      }
     }
     .home-page-info-section {
       display: grid;
@@ -47,6 +60,9 @@
               border-radius: 10px;
             }
           }
+        }
+        &.right-shift {
+          margin-left: 24px;
         }
       }
     }

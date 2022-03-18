@@ -1,0 +1,29 @@
+.home-page-carousel {
+  .home-page-carousel-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 60vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid rgba(255, 255, 255, 0.16) 1px;
+    border-radius: 52px;
+    .home-page-carousel-card-info {
+      align-self: center;
+      .home-page-carousel-card-title {
+        font-family: var(--primary-main-page-font);
+        font-weight: 700;
+        font-size: 36px;
+        color: var(--secondary-color);
+        padding: 0px 42px 0 72px;
+      }
+      .home-page-carousel-card-sub-title {
+        font-family: var(--primary-main-page-font);
+        font-weight: 500;
+        font-size: 26px;
+        padding: 0px 42px 0 72px;
+      }
+    }
+
+    .home-page-carousel-card-animation {
+    }
+  }
+}
