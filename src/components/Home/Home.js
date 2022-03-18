@@ -1,5 +1,7 @@
 import React from "react";
 import HomePageCarousel from "./HomePageCarousel";
+import HomeFooter from "./HomeFooter";
+
 import { IntroduceLinesSVG, IntroduceTrailsSVG } from "../Icons";
 import "./Home.scss";
 import { Avatar } from "antd";
@@ -68,6 +70,7 @@ const Home = () => {
             <button className="push-button primary">Get Started</button>
           </div>
         </div>
+        <div><HomeFooter/></div>
       </div>
     </div>
   );
