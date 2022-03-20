@@ -1,8 +1,8 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-  isAuthUser: !!localStorage.getItem("token"),
-  user: { token: localStorage.getItem("token") || [] }
+  isAuthUser: !!localStorage.getItem("user"),
+  user: JSON.parse(localStorage.getItem("user")) || {}
 };
 
 const user = (state = initialState, action) => {
@@ -18,15 +18,15 @@ const user = (state = initialState, action) => {
     case types.USER_SIGNUP_REQUEST:
       return initialState;
     case types.USER_LOGIN_SUCCESS:
-      localStorage.setItem("token", action.data.token);
+      localStorage.setItem("user", JSON.stringify(action.data));
       return { ...state, isAuthUser: true, user: { ...state.user, ...action.data } };
     case types.USER_LOGOUT_REQUEST:
-      localStorage.removeItem("token");
+      localStorage.removeItem("user");
       return { ...state, isAuthUser: false, user: {} };
     case types.USER_LOGIN_FAILURE:
       return { ...state, error: action.error };
     case types.USER_SIGNUP_SUCCESS:
-      localStorage.setItem("token", action.data.token);
+      localStorage.setItem("user", JSON.stringify(action.data));
       return { ...state, isAuthUser: true, user: { ...state.user, ...action.data } };
     case types.USER_SIGNUP_FAILURE:
       return { ...state, error: action.error };

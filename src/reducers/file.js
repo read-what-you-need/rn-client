@@ -1,7 +1,8 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-  fileDetails: {}
+  fileDetails: {},
+  fileList: []
 };
 
 const file = (state = initialState, action) => {
@@ -14,7 +15,12 @@ const file = (state = initialState, action) => {
       return { ...state, fileDetails: action.data };
     case types.GET_FILE_DETAILS_REQUEST_FAILURE:
       return { ...state, error: action.error };
-
+    case types.GET_LIST_OF_USERS_FILES_REQUEST:
+      return { ...state, fileList: [] };
+    case types.GET_LIST_OF_USERS_FILES_REQUEST_SUCCESS:
+      return { ...state, fileList: action.data };
+    case types.GET_LIST_OF_USERS_FILES_REQUEST_FAILURE:
+      return { ...state, error: action.error };
     default:
       return state;
   }

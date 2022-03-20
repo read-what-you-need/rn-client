@@ -15,6 +15,7 @@ const Signin = ({ loginUser, loginError }) => {
   const handleUserLogin = () => {
     loginUser({ username, password }).then(() => {
       navigate("/books");
+      window.location.reload();
     });
   };
   return (

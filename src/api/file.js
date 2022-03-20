@@ -52,8 +52,8 @@ const fileApi = {
     });
     return response;
   },
-  getFileList: async function () {
-    let url = apiEndPoint + "file";
+  getFileListUser: async function ({ userId }) {
+    let url = apiEndPoint + `file/user/${userId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
