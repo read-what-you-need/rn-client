@@ -1,30 +1,31 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { signUpUser } from "../../actions";
 import { RasteroColorIcon } from "../Icons";
 
 import "./Signup.scss";
-import { Input } from "antd";
+import { message, Input } from "antd";
 
-import userApi from "../../api/user";
+import Helpers from "../../libs/Helpers";
 
-const SignUp = () => {
+const SignUp = ({ signUpUser, signUpError }) => {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [responseMessage, setResponseMessage] = useState("");
 
   const handleUserSignUp = () => {
     if (username === "" || email === "" || password === "") {
-      setResponseMessage("Username or email is empty");
+      message.warning("Username or email is empty");
     } else {
-      userApi
-        .signUpUser({ username, email, password })
-        .then(_res => {
-          setResponseMessage("account created");
-          navigate("/profile");
-        })
-        .catch(_err => setResponseMessage("Account already exists"));
+      if (Helpers.isEmailFieldValid(email)) {
+        signUpUser({ username, email, password }).then(() => {
+          navigate("/books");
+        });
+      } else {
+        message.warning("Provide a valid email address");
+      }
     }
   };
 
@@ -77,11 +78,14 @@ const SignUp = () => {
             <span className="submit-form-field-text"> Submit</span>
           </button>
 
-          <span className="form-submit-info">{responseMessage}</span>
+          <span className="form-submit-info">{signUpError}</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default SignUp;
+const mapStateToProps = state => ({ signUpError: state.userWrapper.error });
+
+const actionCreators = { signUpUser };
+export default connect(mapStateToProps, actionCreators)(SignUp);

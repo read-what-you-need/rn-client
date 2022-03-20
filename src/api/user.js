@@ -24,9 +24,6 @@ const userApi = {
     let url = apiEndPoint + "user/signup";
     let formData = { username, email, password };
     let result = axios.post(url, formData, headerConfig.axiosConfig).then(response => {
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-      }
       return response.data;
     });
     return result;

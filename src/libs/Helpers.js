@@ -31,6 +31,15 @@ let Helpers = {
       // part of the array after the specified index
       ...arr.slice(index)
     ];
+  },
+  isEmailFieldValid: function (email) {
+    let isValidEmail = true;
+    let re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(email)) {
+      isValidEmail = false;
+    }
+    return isValidEmail;
   }
 };
 

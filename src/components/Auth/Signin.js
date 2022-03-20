@@ -13,9 +13,8 @@ const Signin = ({ loginUser, loginError }) => {
   const [password, setPassword] = useState("");
 
   const handleUserLogin = () => {
-    loginUser({ username, password }).then(_res => {
+    loginUser({ username, password }).then(() => {
       navigate("/books");
-      window.location.reload();
     });
   };
   return (

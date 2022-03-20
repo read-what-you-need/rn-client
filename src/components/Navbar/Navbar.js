@@ -6,12 +6,12 @@ import "./Navbar.scss";
 import NavbarAuth from "./NavbarAuth";
 import NavbarNonAuth from "./NavbarNonAuth";
 
-const Navbar = ({ tokenUpdated }) => {
-  let isUserAuth = localStorage.getItem("token") ? true : false;
-  return <div className="nav-bar-wrapper">{isUserAuth ? <NavbarAuth /> : <NavbarNonAuth />}</div>;
+const Navbar = ({ isAuthUser }) => {
+  console.log('in navbar ', isAuthUser)
+  return <div className="nav-bar-wrapper">{isAuthUser ? <NavbarAuth /> : <NavbarNonAuth />}</div>;
 };
 const mapStateToProps = state => ({
-  tokenUpdated: state.userWrapper.user.tokenUpdateCount
+  isAuthUser: state.userWrapper.isAuthUser
 });
 
 const actionCreators = {};
