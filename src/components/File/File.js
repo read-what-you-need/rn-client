@@ -27,7 +27,6 @@ const File = ({ filePageInit }) => {
       <Row>
         <Col span={6} className="tags-column">
           <FileTags />
-          <QuestionsRecentAsked />
         </Col>
         <Col span={12}>
           <Col className="lines-action-bar-wrapper" span={12} offset={6}>

@@ -1,5 +1,4 @@
 let token = JSON.parse(localStorage.getItem("user"))?.token || null
-
 // defining headers and configurations
 let axiosFormConfig = {
   headers: {
