@@ -20,17 +20,49 @@
       background-size: cover;
       background-image: url("https://picsum.photos/200/300");
     }
-    .book-list-title {
-      font-family: var(--primary-main-page-font);
-      font-style: normal;
-      font-weight: bold;
-      font-size: var(--size-lg);
-      color: var(--black);
+    .book-list-title-wrapper {
+      .book-list-title {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: bold;
+        font-size: var(--size-lg);
+        color: var(--black);
+      }
+      .book-list-date {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: bold;
+        font-size: var(--size-sm);
+        color: var(--secondary-color);
+      }
+    }
+    .book-list-info-wrapper {
+      .book-list-info-header {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: bold;
+        font-size: var(--size-lg);
+        color: var(--black);
+        &.un-processed {
+          color: var(--grey-light);
+        }
+      }
+      .book-list-info-sub-header {
+        font-family: var(--primary-main-page-font);
+        font-style: normal;
+        font-weight: bold;
+        font-size: var(--size-sm);
+        color: var(--black);
+        &.un-processed {
+          color: var(--grey-light);
+        }
+      }
+      
     }
   }
   .book-list-item:hover {
     border-bottom-width: thick;
-    border: var( --book-card-selected-border)
+    border: var(--book-card-selected-border);
   }
   .book-list-item:not(:first-child) {
     margin: 40px 0 0 0;
