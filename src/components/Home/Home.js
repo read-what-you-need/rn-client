@@ -62,8 +62,8 @@ const Home = () => {
             <div className="right-shift"></div>
           </div>
           <div className="home-page-info-video-container right-shift">
-            <video className="home-page-info-video yellow-shadow" autoPlay loop muted>
-              <source src={sample} type="video/mp4" />
+            <video className="home-page-info-video" autoPlay loop muted>
+              <source src={sampleTrail} type="video/mp4" />
             </video>
           </div>
         </div>

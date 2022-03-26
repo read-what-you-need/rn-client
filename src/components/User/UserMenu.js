@@ -9,17 +9,17 @@ const menuOptions = ({ logoutUser }) => (
   <Menu>
     <Menu.Item key="1">
       <Link key="profile" to={`/profile`}>
-        <span>Your profile</span>
+        <span>Your Profile</span>
       </Link>
     </Menu.Item>
     <Menu.Item key="2">
       <Link key="books" to={`/books`}>
-        <span>Your books</span>
+        <span>Your Books</span>
       </Link>
     </Menu.Item>
     <Menu.Item key="3">
       <Link key="trail" to={`/trail/list`}>
-        <span>Your trails</span>
+        <span>Your Trails</span>
       </Link>
     </Menu.Item>
     <Menu.Item key="4">
