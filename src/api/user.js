@@ -35,6 +35,28 @@ const userApi = {
       return response.data;
     });
     return result;
+  },
+  getUserBookUploadCount: async function ({ userId }) {
+    let url = apiEndPoint + `user/${userId}/stats/book-upload/count`;
+    console.log(url)
+    let result = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return result;
+  },
+  getUserTrailCount: async function ({ userId }) {
+    let url = apiEndPoint + `user/${userId}/stats/trail/count`;
+    let result = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return result;
+  },
+  getUserLikedCount: async function ({ userId }) {
+    let url = apiEndPoint + `user/${userId}/stats/like/count`;
+    let result = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return result;
   }
 };
 
