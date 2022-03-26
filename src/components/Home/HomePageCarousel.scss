@@ -24,6 +24,15 @@
     }
     .home-page-carousel-card-animation {
       align-self: center;
+      text-align: center;
+      .home-page-carousel-card-video {
+        width: 40vw;
+        border-radius: 50px;
+        margin-right: 84px;
+        &.reduce-size{
+          width: 25vw;
+        }
+      }
     }
   }
 }

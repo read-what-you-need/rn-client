@@ -453,37 +453,17 @@ export const IntroduceLinesSVG = () => {
     </svg>
   );
 };
-export const IntroduceTrailsSVG = () => {
+export const IntroduceTrailsBackgroundSVG = () => {
   return (
     <svg width="642" height="599" viewBox="0 0 642 599" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_0_1)">
         <rect x="30" y="30" width="588" height="537" rx="30" fill="#51C1B2" />
       </g>
       <rect width="588" height="537" rx="30" fill="#A5FEF2" />
-      <rect x="98" y="52" width="393" height="436" rx="25" fill="white" />
-      <rect x="394" y="72" width="56" height="50" rx="10" fill="#0C7394" />
-      <rect x="403" y="92.0741" width="38" height="9.07413" rx="3" fill="#EED44B" />
-      <rect x="403" y="80" width="38" height="9.07413" rx="3" fill="#EED44B" />
-      <rect x="403" y="104.148" width="19" height="9.07413" rx="3" fill="#EED44B" />
       <mask id="mask0_0_1" maskUnits="userSpaceOnUse" x="131" y="164" width="319" height="236">
         <rect x="131" y="164" width="319" height="236" fill="#C4C4C4" />
       </mask>
-      <g mask="url(#mask0_0_1)">
-        <rect x="138" y="170" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="205" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="240" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="275" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="310" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="345" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="380" width="312" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="185" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="220" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="255" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="290" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="325" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="360" width="156" height="10" rx="3" fill="#C4C4C4" />
-        <rect x="138" y="395" width="156" height="10" rx="3" fill="#C4C4C4" />
-      </g>
+ 
       <defs>
         <filter id="filter0_d_0_1" x="6" y="14" width="636" height="585" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
@@ -558,7 +538,7 @@ export const IntroduceCreateTagSVG = () => {
 
 export const IntroduceListFormSVG = () => {
   return (
-    <svg width="466" height="298" viewBox="0 0 566 398" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="466" height="498" viewBox="0 0 566 398" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect opacity="0.54" width="566" height="398" rx="20" fill="#E5E5E5" />
       <rect opacity="0.54" x="1.5" y="1.5" width="563" height="385" rx="18.5" fill="#FAFAFA" stroke="white" stroke-width="3" />
       <path d="M74 236C74 230.477 78.4772 226 84 226H258C263.523 226 268 230.477 268 236V385H74V236Z" fill="#F2F2F2" />

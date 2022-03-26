@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,700;1,200;1,300;1,400;1,600;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;500;600;900&display=swap");
 
 :root {
   /* Font family */
   --primary-main-page-font: "Source Sans Pro", sans-serif;
-  --secondary-font: Roboto;
+  --secondary-font:'Roboto', sans-serif;
   --tertiary-font: "Inconsolata", monospace;
   /* Sizes */
   --size-xxxs: 2px;
