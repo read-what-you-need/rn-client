@@ -14,9 +14,13 @@
   }
   .line-action-bar-item {
     color: var(--secondary-color);
+    background: var(--primary-color-light-shade);
+    border-radius: var(--border-radius-sm);
     font-weight: 500;
     font-size: var(--size-md);
     svg {
+    margin: 12px;
+
       cursor: pointer;
     }
     &.scale-down {
