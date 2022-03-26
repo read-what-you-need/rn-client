@@ -20,9 +20,7 @@ const SignUp = ({ signUpUser, signUpError }) => {
       message.warning("Username or email is empty");
     } else {
       if (Helpers.isEmailFieldValid(email)) {
-        signUpUser({ username, email, password }).then(() => {
-          navigate("/books");
-        });
+        signUpUser({ username, email, password, navigate })
       } else {
         message.warning("Provide a valid email address");
       }

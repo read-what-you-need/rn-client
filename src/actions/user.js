@@ -3,13 +3,14 @@ import * as types from "../constants/ActionTypes";
 import userApi from "../api/user";
 
 export const loginUser =
-  ({ username, password }) =>
+  ({ username, password, navigate }) =>
   async dispatch => {
     dispatch({ type: types.USER_LOGIN_REQUEST });
     return userApi
       .signInUser({ username, password })
       .then(res => {
         dispatch({ type: types.USER_LOGIN_SUCCESS, data: res });
+        navigate("/books");
       })
       .catch(err => {
         dispatch({ type: types.USER_LOGIN_FAILURE, error: err.response?.data?.message || "Could not connect with server" });
@@ -33,13 +34,14 @@ export const getUserDetails = () => dispatch => {
 };
 
 export const signUpUser =
-  ({ username, password, email }) =>
+  ({ username, password, email, navigate }) =>
   async dispatch => {
     dispatch({ type: types.USER_SIGNUP_REQUEST });
     return userApi
       .signUpUser({ username, email, password })
       .then(res => {
         dispatch({ type: types.USER_SIGNUP_SUCCESS, data: res });
+        navigate("/books");
       })
       .catch(err => {
         console.log(err);
