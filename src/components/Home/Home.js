@@ -2,9 +2,6 @@ import React from "react";
 import HomePageCarousel from "./HomePageCarousel";
 import HomeFooter from "./HomeFooter";
 
-import sample from "./Peek 2022-03-26 07-21.mp4";
-import sampleTrail from "./Peek 2022-03-26 08-04.mp4";
-
 import "./Home.scss";
 import { Avatar } from "antd";
 function returnMainTitle() {
@@ -34,7 +31,7 @@ const Home = () => {
           <div></div>
           <div className="home-page-info-video-container">
             <video className="home-page-info-video yellow-shadow" autoPlay loop muted>
-              <source src={sample} type="video/mp4" />
+              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/search-feature.mp4"} type="video/mp4" />
             </video>
           </div>
           <div className="home-page-info-section-container">
@@ -63,7 +60,7 @@ const Home = () => {
           </div>
           <div className="home-page-info-video-container right-shift">
             <video className="home-page-info-video" autoPlay loop muted>
-              <source src={sampleTrail} type="video/mp4" />
+              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/trail-introduce.mp4"} type="video/mp4" />
             </video>
           </div>
         </div>

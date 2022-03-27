@@ -2,11 +2,6 @@ import React from "react";
 import { Carousel } from "antd";
 import "./HomePageCarousel.scss";
 import { IntroduceListFormSVG } from "../Icons";
-import bookScan from "./bookScan.mp4";
-import tagExplore from "./tagExplore.mp4";
-
-
-
 
 const HomePageCarousel = () => {
   return (
@@ -20,7 +15,7 @@ const HomePageCarousel = () => {
             </div>
             <div className="home-page-carousel-card-animation">
               <video className="home-page-carousel-card-video" autoPlay loop muted>
-              <source src={bookScan} type="video/mp4" />
+              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/book-scan.mp4"} type="video/mp4" />
             </video>
             </div>
           </div>
@@ -50,7 +45,7 @@ const HomePageCarousel = () => {
             </div>
             <div className="home-page-carousel-card-animation">
             <video className="home-page-carousel-card-video reduce-size" autoPlay loop muted>
-              <source src={tagExplore} type="video/mp4" />
+              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/tag-explore.mp4"} type="video/mp4" />
             </video>
             </div>
           </div>
