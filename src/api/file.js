@@ -38,6 +38,14 @@ const fileApi = {
     });
     return response;
   },
+  addFileInUserFiles: async function ({ fileId, userId }) {
+    let url = apiEndPoint + `file/collection/user/${userId}`;
+    let data = { fileId };
+    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
   getFileById: async function (id) {
     let url = apiEndPoint + `file/${id}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {

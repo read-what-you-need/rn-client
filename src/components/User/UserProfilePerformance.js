@@ -46,7 +46,7 @@ const UserProfilePerformance = ({ userId }) => {
             <BooksExploredIcon />
             <span className="user-profile-performance-item-info-number">{booksUploaedCount}</span>
           </div>
-          <div className="user-profile-performance-item-info-text">Books uploaded</div>
+          <div className="user-profile-performance-item-info-text">Books explored</div>
         </div>
       </div>
     </div>

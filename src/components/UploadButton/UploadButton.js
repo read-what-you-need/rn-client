@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import CryptoJS from "crypto-js";
 
 import fileApi from "../../api/file";
 import { UploadIcon } from "../Icons";
-import { Button, notification } from "antd";
+import { notification } from "antd";
 
 import "./UploadButton.scss";
+import { connect } from "react-redux";
 
-const UploadButton = () => {
+const UploadButton = ({ userId }) => {
   const openNotification = (description, type = "info") => {
     notification[type]({
       message: "Upload status",
-      description,
+      description
     });
   };
 
@@ -44,7 +45,10 @@ const UploadButton = () => {
           }
         });
       } else {
-        openNotification("File already exists in our database.", "warn");
+        openNotification("File present in our database.", "info");
+        fileApi.addFileInUserFiles({ fileId: fileHash, userId }).then(() => {
+          openNotification("Adding file in your collections", "success");
+        });
       }
     });
   };
@@ -60,4 +64,9 @@ const UploadButton = () => {
   );
 };
 
-export default UploadButton;
+const mapStateToProps = state => ({
+  userId: state.userWrapper.user.id
+});
+
+const actionCreators = {};
+export default connect(mapStateToProps, actionCreators)(UploadButton);

@@ -37,7 +37,7 @@ const userApi = {
     return result;
   },
   getUserBookUploadCount: async function ({ userId }) {
-    let url = apiEndPoint + `user/${userId}/stats/book-upload/count`;
+    let url = apiEndPoint + `user/${userId}/stats/book/count`;
     console.log(url)
     let result = axios.get(url, headerConfig.axiosConfig).then(response => {
       return response.data;
