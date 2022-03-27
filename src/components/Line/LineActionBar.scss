@@ -12,6 +12,12 @@
   .ant-divider-vertical {
     height: auto;
   }
+  .line-action-bar-count{
+    color: var(--secondary-color);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    font-size: var(--size-md);
+  }
   .line-action-bar-item {
     color: var(--secondary-color);
     background: var(--primary-color-light-shade);
@@ -19,8 +25,7 @@
     font-weight: 500;
     font-size: var(--size-md);
     svg {
-    margin: 12px;
-
+      margin: 12px;
       cursor: pointer;
     }
     &.scale-down {

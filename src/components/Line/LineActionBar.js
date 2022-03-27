@@ -9,7 +9,7 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
     <div className="line-action-bar">
       {selectedLinesCount ? (
         <>
-          <div className="line-action-bar-item">{selectedLinesCount}</div>
+          <div className="line-action-bar-count">{selectedLinesCount}</div>
           <Divider type="vertical" />
         </>
       ) : (

@@ -3,64 +3,59 @@ import CryptoJS from "crypto-js";
 
 import fileApi from "../../api/file";
 import { UploadIcon } from "../Icons";
+import { Button, notification } from "antd";
 
 import "./UploadButton.scss";
 
 const UploadButton = () => {
-  const [selectedFile, setSelectedFile] = useState(false);
-  const [fileHash, setFileHash] = useState([]);
-
-  const [buttonStatus, setButtonStatus] = useState([]);
+  const openNotification = (description, type = "info") => {
+    notification[type]({
+      message: "Upload status",
+      description,
+    });
+  };
 
   const onSelectFileHandler = event => {
     var file = event.target.files[0];
     var reader = new FileReader();
+    let hash = [];
     reader.onloadend = function (evt) {
       if (evt.target.readyState === FileReader.DONE) {
         var wordArray = CryptoJS.lib.WordArray.create(evt.target.result);
-        var hash = CryptoJS.SHA256(wordArray).toString();
-        setFileHash(hash);
+        hash = CryptoJS.SHA256(wordArray).toString();
+        uploadHandler({ selectedFile: event.target.files[0], fileHash: hash });
       }
     };
     reader.readAsArrayBuffer(file);
-    setSelectedFile(event.target.files[0]);
   };
 
-  const onSubmitClickHandler = () => {
-    console.log("clicked on submit!");
-    setButtonStatus("Checking if file exists in the database...");
+  const uploadHandler = ({ selectedFile, fileHash }) => {
     fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
       if (!exist) {
-        setButtonStatus("Unique file detected. Uploading...");
+        openNotification("Unique file detected. Uploading...");
         fileApi.addFileToS3({ hash: fileHash, file: selectedFile }).then(({ upload }) => {
           if (upload) {
-            setButtonStatus("Upload successful. Saving upload metadata in the database..");
-            fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(result => {
-              setButtonStatus("File record saved. Upload successful!");
+            openNotification("Upload successful.", "success");
+            fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(_result => {
+              openNotification("Handing over file to Rastero for processing", "success");
             });
           } else {
-            setButtonStatus("Upload unsuccessful");
+            openNotification("Upload unsuccessful", "error");
           }
         });
       } else {
-        setButtonStatus("File exists in our database.");
+        openNotification("File already exists in our database.", "warn");
       }
     });
   };
 
   return (
     <div className="upload-button-wrapper">
-      {/* button to add book */}
       <button className="push-button primary">
         <UploadIcon />
         <input accept=".pdf" type="file" onChange={onSelectFileHandler} id="upload-file" style={{ display: "none" }} />
         <label htmlFor="upload-file">Upload</label>
       </button>
-
-      {/* show submit button only after the file is selected */}
-      {selectedFile && <button onClick={onSubmitClickHandler}>Submit</button>}
-
-      {buttonStatus}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .home {
   .home-page-grids {
     display: grid;
-    grid-template-rows: calc(100vh - var(--navbar-height)) 100vh repeat(2, 80vh) 50vh 150px;
+    grid-template-rows: calc(100vh - var(--navbar-height)) 100vh repeat(2, 100vh) 80vh 150px;
     .home-page-hero {
       font-family: var(--primary-main-page-font);
       display: grid;
