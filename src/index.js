@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "antd/dist/antd.css";
 import "./index.scss";
-import Book from "./components/BookPage";
+import Book from "./components/Book/BookPage";
+import BookExplore from "./components/Book/BookExplore";
 import CreateTrail from "./components/Trail/CreateTrail";
 import LinesTrail from "./components/Trail/LinesTrail";
 import ReviewTrail from "./components/Trail/ReviewTrail";
@@ -60,6 +61,7 @@ const Root = () => {
             </RequireAuth>
           }
         />
+        <Route path="/books/explore" element={<BookExplore />}></Route>
         <Route path="/feed" element={<Feed />}></Route>
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/profile" element={<UserProfile />}></Route>

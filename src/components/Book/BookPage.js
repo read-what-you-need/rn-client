@@ -1,7 +1,6 @@
-import "./App.scss";
-import BookList from "./BooksList";
+import BookList from "../BooksList";
 import { Link } from "react-router-dom";
-import { RightArrowIcon } from "./Icons";
+import { RightArrowIcon } from "../Icons";
 
 import "./BookPage.scss";
 function Book() {
