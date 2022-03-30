@@ -4,7 +4,6 @@ import headerConfig from "./headerConfig";
 // defining frequently used endpoints
 let apiEndPoint = process.env.REACT_APP_NODE_API;
 let pdfToTextEndPoint = process.env.REACT_APP_PDF_TO_TEXT_ENDPOINT;
-let libraryEndPoint = process.env.REACT_APP_LIBRARY_END_POINT;
 
 function createFileHashFormData({ file, hash }) {
   // create a form to send file
@@ -24,12 +23,14 @@ const fileApi = {
     });
     return result;
   },
-  queryLibrary: async function ({searchQuery, files="f"}){
+  queryLibrary: async function ({ searchQuery, files = "f" }) {
     console.log(`search query in file api is :${searchQuery}`);
-    let url = libraryEndPoint + `?object=${files}&mode=last&timefirst=2018-09-02&timelast=2018-09-04`
-    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
-      console.log(`response recieved from library api`)
-      console.log(response)
+    let url = apiEndPoint + `file/library`;
+    console.log(`url is :${url}`);
+    let data = { query: `?object=${files}&mode=last&timefirst=2018-09-02&timelast=2018-09-04` };
+    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
+      console.log(`response recieved from library api`);
+      console.log(response);
       return response.data;
     });
     return response;
