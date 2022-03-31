@@ -14,7 +14,9 @@ const BookExplore = () => {
               <span className="book-page-breadcrumb-text">Account</span>
             </Link>
           </div>
-          <RightArrowIcon />
+          <div className="book-page-breadcrumb-icon">
+            <RightArrowIcon />
+          </div>
           <div>
             <Link to={`/books/explore`}>
               <span className="book-page-breadcrumb-text">Explore Books</span>

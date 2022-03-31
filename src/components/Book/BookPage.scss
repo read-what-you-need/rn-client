@@ -1,12 +1,14 @@
 .book-page {
   .book-page-breadcrumb {
-    display: grid;
-    grid-template-columns: repeat(7, 2fr 1fr);
+    display: flex;
     background: var(--secondary-color-light-600);
     padding: var(--size-md) var(--size-xxl);
     border-radius: var(--border-radius-lg);
     margin: var(--size-xs) 0 0 0;
     align-items: center;
+    .book-page-breadcrumb-icon{
+      margin: 0 24px;
+    }
     .book-page-breadcrumb-text {
       font-family: var(--primary-main-page-font);
       font-style: normal;
