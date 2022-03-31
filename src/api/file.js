@@ -23,13 +23,10 @@ const fileApi = {
     });
     return result;
   },
-  queryLibrary: async function ({ searchQuery, files = "f" }) {
-    console.log(`search query in file api is :${searchQuery}`);
+  queryLibrary: async function ({ searchQuery, count = 10 }) {
     let url = apiEndPoint + `file/library`;
-    console.log(`url is :${url}`);
-    let data = { query: `?object=${files}&mode=last&timefirst=2018-09-02&timelast=2018-09-04` };
+    let data = { searchQuery, count };
     let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
-      console.log(`response recieved from library api`);
       console.log(response);
       return response.data;
     });
