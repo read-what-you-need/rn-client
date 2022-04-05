@@ -10,7 +10,6 @@ import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
 
-import QuestionsRecentAsked from "../Questions/QuestionsRecentAsked";
 import { Row, Col } from "antd";
 import "./File.scss";
 
