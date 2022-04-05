@@ -33,6 +33,21 @@ export const getFileDetails = fileId => dispatch => {
     });
 };
 
+export const checkFileExists = ({ fileId }) => {
+  return function (dispatch) {
+    dispatch({ type: types.CHECK_FILE_EXISTS_REQUEST, fileId });
+    return fileApi
+      .checkFileExists({ hash: fileId })
+      .then(res => {
+        dispatch({ type: types.CHECK_FILE_EXISTS_SUCCESS, data: res.exist });
+        return res;
+      })
+      .catch(err => {
+        return dispatch({ type: types.CHECK_FILE_EXISTS_FAILURE, error: err });
+      });
+  };
+};
+
 export const filePageInit = ({ fileId }) => {
   return function (dispatch) {
     dispatch({ type: types.FILE_PAGE_INIT, fileId });
