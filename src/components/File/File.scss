@@ -2,7 +2,7 @@
   .tags-column {
     padding: var(--size-lg);
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
   .filter-column {
     padding: var(--size-lg);
@@ -12,31 +12,10 @@
   .lines-list-wrapper {
     margin: var(--size-lg);
   }
-  .lines-action-bar-wrapper{
-    z-index: 100;
-    position: sticky;
-    top: 0;
-  }
-  .input-box-search-primary {
-    margin: 20px 0 0 0;
-  }
-  input {
-    width: 200px;
-  }
-  .lines-table-wrapper {
-    text-align: justify;
-    padding: 50px 0 0 0;
-    width: 700px;
-  }
-  .trail-lines-review {
-    .trail-lines-add {
-      display: inline;
-      margin: 0 0 10px 0;
-    }
-    .trail-lines-items {
-      margin: 20px 0 0 0;
-      .trail-line-item {
-      }
-    }
+  .file-show-status {
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    place-content: center;
   }
 }

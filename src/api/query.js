@@ -11,10 +11,17 @@ const searchApi = {
     let offset = currentPage * pageSize;
     let limit = pageSize;
     let url = `${apiEndPoint}search/${fileId}?q=${query}&orderBy=${orderBy}&arrangeBy=${arrangeBy}&offset=${offset}&limit=${limit}&feedback=${feedback}`;
-    let result = axios.get(url, headerConfig.axiosConfig).then(response => {
-      return response.data;
-    });
-    return result;
+    try {
+      let result = axios
+        .get(url, headerConfig.axiosConfig)
+        .then(response => {
+          return response.data;
+        })
+        .catch(error => error);
+      return result;
+    } catch (err) {
+      return new Error(err);
+    }
   },
   getQuestion: async function ({ query }) {
     let url = `${questionGeneratorApiEndPoint}`;

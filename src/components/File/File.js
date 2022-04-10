@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { useParams } from "react-router-dom";
 
-import { checkFileExists, filePageInit } from "../../actions";
+import { checkFileExists, filePageInit, submitFileJobRequest, getFileDetails } from "../../actions";
 
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
@@ -13,20 +13,27 @@ import LineActionBar from "../Line/LineActionBar";
 import { Row, Col } from "antd";
 import "./File.scss";
 
-const File = ({ filePageInit, checkFileExists, isFileExist }) => {
+const File = ({ filePageInit, checkFileExists, isFileExist, submitFileJobRequest, getFileDetails, isFileProcessed = false, fileStatus, userId }) => {
   let params = useParams();
   let id = params.id;
   useEffect(() => {
     checkFileExists({ fileId: id }).then(({ exist }) => {
       if (exist) {
-        filePageInit({ fileId: id });
+        getFileDetails({ fileId: id });
+      } else {
+        submitFileJobRequest({ fileId: id });
       }
     });
   }, []);
-  console.log(`isFileExist is ${isFileExist}`);
+  useEffect(() => {
+    if (isFileProcessed) {
+      filePageInit({ fileId: id });
+    }
+  }, [isFileProcessed]);
+  const showFileInteraface = isFileExist && isFileProcessed;
   return (
     <div className="file-wrapper">
-      {isFileExist ? (
+      {showFileInteraface ? (
         <Row>
           <Col span={6} className="tags-column">
             <FileTags />
@@ -44,18 +51,25 @@ const File = ({ filePageInit, checkFileExists, isFileExist }) => {
           </Col>
         </Row>
       ) : (
-        <div>showing status here</div>
+        <div className="file-show-status">
+          <div>{fileStatus}</div>
+        </div>
       )}
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  isFileExist: state.fileWrapper.isFileExist
+  isFileExist: state.fileWrapper.isFileExist,
+  isFileProcessed: state.fileWrapper.fileDetails.processed,
+  fileStatus: state.fileWrapper.fileDetails.status,
+  userId: state.userWrapper.user.id
 });
 
 const actionCreators = {
   checkFileExists,
-  filePageInit
+  filePageInit,
+  submitFileJobRequest,
+  getFileDetails
 };
 export default connect(mapStateToProps, actionCreators)(File);

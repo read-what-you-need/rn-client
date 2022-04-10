@@ -34,16 +34,21 @@ const UploadButton = ({ userId }) => {
     fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
       if (!exist) {
         openNotification("Unique file detected. Uploading...");
-        fileApi.addFileToS3({ hash: fileHash, file: selectedFile }).then(({ upload }) => {
-          if (upload) {
-            openNotification("Upload successful.", "success");
-            fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(_result => {
-              openNotification("Handing over file to Rastero for processing", "success");
-            });
-          } else {
-            openNotification("Upload unsuccessful", "error");
-          }
-        });
+        fileApi
+          .convertAndUploadToS3({ hash: fileHash, file: selectedFile })
+          .then(({ upload }) => {
+            if (upload) {
+              openNotification("Upload successful.", "success");
+              fileApi.addFileRecordInDb({ hash: fileHash, file: selectedFile }).then(_result => {
+                openNotification("Handing over file to Rastero for processing", "success");
+              });
+            } else {
+              openNotification("Upload unsuccessful", "error");
+            }
+          })
+          .catch(() => {
+            openNotification("File upload service failed", "error");
+          });
       } else {
         openNotification("File present in our database.", "info");
         fileApi.addFileInUserFiles({ fileId: fileHash, userId }).then(() => {

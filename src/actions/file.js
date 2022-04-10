@@ -21,7 +21,7 @@ export const getUserFilesList = () => async (dispatch, getState) => {
     });
 };
 
-export const getFileDetails = fileId => dispatch => {
+export const getFileDetails = ({fileId })=> dispatch => {
   dispatch({ type: types.GET_FILE_DETAILS_REQUEST, fileId });
   fileApi
     .getFileById(fileId)
@@ -48,10 +48,24 @@ export const checkFileExists = ({ fileId }) => {
   };
 };
 
+export const submitFileJobRequest = ({ fileId }) => {
+  return function (dispatch) {
+    dispatch({ type: types.SUBMIT_FILE_JOB_REQUEST, fileId });
+    return fileApi
+      .submitFileJobRequest({ fileId })
+      .then(res => {
+        dispatch({ type: types.SUBMIT_FILE_JOB_SUCCESS });
+        return res;
+      })
+      .catch(err => {
+        return dispatch({ type: types.SUBMIT_FILE_JOB_FAILURE, error: err });
+      });
+  };
+};
+
 export const filePageInit = ({ fileId }) => {
   return function (dispatch) {
     dispatch({ type: types.FILE_PAGE_INIT, fileId });
-    dispatch(getFileDetails(fileId));
     dispatch(getFileTags(fileId));
   };
 };

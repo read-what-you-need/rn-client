@@ -16,7 +16,7 @@ const file = (state = initialState, action) => {
     case types.CHECK_FILE_EXISTS_FAILURE:
       return { ...state, error: action.error };
     case types.GET_FILE_DETAILS_REQUEST:
-      return {...state};
+      return { ...state };
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, fileDetails: action.data };
     case types.GET_FILE_DETAILS_REQUEST_FAILURE:
@@ -27,6 +27,12 @@ const file = (state = initialState, action) => {
       return { ...state, fileList: action.data };
     case types.GET_LIST_OF_USERS_FILES_REQUEST_FAILURE:
       return { ...state, error: action.error };
+    case types.SUBMIT_FILE_JOB_REQUEST:
+      return { ...state, fileDetails: { status: "SUBMITTING_FILE_REQUEST" } };
+    case types.SUBMIT_FILE_JOB_SUCCESS:
+      return { ...state, fileDetails: { status: "FILE_REQUEST_SUBMITTED" } };
+    case types.SUBMIT_FILE_JOB_FAILURE:
+      return { ...state, fileDetails: { status: "FILE_REQUEST_SUBMITION_FAILED" }, error: action.error };
     default:
       return state;
   }

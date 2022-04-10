@@ -27,12 +27,11 @@ const fileApi = {
     let url = apiEndPoint + `file/library`;
     let data = { searchQuery, count };
     let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
-      console.log(response);
       return response.data;
     });
     return response;
   },
-  addFileToS3: async function ({ hash, file }) {
+  convertAndUploadToS3: async function ({ hash, file }) {
     let url = pdfToTextEndPoint;
     let formData = createFileHashFormData({ file, hash });
     let result = axios.post(url, formData, headerConfig.axiosFormConfig).then(response => {
@@ -65,6 +64,13 @@ const fileApi = {
   getFileByTrailId: async function ({ trailId }) {
     let url = apiEndPoint + `file/trail/${trailId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
+  submitFileJobRequest: async function ({ fileId }) {
+    let url = apiEndPoint + `file/job/${fileId}`;
+    let response = axios.post(url, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
     return response;

@@ -13,8 +13,6 @@ const initialState = {
 
 const filters = (state = initialState, action) => {
   switch (action.type) {
-    case types.FILE_PAGE_INIT:
-      return initialState;
     case types.FILTER_PAGE_CHANGE:
       return { ...state, filters: { ...state.filters, currentPage: action.data } };
     case types.FILTERS_COLLAPSE:

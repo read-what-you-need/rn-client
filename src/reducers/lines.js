@@ -24,7 +24,7 @@ const lines = (state = initialState, action) => {
         queryId: action.data?.queryId
       };
     case types.SEARCH_QUERY_REQUEST_FAILURE:
-      return initialState;
+      return { ...state, error: action.error };
     case types.ON_LINE_ITEM_SELECT:
       return {
         ...state,
