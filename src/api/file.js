@@ -23,9 +23,17 @@ const fileApi = {
     });
     return result;
   },
-  queryLibrary: async function ({ searchQuery, count = 10 }) {
-    let url = apiEndPoint + `file/library`;
-    let data = { searchQuery, count };
+  addInRecentUserFiles: async function ({ fileId, fileName }) {
+    let url = apiEndPoint + `file/recent/user`;
+    let data = { fileId, fileName };
+    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
+  addFileInUserFiles: async function ({ fileId, userId }) {
+    let url = apiEndPoint + `file/collection/user/${userId}`;
+    let data = { fileId };
     let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
@@ -46,14 +54,6 @@ const fileApi = {
     });
     return response;
   },
-  addFileInUserFiles: async function ({ fileId, userId }) {
-    let url = apiEndPoint + `file/collection/user/${userId}`;
-    let data = { fileId };
-    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
-      return response.data;
-    });
-    return response;
-  },
   getFileById: async function (id) {
     let url = apiEndPoint + `file/${id}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
@@ -68,16 +68,15 @@ const fileApi = {
     });
     return response;
   },
-  addInRecentUserFiles: async function ({ fileId, fileName }) {
+  getRecentUserFiles: async function () {
     let url = apiEndPoint + `file/recent/user`;
-    let data = { fileId, fileName };
-    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
     return response;
   },
-  getRecentUserFiles: async function () {
-    let url = apiEndPoint + `file/recent/user`;
+  getFileListUser: async function ({ userId }) {
+    let url = apiEndPoint + `file/user/${userId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
@@ -90,13 +89,14 @@ const fileApi = {
     });
     return response;
   },
-  getFileListUser: async function ({ userId }) {
-    let url = apiEndPoint + `file/user/${userId}`;
-    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+  queryLibrary: async function ({ searchQuery, count = 10 }) {
+    let url = apiEndPoint + `file/library`;
+    let data = { searchQuery, count };
+    let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
       return response.data;
     });
     return response;
-  }
+  },
 };
 
 export default fileApi;
