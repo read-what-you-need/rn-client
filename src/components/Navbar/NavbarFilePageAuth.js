@@ -11,7 +11,7 @@ const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCo
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
-      <span className="nav-logo" onClick={() => navigate("/")}>
+      <span className="nav-logo" onClick={() => navigate("/recent")}>
         <Logo />
       </span>
       <div className="nav-central-action-wrapper">
