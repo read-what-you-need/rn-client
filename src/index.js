@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar/Navbar";
 import UserProfile from "./components/User/UserProfile";
 import Signin from "./components/Auth/Signin";
 import Signup from "./components/Auth/Signup";
+import UserRecent from "./components/User/UserRecent";
 
 import RequireAuth from "./components/Auth/RequireAuth";
 
@@ -34,6 +35,13 @@ const Root = () => {
           element={
             <RequireAuth redirectTo="/signin">
               <Book />
+            </RequireAuth>
+          }></Route>
+        <Route
+          path="/recent"
+          element={
+            <RequireAuth redirectTo="/signin">
+              <UserRecent />
             </RequireAuth>
           }></Route>
         <Route

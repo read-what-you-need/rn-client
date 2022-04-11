@@ -13,13 +13,17 @@ const NavbarHomePageAuth = () => {
         <Logo />
       </span>
       <div className="nav-central-action-wrapper">
-        <button className="nav-central-action-icon-button" onClick={() => navigate("/books")}>
+        <button className="nav-central-action-icon-button" onClick={() => navigate("/recent")}>
           <BookOpenIcon />
-          Your Books
+          Recents
         </button>
         <button className="nav-central-action-icon-button" onClick={() => navigate("/books/explore")}>
           <CompassIcon />
           Explore Books
+        </button>
+        <button className="nav-central-action-icon-button" onClick={() => navigate("/books")}>
+          <BookOpenIcon />
+          Your Books
         </button>
       </div>
       <div className="nav-corner-action-wrapper">

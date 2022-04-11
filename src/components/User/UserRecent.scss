@@ -1,0 +1,34 @@
+.user-recent {
+  padding: 50px;
+  border-radius: 50px;
+  position: relative;
+  .ant-tabs {
+    .ant-tabs-ink-bar {
+      height: 2px;
+      background: #004054;
+      opacity: 0.8;
+    }
+    .ant-tabs-nav-list {
+      margin-left: 120px;
+    }
+    .ant-tabs-nav::before {
+      border-bottom: 0px solid #f0f0f0;
+    }
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: #004054;
+      }
+    }
+    .ant-tabs-tab {
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      color: #7d7d7d;
+      .ant-tabs-tab-btn {
+        margin: 0px 50px;
+      }
+    }
+  }
+}
+

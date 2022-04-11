@@ -1,0 +1,21 @@
+.user-recent-carousel {
+  position: relative;
+  .item {
+    margin: 24px;
+  }
+  .ant-carousel {
+    margin: 50px;
+  }
+  .ant-card{
+    border: 1px solid #E5E5E5;
+  }
+  .user-recent-carousel-button-left {
+    position: absolute;
+    top: 50%;
+  }
+  .user-recent-carousel-button-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+}

@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import { Input, List, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import fileApi from "../../api/file";
+import "./BookSearch.scss"
 
 const BookSearch = () => {
-  const [bookResults, setBookResults] = useState([]);
+  const [bookResults, setBookResults] = useState(null);
   const [bookResultsLoading, setBookResultsLoading] = useState(false);
 
   function onEnterHandler(val) {
     setBookResultsLoading(true);
-    console.log(val);
     if (val) {
       fileApi.queryLibrary({ searchQuery: val }).then(data => {
         setBookResults(data);
         setBookResultsLoading(false);
       });
+    } else {
+      setBookResults(null);
+      setBookResultsLoading(false);
     }
   }
   return (
-    <div>
+    <div className="book-page-search">
       <Input onPressEnter={e => onEnterHandler(e.target.value)} placeholder="Basic search here" />
 
-      <List
+      {bookResults && <List
         itemLayout="horizontal"
         dataSource={bookResults}
         loading={bookResultsLoading}
@@ -38,7 +41,7 @@ const BookSearch = () => {
             />
           </List.Item>
         )}
-      />
+      />}
     </div>
   );
 };
