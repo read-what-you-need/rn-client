@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input, List, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import fileApi from "../../api/file";
-import "./BookSearch.scss"
+import "./BookSearch.scss";
 
 const BookSearch = () => {
   const [bookResults, setBookResults] = useState(null);
@@ -24,24 +24,30 @@ const BookSearch = () => {
     <div className="book-page-search">
       <Input onPressEnter={e => onEnterHandler(e.target.value)} placeholder="Basic search here" />
 
-      {bookResults && <List
-        itemLayout="horizontal"
-        dataSource={bookResults}
-        loading={bookResultsLoading}
-        renderItem={(item, index) => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src={`https://picsum.photos/200/300?random=${index}`} />}
-              title={
-                <Link to={`/file/${item.md5}`}>
-                  <span className="book-page-breadcrumb-text">{item.title}</span>
-                </Link>
-              }
-              description={item.description}
-            />
-          </List.Item>
-        )}
-      />}
+      {bookResults && (
+        <List
+          itemLayout="horizontal"
+          dataSource={bookResults}
+          loading={bookResultsLoading}
+          renderItem={(item, index) => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={<Avatar src={`https://picsum.photos/200/300?random=${index}`} />}
+                title={
+                  <Link
+                    to={`/file/${item.md5}`}
+                    onClick={() => {
+                      fileApi.addInRecentUserFiles({ fileId: item.md5, fileName: item.title });
+                    }}>
+                    <span className="book-page-breadcrumb-text">{item.title}</span>
+                  </Link>
+                }
+                description={item.description}
+              />
+            </List.Item>
+          )}
+        />
+      )}
     </div>
   );
 };
