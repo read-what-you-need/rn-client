@@ -75,6 +75,13 @@ const fileApi = {
     });
     return response;
   },
+  getPopularFiles: async function () {
+    let url = apiEndPoint + `file/list/popular`;
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
   getFileListUser: async function ({ userId }) {
     let url = apiEndPoint + `file/user/${userId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
