@@ -68,6 +68,13 @@ const fileApi = {
     });
     return response;
   },
+  getRecentUserFiles: async function () {
+    let url = apiEndPoint + `file/recent/user`;
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
   submitFileJobRequest: async function ({ fileId }) {
     let url = apiEndPoint + `file/job/${fileId}`;
     let response = axios.post(url, headerConfig.axiosConfig).then(response => {
