@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
-
+import { Row, Col } from "antd";
 import trailApi from "../../api/trail";
-
+const dateFormatOptions = { hour: "2-digit", minute: "2-digit", weekday: "long", year: "numeric", month: "long", day: "numeric" };
 const ListTrail = () => {
   const [trails, setTrails] = useState([]);
   useEffect(() => {
@@ -11,61 +10,37 @@ const ListTrail = () => {
       setTrails(res);
     });
   }, []);
-
   return (
-    <div className="App">
-      <div className="container">
-        <h1>My trails</h1>
-        <div className="breadcrumb">
-          <Breadcrumb>
-            <Breadcrumb.Item>
-              <Link to={`/feed`}>Home</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to={`/user`}>Profile</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>Trail</Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to={`/trail/list`}>My trails</Link>
-            </Breadcrumb.Item>
-          </Breadcrumb>
+    <div className="book-page container">
+      <div className="row">
+        <div className="book-page-header-wrapper">
+          <div className="book-page-header-text">Your Trails</div>
         </div>
-        <div className="row">
-          <div className="col">
-            <table className="table table-hover mt-5 table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">#Trail id</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Your Visits</th>
-                  <th scope="col">Created at</th>
-                  <th scope="col">Public Visits</th>
-                </tr>
-              </thead>
-              <tbody>
-                {trails.map((trail, index) => {
-                  return (
-                    <tr key={trail.trail_id}>
-                      <th scope="row">{trail.trail_id}</th>
-                      <td>
-                      <Link to={`/trail/${trail.trail_id}`}>{trail.title}</Link>
-                      </td>
-                      <td>
-                       {trail.visited}
-                      </td>
-                      <td>{trail.created_at}</td>
-                      <td>{trail.public_visits}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+        <div className="book-list">
+          {trails.map(trail => {
+            const trailCreatedAt = new Date(trail.created_at).toLocaleDateString("en-US", dateFormatOptions);
+            return (
+              <Link className="book-list-item" key={trail.trail_id} to={`/trail/${trail.trail_id}`}>
+                <Row className="book-list-item-wrapper">
+                  <Col md={{ span: 24 }} lg={{ span: 4 }} className="book-list-picture-wrapper ">
+                    <div className="book-list-picture"></div>
+                  </Col>
+                  <Col md={{ span: 24 }} lg={{ offset: 2, span: 18 }} className="book-list-info-wrapper">
+                    <Row className>
+                      <div className="book-list-title "> {trail.title}</div>
+                    </Row>
+                    <Row className="book-list-info-header-wrapper ">
+                      <div className="book-list-date">{trailCreatedAt}</div>
+                    </Row>
+                  </Col>
+                </Row>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
-
 
 export default ListTrail;

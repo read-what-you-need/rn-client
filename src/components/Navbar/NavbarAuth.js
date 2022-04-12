@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 import NavbarHomePageAuth from "./NavbarHomePageAuth";
 import NavbarFilePageAuth from "./NavbarFilePageAuth";
-import NavbarTrailPage from "./NavbarTrailPage";
 
 const getCurrentPathWithoutLastPart = location => {
   return location.pathname.slice(0, location.pathname.lastIndexOf("/"));
@@ -17,7 +16,7 @@ const NavbarAuth = () => {
     if (currentPagePath === "/file") {
       return <NavbarFilePageAuth />;
     } else if (currentPagePath === "/trail") {
-      return <NavbarTrailPage />;
+      return <NavbarHomePageAuth />;
     } else {
       return <NavbarHomePageAuth />;
     }
