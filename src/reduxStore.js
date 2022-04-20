@@ -8,7 +8,7 @@ let store = {};
 if (process.env.REACT_APP_ENV !== "production") {
   store = createStore(reducers, composeEnhancers(applyMiddleware(...middleware)));
 } else {
-  store = createStore(reducers);
+  store = createStore(reducers, applyMiddleware(...middleware));
 }
 
 export default store;
