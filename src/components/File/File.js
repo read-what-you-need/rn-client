@@ -13,7 +13,18 @@ import LineActionBar from "../Line/LineActionBar";
 import { Row, Col } from "antd";
 import "./File.scss";
 
-const File = ({ filePageInit, checkFileExists, isFileExist, submitFileJobRequest, getFileDetails, isFileProcessed = false, fileStatus, userId }) => {
+const File = ({
+  filePageInit,
+  checkFileExists,
+  isFileExist,
+  submitFileJobRequest,
+  getFileDetails,
+  isRightToolBarCollapsed,
+  isLeftToolBarCollapsed,
+  isFileProcessed = false,
+  fileStatus,
+  userId
+}) => {
   let params = useParams();
   let id = params.id;
   useEffect(() => {
@@ -31,14 +42,17 @@ const File = ({ filePageInit, checkFileExists, isFileExist, submitFileJobRequest
     }
   }, [isFileProcessed]);
   const showFileInteraface = isFileExist && isFileProcessed;
+  let isToolsCollapsed = isLeftToolBarCollapsed && isRightToolBarCollapsed;
+  let readingViewConfigurations = [isToolsCollapsed ? 2 : 6, isToolsCollapsed ? 20 : 12, isToolsCollapsed ? 2 : 6];
+
   return (
     <div className="file-wrapper">
       {showFileInteraface ? (
         <Row>
-          <Col span={6} className="tags-column">
+          <Col span={readingViewConfigurations[0]} className="tags-column">
             <FileTags />
           </Col>
-          <Col span={12}>
+          <Col span={readingViewConfigurations[1]}>
             <Col className="lines-action-bar-wrapper" span={12} offset={6}>
               <LineActionBar />
             </Col>
@@ -46,7 +60,7 @@ const File = ({ filePageInit, checkFileExists, isFileExist, submitFileJobRequest
               <LinesList />
             </div>
           </Col>
-          <Col span={6} className="filter-column">
+          <Col span={readingViewConfigurations[2]} className="filter-column">
             <LineFilters />
           </Col>
         </Row>
@@ -63,7 +77,9 @@ const mapStateToProps = state => ({
   isFileExist: state.fileWrapper.isFileExist,
   isFileProcessed: state.fileWrapper.fileDetails.processed,
   fileStatus: state.fileWrapper.fileDetails.status,
-  userId: state.userWrapper.user.id
+  userId: state.userWrapper.user.id,
+  isRightToolBarCollapsed: state.filtersWrapper.isCollapsed,
+  isLeftToolBarCollapsed: state.tagsWrapper.isCollapsed
 });
 
 const actionCreators = {

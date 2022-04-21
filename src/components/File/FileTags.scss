@@ -43,6 +43,7 @@
     cursor: pointer;
     // is -35px as it is the svg width of icon.
     right: -35px;
+    top: 100px;
     transition: var(--fast-transition);
     -webkit-transition: var(--fast-transition);
   }

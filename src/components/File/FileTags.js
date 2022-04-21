@@ -9,7 +9,6 @@ import "./FileTags.scss";
 const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clickedTag }) => {
   return (
     <div className={`file-tags sidebar ${isCollapsed ? "sidebar-collapsed" : ""}`}>
-      <div className={"file-tags-header"}>Tags in this book</div>
       <div
         className="file-tags-collapse-button"
         onClick={() => {
@@ -17,20 +16,23 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clicked
         }}>
         {!isCollapsed ? <LeftCollapseIcon /> : <RightExpandIcon />}
       </div>
-      <div className="file-tags-item-wrapper">
-        {tags.map(tag => {
-          return (
-            <div className="file-tags-item" id={tag.id}>
-              <Tooltip title={tag.frequency_count+" occurrences found"}>
-                <button
-                  className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
-                  onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
-                  <span className="file-tags-item-text">{tag.tag}</span>
-                </button>
-              </Tooltip>
-            </div>
-          );
-        })}
+      <div style={{ opacity: `${isCollapsed ? 0 : 1}` }}>
+        <div className={"file-tags-header"}>Tags in this book</div>
+        <div className="file-tags-item-wrapper">
+          {tags.map(tag => {
+            return (
+              <div className="file-tags-item" id={tag.id}>
+                <Tooltip title={tag.frequency_count + " occurrences found"}>
+                  <button
+                    className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
+                    onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
+                    <span className="file-tags-item-text">{tag.tag}</span>
+                  </button>
+                </Tooltip>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
