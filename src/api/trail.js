@@ -21,7 +21,6 @@ const trailApi = {
     let result = axios
       .get(url, headerConfig.axiosConfig)
       .then(response => Helpers.responseHandler({ response, error: {} }))
-      .catch(error => Helpers.responseHandler({ response: {}, error }));
     return result;
   },
   getTrailDetails: async function ({ trailId }) {

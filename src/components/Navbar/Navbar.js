@@ -7,7 +7,6 @@ import NavbarAuth from "./NavbarAuth";
 import NavbarNonAuth from "./NavbarNonAuth";
 
 const Navbar = ({ isAuthUser }) => {
-  console.log('in navbar ', isAuthUser)
   return <div className="nav-bar-wrapper">{isAuthUser ? <NavbarAuth /> : <NavbarNonAuth />}</div>;
 };
 const mapStateToProps = state => ({

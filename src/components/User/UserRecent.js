@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tabs } from "antd";
+import { message, Tabs } from "antd";
 import UserRecentCarousel from "./UserRecentCarousel";
 import "./UserRecent.scss";
 import fileApi from "../../api/file";
@@ -13,7 +13,7 @@ function normalizeFilesForCarousel(files) {
   });
 }
 
-function normalizeTrailsForCarousel(trails) {
+function normalizeTrailsForCarousel(trails = []) {
   return trails.map(trail => {
     return { id: trail.trail_id, link: `/trail/${trail.trail_id}`, description: trail.title };
   });
@@ -23,13 +23,24 @@ const UserRecent = () => {
   const [userRecentFiles, setUserRecentFiles] = useState([]);
   const [userTrails, setUserTrails] = useState([]);
   useEffect(() => {
-    fileApi.getRecentUserFiles().then(files => {
-      setUserRecentFiles(files);
-    });
-
-    trailsApi.listUserTrails({ offset: 0, limit: 10 }).then(trails => {
-      setUserTrails(trails);
-    });
+    fileApi
+      .getRecentUserFiles()
+      .then(files => {
+        setUserRecentFiles(files);
+      })
+      .catch(_err => {
+        setUserTrails([]);
+        message.warning("Error while retrieving recents.");
+      });
+    trailsApi
+      .listUserTrails({ offset: 0, limit: 10 })
+      .then(trails => {
+        setUserTrails(trails);
+      })
+      .catch(_err => {
+        setUserTrails([]);
+        message.warning("Could not retrieve trails.");
+      });
   }, []);
   return (
     <div className="user-recent container">
