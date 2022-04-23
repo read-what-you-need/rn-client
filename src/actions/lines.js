@@ -31,8 +31,7 @@ export const feedbackLines =
         dispatch({ type: types.FEEDBACK_LINE_SUCCESS, data: res.data, feedback });
         dispatch(clearSelectedLines());
         if (feedback === -1) {
-          dispatch(removeDisLikedLines(selectedLinesIds));
-          dispatch(getLines());
+          dispatch(handleDisLikedLines(selectedLinesIds));
         }
       })
       .catch(err => {
@@ -48,6 +47,11 @@ export const onLineSelect =
 
 export const getSelectedLinesCount = state => {
   return getSelectedLines(state).length;
+};
+
+export const handleDisLikedLines = dislikedLineIds => dispatch => {
+  dispatch(removeDisLikedLines(dislikedLineIds));
+  dispatch(getLines());
 };
 
 export const removeDisLikedLines = dislikedLineIds => dispatch => {
