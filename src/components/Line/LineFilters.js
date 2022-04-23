@@ -39,7 +39,7 @@ const LineFilters = ({
             </button>
           </div>
           <div className="line-filters-item">
-            <button className={`push-button ${lineFilterStatus === -1 ? "secondary" : "not-selected"}`}>
+            <button className={`push-button ${lineFilterStatus === 2 ? "secondary" : "not-selected"}`}>
               <span className="line-filters-item-text" onClick={() => showUnReadLines()}>
                 Unread
               </span>
