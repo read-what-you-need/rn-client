@@ -26,7 +26,7 @@ const filters = (state = initialState, action) => {
       };
     case types.SEARCH_QUERY_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
-    case types.SHOW_READ_LINES:
+    case types.SHOW_LIKED_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1, currentPage:0 } };
     case types.SHOW_ALL_LINES:
       return { ...state, filters: { ...state.filters, feedback: 0 , currentPage:0 } };

@@ -38,10 +38,10 @@ export const onTagPress = ({ tag }) => {
   };
 };
 
-export const showReadLines = () => {
+export const showLikedLines = () => {
   return function (dispatch) {
     dispatch({ type: types.FILTER_APPLIED });
-    dispatch({ type: types.SHOW_READ_LINES });
+    dispatch({ type: types.SHOW_LIKED_LINES });
     dispatch(getLines());
   };
 };

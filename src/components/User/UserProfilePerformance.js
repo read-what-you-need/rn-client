@@ -32,7 +32,7 @@ const UserProfilePerformance = ({ userId }) => {
             <LinesReadIcon />
             <span className="user-profile-performance-item-info-number">{likedLinesCount}</span>
           </div>
-          <div className="user-profile-performance-item-info-text push-below">Total lines read</div>
+          <div className="user-profile-performance-item-info-text push-below">Total lines liked</div>
         </div>
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">

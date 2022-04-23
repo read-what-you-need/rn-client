@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { filtersCollapsible, showReadLines, showAllLines, showUnReadLines, sortAndArrangeLinesBy } from "../../actions";
+import { filtersCollapsible, showLikedLines, showUnReadLines, sortAndArrangeLinesBy } from "../../actions";
 
 import { RightExpandIcon, LeftCollapseIcon, SettingsIcon, SortIcon } from "../Icons";
 
@@ -9,8 +9,7 @@ import "./LineFilters.scss";
 const LineFilters = ({
   isCollapsed,
   filtersCollapsible,
-  showReadLines,
-  showAllLines,
+  showLikedLines,
   showUnReadLines,
   arrangeBy,
   orderBy,
@@ -34,15 +33,8 @@ const LineFilters = ({
         <div className="line-filters-item-wrapper">
           <div className="line-filters-item">
             <button className={`push-button ${lineFilterStatus === 1 ? "secondary" : "not-selected"}`}>
-              <span className="line-filters-item-text" onClick={() => showReadLines()}>
-                Read
-              </span>
-            </button>
-          </div>
-          <div className="line-filters-item">
-            <button className={`push-button ${lineFilterStatus === 0 ? "secondary" : "not-selected"}`}>
-              <span className="line-filters-item-text" onClick={() => showAllLines()}>
-                All
+              <span className="line-filters-item-text" onClick={() => showLikedLines()}>
+                Liked
               </span>
             </button>
           </div>
@@ -107,9 +99,8 @@ const mapStateToProps = state => ({
 });
 const actionCreators = {
   filtersCollapsible,
-  showReadLines,
+  showLikedLines,
   showUnReadLines,
-  showAllLines,
   sortAndArrangeLinesBy
 };
 export default connect(mapStateToProps, actionCreators)(LineFilters);
