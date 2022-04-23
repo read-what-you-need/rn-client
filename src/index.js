@@ -7,6 +7,7 @@ import Book from "./components/Book/BookPage";
 import BookExplore from "./components/Book/BookExplore";
 import CreateTrail from "./components/Trail/CreateTrail";
 import LinesTrail from "./components/Trail/LinesTrail";
+import GlobalTrail from "./components/Trail/GlobalTrail";
 import ReviewTrail from "./components/Trail/ReviewTrail";
 import ListTrail from "./components/Trail/ListTrail";
 
@@ -21,7 +22,7 @@ import UserRecent from "./components/User/UserRecent";
 
 import RequireAuth from "./components/Auth/RequireAuth";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import store from "./reduxStore";
 import axios from "axios";
@@ -33,7 +34,14 @@ const Root = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/intro" element={<Home />}></Route>
+        <Route
+          path="/"
+          element={
+            <RequireAuth redirectTo="/intro">
+              <Navigate to={"/recent"} />
+            </RequireAuth>
+          }></Route>
         <Route
           path="/books"
           element={
@@ -56,6 +64,7 @@ const Root = () => {
             </RequireAuth>
           }
         />
+        <Route path="trail/global" element={<GlobalTrail />}></Route>
         <Route path="trail/:id" element={<LinesTrail />} />
         <Route
           path="trail/list"

@@ -1,6 +1,7 @@
 import React from "react";
 import HomePageCarousel from "./HomePageCarousel";
 import HomeFooter from "./HomeFooter";
+import { Link } from "react-router-dom";
 
 import "./Home.scss";
 import { Avatar } from "antd";
@@ -31,7 +32,10 @@ const Home = () => {
           <div></div>
           <div className="home-page-info-video-container">
             <video className="home-page-info-video yellow-shadow" autoPlay loop muted>
-              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/search-feature.mp4"} type="video/mp4" />
+              <source
+                src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/search-feature.mp4"}
+                type="video/mp4"
+              />
             </video>
           </div>
           <div className="home-page-info-section-container">
@@ -40,7 +44,9 @@ const Home = () => {
               Ask any question to Rastero and get your answer from the book. Its like asking your friend in a natural way
             </div>
             <div className="home-page-info-section-cta">
-              <button className="push-button primary">Get Started</button>
+              <Link to={`/signup`}>
+                <button className="push-button primary">Get Started</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -54,13 +60,18 @@ const Home = () => {
               content.
             </div>
             <div className="home-page-info-section-cta">
-              <button className="push-button primary">Get Started</button>
+              <Link to={`/signup`}>
+                <button className="push-button primary">Get Started</button>
+              </Link>
             </div>
             <div className="right-shift"></div>
           </div>
           <div className="home-page-info-video-container right-shift">
             <video className="home-page-info-video" autoPlay loop muted>
-              <source src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/trail-introduce.mp4"} type="video/mp4" />
+              <source
+                src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/trail-introduce.mp4"}
+                type="video/mp4"
+              />
             </video>
           </div>
         </div>
@@ -76,7 +87,9 @@ const Home = () => {
               </div>
             </button>
             <div className="home-page-testimonial-section-cta">
-              <button className="push-button primary">Get Started</button>
+              <Link to={`/signup`}>
+                <button className="push-button primary">Get Started</button>
+              </Link>
             </div>
           </div>
         </div>
