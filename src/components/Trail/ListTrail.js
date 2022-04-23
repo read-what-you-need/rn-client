@@ -13,9 +13,6 @@ const ListTrail = () => {
   return (
     <div className="book-page container">
       <div className="row">
-        <div className="book-page-header-wrapper">
-          <div className="book-page-header-text">Your Trails</div>
-        </div>
         <div className="book-list">
           {trails.map(trail => {
             const trailCreatedAt = new Date(trail.created_at).toLocaleDateString("en-US", dateFormatOptions);

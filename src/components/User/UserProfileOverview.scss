@@ -1,5 +1,5 @@
 .user-profile-overview-wrapper {
-  height: 300px;
+  height: 310px;
   width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,6 @@
   .user-profile-overview-form {
     display: grid;
     grid-template-columns: 3fr 2fr;
-
     .user-profile-overview-form-fields {
       display: grid;
       grid-template-columns: 1fr 9fr;
@@ -54,13 +53,8 @@
       }
     }
     .user-profile-overview-user-image-wrapper {
-      display: grid;
-      grid-template-rows: 3fr 1fr;
-      margin: 10px 0 0 0;
-      .user-profile-overview-user-image-button {
-        display: flex;
-        place-content: center;
-      }
+      display: flex;
+    place-content: center;
       .user-profile-overview-user-image {
         display: flex;
         align-items: center;

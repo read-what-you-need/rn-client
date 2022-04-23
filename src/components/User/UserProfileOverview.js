@@ -33,7 +33,6 @@ const UserProfileOverview = ({ getUserDetails, userDetails }) => {
               <span className="user-profile-image-circle-text">{userDetails.username?.charAt(0)}</span>
             </div>
           </div>
-          <div className="user-profile-overview-user-image-button"></div>
         </div>
       </div>
     </div>

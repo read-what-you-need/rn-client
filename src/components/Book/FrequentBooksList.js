@@ -3,7 +3,7 @@ import fileApi from "../../api/file";
 import { Link } from "react-router-dom";
 
 import { List, Avatar } from "antd";
-
+import "./FrequentBooksList.scss";
 const FrequentBooksList = () => {
   const [popularFiles, setPopularFiles] = useState([]);
 
@@ -13,7 +13,7 @@ const FrequentBooksList = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="frequent-book-list">
       <List
         itemLayout="horizontal"
         dataSource={popularFiles}
