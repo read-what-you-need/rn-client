@@ -2,7 +2,7 @@ import * as types from "../constants/ActionTypes";
 
 const initialState = {
   filters: {
-    pageSize: 10,
+    pageSize: 6,
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc",

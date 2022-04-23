@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { UserIcon } from "../Icons";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../actions";
-
+import "./UserMenu.scss";
 import { Menu, Dropdown } from "antd";
 const menuOptions = ({ logoutUser }) => (
   <Menu>
@@ -35,7 +35,7 @@ const menuOptions = ({ logoutUser }) => (
 );
 const UserMenu = ({ logoutUser }) => {
   return (
-    <Dropdown overlay={menuOptions({ logoutUser })}>
+    <Dropdown overlayClassName="user-menu" overlay={menuOptions({ logoutUser })}>
       <div>
         <UserIcon />
       </div>

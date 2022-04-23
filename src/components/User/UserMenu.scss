@@ -1,0 +1,18 @@
+.user-menu {
+  .ant-dropdown-menu-item {
+    border: var(--border-lighter);
+  }
+  .ant-dropdown-menu-item:not(:last-child) {
+    border-top: hidden;
+  }
+  .ant-dropdown-menu-item:last-child {
+    border-top: hidden;
+    border-bottom: hidden;
+  }
+  .ant-dropdown-menu-title-content {
+    font-family: var(--primary-main-page-font);
+    font-size: var(--size-md);
+    text-align: center;
+    color:black;
+  }
+}
