@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Logo} from "../Icons";
-import UserMenu from "../User/UserMenu";
+import { Logo } from "../Icons";
 
-import "./NavbarFilePageAuth.scss";
+import "./NavbarHomePageAuth.scss";
 
 const NavbarFilePageAuth = () => {
   let navigate = useNavigate();
@@ -13,10 +12,12 @@ const NavbarFilePageAuth = () => {
       <span className="nav-logo" onClick={() => navigate("/recent")}>
         <Logo />
       </span>
-      <div className="nav-central-action-wrapper"></div>
+      <div className="hero-title">Your trails</div>
       <div className="nav-corner-action-wrapper">
-        <span className="nav-logo">
-        <UserMenu />
+        <span className="nav-primary-action-button" onClick={() => navigate("/recent")}>
+          <button className="push-button primary">
+            <span className="button-text-primary">Home</span>
+          </button>
         </span>
       </div>
     </div>

@@ -12,7 +12,7 @@ const NavbarHomePageAuth = () => {
   const navigateItems = [
     { icon: <BookOpenIcon />, displayText: "Your Books", path: "/recent" },
     { icon: <CompassIcon />, displayText: "Explore Books", path: "/books/explore" },
-    { icon: <GlobalIcon />, displayText: "Global Trails", path: "/trail/global" }
+    { icon: <GlobalIcon />, displayText: "Global Trails", path: "/trails/global" }
   ];
   return (
     <div className="nav-bar-auth-wrapper">

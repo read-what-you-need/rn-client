@@ -37,6 +37,20 @@
       border-bottom-width: thick;
     }
   }
+  .hero-title{
+    place-content: center;
+    color: var(--secondary-color);
+    font-family: var(--primary-main-page-font);
+    font-weight: 700;
+    font-size: 32px;
+  }
+  .button-text-primary{
+    place-content: center;
+    color: var(--secondary-color);
+    font-family: var(--primary-main-page-font);
+    font-weight: 700;
+    font-size: 18px;
+  }
   .nav-corner-action-wrapper {
     display: flex;
     align-items: center;

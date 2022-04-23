@@ -64,7 +64,7 @@ const Root = () => {
             </RequireAuth>
           }
         />
-        <Route path="trail/global" element={<GlobalTrail />}></Route>
+        <Route path="trails/global" element={<GlobalTrail />}></Route>
         <Route path="trail/:id" element={<LinesTrail />} />
         <Route
           path="trail/list"
