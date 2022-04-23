@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { clearSelectedLines, feedbackLines, getSelectedLinesCount, addToTrailCheckout } from "../../actions";
 import { Divider, Tooltip } from "antd";
-import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
+import { LikeThumbsUpIcon,BookmarkIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
 const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, addToTrailCheckout }) => {
   return (
@@ -36,7 +36,6 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
           <TrailActionBarIcon />
         </div>
       </Tooltip>
-
       <Divider type="vertical" />
 
       <Tooltip title={"Give negative feedback"}>
@@ -48,6 +47,18 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
           <LikeThumbsDownIcon />
         </div>
       </Tooltip>
+      <Divider type="vertical" />
+
+      <Tooltip title={"Bookmark line for reading later"}>
+        <div
+          className="line-action-bar-item"
+          onClick={() => {
+           
+          }}>
+          <BookmarkIcon />
+        </div>
+      </Tooltip>
+
 
       {selectedLinesCount ? (
         <>

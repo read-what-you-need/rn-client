@@ -704,11 +704,10 @@ export const LeftCollapseIcon = () => {
 };
 export const TrailActionBarIcon = () => {
   return (
-    <svg width="56" height="50" viewBox="0 0 56 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="56" height="50" rx="10" fill="#FFF7CD" />
-      <rect x="7.99915" y="23" width="40" height="5" rx="2" stroke="#00536D" stroke-width="2" />
-      <rect x="8" y="11" width="40" height="5" rx="2" stroke="#00536D" stroke-width="2" />
-      <rect x="7.99915" y="35" width="19" height="5" rx="2" stroke="#00536D" stroke-width="2" />
+    <svg width="32" height="32" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.75" y="10.75" width="26.5" height="4.5" rx="2.25" stroke="#00536D" stroke-width="1.5" />
+      <rect x="0.75" y="20.75" width="16.5" height="4.5" rx="2.25" stroke="#00536D" stroke-width="1.5" />
+      <rect x="0.75" y="0.75" width="26.5" height="4.5" rx="2.25" stroke="#00536D" stroke-width="1.5" />
     </svg>
   );
 };
@@ -772,10 +771,16 @@ export const DragabbleSelectIcon = () => {
 };
 export const BookmarkIcon = () => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="23" height="23" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M18 21L17.4697 21.5303C17.6842 21.7448 18.0068 21.809 18.287 21.6929C18.5673 21.5768 18.75 21.3033 18.75 21H18ZM6 21H5.25C5.25 21.3033 5.43273 21.5768 5.71299 21.6929C5.99324 21.809 6.31583 21.7448 6.53033 21.5303L6 21ZM12 15L12.5303 14.4697C12.2374 14.1768 11.7626 14.1768 11.4697 14.4697L12 15ZM8 4.75H16V3.25H8V4.75ZM17.25 6V21H18.75V6H17.25ZM6.75 21V6H5.25V21H6.75ZM18.5303 20.4697L12.5303 14.4697L11.4697 15.5303L17.4697 21.5303L18.5303 20.4697ZM11.4697 14.4697L5.46967 20.4697L6.53033 21.5303L12.5303 15.5303L11.4697 14.4697ZM16 4.75C16.6904 4.75 17.25 5.30964 17.25 6H18.75C18.75 4.48122 17.5188 3.25 16 3.25V4.75ZM8 3.25C6.48122 3.25 5.25 4.48122 5.25 6H6.75C6.75 5.30964 7.30964 4.75 8 4.75V3.25Z"
-        fill="#00536D"
+        d="M6.76428 15.0556L6.5 14.891L6.23572 15.0556L0.746143 18.4737C0.722568 18.4883 0.692343 18.4983 0.658739 18.4998C0.625124 18.5013 0.593166 18.4941 0.566842 18.4809C0.54068 18.4678 0.523362 18.4507 0.513287 18.435C0.50344 18.4196 0.500007 18.4052 0.5 18.3929L0.5 4.42862C0.5 3.92854 0.71236 3.44145 1.10283 3.07672C1.49445 2.71091 2.03246 2.5 2.6 2.5H10.4C10.9675 2.5 11.5056 2.71091 11.8972 3.07672C12.2876 3.44145 12.5 3.92854 12.5 4.42862V18.3929C12.5 18.4052 12.4966 18.4196 12.4867 18.435C12.4766 18.4507 12.4593 18.4678 12.4332 18.4809C12.4068 18.4941 12.3749 18.5013 12.3413 18.4998C12.3077 18.4983 12.2774 18.4883 12.2539 18.4737L6.76428 15.0556ZM0.8 17.259V18.1594L1.5643 17.6834L6.40386 14.6697C6.42963 14.6537 6.46317 14.6434 6.5 14.6434C6.53683 14.6434 6.57037 14.6537 6.59614 14.6697L11.4357 17.6834L12.2 18.1594V17.259V4.42862C12.2 3.96253 12.0015 3.52303 11.6605 3.20458C11.3208 2.88721 10.8668 2.71431 10.4 2.71431H2.6C2.1332 2.71431 1.67923 2.88721 1.33946 3.20458C0.998531 3.52303 0.8 3.96253 0.8 4.42862V17.259Z"
+        fill="#BCBCBC"
+        stroke="#00536D"
+      />
+      <path
+        d="M4.31982 0.714308C4.62546 0.574329 4.96588 0.50001 5.3136 0.5C5.31361 0.5 5.31361 0.5 5.31362 0.5H13.3284C13.9189 0.5 14.4768 0.713685 14.8812 1.0813C15.284 1.44748 15.5 1.93333 15.5 2.42862V16.3929C15.5 16.4022 15.4974 16.4148 15.4876 16.4297C15.4773 16.4453 15.4586 16.4639 15.4285 16.4785C15.3983 16.4932 15.3612 16.5015 15.3219 16.4998C15.2826 16.4981 15.2477 16.4867 15.2209 16.4705L15.2204 16.4702L15.1642 16.4363V2.42862C15.1642 1.95773 14.958 1.517 14.6093 1.19999C14.2621 0.884431 13.8007 0.714308 13.3284 0.714308H4.31982Z"
+        fill="#BCBCBC"
+        stroke="#00536D"
       />
     </svg>
   );
@@ -826,11 +831,10 @@ export const LinesReadIcon = () => {
 export const BookmarksUserActivityIcon = () => {
   return (
     <svg width="34" height="52" viewBox="0 0 34 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect opacity="0.9" width="26" height="44" rx="3" fill="#966B70"/>
-<rect opacity="0.9" x="4" y="4" width="26" height="44" rx="3" fill="#0E708E"/>
-<rect opacity="0.9" x="8" y="8" width="26" height="44" rx="3" fill="#F5B4EC"/>
-</svg>
-
+      <rect opacity="0.9" width="26" height="44" rx="3" fill="#966B70" />
+      <rect opacity="0.9" x="4" y="4" width="26" height="44" rx="3" fill="#0E708E" />
+      <rect opacity="0.9" x="8" y="8" width="26" height="44" rx="3" fill="#F5B4EC" />
+    </svg>
   );
 };
 
@@ -920,23 +924,14 @@ export const PublicationCoinsIcon = () => {
 
 export const RasteroIcon = () => {
   return (
-    <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="5.5" cy="30.5" r="4.5" stroke="#A7A7A7" stroke-width="2" />
-      <circle cx="43.5" cy="30.5" r="4.5" stroke="#A7A7A7" stroke-width="2" />
-      <circle cx="24.5" cy="4.5" r="3.5" stroke="#A7A7A7" stroke-width="2" />
-      <rect x="6" y="17" width="37" height="30" rx="11" fill="white" stroke="#A7A7A7" stroke-width="2" />
-      <path
-        d="M18 27.5C18 28.7595 16.7865 30 15 30C13.2135 30 12 28.7595 12 27.5C12 26.2405 13.2135 25 15 25C16.7865 25 18 26.2405 18 27.5Z"
-        stroke="#A7A7A7"
-        stroke-width="2"
-      />
-      <path
-        d="M38 27.5C38 28.7595 36.7865 30 35 30C33.2135 30 32 28.7595 32 27.5C32 26.2405 33.2135 25 35 25C36.7865 25 38 26.2405 38 27.5Z"
-        stroke="#A7A7A7"
-        stroke-width="2"
-      />
-      <path d="M21 39C24.075 40.3108 25.8228 40.3557 29 39" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round" />
-      <line x1="25" y1="16" x2="25" y2="8" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round" />
+    <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="5.68133" cy="19.1151" r="4.77879" stroke="#004054" stroke-width="1.59293" />
+      <circle cx="42.3188" cy="19.1151" r="4.77879" stroke="#004054" stroke-width="1.59293" />
+      <circle cx="24.0001" cy="5.57525" r="4.77879" stroke="#004054" stroke-width="1.59293" />
+      <rect x="4.88504" y="4.77866" width="38.2303" height="31.0621" rx="10.354" fill="#DBF6FF" stroke="white" stroke-width="3.18586" />
+      <ellipse cx="13.2477" cy="15.9293" rx="4.38056" ry="3.98232" fill="#00536D" />
+      <ellipse cx="34.7523" cy="15.9293" rx="4.38056" ry="3.98232" fill="#00536D" />
+      <path d="M20.0178 27.8761C23.3854 29.9641 25.2995 30.0356 28.7789 27.8761" stroke="#00536D" stroke-width="1.59293" stroke-linecap="round" />
     </svg>
   );
 };

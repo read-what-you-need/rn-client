@@ -9,6 +9,9 @@
     display: flex;
     place-content: center;
   }
+  .lines-action-bar-wrapper {
+    text-align: -webkit-center;
+  }
   .lines-list-wrapper {
     margin: var(--size-lg);
   }

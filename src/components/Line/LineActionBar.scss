@@ -6,13 +6,14 @@
   border-radius: var(--border-radius-xl);
   display: flex;
   justify-content: space-around;
+  width: fit-content;
   margin: 6px 0 6px 0;
   padding: 6px 14px;
   align-items: center;
   .ant-divider-vertical {
     height: auto;
   }
-  .line-action-bar-count{
+  .line-action-bar-count {
     color: var(--secondary-color);
     border-radius: var(--border-radius-sm);
     font-weight: 500;
@@ -20,17 +21,23 @@
   }
   .line-action-bar-item {
     color: var(--secondary-color);
-    background: var(--primary-color-light-shade);
     border-radius: var(--border-radius-sm);
     font-weight: 500;
     font-size: var(--size-md);
+    background: #F8F8F8;
+    cursor: pointer;
     svg {
       margin: 12px;
-      cursor: pointer;
     }
     &.scale-down {
       transform: scale(0.8);
     }
+  }
+  .line-action-bar-item:hover {
+    background: var(--primary-color-light-shade);
+  }
+  .line-action-bar-item:active{
+    box-shadow: var(--box-shadow-light-focus);
   }
 }
 .green {

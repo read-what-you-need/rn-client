@@ -53,7 +53,7 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]}>
-            <Col className="lines-action-bar-wrapper" span={12} offset={6}>
+            <Col className="lines-action-bar-wrapper">
               <LineActionBar />
             </Col>
             <div className="lines-list-wrapper">
