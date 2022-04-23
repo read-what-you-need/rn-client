@@ -24,6 +24,10 @@ import RequireAuth from "./components/Auth/RequireAuth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import store from "./reduxStore";
+import axios from "axios";
+import setupAxios from "./api/setupAxios";
+setupAxios(axios, store);
+
 const Root = () => {
   return (
     <BrowserRouter>
