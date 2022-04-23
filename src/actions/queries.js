@@ -3,6 +3,7 @@ import queryApi from "../api/query";
 
 export const getLines = () => (dispatch, getState) => {
   const { filters } = getState().filtersWrapper || {};
+  dispatch({ type: types.SEARCH_QUERY_REQUEST });
   queryApi
     .sendQuery(filters)
     .then(res => {
@@ -15,7 +16,7 @@ export const getLines = () => (dispatch, getState) => {
 
 export const searchQueryRequest = ({ query }) => {
   return function (dispatch) {
-    dispatch({ type: types.SEARCH_QUERY_REQUEST, query });
+    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query });
     dispatch(getLines());
   };
 };
@@ -33,7 +34,7 @@ export const getCurrentQueryId = state => {
 export const onTagPress = ({ tag }) => {
   return function (dispatch) {
     dispatch({ type: types.ON_TAG_CLICK, tag });
-    dispatch({ type: types.SEARCH_QUERY_REQUEST, query: tag });
+    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query: tag });
     dispatch(getLines());
   };
 };

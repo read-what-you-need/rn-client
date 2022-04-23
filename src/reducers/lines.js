@@ -13,6 +13,8 @@ const lines = (state = initialState, action) => {
       return initialState;
     case types.SEARCH_QUERY_REQUEST:
       return initialState;
+    case types.SEARCH_QUERY_MANUAL_REQUEST:
+      return initialState;
     case types.FILTER_APPLIED:
       return { ...state, isLoading: true };
     case types.SEARCH_QUERY_REQUEST_SUCCESS:
@@ -53,6 +55,12 @@ const lines = (state = initialState, action) => {
             return line;
           })
         ]
+      };
+    case types.REMOVE_DISLIKED_LINES:
+      const disLikedLineIds = action.data;
+      return {
+        ...state,
+        linesList: [...state.linesList.filter(line => !disLikedLineIds.includes(line.file_line_id))]
       };
     case types.FEEDBACK_LINE_SUCCESS:
       let fileLineIds = action.data.map(line => line.file_line_id);

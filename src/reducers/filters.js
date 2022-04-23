@@ -6,7 +6,7 @@ const initialState = {
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc",
-    feedback: 2
+    feedback: 0
     //feedback set to 2 returns all unread lines
   },
   isCollapsed: false
@@ -25,7 +25,7 @@ const filters = (state = initialState, action) => {
         ...state,
         filters: { ...state.filters, query: action.data }
       };
-    case types.SEARCH_QUERY_REQUEST:
+    case types.SEARCH_QUERY_MANUAL_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_LIKED_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1, currentPage:0 } };
