@@ -1,14 +1,20 @@
 .user-recent {
-  padding: 50px;
+  padding: 0 42px;
+  margin-top: 100px;
   border-radius: 50px;
   position: relative;
+  border: var(--border-primary-light);
   .ant-tabs {
+    .ant-tabs-nav {
+      position: absolute;
+      top: -30px;
+      left: -20px;
+    }
     .ant-tabs-ink-bar {
-      height: 2px;
-      background: #004054;
-      opacity: 0.8;
+      opacity: 0
     }
     .ant-tabs-nav-list {
+      background: white;
       margin-left: 120px;
     }
     .ant-tabs-nav::before {
@@ -23,7 +29,7 @@
       font-family: var(--primary-main-page-font);
       font-style: normal;
       font-weight: 500;
-      font-size: 36px;
+      font-size: 24px;
       color: #7d7d7d;
       .ant-tabs-tab-btn {
         margin: 0px 50px;
@@ -31,4 +37,3 @@
     }
   }
 }
-

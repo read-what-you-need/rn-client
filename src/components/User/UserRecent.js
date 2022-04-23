@@ -52,6 +52,9 @@ const UserRecent = () => {
           <TabPane tab="Trails" key="2">
             <UserRecentCarousel data={normalizeTrailsForCarousel(userTrails)} />
           </TabPane>
+          <TabPane tab="Uploads" key="3">
+            <UserRecentCarousel data={normalizeTrailsForCarousel(userTrails)} />
+          </TabPane>
         </Tabs>
       </div>
     </div>

@@ -1,0 +1,41 @@
+.book-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  .book-card-cover {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    img {
+      position: absolute;
+      top: 30px;
+      max-height: 100%;
+      max-width: 100%;
+      border: var(--border-primary-light);
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+  }
+  .book-card-meta-data-holder {
+    background: #fafafa;
+    border-radius: 20px;
+    width: 280px;
+    border: 2px solid #e5e5e5;
+    border-bottom-width: thick;
+    border-top-style: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    .book-card-meta-data-holder-text {
+      padding: 54px 24px 24px 24px;
+      font-family: var(--primary-main-page-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--size-md);
+      color: var(--secondary-color);
+    }
+  }
+  .book-card-meta-data-holder:hover {
+    border-bottom-width: thin;
+  }
+}

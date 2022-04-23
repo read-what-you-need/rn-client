@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import { Carousel, Button } from "antd";
+import BookCard from "../Book/BookCard";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Card } from "antd";
 import "./UserRecentCarousel.scss";
-const { Meta } = Card;
 
 const UserRecentCarousel = ({ data }) => {
   const slider = useRef(null);
@@ -23,9 +22,7 @@ const UserRecentCarousel = ({ data }) => {
           return (
             <div className={"item"} key={value.id}>
               <Link to={value.link}>
-                <Card hoverable style={{ width: 240 }} cover={<img alt="example" src={`https://picsum.photos/600/600?random=${index}`} />}>
-                  <Meta description={value.description} />
-                </Card>
+                <BookCard coverArtUrl={`https://picsum.photos/600/600?random=${index}`} title={value.description}/>
               </Link>
             </div>
           );
