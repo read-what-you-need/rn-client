@@ -823,6 +823,17 @@ export const LinesReadIcon = () => {
   );
 };
 
+export const BookmarksUserActivityIcon = () => {
+  return (
+    <svg width="34" height="52" viewBox="0 0 34 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.9" width="26" height="44" rx="3" fill="#966B70"/>
+<rect opacity="0.9" x="4" y="4" width="26" height="44" rx="3" fill="#0E708E"/>
+<rect opacity="0.9" x="8" y="8" width="26" height="44" rx="3" fill="#F5B4EC"/>
+</svg>
+
+  );
+};
+
 export const TrailsSecondaryIcon = () => {
   return (
     <svg width="44" height="44" viewBox="0 0 62 44" fill="none" xmlns="http://www.w3.org/2000/svg">

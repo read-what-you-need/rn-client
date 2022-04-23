@@ -1,5 +1,5 @@
 .user-profile-overview-wrapper {
-  height: 230px;
+  height: 300px;
   width: -webkit-fill-available;
   display: flex;
   flex-direction: column;
@@ -29,8 +29,8 @@
     .user-profile-overview-form-fields {
       display: grid;
       grid-template-columns: 1fr 9fr;
-      padding: 32px 40px 30px 60px;
-      grid-gap: 24px;
+      padding: 48px 40px 54px 60px;
+      grid-gap: 46px;
       .user-profile-overview-form-field-label {
         align-self: center;
         font-family: var(--primary-main-page-font);

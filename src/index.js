@@ -14,6 +14,7 @@ import ListTrail from "./components/Trail/ListTrail";
 import Feed from "./components/Feed/Feed";
 import File from "./components/File/File";
 import Home from "./components/Home/Home";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Navbar from "./components/Navbar/Navbar";
 import UserProfile from "./components/User/UserProfile";
 import Signin from "./components/Auth/Signin";
@@ -47,6 +48,13 @@ const Root = () => {
           element={
             <RequireAuth redirectTo="/signin">
               <Book />
+            </RequireAuth>
+          }></Route>
+        <Route
+          path="/bookmarks"
+          element={
+            <RequireAuth redirectTo="/signin">
+              <Bookmarks />
             </RequireAuth>
           }></Route>
         <Route

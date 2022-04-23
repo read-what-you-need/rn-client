@@ -9,7 +9,8 @@
     justify-content: center;
     background: #ffffff;
     border: 2px solid #e5e5e5;
-    height: 100px;
+    height: 120px;
+    width: 320px;
     box-sizing: border-box;
     border-radius: 30px;
     .user-activity-card-logo {
@@ -18,7 +19,7 @@
     .user-activity-card-text {
       font-style: normal;
       font-weight: 700;
-      font-size: 30px;
+      font-size: 26px;
       font-family: var(--primary-main-page-font);
       font-style: normal;
       color: var(--secondary-color);

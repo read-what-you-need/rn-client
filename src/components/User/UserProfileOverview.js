@@ -18,7 +18,7 @@ const UserProfileOverview = ({ getUserDetails, userDetails }) => {
       </div>
       <div className="user-profile-overview-form">
         <div className="user-profile-overview-form-fields">
-          <span className="user-profile-overview-form-field-label">name</span>
+          <span className="user-profile-overview-form-field-label">Username</span>
           <span className="user-profile-overview-form-field-value">{userDetails.username}</span>
 
           <span className="user-profile-overview-form-field-label">email</span>

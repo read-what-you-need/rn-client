@@ -3,19 +3,19 @@ import { connect } from "react-redux";
 import userApi from "../../api/user";
 
 import "./UserProfilePerformance.scss";
-import { LinesReadIcon, BooksExploredIcon, TrailsCreatedIcon } from "../Icons";
+import { LinesReadIcon, BooksExploredIcon, TrailsCreatedIcon, PublicationCoinsIcon } from "../Icons";
 
 const UserProfilePerformance = ({ userId }) => {
   const [likedLinesCount, setLikedLinesCount] = useState([]);
   const [trailsCreatedCount, setTrailsCreatedCount] = useState([]);
-  const [booksUploaedCount, setBooksUploaedCount] = useState([]);
+  const [booksUploadCount, setBooksUploadCount] = useState([]);
 
   useEffect(() => {
     userApi.getUserLikedCount({ userId }).then(({ count }) => {
-      setLikedLinesCount (count );
+      setLikedLinesCount(count);
     });
     userApi.getUserBookUploadCount({ userId }).then(({ count }) => {
-      setBooksUploaedCount(count);
+      setBooksUploadCount(count);
     });
     userApi.getUserTrailCount({ userId }).then(({ count }) => {
       setTrailsCreatedCount(count);
@@ -24,7 +24,7 @@ const UserProfilePerformance = ({ userId }) => {
   return (
     <div className="user-profile-performance">
       <div className="user-profile-performance-header">
-        <span className="user-profile-performance-header-text">Reading stats</span>
+        <span className="user-profile-performance-header-text">Your Performance</span>
       </div>
       <div className="user-profile-performance-metrics">
         <div className="user-profile-performance-item">
@@ -32,7 +32,7 @@ const UserProfilePerformance = ({ userId }) => {
             <LinesReadIcon />
             <span className="user-profile-performance-item-info-number">{likedLinesCount}</span>
           </div>
-          <div className="user-profile-performance-item-info-text push-below">Total lines liked</div>
+          <div className="user-profile-performance-item-info-text push-below">Total lines read</div>
         </div>
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">
@@ -44,9 +44,16 @@ const UserProfilePerformance = ({ userId }) => {
         <div className="user-profile-performance-item">
           <div className="user-profile-performance-item-info">
             <BooksExploredIcon />
-            <span className="user-profile-performance-item-info-number">{booksUploaedCount}</span>
+            <span className="user-profile-performance-item-info-number">{booksUploadCount}</span>
           </div>
           <div className="user-profile-performance-item-info-text">Books explored</div>
+        </div>
+        <div className="user-profile-performance-item">
+          <div className="user-profile-performance-item-info">
+            <PublicationCoinsIcon />
+            <span className="user-profile-performance-item-info-number"></span>
+          </div>
+          <div className="user-profile-performance-item-info-text">Publication coins</div>
         </div>
       </div>
     </div>
