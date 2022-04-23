@@ -22,6 +22,8 @@ function normalizeTrailsForCarousel(trails = []) {
 const UserRecent = () => {
   const [userRecentFiles, setUserRecentFiles] = useState([]);
   const [userTrails, setUserTrails] = useState([]);
+  const [userUploads, setUserUploads] = useState([]);
+
   useEffect(() => {
     fileApi
       .getRecentUserFiles()
@@ -41,6 +43,16 @@ const UserRecent = () => {
         setUserTrails([]);
         message.warning("Could not retrieve trails.");
       });
+
+      fileApi
+      .getUserUploadedFiles()
+      .then(trails => {
+        setUserUploads(trails);
+      })
+      .catch(_err => {
+        setUserUploads([]);
+        message.warning("Could not retrieve user uploaded files.");
+      });
   }, []);
   return (
     <div className="user-recent container">
@@ -53,7 +65,7 @@ const UserRecent = () => {
             <UserRecentCarousel data={normalizeTrailsForCarousel(userTrails)} />
           </TabPane>
           <TabPane tab="Uploads" key="3">
-            <UserRecentCarousel data={normalizeTrailsForCarousel(userTrails)} />
+            <UserRecentCarousel data={normalizeFilesForCarousel(userUploads)} />
           </TabPane>
         </Tabs>
       </div>

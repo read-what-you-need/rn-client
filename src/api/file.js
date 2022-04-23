@@ -68,6 +68,13 @@ const fileApi = {
     });
     return response;
   },
+  getUserUploadedFiles: async function () {
+    let url = apiEndPoint + `file/user/list/uploads`;
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
   getRecentUserFiles: async function () {
     let url = apiEndPoint + `file/recent/user`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
