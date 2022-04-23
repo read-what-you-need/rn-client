@@ -11,7 +11,7 @@ const UserProfileActivityCards = () => {
           <span className="user-activity-card-logo">
             <BookSecondaryIcon />
           </span>
-          <span className="user-activity-card-text">Your books</span>
+          <span className="user-activity-card-text">Your books/file</span>
         </div>
       </Link>
       <Link key="trail" to={`/trail/list`}>
@@ -22,7 +22,7 @@ const UserProfileActivityCards = () => {
           <span className="user-activity-card-text">Your trails</span>
         </div>
       </Link>
-      <Link key="trail" to={`/bookmarks`}>
+      <Link key="bookmarks" to={`/bookmarks`}>
         <div className="user-activity-card">
           <div>
             <span className="user-activity-card-logo">
