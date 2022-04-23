@@ -14,7 +14,7 @@
   align-items: center;
   .item-draggable {
     place-self: center;
-    transform: scale(.8);
+    transform: scale(0.8);
   }
   .item-trail {
     border: 1px solid rgba(0, 0, 0, 0.21);
@@ -46,6 +46,9 @@
     button {
       @include hide-button();
     }
+  }
+  .grey-svg {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(24%) saturate(0%) hue-rotate(272deg) brightness(102%) contrast(90%);
   }
 }
 .item-trail-wrapper:not(:first-child) {

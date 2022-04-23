@@ -20,7 +20,6 @@ const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCo
         </div>
         <Input
           placeholder="Ask any question. I’ll will try my best to find the answer!"
-          value={query}
           onChange={e => searchQueryType({ query: e.target.value })}
           onPressEnter={e => {
             searchRequest({ query: e.target.value });
