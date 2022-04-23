@@ -6,7 +6,7 @@ const initialState = {
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc",
-    feedback: 0
+    feedback: 2
     //feedback set to 2 returns all unread lines
   },
   isCollapsed: false

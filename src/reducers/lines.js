@@ -56,11 +56,11 @@ const lines = (state = initialState, action) => {
           })
         ]
       };
-    case types.REMOVE_DISLIKED_LINES:
-      const disLikedLineIds = action.data;
+    case types.REMOVE_LINES_THAT_GOT_FEEDBACK:
+      const lineIdsThatGotFeedback = action.data;
       return {
         ...state,
-        linesList: [...state.linesList.filter(line => !disLikedLineIds.includes(line.file_line_id))]
+        linesList: [...state.linesList.filter(line => !lineIdsThatGotFeedback.includes(line.file_line_id))]
       };
     case types.FEEDBACK_LINE_SUCCESS:
       let fileLineIds = action.data.map(line => line.file_line_id);
