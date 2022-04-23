@@ -9,7 +9,9 @@ const initialState = {
 function getNewTrailSignature() {
   return { uuid: helpers.uuid_generator(), showAddNewTrail: false };
 }
-
+function lineExistsCheck(lines, lineToCheck) {
+  return lines.some(line => line.file_line_id === lineToCheck.file_line_id);
+}
 const trails = (state = initialState, action) => {
   switch (action.type) {
     case types.FILE_PAGE_INIT:
@@ -39,11 +41,18 @@ const trails = (state = initialState, action) => {
         trails: [...state.trails.filter(trail => trail.uuid !== action.data)]
       };
     case types.ADD_TO_TRAILS_CHECKOUT:
+      let uniqueTrailsToAdd = action.data
+        .map(newTrail => {
+          if (!lineExistsCheck(state.trails, newTrail)) {
+            return newTrail;
+          } else return null;
+        })
+        .filter(trail => trail !== null);
       return {
         ...state,
         trails: [
           ...state.trails,
-          ...action.data.map(trail => {
+          ...uniqueTrailsToAdd.map(trail => {
             return { ...trail, ...getNewTrailSignature() };
           })
         ]

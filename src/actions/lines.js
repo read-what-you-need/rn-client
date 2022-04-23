@@ -29,6 +29,7 @@ export const feedbackLines =
       .feedbackLines({ fileLineIds: selectedLinesIds, feedback, queryId: currentQueryId })
       .then(res => {
         dispatch({ type: types.FEEDBACK_LINE_SUCCESS, data: res.data, feedback });
+        clearSelectedLines()
       })
       .catch(err => {
         return dispatch({ type: types.FEEDBACK_LINE_FAILURE, error: err });

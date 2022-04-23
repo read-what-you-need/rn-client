@@ -10,6 +10,7 @@ export const addNewTrailLine =
 
 export const addToTrailCheckout = () => (dispatch, getState) => {
   dispatch({ type: types.ADD_TO_TRAILS_CHECKOUT, data: getSelectedLines(getState()) });
+  dispatch({ type: types.CLEAR_SELECT_LINES });
 };
 
 export const toggleNewUserTrailLine =
