@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Tooltip } from "antd";
 import { tagsCollapsible, onTagPress } from "../../actions";
 
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
