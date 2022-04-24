@@ -23,7 +23,7 @@ const UploadButton = ({ userId }) => {
     reader.onloadend = function (evt) {
       if (evt.target.readyState === FileReader.DONE) {
         var wordArray = CryptoJS.lib.WordArray.create(evt.target.result);
-        hash = CryptoJS.SHA256(wordArray).toString();
+        hash = CryptoJS.MD5(wordArray).toString();
         uploadHandler({ selectedFile: event.target.files[0], fileHash: hash });
       }
     };
