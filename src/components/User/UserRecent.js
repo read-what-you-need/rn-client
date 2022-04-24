@@ -9,7 +9,7 @@ const { TabPane } = Tabs;
 
 function normalizeFilesForCarousel(files) {
   return files.map(file => {
-    return { id: file.fileId, link: `/file/${file.fileId}`, description: file.name };
+    return { id: file.fileId, link: `/file/${file.fileId || file.file_id}`, description: file.name };
   });
 }
 
