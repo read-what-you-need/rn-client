@@ -33,7 +33,7 @@ const Home = () => {
           <div className="home-page-info-video-container">
             <video className="home-page-info-video yellow-shadow" autoPlay loop muted>
               <source
-                src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/search-feature.mp4"}
+                src={"https://rastero-objects.s3.ap-south-1.amazonaws.com/public/assets/video-casts/search-feature.mp4"}
                 type="video/mp4"
               />
             </video>
@@ -69,7 +69,7 @@ const Home = () => {
           <div className="home-page-info-video-container right-shift">
             <video className="home-page-info-video" autoPlay loop muted>
               <source
-                src={"https://readneedobjects.s3.ap-south-1.amazonaws.com/public/assets/product-video-casts/trail-introduce.mp4"}
+                src={"https://rastero-objects.s3.ap-south-1.amazonaws.com/public/assets/video-casts/trail-introduce.mp4"}
                 type="video/mp4"
               />
             </video>

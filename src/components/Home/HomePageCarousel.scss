@@ -1,4 +1,18 @@
 .home-page-carousel {
+  .ant-carousel .slick-dots li button {
+    background: var(--secondary-color);
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+  .ant-carousel .slick-dots li.slick-active button {
+    opacity: 1;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background: var(--secondary-color);
+  }
   .home-page-carousel-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,9 +41,8 @@
       text-align: center;
       .home-page-carousel-card-video {
         width: 40vw;
-        border-radius: 50px;
-        margin-right: 84px;
-        &.reduce-size{
+        border-radius: 20px;
+        &.reduce-size {
           width: 25vw;
         }
       }
