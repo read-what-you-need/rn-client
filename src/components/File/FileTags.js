@@ -22,13 +22,11 @@ const FileTags = ({ tags = [], isCollapsed, tagsCollapsible, onTagPress, clicked
           {tags.map(tag => {
             return (
               <div className="file-tags-item" id={tag.id}>
-                <Tooltip title={tag.frequency_count + " occurrences found"}>
-                  <button
-                    className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
-                    onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
-                    <span className="file-tags-item-text">{tag.tag}</span>
-                  </button>
-                </Tooltip>
+                <button
+                  className={`push-button ${clickedTag === tag.tag ? "secondary" : "not-selected"}`}
+                  onClick={() => onTagPress({ tag: tag.tag, tagId: tag.file_tag_id })}>
+                  <span className="file-tags-item-text">{tag.tag}</span>
+                </button>
               </div>
             );
           })}
