@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { useParams } from "react-router-dom";
 
-import { checkFileExists, filePageInit, submitFileJobRequest, getFileDetails } from "../../actions";
+import { checkFileExists, filePageInit, getFileDetails } from "../../actions";
 
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
@@ -17,7 +17,6 @@ const File = ({
   filePageInit,
   checkFileExists,
   isFileExist,
-  submitFileJobRequest,
   getFileDetails,
   isRightToolBarCollapsed,
   isLeftToolBarCollapsed,
@@ -28,12 +27,10 @@ const File = ({
   let params = useParams();
   let id = params.id;
   useEffect(() => {
-    checkFileExists({ fileId: id }).then(({ exist }) => {
+    checkFileExists({ fileId: id }).then((exist) => {
       if (exist) {
         getFileDetails({ fileId: id });
-      } else {
-        submitFileJobRequest({ fileId: id });
-      }
+      } 
     });
   }, []);
   useEffect(() => {
@@ -85,7 +82,6 @@ const mapStateToProps = state => ({
 const actionCreators = {
   checkFileExists,
   filePageInit,
-  submitFileJobRequest,
   getFileDetails
 };
 export default connect(mapStateToProps, actionCreators)(File);

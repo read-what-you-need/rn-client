@@ -23,9 +23,9 @@ const fileApi = {
     });
     return result;
   },
-  addInRecentUserFiles: async function ({ fileId, fileName }) {
-    let url = apiEndPoint + `file/recent/user`;
-    let data = { fileId, fileName };
+  fileExplored: async function ({ fileId, fileName, fileSize }) {
+    let url = apiEndPoint + `file/library/explore`;
+    let data = { fileId, fileName, fileSize };
     let response = axios.post(url, data, headerConfig.axiosConfig).then(response => {
       return response.data;
     });

@@ -37,7 +37,7 @@ const BookSearch = () => {
                   <Link
                     to={`/file/${item.md5}`}
                     onClick={() => {
-                      fileApi.addInRecentUserFiles({ fileId: item.md5, fileName: item.title });
+                      fileApi.fileExplored({ fileId: item.md5, fileName: item.title, fileSize: item.fileSize });
                     }}>
                     <span className="book-page-breadcrumb-text">{item.title}</span>
                   </Link>

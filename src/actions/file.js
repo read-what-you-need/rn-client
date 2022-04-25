@@ -39,7 +39,7 @@ export const checkFileExists = ({ fileId }) => {
     return fileApi
       .checkFileExists({ hash: fileId })
       .then(res => {
-        dispatch({ type: types.CHECK_FILE_EXISTS_SUCCESS, data: res.exist });
+        dispatch({ type: types.CHECK_FILE_EXISTS_SUCCESS, data: res });
         return res;
       })
       .catch(err => {
