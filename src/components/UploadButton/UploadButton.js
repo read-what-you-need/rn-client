@@ -31,7 +31,7 @@ const UploadButton = ({ userId }) => {
   };
 
   const uploadHandler = ({ selectedFile, fileHash }) => {
-    fileApi.checkFileExists({ hash: fileHash }).then(({ exist }) => {
+    fileApi.checkFileExists({ hash: fileHash }).then((exist) => {
       if (!exist) {
         openNotification("Unique file detected. Uploading...");
         fileApi
