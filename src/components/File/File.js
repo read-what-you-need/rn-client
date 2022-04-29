@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-
+import socketIOClient from "socket.io-client";
 import { useParams } from "react-router-dom";
 
 import { checkFileExists, filePageInit, getFileDetails } from "../../actions";
@@ -12,6 +12,7 @@ import LineActionBar from "../Line/LineActionBar";
 
 import { Row, Col } from "antd";
 import "./File.scss";
+let apiEndPoint = process.env.REACT_APP_NODE_API;
 
 const File = ({
   filePageInit,
@@ -26,12 +27,21 @@ const File = ({
 }) => {
   let params = useParams();
   let id = params.id;
+  const [socketFileStatusLatest, setSocketFileStatusLatest] = useState(null);
   useEffect(() => {
-    checkFileExists({ fileId: id }).then((exist) => {
+    var socket = socketIOClient(apiEndPoint, { transports: ["websocket", "polling", "flashsocket"] });
+    socket.on(id, data => {
+      if (data === "File processing finished.") {
+        window.location.reload();
+      }
+      setSocketFileStatusLatest(data);
+    });
+    checkFileExists({ fileId: id }).then(exist => {
       if (exist) {
         getFileDetails({ fileId: id });
-      } 
+      }
     });
+    return () => socket.disconnect();
   }, []);
   useEffect(() => {
     if (isFileProcessed) {
@@ -63,7 +73,7 @@ const File = ({
         </Row>
       ) : (
         <div className="file-show-status">
-          <div>{fileStatus}</div>
+          <div>{socketFileStatusLatest ? socketFileStatusLatest : fileStatus}</div>
         </div>
       )}
     </div>
