@@ -19,6 +19,7 @@
     height: calc(100vh - var(--navbar-height));
     display: flex;
     align-items: center;
+    font-size: var(--size-md);
     place-content: center;
   }
 }
