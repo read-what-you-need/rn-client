@@ -6,7 +6,8 @@ const initialState = {
     currentPage: 0,
     orderBy: "score",
     arrangeBy: "desc",
-    feedback: 2
+    feedback: 2,
+    minScoreThreshold: 0.28
     //feedback set to 2 returns all unread lines
   },
   isCollapsed: false

@@ -21,7 +21,9 @@
         font-size: 18px;
         background: var(--grey-lighter-dark);
         border-radius: var(--border-radius-lg);
-        cursor: pointer;
+        img {
+          border-radius: var(--border-radius-lg);
+        }
       }
     }
     .book-info-title {
