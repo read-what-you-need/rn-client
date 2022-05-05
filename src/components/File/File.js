@@ -29,7 +29,7 @@ const File = ({
   let id = params.id;
   const [socketFileStatusLatest, setSocketFileStatusLatest] = useState(null);
   useEffect(() => {
-    var socket = socketIOClient(apiEndPoint, { transports: ["websocket", "polling", "flashsocket"] });
+    var socket = socketIOClient(apiEndPoint, { transports: ["websocket", "polling"] });
     socket.on(id, data => {
       if (data === "File processing finished.") {
         window.location.reload();
