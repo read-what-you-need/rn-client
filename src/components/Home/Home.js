@@ -8,7 +8,7 @@ import { Avatar } from "antd";
 function returnMainTitle() {
   return (
     <div>
-      Read <span className="secondary-highlight">WHAT YOU NEED</span>
+      Read <span className="secondary-highlight">SMARTLY</span>
       <br /> with the help of Rastero
     </div>
   );
