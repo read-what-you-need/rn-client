@@ -50,7 +50,6 @@ const UploadButton = ({ userId }) => {
             openNotification("File upload service failed", "error");
           });
       } else {
-        openNotification("File present in our database.", "info");
         fileApi.addFileInUserFiles({ fileId: fileHash, userId }).then(() => {
           openNotification("Adding file in your collections", "success");
         });
