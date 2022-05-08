@@ -12,6 +12,12 @@
       .secondary-highlight {
         color: var(--secondary-color);
       }
+      .extra-info {
+        font-size: var(--size-md);
+        a {
+          color: var(--secondary-color);
+        }
+      }
     }
     .home-page-gradient-section {
       display: grid;

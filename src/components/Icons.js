@@ -686,7 +686,7 @@ export const IntroduceAddonToolsSVG = () => {
 
 export const IntroduceListFormSVG = () => {
   return (
-    <svg width="466" height="498" viewBox="0 0 566 398" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="466" height="298" viewBox="0 0 566 398" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect opacity="0.54" width="566" height="398" rx="20" fill="#E5E5E5" />
       <rect opacity="0.54" x="1.5" y="1.5" width="563" height="385" rx="18.5" fill="#FAFAFA" stroke="white" stroke-width="3" />
       <path d="M74 236C74 230.477 78.4772 226 84 226H258C263.523 226 268 230.477 268 236V385H74V236Z" fill="#F2F2F2" />

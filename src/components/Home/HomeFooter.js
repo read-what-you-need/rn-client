@@ -5,7 +5,7 @@ const HomeFooter = () => {
     <div className="home-footer">
       <div className="home-footer-item"></div>
       <div className="home-footer-item"></div>
-      <div className="home-footer-item">Currently in beta<sup>†</sup></div>
+      <div className="home-footer-item" id="beta"><sup>†</sup>Some features may not work as expected. Feedback welcome.</div>
       <div className="home-footer-item"></div>
     </div>
   );

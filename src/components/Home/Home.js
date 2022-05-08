@@ -9,7 +9,7 @@ function returnMainTitle() {
   return (
     <div>
       Read <span className="secondary-highlight">SMARTLY</span>
-      <br /> with the help of Rastero
+      <br /> with the help of Rastero <sup><span className="extra-info">( Currently in beta <a href={"#beta"}><sup>†</sup></a> )</span></sup>
     </div>
   );
 }
@@ -20,12 +20,6 @@ const Home = () => {
         <div className="home-page-hero">
           <div></div>
           {returnMainTitle()}
-        </div>
-        <div className="home-page-gradient-section">
-          <div className="section-highlight">Who is Rastero</div>
-          <div className="home-page-gradient-section-carousel-wrapper">
-            <HomePageCarousel />
-          </div>
         </div>
         <div className="home-page-info-section">
           <div></div>
@@ -48,6 +42,12 @@ const Home = () => {
                 <button className="push-button primary">Get Started</button>
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="home-page-gradient-section">
+          <div className="section-highlight">Who is Rastero</div>
+          <div className="home-page-gradient-section-carousel-wrapper">
+            <HomePageCarousel />
           </div>
         </div>
         <div className="home-page-info-section">
