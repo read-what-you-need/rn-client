@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { searchQueryRequest, searchQueryType } from "../../actions";
 import { SimpleBarLinesIcon, RasteroIcon, Logo } from "../Icons";
-import { Badge, Input } from "antd";
+import { Badge } from "antd";
+
+import FileSearchInput from "../File/FileSearchInput";
 
 import "./NavbarFilePageAuth.scss";
 
-const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCount, query }) => {
+const NavbarFilePageAuth = ({ checkedOutTrailsCount }) => {
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -18,13 +19,7 @@ const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCo
         <div className="nav-central-action-logo">
           <RasteroIcon />
         </div>
-        <Input
-          placeholder="Ask any question. I’ll will try my best to find the answer!"
-          onChange={e => searchQueryType({ query: e.target.value })}
-          onPressEnter={e => {
-            searchRequest({ query: e.target.value });
-          }}
-        />
+        <FileSearchInput />
       </div>
       <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button">
@@ -41,13 +36,8 @@ const NavbarFilePageAuth = ({ searchRequest, searchQueryType, checkedOutTrailsCo
   );
 };
 const mapStateToProps = state => ({
-  filters: state.filtersWrapper.filters,
-  query: state.filtersWrapper.filters.query,
   checkedOutTrailsCount: state.trailsWrapper.trails.length
 });
 
-const actionCreators = {
-  searchRequest: searchQueryRequest,
-  searchQueryType
-};
+const actionCreators = {};
 export default connect(mapStateToProps, actionCreators)(NavbarFilePageAuth);

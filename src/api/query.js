@@ -38,6 +38,16 @@ const searchApi = {
       return response.data[0];
     });
     return response;
+  },
+  getPopularQueryForFile: async function ({ fileId }) {
+    let url = `${apiEndPoint}search/popular/${fileId}`;
+    let result = axios
+      .get(url, headerConfig.axiosConfig)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => error);
+    return result;
   }
 };
 
