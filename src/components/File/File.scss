@@ -12,6 +12,9 @@
   .lines-action-bar-wrapper {
     text-align: -webkit-center;
   }
+  .show {
+    animation: fadeInAnimation 500ms;
+  }
   .lines-list-wrapper {
     margin: var(--size-lg);
   }
@@ -21,5 +24,13 @@
     align-items: center;
     font-size: var(--size-md);
     place-content: center;
+  }
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }

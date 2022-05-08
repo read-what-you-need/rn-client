@@ -10,7 +10,8 @@ const initialState = {
     minScoreThreshold: 0.28
     //feedback set to 2 returns all unread lines
   },
-  isCollapsed: false
+  isCollapsed: false,
+  isToolBoxVisible: false
 };
 
 const filters = (state = initialState, action) => {
@@ -29,11 +30,15 @@ const filters = (state = initialState, action) => {
     case types.SEARCH_QUERY_MANUAL_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_LIKED_LINES:
-      return { ...state, filters: { ...state.filters, feedback: 1, currentPage:0 } };
+      return { ...state, filters: { ...state.filters, feedback: 1, currentPage: 0 } };
     case types.SHOW_ALL_LINES:
-      return { ...state, filters: { ...state.filters, feedback: 0 , currentPage:0 } };
+      return { ...state, filters: { ...state.filters, feedback: 0, currentPage: 0 } };
     case types.SHOW_UNREAD_LINES:
-      return { ...state, filters: { ...state.filters, feedback: 2 , currentPage:0 } };
+      return { ...state, filters: { ...state.filters, feedback: 2, currentPage: 0 } };
+    case types.SHOW_TOOLBOX:
+      return { ...state, isToolBoxVisible: true };
+    case types.HIDE_TOOLBOX:
+      return { ...state, isToolBoxVisible: false };
     case types.SORT_AND_ARRANGE_LINES_BY:
       return { ...state, filters: { ...state.filters, arrangeBy: action.arrangeBy, orderBy: action.orderBy } };
     case types.PRESS_GENERATED_QUESTION:

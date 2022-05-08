@@ -21,6 +21,7 @@ const File = ({
   getFileDetails,
   isRightToolBarCollapsed,
   isLeftToolBarCollapsed,
+  isToolBoxVisible,
   isFileProcessed = false,
   fileStatus,
   userId
@@ -60,9 +61,11 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]}>
-            <Col className="lines-action-bar-wrapper">
-              <LineActionBar />
-            </Col>
+            {isToolBoxVisible && (
+              <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
+                <LineActionBar />
+              </Col>
+            )}
             <div className="lines-list-wrapper">
               <LinesList />
             </div>
@@ -85,6 +88,7 @@ const mapStateToProps = state => ({
   isFileProcessed: state.fileWrapper.fileDetails.processed,
   fileStatus: state.fileWrapper.fileDetails.status,
   userId: state.userWrapper.user.id,
+  isToolBoxVisible: state.filtersWrapper.isToolBoxVisible,
   isRightToolBarCollapsed: state.filtersWrapper.isCollapsed,
   isLeftToolBarCollapsed: state.tagsWrapper.isCollapsed
 });

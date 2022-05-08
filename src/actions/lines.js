@@ -41,6 +41,7 @@ export const onLineSelect =
   ({ line }) =>
   dispatch => {
     dispatch({ type: types.ON_LINE_ITEM_SELECT, data: line });
+    dispatch({ type: types.SHOW_TOOLBOX });
   };
 
 export const getSelectedLinesCount = state => {
@@ -58,4 +59,5 @@ export const removeLinesThatGotFeedback = dislikedLineIds => dispatch => {
 
 export const clearSelectedLines = () => dispatch => {
   dispatch({ type: types.CLEAR_SELECT_LINES });
+  dispatch({ type: types.HIDE_TOOLBOX });
 };
