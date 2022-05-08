@@ -41,7 +41,7 @@ export const signUpUser =
       .signUpUser({ username, email, password })
       .then(res => {
         dispatch({ type: types.USER_SIGNUP_SUCCESS, data: res });
-        navigate("/recent");
+        navigate("/books/explore");
       })
       .catch(err => {
         console.log(err);
