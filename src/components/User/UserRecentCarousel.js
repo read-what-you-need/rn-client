@@ -16,7 +16,7 @@ const UserRecentCarousel = ({ data }) => {
   };
   return (
     <div className="user-recent-carousel">
-      <Button className="user-recent-carousel-button-left" shape="circle" icon={<LeftOutlined />} onClick={() => slider.current.next()} />
+      <Button className="user-recent-carousel-button-left" shape="circle" icon={<LeftOutlined />} onClick={() => slider.current.prev()} />
       <Carousel ref={slider} {...props}>
         {data.map((value, index) => {
           return (

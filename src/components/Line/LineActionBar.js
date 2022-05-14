@@ -47,19 +47,6 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
           <LikeThumbsDownIcon />
         </div>
       </Tooltip>
-      <Divider type="vertical" />
-
-      <Tooltip title={"Bookmark line for reading later"}>
-        <div
-          className="line-action-bar-item"
-          onClick={() => {
-           
-          }}>
-          <BookmarkIcon />
-        </div>
-      </Tooltip>
-
-
       {selectedLinesCount ? (
         <>
           <Divider type="vertical" />

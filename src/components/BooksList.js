@@ -12,7 +12,7 @@ const BookList = ({ files = [], getUserFilesList, fileListError = "" }) => {
   const dateFormatOptions = { hour: "2-digit", minute: "2-digit", weekday: "long", year: "numeric", month: "long", day: "numeric" };
   return (
     <div className="book-list">
-      {files.map(file => {
+      {files.map((file, index) => {
         const fileCreatedAt = new Date(file.created_at).toLocaleDateString("en-US", dateFormatOptions);
         return (
           <Link className="book-list-item" key={file.file_id} to={`/file/${file.file_id}`}>
