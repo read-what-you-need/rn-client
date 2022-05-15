@@ -79,7 +79,7 @@ const Home = () => {
           <div className="home-page-testimonial-section-wrapper">
             <button className={"push-button secondary"}>
               <div className="home-page-testimonial-section-reviewer-detail">
-                <Avatar src="https://pbs.twimg.com/profile_images/1506648005671325708/Pr0nYzxU_400x400.jpg" size="large" /> <b>Jack Butcher</b>,
+                <Avatar src="https://pbs.twimg.com/profile_images/1522915171911581697/3CJZVTlg_400x400.jpg" size="large" /> <b>Jack Butcher</b>,
                 Founder, Visualize value
               </div>
               <div className="home-page-testimonial-section-text">
