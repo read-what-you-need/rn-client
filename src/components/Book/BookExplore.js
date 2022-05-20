@@ -9,13 +9,22 @@ const BookExplore = () => {
   return (
     <div className="book-page container">
       <div className="row">
-        <div className="book-page-search">
+        <div className="book-page-explore">
           <Row>
             <Col span={16}>
-              <div className="book-page-header-wrapper">
-                <div className="book-page-header-text">Search books from library </div>
+              <div className="book-page-explore-section">
+                <div>
+                  <div className="book-page-header-wrapper">
+                    <div className="book-page-header-text">Request books in library </div>
+                  </div>
+                  <BookSearch />
+                </div>
+                <div>
+                  <div className="book-page-header-wrapper">
+                    <div className="book-page-header-text">Books already in library </div>
+                  </div>
+                </div>
               </div>
-              <BookSearch />
             </Col>
             <Col offset={1} span={6}>
               <FrequentBooksList />

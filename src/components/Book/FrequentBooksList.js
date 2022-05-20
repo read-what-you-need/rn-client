@@ -14,6 +14,9 @@ const FrequentBooksList = () => {
   }, []);
   return (
     <div className="frequent-book-list">
+      <div className="book-page-header-wrapper">
+        <div className="book-page-header-text">Trending books</div>
+      </div>
       <List
         itemLayout="horizontal"
         dataSource={popularFiles}
@@ -23,7 +26,7 @@ const FrequentBooksList = () => {
               <List.Item.Meta
                 avatar={<Avatar src={`https://picsum.photos/200/300?random=${index}`} />}
                 title={item.name}
-                description={`Accessed ${item.score} times`}
+                description={`Checked ${item.score} times`}
               />
             </List.Item>
           </Link>
