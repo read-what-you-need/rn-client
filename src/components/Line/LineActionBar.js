@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { clearSelectedLines, feedbackLines, getSelectedLinesCount, addToTrailCheckout } from "../../actions";
 import { Divider, Tooltip } from "antd";
-import { LikeThumbsUpIcon,BookmarkIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
+import { notification } from "antd";
+import { LikeThumbsUpIcon, LikeThumbsDownIcon, TrailActionBarIcon, ClearSelectionIcon } from "../Icons";
 import "./LineActionBar.scss";
-const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, addToTrailCheckout }) => {
+
+const openNotificationWithIcon = (type, messageFor) => {
+  notification[type]({
+    message: `Log in to provide ${messageFor}`,
+    description: "Incase you are logged in, try logging in once again."
+  });
+};
+const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, isAuth, addToTrailCheckout, isError }) => {
+  useEffect(() => {
+    if (isError) {
+      openNotificationWithIcon("warning", "feedback");
+    }
+  }, [isError]);
   return (
     <div className="line-action-bar">
       {selectedLinesCount ? (
@@ -31,7 +44,11 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
         <div
           className="line-action-bar-item scale-down"
           onClick={() => {
-            addToTrailCheckout();
+            if (!isAuth) {
+              openNotificationWithIcon("warning", "trail");
+            } else {
+              addToTrailCheckout();
+            }
           }}>
           <TrailActionBarIcon />
         </div>
@@ -65,7 +82,9 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
   );
 };
 const mapStateToProps = state => ({
-  selectedLinesCount: getSelectedLinesCount(state)
+  selectedLinesCount: getSelectedLinesCount(state),
+  isAuth: state.userWrapper?.isAuthUser,
+  isError: state.linesWrapper?.error
 });
 const actionCreators = {
   feedbackLines,

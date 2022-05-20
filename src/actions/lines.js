@@ -33,7 +33,7 @@ export const feedbackLines =
         dispatch(handleLinesThatGotFeedback(selectedLinesIds));
       })
       .catch(err => {
-        return dispatch({ type: types.FEEDBACK_LINE_FAILURE, error: err });
+        return dispatch({ type: types.FEEDBACK_LINE_FAILURE, error: "Please try logging in." });
       });
   };
 

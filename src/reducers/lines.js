@@ -67,6 +67,7 @@ const lines = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        error: null,
         linesList: [
           ...state.linesList.map(line => {
             if (fileLineIds.includes(line.file_line_id)) {
@@ -74,6 +75,12 @@ const lines = (state = initialState, action) => {
             } else return line;
           })
         ]
+      };
+    case types.FEEDBACK_LINE_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.error
       };
     default:
       return state;
