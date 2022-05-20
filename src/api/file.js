@@ -61,6 +61,13 @@ const fileApi = {
     });
     return response;
   },
+  getProcessedPlatformFiles: async function () {
+    let url = apiEndPoint + `file/list/processed/platform`;
+    let response = axios.get(url, headerConfig.axiosConfig).then(response => {
+      return response.data;
+    });
+    return response;
+  },
   getFileByTrailId: async function ({ trailId }) {
     let url = apiEndPoint + `file/trail/${trailId}`;
     let response = axios.get(url, headerConfig.axiosConfig).then(response => {
