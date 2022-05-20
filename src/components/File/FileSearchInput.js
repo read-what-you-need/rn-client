@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import queryApi from "../../api/query";
 
 import { searchQueryRequest, searchQueryType } from "../../actions";
-import { AutoComplete } from "antd";
-
+import { Input, AutoComplete } from "antd";
 const renderTitle = title => <span>{title}</span>;
 
 const renderItem = (title, count) => ({
@@ -29,7 +28,6 @@ const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
     <AutoComplete
       style={{ width: "100%" }}
       options={options}
-      placeholder="Ask any question. I’ll will find the answer!"
       onChange={value => {
         searchQueryType({ query: value });
       }}
@@ -41,8 +39,9 @@ const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
         if (e.keyCode === 13) {
           searchRequest({ query });
         }
-      }}
-    />
+      }}>
+      <Input.Search size="large" placeholder="Ask your questions here I’ll find the answer!"/>
+    </AutoComplete>
   );
 };
 

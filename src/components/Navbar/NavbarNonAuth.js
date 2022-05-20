@@ -1,28 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-import { Logo } from "../Icons";
-
+import { useLocation } from "react-router-dom";
 import "./NavbarNonAuth.scss";
 
-const NavbarNonAuth = () => {
-  let navigate = useNavigate();
-  return (
-    <div className="nav-bar-non-auth-wrapper">
-      <span className="nav-logo" onClick={() => navigate("/")}>
-        <Logo />
-      </span>
+import NavbarHomePageNonAuth from "./NavbarHomePageNonAuth";
+import NavbarFilePageAuth from "./NavbarFilePageAuth";
 
-      <div className="nav-corner-action-wrapper">
-        <span className="nav-primary-action-button" onClick={() => navigate("/signup")}>
-          <button className="push-button primary">Signup</button>
-        </span>
-        <span className="nav-primary-action-button" onClick={() => navigate("/signin")}>
-          <button className="push-button not-selected">Login</button>
-        </span>
-      </div>
-    </div>
-  );
+const getCurrentPathWithoutLastPart = location => {
+  return location.pathname.slice(0, location.pathname.lastIndexOf("/"));
 };
 
+const NavbarNonAuth = () => {
+  let location = useLocation();
+  let currentPagePath = getCurrentPathWithoutLastPart(location);
+  function getCurrentViewNavBar() {
+    if (currentPagePath === "/file") {
+      return <NavbarFilePageAuth />;
+    }  else {
+      return <NavbarHomePageNonAuth />;
+    }
+  }
+  return getCurrentViewNavBar();
+};
 export default NavbarNonAuth;

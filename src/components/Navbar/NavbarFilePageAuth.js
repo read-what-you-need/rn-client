@@ -8,7 +8,7 @@ import FileSearchInput from "../File/FileSearchInput";
 
 import "./NavbarFilePageAuth.scss";
 
-const NavbarFilePageAuth = ({ checkedOutTrailsCount }) => {
+const NavbarFilePageAuth = ({ checkedOutTrailsCount, isAuth }) => {
   let navigate = useNavigate();
   return (
     <div className="nav-bar-auth-wrapper">
@@ -22,7 +22,7 @@ const NavbarFilePageAuth = ({ checkedOutTrailsCount }) => {
         <FileSearchInput />
       </div>
       <div className="nav-corner-action-wrapper">
-        <span className="nav-primary-action-button">
+        {isAuth && <span className="nav-primary-action-button">
           <Badge count={checkedOutTrailsCount}>
             <Link to={`/trail/create`}>
               <button className="push-button-icon-only secondary shorten-width">
@@ -30,13 +30,14 @@ const NavbarFilePageAuth = ({ checkedOutTrailsCount }) => {
               </button>
             </Link>
           </Badge>
-        </span>
+        </span>}
       </div>
     </div>
   );
 };
 const mapStateToProps = state => ({
-  checkedOutTrailsCount: state.trailsWrapper.trails.length
+  checkedOutTrailsCount: state.trailsWrapper.trails.length,
+  isAuth: state.userWrapper?.isAuthUser
 });
 
 const actionCreators = {};
