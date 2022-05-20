@@ -20,9 +20,7 @@ const BookExplore = () => {
                   <BookSearch />
                 </div>
                 <div>
-                  <div className="book-page-header-wrapper">
-                    <div className="book-page-header-text">Books already in library </div>
-                  </div>
+                  
                 </div>
               </div>
             </Col>
