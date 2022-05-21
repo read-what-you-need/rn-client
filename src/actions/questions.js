@@ -25,6 +25,12 @@ export const generateQuestions = () => {
 export const onQuestionClick = ({ question }) => {
   return async function (dispatch) {
     dispatch({ type: types.ON_QUESTION_CLICK, question });
-    dispatch(searchQueryFromQuestionRequest({ query: question }))
+    dispatch(searchQueryFromQuestionRequest({ query: question }));
+  };
+};
+
+export const showQuestions = () => {
+  return function (dispatch) {
+    dispatch({ type: types.SHOW_QUESTIONS });
   };
 };

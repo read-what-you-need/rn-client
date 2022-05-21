@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import socketIOClient from "socket.io-client";
 import { useParams } from "react-router-dom";
 
-import { checkFileExists, filePageInit, getFileDetails } from "../../actions";
+import { checkFileExists, filePageInit, getFileDetails, showQuestions } from "../../actions";
 
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
@@ -28,7 +28,7 @@ const File = ({
   isToolBoxVisible,
   isFileProcessed = false,
   fileStatus,
-  userId
+  showQuestions
 }) => {
   let params = useParams();
   let id = params.id;
@@ -65,11 +65,13 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]} className="files-lines">
-            <div className="file-back-question-button">
-              <button className={"push-button one-sided-rect"} onClick={() => {}}>
-                <LeftBackIcon />
-              </button>
-            </div>
+            {!isShowQuestions && (
+              <div className="file-back-question-button">
+                <button className={"push-button one-sided-rect"} onClick={() => showQuestions()}>
+                  <LeftBackIcon />
+                </button>
+              </div>
+            )}
             {isShowQuestions ? (
               <QuestionsRecommendationList />
             ) : (
@@ -113,6 +115,7 @@ const mapStateToProps = state => ({
 const actionCreators = {
   checkFileExists,
   filePageInit,
-  getFileDetails
+  getFileDetails,
+  showQuestions
 };
 export default connect(mapStateToProps, actionCreators)(File);

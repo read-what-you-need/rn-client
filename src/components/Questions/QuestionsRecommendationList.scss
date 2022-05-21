@@ -1,6 +1,7 @@
 .question-recommendation-list {
   display: flex;
   margin: var(--main-page-center-padding);
+  padding-top: var(--size-lg);
   flex-direction: column;
   .question-recommendation-list-item {
     cursor: pointer;

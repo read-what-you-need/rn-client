@@ -14,6 +14,8 @@ const questions = (state = initialState, action) => {
       return { ...state, isShowQuestions: false };
     case types.ON_TAG_CLICK:
       return { ...state, isShowQuestions: true };
+    case types.SHOW_QUESTIONS:
+      return { ...state, isShowQuestions: true };
     case types.ASQ_QUESTIONS_REQUEST:
       return { ...state, isQuestionLoading: true };
     case types.ASQ_QUESTIONS_SUCCESS:
