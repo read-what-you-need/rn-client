@@ -4,7 +4,10 @@ export * from "./queries";
 export * from "./file";
 export * from "./user";
 export * from "./lines";
+export * from "./tags";
 export * from "./trails";
+export * from "./questions";
+
 
 
 export const tagsCollapsible = () => {

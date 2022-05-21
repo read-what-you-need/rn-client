@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { onQuestionClick } from "../../actions";
 import "./QuestionsRecommendationList.scss";
 
-const QuestionsRecommendationList = ({ onQuestionClick, questionRecommendations }) => {
+const QuestionsRecommendationList = ({ onQuestionClick, isQuestionLoading, questionRecommendations }) => {
   return (
     <div className="question-recommendation-list">
-      {questionRecommendations.map((question, index) => (
+      {!isQuestionLoading ? questionRecommendations.map((question, index) => (
         <span
           className="question-recommendation-list-item"
           key={index}
@@ -15,7 +15,7 @@ const QuestionsRecommendationList = ({ onQuestionClick, questionRecommendations 
           }}>
           {question}
         </span>
-      ))}
+      )): <>loading question recommendation</>}
     </div>
   );
 };
