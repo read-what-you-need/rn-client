@@ -15,7 +15,7 @@ const questions = (state = initialState, action) => {
     case types.ASQ_QUESTIONS_SUCCESS:
       return { ...state, questions: action.data, isQuestionLoading: false };
     case types.ASQ_QUESTIONS_FAILURE:
-      return initialState;
+      return { ...state, questions: [], error: action.err, isQuestionLoading: false };
     default:
       return state;
   }
