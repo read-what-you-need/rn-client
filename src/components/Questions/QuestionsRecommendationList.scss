@@ -18,4 +18,7 @@
   .question-recommendation-list-item:hover {
     box-shadow: var(--box-shadow-light-focus);
   }
+  .ant-skeleton {
+    margin-top: 10px;
+  }
 }
