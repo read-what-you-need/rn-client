@@ -38,8 +38,8 @@ const Home = () => {
               Ask any question to Rastero and get your answer from the book. Its like asking your friend in a natural way
             </div>
             <div className="home-page-info-section-cta">
-              <Link to={`/signup`}>
-                <button className="push-button primary">Get Started</button>
+              <Link to={`/books/explore`}>
+                <button className="push-button primary">Explore books</button>
               </Link>
             </div>
           </div>
@@ -60,7 +60,7 @@ const Home = () => {
               content.
             </div>
             <div className="home-page-info-section-cta">
-              <Link to={`/signup`}>
+              <Link to={`/books/explore`}>
                 <button className="push-button primary">Get Started</button>
               </Link>
             </div>
@@ -88,7 +88,7 @@ const Home = () => {
             </button>
             <div className="home-page-testimonial-section-cta">
               <Link to={`/signup`}>
-                <button className="push-button primary">Get Started</button>
+                <button className="push-button primary">Signup</button>
               </Link>
             </div>
           </div>
