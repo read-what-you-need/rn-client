@@ -22,6 +22,8 @@ const questions = (state = initialState, action) => {
       return { ...state, questions: action.data, isQuestionLoading: false };
     case types.ASQ_QUESTIONS_FAILURE:
       return { ...state, questions: [], error: action.err, isQuestionLoading: false };
+    case types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST:
+      return { ...state, isShowQuestions: false };
     default:
       return state;
   }

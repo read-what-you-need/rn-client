@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import queryApi from "../../api/query";
 
-import { searchQueryRequest } from "../../actions";
+import { searchQueryFromSearchBarRequest } from "../../actions";
 import { Input, AutoComplete } from "antd";
 import "./FileSearchInput.scss";
 
@@ -65,6 +65,6 @@ const mapStateToProps = state => ({
 });
 
 const actionCreators = {
-  searchRequest: searchQueryRequest
+  searchRequest: searchQueryFromSearchBarRequest
 };
 export default connect(mapStateToProps, actionCreators)(FileSearchInput);

@@ -21,6 +21,13 @@ export const searchQueryRequest = ({ query }) => {
   };
 };
 
+export const searchQueryFromSearchBarRequest = ({ query }) => {
+  return function (dispatch) {
+    dispatch({ type: types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST, query });
+    dispatch(getLines());
+  };
+};
+
 export const searchQueryFromTagRequest = ({ query }) => {
   return async function (dispatch) {
     dispatch({ type: types.SEARCH_QUERY_FROM_TAG_REQUEST, query });

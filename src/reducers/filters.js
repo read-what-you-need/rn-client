@@ -27,6 +27,8 @@ const filters = (state = initialState, action) => {
         ...state,
         filters: { ...state.filters, query: action.data }
       };
+    case types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST:
+      return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SEARCH_QUERY_FROM_TAG_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SEARCH_QUERY_FROM_QUESTION_REQUEST:
