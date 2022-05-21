@@ -26,6 +26,16 @@ export const GlobalIcon = () => {
   );
 };
 
+export const LeftBackIcon = () => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.80761 11.0711 0.80761 10.4853 1.3934L0.939341 10.9393ZM24 10.5L2 10.5L2 13.5L24 13.5L24 10.5Z"
+        fill="#7B7B7B"
+      />
+    </svg>
+  );
+};
 export const IntroduceProductSVG = () => {
   return (
     <svg width="466" height="298" viewBox="0 0 566 398" fill="none" xmlns="http://www.w3.org/2000/svg">

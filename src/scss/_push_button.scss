@@ -94,6 +94,33 @@
   box-shadow: 0px 5px 0px var(--secondary-color-light-300);
 }
 
+.push-button.one-sided-rect {
+  background: var(--background-light-focus);
+  border: 1px solid var(--grey);
+  padding: 5px 10px;
+  -webkit-border-radius: 25px 0px 5px 5px;
+  -moz-border-radius: 25px 0px 5px 5px;
+  border-radius: 25px 0px 5px 5px;
+  -webkit-box-shadow: 0px 5px 0px var(--grey);
+  -moz-box-shadow: 0px 5px 0px var(--grey);
+  -ms-box-shadow: 0px 5px 0px var(--grey);
+  -o-box-shadow: 0px 5px 0px var(--grey);
+  box-shadow: 0px 5px 0px var(--grey);
+}
+
+.push-button.one-sided-rect:hover {
+  background: var(--secondary-color-light-100);
+  border: 1px solid var(--secondary-color-light-300);
+  -webkit-border-radius: 25px 0px 5px 5px;
+  -moz-border-radius: 25px 0px 5px 5px;
+  border-radius: 25px 0px 5px 5px;
+  -webkit-box-shadow: 0px 5px 0px var(--secondary-color-light-300);
+  -moz-box-shadow: 0px 5px 0px var(--secondary-color-light-300);
+  -ms-box-shadow: 0px 5px 0px var(--secondary-color-light-300);
+  -o-box-shadow: 0px 5px 0px var(--secondary-color-light-300);
+  box-shadow: 0px 5px 0px var(--secondary-color-light-300);
+}
+
 /** Properties for push button */
 
 /** Icon only push button */

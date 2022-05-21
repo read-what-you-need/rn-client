@@ -1,16 +1,10 @@
 import React from "react";
 import "./LineItem.scss";
 import { connect } from "react-redux";
-import { onLineSelect,  } from "../../actions";
-import {  Badge,} from "antd";
+import { onLineSelect } from "../../actions";
+import { Badge } from "antd";
 
-
-const LineItem = ({
-  line,
-  onLineSelect,
-  isSelected,
-  feedback,
-}) => {
+const LineItem = ({ line, onLineSelect, isSelected, feedback }) => {
   return (
     <>
       <div className={`line-item ${isSelected ? "selected" : ""}`}>

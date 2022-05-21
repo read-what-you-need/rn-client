@@ -7,16 +7,14 @@
     padding: var(--size-s);
     box-sizing: border-box;
     position: relative;
+    margin-top: var(--size-lg);
     font-size: var(--size-md);
     font-weight: 600;
     border-radius: 5px;
     background-color: var(--secondary-color-light-600);
     font-family: var(--primary-main-page-font);
   }
-  .question-recommendation-list-item:hover{
+  .question-recommendation-list-item:hover {
     box-shadow: var(--box-shadow-light-focus);
-  }
-  .question-recommendation-list-item:not(:first-child){
-    margin-top: var(--size-lg);
   }
 }

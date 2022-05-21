@@ -1,16 +1,21 @@
 .file-wrapper {
   .tags-column {
-    padding: var(--size-lg);
+    padding: calc(var(--size-xl)*2) var(--size-lg);
     display: flex;
     flex-direction: column;
   }
   .filter-column {
-    padding: var(--size-lg);
+    padding: calc(var(--size-xl)*2) var(--size-lg);
     display: flex;
     place-content: center;
   }
   .files-lines {
     position: relative;
+    .file-back-question-button{
+      position: relative;
+      left: 40px;
+      top: 10px;
+    }
     .file-title {
       color: var(--heading-color-light);
       margin: var(--size-xs) var(--size-lg);
@@ -30,7 +35,7 @@
       animation: fadeInAnimation 500ms;
     }
     .lines-list-wrapper {
-      margin: var(--size-lg);
+      margin: var(--size-xl) var(--size-lg) var(--size-lg) var(--size-lg);
     }
     @keyframes fadeInAnimation {
       from {

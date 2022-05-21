@@ -14,4 +14,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     margin: 0px 40px;
   }
+  .line-item:first-child {
+    margin-top: 0px;
+   }
 }

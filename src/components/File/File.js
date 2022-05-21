@@ -10,6 +10,7 @@ import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
 import QuestionsRecommendationList from "../Questions/QuestionsRecommendationList";
+import { LeftBackIcon } from "../Icons";
 
 import { Row, Col } from "antd";
 import "./File.scss";
@@ -64,6 +65,11 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]} className="files-lines">
+            <div className="file-back-question-button">
+              <button className={"push-button one-sided-rect"} onClick={() => {}}>
+                <LeftBackIcon />
+              </button>
+            </div>
             {isShowQuestions ? (
               <QuestionsRecommendationList />
             ) : (
