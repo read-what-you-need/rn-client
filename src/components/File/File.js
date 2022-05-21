@@ -21,6 +21,7 @@ const File = ({
   isFileExist,
   getFileDetails,
   fileName,
+  isShowQuestions,
   isRightToolBarCollapsed,
   isLeftToolBarCollapsed,
   isToolBoxVisible,
@@ -63,15 +64,20 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]} className="files-lines">
-            <QuestionsRecommendationList />
-            {isToolBoxVisible && (
-              <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
-                <LineActionBar />
-              </Col>
+            {isShowQuestions ? (
+              <QuestionsRecommendationList />
+            ) : (
+              <>
+                {isToolBoxVisible && (
+                  <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
+                    <LineActionBar />
+                  </Col>
+                )}
+                <div className="lines-list-wrapper">
+                  <LinesList />
+                </div>
+              </>
             )}
-            <div className="lines-list-wrapper">
-              <LinesList />
-            </div>
           </Col>
           <Col span={readingViewConfigurations[2]} className="filter-column">
             <LineFilters />
@@ -89,6 +95,7 @@ const File = ({
 const mapStateToProps = state => ({
   isFileExist: state.fileWrapper.isFileExist,
   fileName: state.fileWrapper.fileDetails.name,
+  isShowQuestions: state.questionsWrapper.isShowQuestions,
   isFileProcessed: state.fileWrapper.fileDetails.processed,
   fileStatus: state.fileWrapper.fileDetails.status,
   userId: state.userWrapper.user.id,

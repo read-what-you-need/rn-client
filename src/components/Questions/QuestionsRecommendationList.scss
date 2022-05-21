@@ -1,0 +1,8 @@
+.question-recommendation-list{
+  display: flex;
+  margin: var(--main-page-center-padding);
+  flex-direction: column;
+  .question-recommendation-list-item{
+    cursor: pointer;
+  }
+}

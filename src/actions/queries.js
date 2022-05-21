@@ -78,18 +78,21 @@ export const changePage = ({ pageChangeTo }) => {
   };
 };
 
-export const generateQuestion = ({ query, fileLineId }) => {
+async function getQuestions(lines) {
+  let questions = lines.map(line => queryApi.getQuestion({ query: line }));
+  questions = await Promise.all(questions);
+  return questions;
+}
+
+export const generateQuestions = ({ lines }) => {
   return async function (dispatch) {
-    dispatch({ type: types.ASQ_QUESTION_REQUEST, data: fileLineId });
-    queryApi
-      .getQuestion({ query })
-      .then(res => {
-        dispatch({ type: types.ASQ_QUESTION_SUCCESS, data: res });
+    dispatch({ type: types.ASQ_QUESTIONS_REQUEST });
+    getQuestions(lines)
+      .then(response => {
+        dispatch({ type: types.ASQ_QUESTIONS_SUCCESS, data: response });
       })
       .catch(err => {
-        return dispatch({ type: types.ASQ_QUESTION_FAILURE, error: err });
+        return dispatch({ type: types.ASQ_QUESTIONS_FAILURE, error: err });
       });
   };
 };
-
-
