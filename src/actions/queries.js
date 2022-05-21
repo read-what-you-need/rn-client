@@ -16,7 +16,7 @@ export const getLines = () => (dispatch, getState) => {
 
 export const searchQueryRequest = ({ query }) => {
   return function (dispatch) {
-    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query });
+    dispatch({ type: types.SEARCH_QUERY_FROM_TAG_REQUEST, query });
     dispatch(getLines());
   };
 };
@@ -34,7 +34,7 @@ export const getCurrentQueryId = state => {
 export const onTagPress = ({ tag }) => {
   return function (dispatch) {
     dispatch({ type: types.ON_TAG_CLICK, tag });
-    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query: tag });
+    dispatch({ type: types.SEARCH_QUERY_FROM_TAG_REQUEST, query: tag });
     dispatch(getLines());
   };
 };
@@ -92,10 +92,4 @@ export const generateQuestion = ({ query, fileLineId }) => {
   };
 };
 
-export const onPressGeneratedQuestion = ({ query }) => {
-  return async function (dispatch) {
-    dispatch({ type: types.PRESS_GENERATED_QUESTION, data: query });
-    dispatch({ type: types.FILTER_APPLIED });
-    dispatch(getLines());
-  };
-};
+

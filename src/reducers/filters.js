@@ -27,7 +27,7 @@ const filters = (state = initialState, action) => {
         ...state,
         filters: { ...state.filters, query: action.data }
       };
-    case types.SEARCH_QUERY_MANUAL_REQUEST:
+    case types.SEARCH_QUERY_FROM_TAG_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_LIKED_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1, currentPage: 0 } };
@@ -41,8 +41,6 @@ const filters = (state = initialState, action) => {
       return { ...state, isToolBoxVisible: false };
     case types.SORT_AND_ARRANGE_LINES_BY:
       return { ...state, filters: { ...state.filters, arrangeBy: action.arrangeBy, orderBy: action.orderBy } };
-    case types.PRESS_GENERATED_QUESTION:
-      return { ...state, filters: { ...state.filters, query: action.data, currentPage: 0 } };
 
     default:
       return state;

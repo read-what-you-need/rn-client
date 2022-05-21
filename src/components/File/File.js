@@ -9,6 +9,7 @@ import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
+import QuestionsRecommendationList from "../Questions/QuestionsRecommendationList";
 
 import { Row, Col } from "antd";
 import "./File.scss";
@@ -62,7 +63,7 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]} className="files-lines">
-            <div className="file-title">{fileName}</div>
+            <QuestionsRecommendationList />
             {isToolBoxVisible && (
               <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
                 <LineActionBar />
