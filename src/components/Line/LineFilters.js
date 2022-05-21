@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { filtersCollapsible, showLikedLines, showUnReadLines, sortAndArrangeLinesBy } from "../../actions";
 import LineStatusFilters from "./LineStatusFilters";
-import LineSortFilters from "./LineSortFilters";
 
 import { RightExpandIcon, LeftCollapseIcon } from "../Icons";
 
@@ -29,7 +28,6 @@ const LineFilters = ({
       </div>
       <div style={{ opacity: `${isCollapsed ? 0 : 1}` }}>
         <LineStatusFilters lineFilterStatus={lineFilterStatus} showLikedLines={showLikedLines} showUnReadLines={showUnReadLines} />
-        <LineSortFilters arrangeBy={arrangeBy} orderBy={orderBy} sortAndArrangeLinesBy={sortAndArrangeLinesBy} />
       </div>
     </div>
   );
