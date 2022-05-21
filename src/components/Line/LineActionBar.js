@@ -29,7 +29,7 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
         <></>
       )}
 
-      <Tooltip title={"Give positive feedback"}>
+      <Tooltip title={"Give positive feedback"} placement="bottom">
         <div
           className="line-action-bar-item"
           onClick={() => {
@@ -40,7 +40,7 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
       </Tooltip>
       <Divider type="vertical" />
 
-      <Tooltip title={"Add selected lines to trail"}>
+      <Tooltip title={"Add selected lines to trail"} placement="bottom">
         <div
           className="line-action-bar-item scale-down"
           onClick={() => {
@@ -55,7 +55,7 @@ const LineActionBar = ({ feedbackLines, selectedLinesCount, clearSelectedLines, 
       </Tooltip>
       <Divider type="vertical" />
 
-      <Tooltip title={"Give negative feedback"}>
+      <Tooltip title={"Give negative feedback"} placement="bottom">
         <div
           className="line-action-bar-item"
           onClick={() => {

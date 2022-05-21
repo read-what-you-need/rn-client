@@ -13,6 +13,7 @@ const renderItem = (title, count) => ({
 
 const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
   const [topSearches, setTopSearches] = useState([]);
+  const [searchOpenState, setSearchOpenState] = useState(false);
   useEffect(() => {
     if (fileId) {
       queryApi.getPopularQueryForFile({ fileId }).then(res => setTopSearches(res));
@@ -24,23 +25,36 @@ const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
       options: topSearches.map(searchQuery => renderItem(searchQuery.query, searchQuery.score))
     }
   ];
+  const searchHandler = query => {
+    searchRequest({ query });
+    setSearchOpenState(false);
+  };
   return (
     <AutoComplete
       style={{ width: "100%" }}
       options={options}
+      open={searchOpenState}
       onChange={value => {
         searchQueryType({ query: value });
       }}
+      onFocus={_e => setSearchOpenState(true)}
+      onBlur={_e => setSearchOpenState(false)}
       onSelect={(value, _option) => {
         searchQueryType({ query: value });
-        searchRequest({ query: value });
+        searchHandler(value);
       }}
       onInputKeyDown={e => {
         if (e.keyCode === 13) {
-          searchRequest({ query });
+          searchHandler(query);
         }
       }}>
-      <Input.Search size="large" placeholder="Ask your questions here I’ll find the answer!"/>
+      <Input.Search
+        onSearch={(value, _event) => {
+          searchHandler(value);
+        }}
+        size="large"
+        placeholder="Ask your questions here I’ll find the answer!"
+      />
     </AutoComplete>
   );
 };

@@ -39,9 +39,13 @@ export const feedbackLines =
 
 export const onLineSelect =
   ({ line }) =>
-  dispatch => {
+  (dispatch, getState) => {
     dispatch({ type: types.ON_LINE_ITEM_SELECT, data: line });
-    dispatch({ type: types.SHOW_TOOLBOX });
+    if (getSelectedLinesCount(getState())) {
+      dispatch({ type: types.SHOW_TOOLBOX });
+    } else {
+      dispatch({ type: types.HIDE_TOOLBOX });
+    }
   };
 
 export const getSelectedLinesCount = state => {
