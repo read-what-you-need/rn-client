@@ -32,7 +32,6 @@ const UserRecent = () => {
       })
       .catch(_err => {
         setUserTrails([]);
-        message.warning("Error while retrieving recents.");
       });
     trailsApi
       .listUserTrails({ offset: 0, limit: 10 })
@@ -41,7 +40,6 @@ const UserRecent = () => {
       })
       .catch(_err => {
         setUserTrails([]);
-        message.warning("Could not retrieve trails.");
       });
 
       fileApi
@@ -51,7 +49,7 @@ const UserRecent = () => {
       })
       .catch(_err => {
         setUserUploads([]);
-        message.warning("Could not retrieve user uploaded files.");
+        message.warning("Session expired please login.");
       });
   }, []);
   return (
