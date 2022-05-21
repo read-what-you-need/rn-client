@@ -15,7 +15,7 @@ const QuestionsRecommendationList = ({ onQuestionClick, isQuestionLoading, quest
           }}>
           {question}
         </span>
-      )): <>loading question recommendation</>}
+      )): <>Loading question recommendation</>}
     </div>
   );
 };

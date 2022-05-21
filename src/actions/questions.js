@@ -1,6 +1,6 @@
 import * as types from "../constants/ActionTypes";
 import queryApi from "../api/query";
-import { getCurrentLines } from "./queries";
+import { getCurrentLines, searchQueryFromQuestionRequest } from "./queries";
 
 async function getQuestions(lines) {
   let questions = lines.map(line => queryApi.getQuestion({ query: line }));
@@ -19,5 +19,12 @@ export const generateQuestions = () => {
       .catch(err => {
         return dispatch({ type: types.ASQ_QUESTIONS_FAILURE, error: err });
       });
+  };
+};
+
+export const onQuestionClick = ({ question }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.ON_QUESTION_CLICK, question });
+    dispatch(searchQueryFromQuestionRequest({ query: question }))
   };
 };

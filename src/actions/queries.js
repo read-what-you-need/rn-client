@@ -28,6 +28,13 @@ export const searchQueryFromTagRequest = ({ query }) => {
   };
 };
 
+export const searchQueryFromQuestionRequest = ({ query }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.SEARCH_QUERY_FROM_QUESTION_REQUEST, query });
+    return dispatch(getLines());
+  };
+};
+
 export const setSearchQuery = ({ query }) => {
   return function (dispatch) {
     dispatch({ type: types.SET_SEARCH_QUERY, data: query });
@@ -81,10 +88,3 @@ export const changePage = ({ pageChangeTo }) => {
   };
 };
 
-export const onQuestionClick = ({ question }) => {
-  return async function (dispatch) {
-    dispatch({ type: types.ON_QUESTION_CLICK });
-    dispatch({ type: types.SEARCH_QUERY_FROM_QUESTION_REQUEST, query: question });
-    dispatch(getLines());
-  };
-};
