@@ -22,7 +22,7 @@ const filters = (state = initialState, action) => {
       return { ...state, isCollapsed: !state.isCollapsed };
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
-    case types.SEARCH_QUERY_TYPE:
+    case types.SET_SEARCH_QUERY:
       return {
         ...state,
         filters: { ...state.filters, query: action.data }

@@ -1,6 +1,6 @@
 import * as types from "../constants/ActionTypes";
 import tagsApi from "../api/tag";
-import { searchQueryRequest } from "./queries";
+import { searchQueryFromTagRequest } from "./queries";
 
 export const getFileTags = fileId => dispatch => {
   dispatch({ type: types.GET_FILE_TAGS_REQUEST, fileId });
@@ -9,7 +9,7 @@ export const getFileTags = fileId => dispatch => {
     .then(res => {
       dispatch({ type: types.GET_FILE_TAGS_REQUEST_SUCCESS, data: res.data });
       if (res.success) {
-        dispatch(searchQueryRequest({ query: res.data[0]?.tag }));
+        dispatch(searchQueryFromTagRequest({ query: res.data[0]?.tag }));
       }
     })
     .catch(err => {

@@ -16,14 +16,21 @@ export const getLines = () => (dispatch, getState) => {
 
 export const searchQueryRequest = ({ query }) => {
   return function (dispatch) {
+    dispatch(setSearchQuery({ query }));
+    dispatch(getLines());
+  };
+};
+
+export const searchQueryFromTagRequest = ({ query }) => {
+  return function (dispatch) {
     dispatch({ type: types.SEARCH_QUERY_FROM_TAG_REQUEST, query });
     dispatch(getLines());
   };
 };
 
-export const searchQueryType = ({ query }) => {
+export const setSearchQuery = ({ query }) => {
   return function (dispatch) {
-    dispatch({ type: types.SEARCH_QUERY_TYPE, data: query });
+    dispatch({ type: types.SET_SEARCH_QUERY, data: query });
   };
 };
 
@@ -94,5 +101,13 @@ export const generateQuestions = ({ lines }) => {
       .catch(err => {
         return dispatch({ type: types.ASQ_QUESTIONS_FAILURE, error: err });
       });
+  };
+};
+
+export const onQuestionClick = ({ question }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.ON_QUESTION_CLICK });
+    dispatch({ type: types.SEARCH_QUERY_FROM_QUESTION_REQUEST, query: question });
+    dispatch(getLines());
   };
 };

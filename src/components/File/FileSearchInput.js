@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import queryApi from "../../api/query";
 
-import { searchQueryRequest, searchQueryType } from "../../actions";
+import { searchQueryRequest } from "../../actions";
 import { Input, AutoComplete } from "antd";
 const renderTitle = title => <span>{title}</span>;
 
-const renderItem = (title, count) => ({
+const renderItem = (title, _count) => ({
   value: title,
   label: <div>{title}</div>
 });
 
-const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
+const FileSearchInput = ({ searchRequest, fileId, query }) => {
   const [topSearches, setTopSearches] = useState([]);
   const [searchOpenState, setSearchOpenState] = useState(false);
   useEffect(() => {
@@ -34,13 +34,9 @@ const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
       style={{ width: "100%" }}
       options={options}
       open={searchOpenState}
-      onChange={value => {
-        searchQueryType({ query: value });
-      }}
       onFocus={_e => setSearchOpenState(true)}
       onBlur={_e => setSearchOpenState(false)}
       onSelect={(value, _option) => {
-        searchQueryType({ query: value });
         searchHandler(value);
       }}
       onInputKeyDown={e => {
@@ -67,6 +63,5 @@ const mapStateToProps = state => ({
 
 const actionCreators = {
   searchRequest: searchQueryRequest,
-  searchQueryType
 };
 export default connect(mapStateToProps, actionCreators)(FileSearchInput);

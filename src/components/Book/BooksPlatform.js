@@ -9,7 +9,6 @@ const columns = [
     dataIndex: "",
     key: "",
     render: (_text, record, index) => {
-      console.log(record);
       return <Avatar src={`https://picsum.photos/100/100?random=${index}`} />;
     }
   },
