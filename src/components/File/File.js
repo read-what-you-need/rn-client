@@ -88,7 +88,7 @@ const File = ({
             )}
           </Col>
           <Col span={readingViewConfigurations[2]} className="filter-column">
-            <LineFilters />
+            {!isShowQuestions && <LineFilters />}
           </Col>
         </Row>
       ) : (

@@ -39,6 +39,8 @@ const filters = (state = initialState, action) => {
       return { ...state, filters: { ...state.filters, feedback: 2, currentPage: 0 } };
     case types.SHOW_TOOLBOX:
       return { ...state, isToolBoxVisible: true };
+    case types.ON_TAG_CLICK:
+      return { ...state, filters: { ...state.filters, feedback: 2, currentPage: 0 } };
     case types.HIDE_TOOLBOX:
       return { ...state, isToolBoxVisible: false };
     case types.SORT_AND_ARRANGE_LINES_BY:
