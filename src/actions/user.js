@@ -1,5 +1,6 @@
 import * as types from "../constants/ActionTypes";
 import setupAxios from "../api/setupAxios";
+import axios from "axios";
 
 import userApi from "../api/user";
 
@@ -20,7 +21,7 @@ export const loginUser =
 
 export const logoutUser = () => async dispatch => {
   dispatch({ type: types.USER_LOGOUT_REQUEST });
-  setupAxios();
+  setupAxios(axios);
 };
 
 export const getUserDetails = () => dispatch => {
