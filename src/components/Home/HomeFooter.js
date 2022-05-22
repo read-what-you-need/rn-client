@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 function decideToShowFooter(currentPagePath) {
   const nonAcceptedPaths = ["/signup", "/signin", "/trail", "/trails", "/trail/list", "/trails/global", "/recent"];
-  console.log(currentPagePath.includes("file"))
   if (nonAcceptedPaths.includes(currentPagePath)) {
     return false;
   } else if (currentPagePath.includes("file/")) {
@@ -15,7 +14,6 @@ const HomeFooter = () => {
   let location = useLocation();
   let currentPagePath = location.pathname;
   let showFooter = decideToShowFooter(currentPagePath);
-  console.log(showFooter,currentPagePath)
   return (
     <>
       {showFooter && (

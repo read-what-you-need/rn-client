@@ -3,4 +3,10 @@
     width: 300px;
     margin-bottom: var(--size-lg);
   }
+  .ant-table-cell {
+    a {
+      font-family: var(--primary-main-page-font);
+      font-size: 16px;
+    }
+  }
 }
