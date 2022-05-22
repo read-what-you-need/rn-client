@@ -1,6 +1,7 @@
 import * as types from "../constants/ActionTypes";
 import setupAxios from "../api/setupAxios";
 import axios from "axios";
+import store from "../reduxStore";
 
 import userApi from "../api/user";
 
@@ -19,9 +20,9 @@ export const loginUser =
       });
   };
 
-export const logoutUser = () => async dispatch => {
+export const logoutUser = () => async (dispatch, getState) => {
   dispatch({ type: types.USER_LOGOUT_REQUEST });
-  setupAxios(axios);
+  setupAxios(axios, store);
 };
 
 export const getUserDetails = () => dispatch => {
