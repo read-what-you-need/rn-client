@@ -2,9 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;500;600;900&display=swap");
 
+@font-face {
+  font-family: "Gill Sans MT Book";
+  font-weight: 600;
+  src: local("Lato"), url("./assets/fonts/GillSansMt/Gill\ Sans\ MT\ Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gill Sans MT Book";
+  font-weight: 900;
+  src: local("Lato"), url("./assets/fonts/GillSansMt/Gill\ Sans\ MT\ Bold.ttf") format("truetype");
+}
+
 :root {
   /* Font family */
-  --primary-main-page-font: "Source Sans Pro", sans-serif;
+  --primary-main-page-font: "Gill Sans MT Book", sans-serif;
   --secondary-font: "Roboto", sans-serif;
   --tertiary-font: "Inconsolata", monospace;
   /* Sizes */
