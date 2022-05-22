@@ -2,13 +2,18 @@
   display: flex;
   justify-content: center;
   border-top: var(--navbar-bottom-border);
-  margin-top: 50px;
+  margin-top: 20px;
+  background: var(--grey-lighter);
+  height: var(--footer-height);
   .home-footer-item {
     justify-self: center;
     margin: 40px 0px;
     font-family: var(--primary-main-page-font);
-    font-size: var(--size-mmd);
+    font-size: var(--size-md);
     color: var(--grey-light);
     cursor: pointer;
+    a {
+      color: black;
+    }
   }
 }
