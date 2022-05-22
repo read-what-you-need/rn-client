@@ -1,17 +1,17 @@
 .file-wrapper {
   .tags-column {
-    padding: calc(var(--size-xl)*2) var(--size-lg);
+    padding: calc(var(--size-xl) * 2) var(--size-lg);
     display: flex;
     flex-direction: column;
   }
   .filter-column {
-    padding: calc(var(--size-xl)*2) var(--size-lg);
+    padding: calc(var(--size-xl) * 2) var(--size-lg);
     display: flex;
     place-content: center;
   }
   .files-lines {
     position: relative;
-    .file-back-question-button{
+    .file-back-question-button {
       position: relative;
       left: 25px;
       top: 10px;
@@ -48,10 +48,15 @@
   }
   .file-show-status {
     height: calc(100vh - var(--navbar-height));
+    font-family: var(--primary-main-page-font);
     display: flex;
+    flex-direction: column;
     align-items: center;
     font-size: var(--size-md);
     place-content: center;
+    .file-sub-info {
+      color: var(--grey-light);
+      font-size: var(--size-s);
+    }
   }
-  
 }

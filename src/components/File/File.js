@@ -93,7 +93,8 @@ const File = ({
         </Row>
       ) : (
         <div className="file-show-status">
-          <div>{socketFileStatusLatest ? socketFileStatusLatest : fileStatus}</div>
+          <div className="file-main-status">{socketFileStatusLatest ? socketFileStatusLatest : fileStatus}</div>
+          <div className="file-sub-info">Depending on the load, processing can take 5-10 minutes or more.</div>
         </div>
       )}
     </div>
