@@ -14,6 +14,7 @@ import ListTrail from "./components/Trail/ListTrail";
 import Feed from "./components/Feed/Feed";
 import File from "./components/File/File";
 import Home from "./components/Home/Home";
+import HomeFooter from "./components/Home/HomeFooter";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Navbar from "./components/Navbar/Navbar";
 import UserProfile from "./components/User/UserProfile";
@@ -97,6 +98,7 @@ const Root = () => {
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
+      <HomeFooter />
     </BrowserRouter>
   );
 };

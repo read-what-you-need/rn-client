@@ -1,6 +1,5 @@
 import React from "react";
 import HomePageCarousel from "./HomePageCarousel";
-import HomeFooter from "./HomeFooter";
 import { Link } from "react-router-dom";
 
 import "./Home.scss";
@@ -93,7 +92,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <HomeFooter />
       </div>
     </div>
   );

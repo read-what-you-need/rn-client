@@ -1,11 +1,11 @@
 .home-footer {
-  display: grid;
-  grid-template-columns: 20vh repeat(3, 1fr) 20vh;
+  display: flex;
+  justify-content: center;
   border-top: var(--navbar-bottom-border);
-  margin: 0px 20vh;
+  margin-top: 50px;
   .home-footer-item {
     justify-self: center;
-    margin-top: var(--size-xl);
+    margin: 40px 0px;
     font-family: var(--primary-main-page-font);
     font-size: var(--size-mmd);
     color: var(--grey-light);
