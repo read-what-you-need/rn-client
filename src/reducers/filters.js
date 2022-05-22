@@ -22,12 +22,16 @@ const filters = (state = initialState, action) => {
       return { ...state, isCollapsed: !state.isCollapsed };
     case types.GET_FILE_DETAILS_REQUEST_SUCCESS:
       return { ...state, filters: { ...state.filters, fileId: action.data.file_id } };
-    case types.SEARCH_QUERY_TYPE:
+    case types.SET_SEARCH_QUERY:
       return {
         ...state,
         filters: { ...state.filters, query: action.data }
       };
-    case types.SEARCH_QUERY_MANUAL_REQUEST:
+    case types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST:
+      return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
+    case types.SEARCH_QUERY_FROM_TAG_REQUEST:
+      return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
+    case types.SEARCH_QUERY_FROM_QUESTION_REQUEST:
       return { ...state, filters: { ...state.filters, query: action.query, currentPage: 0 } };
     case types.SHOW_LIKED_LINES:
       return { ...state, filters: { ...state.filters, feedback: 1, currentPage: 0 } };
@@ -37,12 +41,12 @@ const filters = (state = initialState, action) => {
       return { ...state, filters: { ...state.filters, feedback: 2, currentPage: 0 } };
     case types.SHOW_TOOLBOX:
       return { ...state, isToolBoxVisible: true };
+    case types.ON_TAG_CLICK:
+      return { ...state, filters: { ...state.filters, feedback: 2, currentPage: 0 } };
     case types.HIDE_TOOLBOX:
       return { ...state, isToolBoxVisible: false };
     case types.SORT_AND_ARRANGE_LINES_BY:
       return { ...state, filters: { ...state.filters, arrangeBy: action.arrangeBy, orderBy: action.orderBy } };
-    case types.PRESS_GENERATED_QUESTION:
-      return { ...state, filters: { ...state.filters, query: action.data, currentPage: 0 } };
 
     default:
       return state;

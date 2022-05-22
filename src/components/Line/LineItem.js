@@ -1,23 +1,15 @@
 import React from "react";
 import "./LineItem.scss";
 import { connect } from "react-redux";
-import { onLineSelect,  } from "../../actions";
-import {  Badge,} from "antd";
+import { onLineSelect } from "../../actions";
 
-
-const LineItem = ({
-  line,
-  onLineSelect,
-  isSelected,
-  feedback,
-}) => {
+const LineItem = ({ line, onLineSelect, isSelected }) => {
   return (
     <>
       <div className={`line-item ${isSelected ? "selected" : ""}`}>
         <div className="line-item-text" onClick={() => onLineSelect({ line })}>
           {line.line}
         </div>
-        <Badge color={feedback === 1 ? "green" : feedback === -1 ? "red" : ""}></Badge>
       </div>
       <div className="line-border"></div>
     </>

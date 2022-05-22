@@ -3,12 +3,14 @@ import { connect } from "react-redux";
 import socketIOClient from "socket.io-client";
 import { useParams } from "react-router-dom";
 
-import { checkFileExists, filePageInit, getFileDetails } from "../../actions";
+import { checkFileExists, filePageInit, getFileDetails, showQuestions } from "../../actions";
 
 import FileTags from "./FileTags";
 import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
+import QuestionsRecommendationList from "../Questions/QuestionsRecommendationList";
+import { LeftBackIcon } from "../Icons";
 
 import { Row, Col } from "antd";
 import "./File.scss";
@@ -20,12 +22,13 @@ const File = ({
   isFileExist,
   getFileDetails,
   fileName,
+  isShowQuestions,
   isRightToolBarCollapsed,
   isLeftToolBarCollapsed,
   isToolBoxVisible,
   isFileProcessed = false,
   fileStatus,
-  userId
+  showQuestions
 }) => {
   let params = useParams();
   let id = params.id;
@@ -62,18 +65,30 @@ const File = ({
             <FileTags />
           </Col>
           <Col span={readingViewConfigurations[1]} className="files-lines">
-            <div className="file-title">{fileName}</div>
-            {isToolBoxVisible && (
-              <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
-                <LineActionBar />
-              </Col>
+            {!isShowQuestions && (
+              <div className="file-back-question-button">
+                <button className={"push-button one-sided-rect"} onClick={() => showQuestions()}>
+                  <LeftBackIcon />
+                </button>
+              </div>
             )}
-            <div className="lines-list-wrapper">
-              <LinesList />
-            </div>
+            {isShowQuestions ? (
+              <QuestionsRecommendationList />
+            ) : (
+              <>
+                {isToolBoxVisible && (
+                  <Col className={`lines-action-bar-wrapper ${isToolBoxVisible ? "show" : ""}`}>
+                    <LineActionBar />
+                  </Col>
+                )}
+                <div className="lines-list-wrapper">
+                  <LinesList />
+                </div>
+              </>
+            )}
           </Col>
           <Col span={readingViewConfigurations[2]} className="filter-column">
-            <LineFilters />
+            {!isShowQuestions && <LineFilters />}
           </Col>
         </Row>
       ) : (
@@ -88,6 +103,7 @@ const File = ({
 const mapStateToProps = state => ({
   isFileExist: state.fileWrapper.isFileExist,
   fileName: state.fileWrapper.fileDetails.name,
+  isShowQuestions: state.questionsWrapper.isShowQuestions,
   isFileProcessed: state.fileWrapper.fileDetails.processed,
   fileStatus: state.fileWrapper.fileDetails.status,
   userId: state.userWrapper.user.id,
@@ -99,6 +115,7 @@ const mapStateToProps = state => ({
 const actionCreators = {
   checkFileExists,
   filePageInit,
-  getFileDetails
+  getFileDetails,
+  showQuestions
 };
 export default connect(mapStateToProps, actionCreators)(File);

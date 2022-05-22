@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import queryApi from "../../api/query";
 
-import { searchQueryRequest, searchQueryType } from "../../actions";
+import { searchQueryFromSearchBarRequest } from "../../actions";
 import { Input, AutoComplete } from "antd";
-const renderTitle = title => <span>{title}</span>;
+import "./FileSearchInput.scss";
 
-const renderItem = (title, count) => ({
+const renderTitle = title => <span>{title}</span>;
+const renderItem = (title, _count) => ({
   value: title,
   label: <div>{title}</div>
 });
 
-const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
+const FileSearchInput = ({ searchRequest, fileId, query }) => {
   const [topSearches, setTopSearches] = useState([]);
   const [searchOpenState, setSearchOpenState] = useState(false);
   useEffect(() => {
@@ -30,32 +31,30 @@ const FileSearchInput = ({ searchRequest, fileId, query, searchQueryType }) => {
     setSearchOpenState(false);
   };
   return (
-    <AutoComplete
-      style={{ width: "100%" }}
-      options={options}
-      open={searchOpenState}
-      onChange={value => {
-        searchQueryType({ query: value });
-      }}
-      onFocus={_e => setSearchOpenState(true)}
-      onBlur={_e => setSearchOpenState(false)}
-      onSelect={(value, _option) => {
-        searchQueryType({ query: value });
-        searchHandler(value);
-      }}
-      onInputKeyDown={e => {
-        if (e.keyCode === 13) {
-          searchHandler(query);
-        }
-      }}>
-      <Input.Search
-        onSearch={(value, _event) => {
+    <div className="file-input-search">
+      <AutoComplete
+        style={{ width: "100%" }}
+        options={options}
+        open={searchOpenState}
+        onFocus={_e => setSearchOpenState(true)}
+        onBlur={_e => setSearchOpenState(false)}
+        onSelect={(value, _option) => {
           searchHandler(value);
         }}
-        size="large"
-        placeholder="Ask your questions here I’ll find the answer!"
-      />
-    </AutoComplete>
+        onInputKeyDown={e => {
+          if (e.keyCode === 13) {
+            searchHandler(query);
+          }
+        }}>
+        <Input.Search
+          onSearch={(value, _event) => {
+            searchHandler(value);
+          }}
+          size="large"
+          placeholder="Ask your questions here I’ll find the answer!"
+        />
+      </AutoComplete>
+    </div>
   );
 };
 
@@ -66,7 +65,6 @@ const mapStateToProps = state => ({
 });
 
 const actionCreators = {
-  searchRequest: searchQueryRequest,
-  searchQueryType
+  searchRequest: searchQueryFromSearchBarRequest
 };
 export default connect(mapStateToProps, actionCreators)(FileSearchInput);

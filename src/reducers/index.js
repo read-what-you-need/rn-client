@@ -17,7 +17,3 @@ export default combineReducers({
   userWrapper: user,
   questionsWrapper: questions
 });
-
-// export const getQuery = state => {
-//   return state.queryWrapper.query;
-// };

@@ -1,28 +1,29 @@
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
+  questions: [],
   isQuestionLoading: false,
-  question: {},
-  questionForFileLineId: [],
-  questionStack: []
+  isShowQuestions: true
 };
 
 const questions = (state = initialState, action) => {
   switch (action.type) {
     case types.FILE_PAGE_INIT:
       return initialState;
-    case types.ASQ_QUESTION_REQUEST:
-      return { ...state, isQuestionLoading: true, question: null, questionForFileLineId: action.data };
-    case types.ASQ_QUESTION_SUCCESS:
-      return {
-        ...state,
-        isQuestionLoading: false,
-        question: action.data
-      };
-    case types.PRESS_GENERATED_QUESTION:
-      return { ...state, questionStack: [...state.questionStack, { question: action.data, askedAt: new Date().toISOString() }] };
-    case types.ASQ_QUESTION_FAILURE:
-      return { ...state, isQuestionLoading: false, error: action.error };
+    case types.ON_QUESTION_CLICK:
+      return { ...state, isShowQuestions: false };
+    case types.ON_TAG_CLICK:
+      return { ...state, isShowQuestions: true };
+    case types.SHOW_QUESTIONS:
+      return { ...state, isShowQuestions: true };
+    case types.ASQ_QUESTIONS_REQUEST:
+      return { ...state, isQuestionLoading: true };
+    case types.ASQ_QUESTIONS_SUCCESS:
+      return { ...state, questions: action.data, isQuestionLoading: false };
+    case types.ASQ_QUESTIONS_FAILURE:
+      return { ...state, questions: [], error: action.err, isQuestionLoading: false };
+    case types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST:
+      return { ...state, isShowQuestions: false };
     default:
       return state;
   }

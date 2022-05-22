@@ -4,7 +4,7 @@ import queryApi from "../api/query";
 export const getLines = () => (dispatch, getState) => {
   const { filters } = getState().filtersWrapper || {};
   dispatch({ type: types.SEARCH_QUERY_REQUEST });
-  queryApi
+  return queryApi
     .sendQuery(filters)
     .then(res => {
       dispatch({ type: types.SEARCH_QUERY_REQUEST_SUCCESS, data: res });
@@ -16,14 +16,35 @@ export const getLines = () => (dispatch, getState) => {
 
 export const searchQueryRequest = ({ query }) => {
   return function (dispatch) {
-    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query });
+    dispatch(setSearchQuery({ query }));
     dispatch(getLines());
   };
 };
 
-export const searchQueryType = ({ query }) => {
+export const searchQueryFromSearchBarRequest = ({ query }) => {
   return function (dispatch) {
-    dispatch({ type: types.SEARCH_QUERY_TYPE, data: query });
+    dispatch({ type: types.SEARCH_QUERY_FROM_SEARCH_BAR_REQUEST, query });
+    dispatch(getLines());
+  };
+};
+
+export const searchQueryFromTagRequest = ({ query }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.SEARCH_QUERY_FROM_TAG_REQUEST, query });
+    return dispatch(getLines());
+  };
+};
+
+export const searchQueryFromQuestionRequest = ({ query }) => {
+  return async function (dispatch) {
+    dispatch({ type: types.SEARCH_QUERY_FROM_QUESTION_REQUEST, query });
+    return dispatch(getLines());
+  };
+};
+
+export const setSearchQuery = ({ query }) => {
+  return function (dispatch) {
+    dispatch({ type: types.SET_SEARCH_QUERY, data: query });
   };
 };
 
@@ -31,12 +52,8 @@ export const getCurrentQueryId = state => {
   return state.linesWrapper.queryId || [];
 };
 
-export const onTagPress = ({ tag }) => {
-  return function (dispatch) {
-    dispatch({ type: types.ON_TAG_CLICK, tag });
-    dispatch({ type: types.SEARCH_QUERY_MANUAL_REQUEST, query: tag });
-    dispatch(getLines());
-  };
+export const getCurrentLines = state => {
+  return state.linesWrapper.linesList || [];
 };
 
 export const showLikedLines = () => {
@@ -78,24 +95,3 @@ export const changePage = ({ pageChangeTo }) => {
   };
 };
 
-export const generateQuestion = ({ query, fileLineId }) => {
-  return async function (dispatch) {
-    dispatch({ type: types.ASQ_QUESTION_REQUEST, data: fileLineId });
-    queryApi
-      .getQuestion({ query })
-      .then(res => {
-        dispatch({ type: types.ASQ_QUESTION_SUCCESS, data: res });
-      })
-      .catch(err => {
-        return dispatch({ type: types.ASQ_QUESTION_FAILURE, error: err });
-      });
-  };
-};
-
-export const onPressGeneratedQuestion = ({ query }) => {
-  return async function (dispatch) {
-    dispatch({ type: types.PRESS_GENERATED_QUESTION, data: query });
-    dispatch({ type: types.FILTER_APPLIED });
-    dispatch(getLines());
-  };
-};

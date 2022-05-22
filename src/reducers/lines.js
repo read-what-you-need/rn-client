@@ -13,7 +13,7 @@ const lines = (state = initialState, action) => {
       return initialState;
     case types.SEARCH_QUERY_REQUEST:
       return initialState;
-    case types.SEARCH_QUERY_MANUAL_REQUEST:
+    case types.SEARCH_QUERY_FROM_TAG_REQUEST:
       return initialState;
     case types.FILTER_APPLIED:
       return { ...state, isLoading: true };

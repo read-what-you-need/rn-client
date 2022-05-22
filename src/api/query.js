@@ -35,7 +35,7 @@ const searchApi = {
   getQuestion: async function ({ query }) {
     let url = `${questionGeneratorApiEndPoint}`;
     let response = axios.post(url, { query }).then(response => {
-      return response.data[0];
+      return response.data;
     });
     return response;
   },
