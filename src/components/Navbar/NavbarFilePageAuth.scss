@@ -7,6 +7,17 @@
   padding: 0 var(--size-lg);
   .nav-logo {
     cursor: pointer;
+    &.small-nav-logo {
+      margin: var(--size-lg) 0;
+    }
+  }
+  &.small-screen {
+    flex-direction: column;
+    padding: 0px;
+    .nav-central-action-small {
+      width: 80%;
+      margin-top: 24px;
+    }
   }
   .nav-central-action-wrapper {
     width: 40%;
@@ -15,6 +26,7 @@
     .nav-central-action-logo {
       margin: 0 var(--size-md) 0 var(--size-xxs);
     }
+    
   }
   .nav-corner-action-wrapper {
     display: flex;
@@ -23,7 +35,7 @@
       margin-right: var(--spacer-xl);
       color: var(--black);
       .push-button-icon-only {
-        border-radius:18px;
+        border-radius: 18px;
         &.shorten-width {
           width: 50px;
           svg {
