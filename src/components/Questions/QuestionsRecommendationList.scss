@@ -1,6 +1,6 @@
 .question-recommendation-list {
   display: flex;
-  margin: var(--main-page-center-padding);
+  margin:var(--size-xl) var(--size-xxl) var(--size-lg) var(--size-lg);
   padding-top: var(--size-lg);
   flex-direction: column;
   .question-recommendation-list-item {

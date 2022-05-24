@@ -1,6 +1,6 @@
 .file-wrapper {
   .tags-column {
-    padding: calc(var(--size-xl) * 2) var(--size-lg);
+    padding: calc(var(--size-xl) * 2) var(--size-lg) 0 var(--size-xl) ;
     display: flex;
     flex-direction: column;
   }
@@ -35,7 +35,7 @@
       animation: fadeInAnimation 500ms;
     }
     .lines-list-wrapper {
-      margin: var(--size-xl) var(--size-lg) var(--size-lg) var(--size-lg);
+      margin: var(--size-xl) var(--size-xxl) var(--size-lg) var(--size-lg);
     }
     @keyframes fadeInAnimation {
       from {

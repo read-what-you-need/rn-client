@@ -10,6 +10,7 @@ import LineFilters from "../Line/LineFilters";
 import LinesList from "../Line/LinesList";
 import LineActionBar from "../Line/LineActionBar";
 import QuestionsRecommendationList from "../Questions/QuestionsRecommendationList";
+import useWindowDimensions from "../../libs/useWindowDimensions";
 import { LeftBackIcon } from "../Icons";
 
 import { Row, Col } from "antd";
@@ -33,6 +34,7 @@ const File = ({
   let params = useParams();
   let id = params.id;
   const [socketFileStatusLatest, setSocketFileStatusLatest] = useState(null);
+  const { height, width } = useWindowDimensions();
   useEffect(() => {
     var socket = socketIOClient(apiEndPoint, { transports: ["websocket", "polling"] });
     socket.on(id, data => {
@@ -55,7 +57,14 @@ const File = ({
   }, [isFileProcessed]);
   const showFileInteraface = isFileExist && isFileProcessed;
   let isToolsCollapsed = isLeftToolBarCollapsed && isRightToolBarCollapsed;
-  let readingViewConfigurations = [isToolsCollapsed ? 2 : 6, isToolsCollapsed ? 20 : 12, isToolsCollapsed ? 2 : 6];
+  let isScreenSmall = width < 700;
+  let sidePanelsColumnWidth = isScreenSmall ? 24 : 6;
+  let middlePaneColumnWidth = isScreenSmall ? 24 : 12;
+  let readingViewConfigurations = [
+    isToolsCollapsed ? 2 : sidePanelsColumnWidth,
+    isToolsCollapsed ? 20 : middlePaneColumnWidth,
+    isToolsCollapsed ? 2 : sidePanelsColumnWidth
+  ];
 
   return (
     <div className="file-wrapper">
