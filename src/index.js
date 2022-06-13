@@ -36,7 +36,7 @@ const Root = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/intro" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         {/* <Route
           path="/"
           element={
