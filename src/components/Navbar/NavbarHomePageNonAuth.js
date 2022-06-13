@@ -11,14 +11,14 @@ const NavbarHomePageNonAuth = () => {
         <Logo />
       </span>
 
-      <div className="nav-corner-action-wrapper">
+      {/* <div className="nav-corner-action-wrapper">
         <span className="nav-primary-action-button" onClick={() => navigate("/signup")}>
           <button className="push-button primary">Signup</button>
         </span>
         <span className="nav-primary-action-button" onClick={() => navigate("/signin")}>
           <button className="push-button not-selected">Login</button>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

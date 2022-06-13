@@ -37,7 +37,7 @@ const Root = () => {
       <Navbar />
       <Routes>
         <Route path="/intro" element={<Home />}></Route>
-        <Route
+        {/* <Route
           path="/"
           element={
             <RequireAuth redirectTo="/intro">
@@ -96,7 +96,7 @@ const Root = () => {
         <Route path="/file/:id" element={<File />}></Route>
         <Route path="/profile" element={<UserProfile />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/signup" element={<Signup />}></Route> */}
       </Routes>
       <HomeFooter />
     </BrowserRouter>
